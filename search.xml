@@ -24,6 +24,8 @@
             
             <tag> JavaScript </tag>
             
+            <tag> Tutorial </tag>
+            
         </tags>
       
     </entry>
@@ -31,17 +33,25 @@
     
     
     <entry>
-      <title>第一篇Blog</title>
+      <title>第一篇Blog：你好，世界！</title>
       <link href="/2025/07/15/%E7%AC%AC%E4%B8%80%E7%AF%87Blog%EF%BC%9A%E4%BD%A0%E5%A5%BD%EF%BC%8C%E4%B8%96%E7%95%8C%EF%BC%81/"/>
       <url>/2025/07/15/%E7%AC%AC%E4%B8%80%E7%AF%87Blog%EF%BC%9A%E4%BD%A0%E5%A5%BD%EF%BC%8C%E4%B8%96%E7%95%8C%EF%BC%81/</url>
       
-        <content type="html"><![CDATA[<h2 id="这是我的第一篇Blog"><a href="#这是我的第一篇Blog" class="headerlink" title="这是我的第一篇Blog!"></a>这是我的第一篇Blog!</h2><p>这是我的第一篇Blog!</p><hr><p>测试一小行代码的显示<br>下面的代码块是<code>C</code>语言的代码。</p><hr><p>测试一小段代码的显示</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello, world!\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h1 id="川上"><a href="#川上" class="headerlink" title="川上"></a>川上</h1><p>臺前瀧上望、曉霧隱晨輝<br>鳥鳴長天浪、凇華璃光杯<br>黛道負白雪、青枝承芬菲<br>墨川浮一葉、蒼雲何照歸</p><h1 id="予楊公之長安"><a href="#予楊公之長安" class="headerlink" title="予楊公之長安"></a>予楊公之長安</h1><p>七十六年題名日、少年滿心在三千<br>而今秦川八百外、一步一顧瀟湘間<br>藤原魂斷蓬萊上、不見西行花滿天<br>月夜襲得心百感、落木生春又一年</p>]]></content>
       
+      
+      <categories>
+          
+          <category> 詩歌 </category>
+          
+      </categories>
       
       
         <tags>
             
             <tag> Introduction </tag>
+            
+            <tag> Poem </tag>
             
         </tags>
       
