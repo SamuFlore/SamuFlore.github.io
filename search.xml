@@ -1,117 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>第四篇Blog：Hexo之博文添加图片</title>
-      <link href="/posts/1bea1421/"/>
-      <url>/posts/1bea1421/</url>
-      
-        <content type="html"><![CDATA[<blockquote><p>请注意：本文参考了<a href="https://blog.csdn.net/m0_43401436/article/details/107191688">CSDN</a>的有关教程。</p></blockquote><h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>博文美化小妙招（</p><span id="more"></span><hr><h1 id="启用post-asset-folder开关"><a href="#启用post-asset-folder开关" class="headerlink" title="启用post_asset_folder开关"></a>启用post_asset_folder开关</h1><p>在<strong>站内配置文件</strong><code>_config.yml</code>中，<code>Ctrl + F</code>搜索字段<code>post_asset_folder</code>，将其值设置为<code>true</code>。此操作将允许在<code>hexo new &quot;filename&quot;</code>时，在<code>source/_posts/</code>目录下创建同名文件夹，以管理博文中的各种附件。</p><hr><h1 id="安装hexo-asset-image插件"><a href="#安装hexo-asset-image插件" class="headerlink" title="安装hexo-asset-image插件"></a>安装hexo-asset-image插件</h1><blockquote><p>注意<strong>科学上网~</strong></p></blockquote><p>在Hexo根目录下打开<code>Git Bash</code>，输入：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure><p>等待。</p><blockquote><p>本机测试时，<code>npm install hexo-asset-image --save</code>无法实现上述功能，因而换用。读者可以自行尝试之。</p></blockquote><hr><h1 id="在Markdown中引用图片"><a href="#在Markdown中引用图片" class="headerlink" title="在Markdown中引用图片"></a>在Markdown中引用图片</h1><p>在博文中，引用图片的语法如下：</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">&quot;替换文本&quot;</span>](<span class="link">图片名称.扩展名 &quot;描述文本&quot;</span>)</span><br></pre></td></tr></table></figure><blockquote><ul><li>请注意：<code>&quot;替换文本&quot;</code>和<code>&quot;描述文本&quot;</code>是可选的。</li><li>请将图片预先放在上述创建之同名文件夹下。</li><li><strong>只需</strong>填入图片名而<strong>无需</strong>填写路径。这是因为hexo-asset-image插件在Hexo将Markdown渲染为HTML时，会自动补全路径。</li></ul></blockquote><p>例如：</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">title</span>](<span class="link">image.jpg &quot;description&quot;</span>)</span><br></pre></td></tr></table></figure><hr><h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p><a href="http://samuflore.top/posts/85c2880f/"><img src="/posts/1bea1421/%E6%95%88%E6%9E%9C.png" alt="效果" title="可以参考第三篇Blog~"></a></p>]]></content>
-      
-      
+<search>
+  <entry>
+    <title>第一篇Blog：你好，世界！</title>
+    <url>/posts/95afa136/</url>
+    <content><![CDATA[<h1 id="川上"><a href="#川上" class="headerlink" title="川上"></a>川上</h1><p>臺前瀧上望、曉霧隱晨輝<br>鳥鳴長天浪、凇華璃光杯<br>黛道負白雪、青枝承芬菲<br>墨川浮一葉、蒼雲何照歸</p>
+<h1 id="予楊公之長安"><a href="#予楊公之長安" class="headerlink" title="予楊公之長安"></a>予楊公之長安</h1><p>七十六年題名日、少年滿心在三千<br>而今秦川八百外、一步一顧瀟湘間<br>藤原魂斷蓬萊上、不見西行花滿天<br>月夜襲得心百感、落木生春又一年</p>
+]]></content>
       <categories>
-          
-          <category> Hexo教程 </category>
-          
+        <category>詩歌</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> Hexo </tag>
-            
-            <tag> Tutorial </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>第三篇Blog：本站背景图</title>
-      <link href="/posts/85c2880f/"/>
-      <url>/posts/85c2880f/</url>
-      
-        <content type="html"><![CDATA[<p>原作 <a href="https://www.pixiv.net/users/6681779"><strong>黄瓜</strong></a><br>原题 <strong>89</strong><br><a href="https://www.pixiv.net/artworks/110724378">Pixiv: https://www.pixiv.net/artworks/110724378</a><br><img src="/posts/85c2880f/background.png" alt="title" title="结界组赛高~"></p>]]></content>
-      
-      
+      <tags>
+        <tag>Introduction</tag>
+        <tag>Poem</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第三篇Blog：本站背景图</title>
+    <url>/posts/85c2880f/</url>
+    <content><![CDATA[<p>原作 <a href="https://www.pixiv.net/users/6681779"><strong>黄瓜</strong></a><br>原题 <strong>89</strong><br><a href="https://www.pixiv.net/artworks/110724378">Pixiv: https://www.pixiv.net/artworks/110724378</a><br><img src="/posts/85c2880f/background.png" alt="title" title="结界组赛高~"></p>
+]]></content>
       <categories>
-          
-          <category> 插畫 </category>
-          
+        <category>插畫</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> Picture </tag>
-            
-            <tag> Pixiv </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>第二篇Blog：Hexo之代码块添加复制按钮</title>
-      <link href="/posts/8a8b0861/"/>
-      <url>/posts/8a8b0861/</url>
-      
-        <content type="html"><![CDATA[<blockquote><p>请注意：本文<strong>转载</strong>自<a href="https://evannzhongg.github.io/2025/03/26/Add-Copy-Button-to-Code-Blocks-in-Hexo/#Hexo-%E4%B8%BA%E4%BB%A3%E7%A0%81%E5%9D%97%E6%B7%BB%E5%8A%A0%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD%E6%8C%89%E9%92%AE">Evan Zhong’s Blog</a>，根据目前版本之Hexo和NexT进行了微调。</p></blockquote><h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>使用<strong>JavaScript</strong>实现之。</p><span id="more"></span><hr><h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><p>本JS脚本适用于以下结构的代码块：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">figure</span> <span class="attr">class</span>=<span class="string">&quot;highlight&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">&quot;gutter&quot;</span>&gt;</span>...<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">&quot;code&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">pre</span>&gt;</span><span class="tag">&lt;<span class="name">code</span>&gt;</span>...<span class="tag">&lt;/<span class="name">code</span>&gt;</span><span class="tag">&lt;/<span class="name">pre</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">figure</span>&gt;</span></span><br></pre></td></tr></table></figure><blockquote><p>请注意：这是Hexo中大多数主题默认的代码块渲染结构。</p></blockquote><hr><h1 id="创建JavaScript脚本"><a href="#创建JavaScript脚本" class="headerlink" title="创建JavaScript脚本"></a>创建JavaScript脚本</h1><p>在Hexo博客项目的<strong>根目录</strong>下创建<code>code-copy.js</code>文件。参考路径如下：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/source/js/code-copy.js</span><br></pre></td></tr></table></figure><blockquote><p>请注意：若<code>source</code>目录下<strong>没有</strong><code>js</code>文件夹，则<strong>手动创建之</strong>。</p></blockquote><p>并在<code>code-copy.js</code>文件中写入以下代码：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;DOMContentLoaded&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;figure.highlight&#x27;</span>).<span class="title function_">forEach</span>(<span class="function">(<span class="params">figure</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (figure.<span class="title function_">querySelector</span>(<span class="string">&#x27;.copy-btn&#x27;</span>)) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> copyBtn = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;button&#x27;</span>);</span><br><span class="line">    copyBtn.<span class="property">className</span> = <span class="string">&#x27;copy-btn&#x27;</span>;</span><br><span class="line">    copyBtn.<span class="property">title</span> = <span class="string">&#x27;复制&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 缩小后的复制图标（14*15）</span></span><br><span class="line">    <span class="keyword">const</span> copyIcon = <span class="string">`</span></span><br><span class="line"><span class="string">      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; height=&quot;14&quot; width=&quot;15&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;white&quot;&gt;</span></span><br><span class="line"><span class="string">        &lt;path d=&quot;M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z&quot;/&gt;</span></span><br><span class="line"><span class="string">      &lt;/svg&gt;</span></span><br><span class="line"><span class="string">    `</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 成功后显示的勾（14*15）</span></span><br><span class="line">    <span class="keyword">const</span> checkIcon = <span class="string">`</span></span><br><span class="line"><span class="string">      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; height=&quot;14&quot; width=&quot;15&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;#00cc66&quot;&gt;</span></span><br><span class="line"><span class="string">        &lt;path d=&quot;M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z&quot;/&gt;</span></span><br><span class="line"><span class="string">      &lt;/svg&gt;</span></span><br><span class="line"><span class="string">    `</span>;</span><br><span class="line"></span><br><span class="line">    copyBtn.<span class="property">innerHTML</span> = copyIcon;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 按钮样式（浅灰底、缩小）</span></span><br><span class="line">    <span class="title class_">Object</span>.<span class="title function_">assign</span>(copyBtn.<span class="property">style</span>, &#123;</span><br><span class="line">      <span class="attr">position</span>: <span class="string">&#x27;absolute&#x27;</span>,</span><br><span class="line">      <span class="attr">top</span>: <span class="string">&#x27;8px&#x27;</span>,</span><br><span class="line">      <span class="attr">right</span>: <span class="string">&#x27;8px&#x27;</span>,</span><br><span class="line">      <span class="attr">padding</span>: <span class="string">&#x27;4px&#x27;</span>,</span><br><span class="line">      <span class="attr">background</span>: <span class="string">&#x27;#aaa&#x27;</span>, </span><br><span class="line">      <span class="attr">border</span>: <span class="string">&#x27;none&#x27;</span>,</span><br><span class="line">      <span class="attr">borderRadius</span>: <span class="string">&#x27;4px&#x27;</span>,</span><br><span class="line">      <span class="attr">cursor</span>: <span class="string">&#x27;pointer&#x27;</span>,</span><br><span class="line">      <span class="attr">opacity</span>: <span class="string">&#x27;0.85&#x27;</span>,</span><br><span class="line">      <span class="attr">zIndex</span>: <span class="number">1000</span>,</span><br><span class="line">      <span class="attr">transition</span>: <span class="string">&#x27;opacity 0.2s ease&#x27;</span>,</span><br><span class="line">      <span class="attr">boxShadow</span>: <span class="string">&#x27;0 1px 3px rgba(0, 0, 0, 0.15)&#x27;</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    copyBtn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;mouseover&#x27;</span>, <span class="function">() =&gt;</span> copyBtn.<span class="property">style</span>.<span class="property">opacity</span> = <span class="string">&#x27;1&#x27;</span>);</span><br><span class="line">    copyBtn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;mouseout&#x27;</span>, <span class="function">() =&gt;</span> copyBtn.<span class="property">style</span>.<span class="property">opacity</span> = <span class="string">&#x27;0.85&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    copyBtn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> code = figure.<span class="title function_">querySelector</span>(<span class="string">&#x27;td.code&#x27;</span>);</span><br><span class="line">      <span class="keyword">const</span> text = code ? code.<span class="property">innerText</span> : <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">      navigator.<span class="property">clipboard</span>.<span class="title function_">writeText</span>(text).<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        copyBtn.<span class="property">innerHTML</span> = checkIcon;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">          copyBtn.<span class="property">innerHTML</span> = copyIcon;</span><br><span class="line">        &#125;, <span class="number">1000</span>);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    figure.<span class="property">style</span>.<span class="property">position</span> = <span class="string">&#x27;relative&#x27;</span>;</span><br><span class="line">    figure.<span class="title function_">appendChild</span>(copyBtn);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><hr><h1 id="引用JS脚本"><a href="#引用JS脚本" class="headerlink" title="引用JS脚本"></a>引用JS脚本</h1><p>打开此文件：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">themes/next/layout/_partial/footer.swig</span><br></pre></td></tr></table></figure><p>在<code>footer.swig</code>文件中，找到<code>&lt;/body&gt;</code>标签之前，添加以下代码：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;/js/code-copy.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><blockquote><p>请注意：如果<strong>找不到</strong><code>&lt;/body&gt;</code>标签，则可以尝试在<code>footer.swig</code>文件<strong>末尾</strong>添加之。</p></blockquote><hr><h1 id="更新博客"><a href="#更新博客" class="headerlink" title="更新博客"></a>更新博客</h1><p>运行Hexo三部曲：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure><p>可以输入<code>hexo s</code>在本地启动服务，访问<code>https://localhost:4000</code>查看效果。或者在<strong>GitHub Pages</strong>上查看效果。</p>]]></content>
-      
-      
+      <tags>
+        <tag>Picture</tag>
+        <tag>Pixiv</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第二篇Blog：Hexo之代码块添加复制按钮</title>
+    <url>/posts/8a8b0861/</url>
+    <content><![CDATA[<blockquote>
+<p>请注意：本文<strong>转载</strong>自<a href="https://evannzhongg.github.io/2025/03/26/Add-Copy-Button-to-Code-Blocks-in-Hexo/#Hexo-%E4%B8%BA%E4%BB%A3%E7%A0%81%E5%9D%97%E6%B7%BB%E5%8A%A0%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD%E6%8C%89%E9%92%AE">Evan Zhong’s Blog</a>，根据目前版本之Hexo和NexT进行了微调。</p>
+</blockquote>
+<h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>使用<strong>JavaScript</strong>实现之。</p>
+<span id="more"></span>
+<hr>
+<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><p>本JS脚本适用于以下结构的代码块：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">figure</span> <span class="attr">class</span>=<span class="string">&quot;highlight&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">&quot;gutter&quot;</span>&gt;</span>...<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">&quot;code&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">pre</span>&gt;</span><span class="tag">&lt;<span class="name">code</span>&gt;</span>...<span class="tag">&lt;/<span class="name">code</span>&gt;</span><span class="tag">&lt;/<span class="name">pre</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">figure</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>请注意：这是Hexo中大多数主题默认的代码块渲染结构。</p>
+</blockquote>
+<hr>
+<h1 id="创建JavaScript脚本"><a href="#创建JavaScript脚本" class="headerlink" title="创建JavaScript脚本"></a>创建JavaScript脚本</h1><p>在Hexo博客项目的<strong>根目录</strong>下创建<code>code-copy.js</code>文件。参考路径如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/source/js/code-copy.js</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>请注意：若<code>source</code>目录下<strong>没有</strong><code>js</code>文件夹，则<strong>手动创建之</strong>。</p>
+</blockquote>
+<p>并在<code>code-copy.js</code>文件中写入以下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;DOMContentLoaded&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;figure.highlight&#x27;</span>).<span class="title function_">forEach</span>(<span class="function">(<span class="params">figure</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (figure.<span class="title function_">querySelector</span>(<span class="string">&#x27;.copy-btn&#x27;</span>)) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> copyBtn = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;button&#x27;</span>);</span><br><span class="line">    copyBtn.<span class="property">className</span> = <span class="string">&#x27;copy-btn&#x27;</span>;</span><br><span class="line">    copyBtn.<span class="property">title</span> = <span class="string">&#x27;复制&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 缩小后的复制图标（14*15）</span></span><br><span class="line">    <span class="keyword">const</span> copyIcon = <span class="string">`</span></span><br><span class="line"><span class="string">      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; height=&quot;14&quot; width=&quot;15&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;white&quot;&gt;</span></span><br><span class="line"><span class="string">        &lt;path d=&quot;M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z&quot;/&gt;</span></span><br><span class="line"><span class="string">      &lt;/svg&gt;</span></span><br><span class="line"><span class="string">    `</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 成功后显示的勾（14*15）</span></span><br><span class="line">    <span class="keyword">const</span> checkIcon = <span class="string">`</span></span><br><span class="line"><span class="string">      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; height=&quot;14&quot; width=&quot;15&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;#00cc66&quot;&gt;</span></span><br><span class="line"><span class="string">        &lt;path d=&quot;M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z&quot;/&gt;</span></span><br><span class="line"><span class="string">      &lt;/svg&gt;</span></span><br><span class="line"><span class="string">    `</span>;</span><br><span class="line"></span><br><span class="line">    copyBtn.<span class="property">innerHTML</span> = copyIcon;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 按钮样式（浅灰底、缩小）</span></span><br><span class="line">    <span class="title class_">Object</span>.<span class="title function_">assign</span>(copyBtn.<span class="property">style</span>, &#123;</span><br><span class="line">      <span class="attr">position</span>: <span class="string">&#x27;absolute&#x27;</span>,</span><br><span class="line">      <span class="attr">top</span>: <span class="string">&#x27;8px&#x27;</span>,</span><br><span class="line">      <span class="attr">right</span>: <span class="string">&#x27;8px&#x27;</span>,</span><br><span class="line">      <span class="attr">padding</span>: <span class="string">&#x27;4px&#x27;</span>,</span><br><span class="line">      <span class="attr">background</span>: <span class="string">&#x27;#aaa&#x27;</span>, </span><br><span class="line">      <span class="attr">border</span>: <span class="string">&#x27;none&#x27;</span>,</span><br><span class="line">      <span class="attr">borderRadius</span>: <span class="string">&#x27;4px&#x27;</span>,</span><br><span class="line">      <span class="attr">cursor</span>: <span class="string">&#x27;pointer&#x27;</span>,</span><br><span class="line">      <span class="attr">opacity</span>: <span class="string">&#x27;0.85&#x27;</span>,</span><br><span class="line">      <span class="attr">zIndex</span>: <span class="number">1000</span>,</span><br><span class="line">      <span class="attr">transition</span>: <span class="string">&#x27;opacity 0.2s ease&#x27;</span>,</span><br><span class="line">      <span class="attr">boxShadow</span>: <span class="string">&#x27;0 1px 3px rgba(0, 0, 0, 0.15)&#x27;</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    copyBtn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;mouseover&#x27;</span>, <span class="function">() =&gt;</span> copyBtn.<span class="property">style</span>.<span class="property">opacity</span> = <span class="string">&#x27;1&#x27;</span>);</span><br><span class="line">    copyBtn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;mouseout&#x27;</span>, <span class="function">() =&gt;</span> copyBtn.<span class="property">style</span>.<span class="property">opacity</span> = <span class="string">&#x27;0.85&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    copyBtn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> code = figure.<span class="title function_">querySelector</span>(<span class="string">&#x27;td.code&#x27;</span>);</span><br><span class="line">      <span class="keyword">const</span> text = code ? code.<span class="property">innerText</span> : <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">      navigator.<span class="property">clipboard</span>.<span class="title function_">writeText</span>(text).<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        copyBtn.<span class="property">innerHTML</span> = checkIcon;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">          copyBtn.<span class="property">innerHTML</span> = copyIcon;</span><br><span class="line">        &#125;, <span class="number">1000</span>);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    figure.<span class="property">style</span>.<span class="property">position</span> = <span class="string">&#x27;relative&#x27;</span>;</span><br><span class="line">    figure.<span class="title function_">appendChild</span>(copyBtn);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="引用JS脚本"><a href="#引用JS脚本" class="headerlink" title="引用JS脚本"></a>引用JS脚本</h1><p>打开此文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">themes/next/layout/_partial/footer.swig</span><br></pre></td></tr></table></figure>
+<p>在<code>footer.swig</code>文件中，找到<code>&lt;/body&gt;</code>标签之前，添加以下代码：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;/js/code-copy.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>请注意：如果<strong>找不到</strong><code>&lt;/body&gt;</code>标签，则可以尝试在<code>footer.swig</code>文件<strong>末尾</strong>添加之。</p>
+</blockquote>
+<hr>
+<h1 id="更新博客"><a href="#更新博客" class="headerlink" title="更新博客"></a>更新博客</h1><p>运行Hexo三部曲：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>可以输入<code>hexo s</code>在本地启动服务，访问<code>https://localhost:4000</code>查看效果。或者在<strong>GitHub Pages</strong>上查看效果。</p>
+]]></content>
       <categories>
-          
-          <category> Hexo教程 </category>
-          
+        <category>Hexo教程</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> Hexo </tag>
-            
-            <tag> JavaScript </tag>
-            
-            <tag> Tutorial </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>第一篇Blog：你好，世界！</title>
-      <link href="/posts/95afa136/"/>
-      <url>/posts/95afa136/</url>
-      
-        <content type="html"><![CDATA[<h1 id="川上"><a href="#川上" class="headerlink" title="川上"></a>川上</h1><p>臺前瀧上望、曉霧隱晨輝<br>鳥鳴長天浪、凇華璃光杯<br>黛道負白雪、青枝承芬菲<br>墨川浮一葉、蒼雲何照歸</p><h1 id="予楊公之長安"><a href="#予楊公之長安" class="headerlink" title="予楊公之長安"></a>予楊公之長安</h1><p>七十六年題名日、少年滿心在三千<br>而今秦川八百外、一步一顧瀟湘間<br>藤原魂斷蓬萊上、不見西行花滿天<br>月夜襲得心百感、落木生春又一年</p>]]></content>
-      
-      
+      <tags>
+        <tag>Hexo</tag>
+        <tag>JavaScript</tag>
+        <tag>Tutorial</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第四篇Blog：Hexo之博文添加图片</title>
+    <url>/posts/1bea1421/</url>
+    <content><![CDATA[<blockquote>
+<p>请注意：本文参考了<a href="https://blog.csdn.net/m0_43401436/article/details/107191688">CSDN</a>的有关教程。</p>
+</blockquote>
+<h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>博文美化小妙招（</p>
+<span id="more"></span>
+<hr>
+<h1 id="启用post-asset-folder开关"><a href="#启用post-asset-folder开关" class="headerlink" title="启用post_asset_folder开关"></a>启用post_asset_folder开关</h1><p>在<strong>站内配置文件</strong><code>_config.yml</code>中，<code>Ctrl + F</code>搜索字段<code>post_asset_folder</code>，将其值设置为<code>true</code>。此操作将允许在<code>hexo new &quot;filename&quot;</code>时，在<code>source/_posts/</code>目录下创建同名文件夹，以管理博文中的各种附件。</p>
+<hr>
+<h1 id="安装hexo-asset-image插件"><a href="#安装hexo-asset-image插件" class="headerlink" title="安装hexo-asset-image插件"></a>安装hexo-asset-image插件</h1><blockquote>
+<p>注意<strong>科学上网~</strong></p>
+</blockquote>
+<p>在Hexo根目录下打开<code>Git Bash</code>，输入：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+<p>等待。</p>
+<blockquote>
+<p>本机测试时，<code>npm install hexo-asset-image --save</code>无法实现上述功能，因而换用。读者可以自行尝试之。</p>
+</blockquote>
+<hr>
+<h1 id="在Markdown中引用图片"><a href="#在Markdown中引用图片" class="headerlink" title="在Markdown中引用图片"></a>在Markdown中引用图片</h1><p>在博文中，引用图片的语法如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">&quot;替换文本&quot;</span>](<span class="link">图片名称.扩展名 &quot;描述文本&quot;</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>请注意：<code>&quot;替换文本&quot;</code>和<code>&quot;描述文本&quot;</code>是可选的。</li>
+<li>请将图片预先放在上述创建之同名文件夹下。</li>
+<li><strong>只需</strong>填入图片名而<strong>无需</strong>填写路径。这是因为hexo-asset-image插件在Hexo将Markdown渲染为HTML时，会自动补全路径。</li>
+</ul>
+</blockquote>
+<p>例如：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">title</span>](<span class="link">image.jpg &quot;description&quot;</span>)</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p><a href="http://samuflore.top/posts/85c2880f/"><img src="/posts/1bea1421/%E6%95%88%E6%9E%9C.png" alt="效果" title="可以参考第三篇Blog~"></a></p>
+]]></content>
       <categories>
-          
-          <category> 詩歌 </category>
-          
+        <category>Hexo教程</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> Introduction </tag>
-            
-            <tag> Poem </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-  
-  
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Tutorial</tag>
+      </tags>
+  </entry>
 </search>
