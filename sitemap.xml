@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://samuflore.top/posts/e11361f1/</loc>
+    
+    <lastmod>2025-07-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuflore.top/posts/95afa136/</loc>
+    
+    <lastmod>2025-07-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://samuflore.top/posts/82cd8a81/</loc>
     
     <lastmod>2025-07-18</lastmod>
@@ -134,6 +152,13 @@
   </url>
   
   <url>
+    <loc>http://samuflore.top/tags/Poem/</loc>
+    <lastmod>2025-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://samuflore.top/tags/Travel/</loc>
     <lastmod>2025-07-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -168,6 +193,13 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>http://samuflore.top/tags/Markdown/</loc>
+    <lastmod>2025-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -179,6 +211,13 @@
   
   <url>
     <loc>http://samuflore.top/categories/%E6%8F%92%E7%95%AB/</loc>
+    <lastmod>2025-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuflore.top/categories/%E8%A9%A9%E6%AD%8C/</loc>
     <lastmod>2025-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

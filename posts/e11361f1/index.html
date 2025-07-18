@@ -38,22 +38,22 @@
     var CONFIG = {"hostname":"samuflore.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#6A5ACD","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="请注意：本文转载自Evan Zhong’s Blog，根据目前版本之Hexo和NexT进行了微调。  序 使用JavaScript实现之。">
+  <meta name="description" content="我正在使用 Markdown-it 来渲染此博文！  序 Hexo 默认使用 hexo-renderer-marked 来渲染 Markdown 文件。此渲染器只支持一些基础语法。我们可以将其替换为更高级的 Markdown-it 渲染器。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Blog 2：[Hexo教程]Hexo之代码块添加复制按钮">
-<meta property="og:url" content="http://samuflore.top/posts/8a8b0861/index.html">
+<meta property="og:title" content="Blog 7：[Hexo教程]更高级的 Markdown 渲染器：Markdown-it">
+<meta property="og:url" content="http://samuflore.top/posts/e11361f1/index.html">
 <meta property="og:site_name" content="SamuFlore&#39;s Dimension">
-<meta property="og:description" content="请注意：本文转载自Evan Zhong’s Blog，根据目前版本之Hexo和NexT进行了微调。  序 使用JavaScript实现之。">
+<meta property="og:description" content="我正在使用 Markdown-it 来渲染此博文！  序 Hexo 默认使用 hexo-renderer-marked 来渲染 Markdown 文件。此渲染器只支持一些基础语法。我们可以将其替换为更高级的 Markdown-it 渲染器。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-07-15T14:47:05.000Z">
-<meta property="article:modified_time" content="2025-07-17T15:11:11.017Z">
+<meta property="article:published_time" content="2025-07-18T02:29:59.000Z">
+<meta property="article:modified_time" content="2025-07-18T03:29:40.315Z">
 <meta property="article:author" content="Samustach Floresein">
 <meta property="article:tag" content="Hexo">
-<meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="Tutorial">
+<meta property="article:tag" content="Markdown">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://samuflore.top/posts/8a8b0861/">
+<link rel="canonical" href="http://samuflore.top/posts/e11361f1/">
 
 
 <script id="page-configurations">
@@ -66,7 +66,7 @@
   };
 </script>
 
-  <title>Blog 2：[Hexo教程]Hexo之代码块添加复制按钮 | SamuFlore's Dimension</title>
+  <title>Blog 7：[Hexo教程]更高级的 Markdown 渲染器：Markdown-it | SamuFlore's Dimension</title>
   
 
 
@@ -223,7 +223,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://samuflore.top/posts/8a8b0861/">
+    <link itemprop="mainEntityOfPage" href="http://samuflore.top/posts/e11361f1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -236,7 +236,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Blog 2：[Hexo教程]Hexo之代码块添加复制按钮
+          Blog 7：[Hexo教程]更高级的 Markdown 渲染器：Markdown-it
         </h1>
 
         <div class="post-meta">
@@ -246,16 +246,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2025-07-15 22:47:05" itemprop="dateCreated datePublished" datetime="2025-07-15T22:47:05+08:00">2025-07-15</time>
+              <time title="创建时间：2025-07-18 10:29:59 / 修改时间：11:29:40" itemprop="dateCreated datePublished" datetime="2025-07-18T10:29:59+08:00">2025-07-18</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-07-17 23:11:11" itemprop="dateModified" datetime="2025-07-17T23:11:11+08:00">2025-07-17</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -279,14 +273,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.8k</span>
+              <span>2.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -298,42 +292,154 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <blockquote>
-<p>请注意：本文<strong>转载</strong>自<a target="_blank" rel="noopener" href="https://evannzhongg.github.io/2025/03/26/Add-Copy-Button-to-Code-Blocks-in-Hexo/#Hexo-%E4%B8%BA%E4%BB%A3%E7%A0%81%E5%9D%97%E6%B7%BB%E5%8A%A0%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD%E6%8C%89%E9%92%AE">Evan Zhong’s Blog</a>，根据目前版本之Hexo和NexT进行了微调。</p>
-</blockquote>
+        <div class="tips">
+<p>我正在使用 Markdown-it 来渲染此博文！</p>
+</div>
 <h1>序</h1>
-<p>使用<strong>JavaScript</strong>实现之。</p>
+<p>Hexo 默认使用 <strong>hexo-renderer-marked</strong> 来渲染 Markdown 文件。此渲染器只支持一些基础语法。我们可以将其替换为更高级的 <strong>Markdown-it</strong> 渲染器。</p>
 <span id="more"></span>
 <hr>
-<h1>准备</h1>
-<p>本JS脚本适用于以下结构的代码块：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">figure</span> <span class="attr">class</span>=<span class="string">&quot;highlight&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">&quot;gutter&quot;</span>&gt;</span>...<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">&quot;code&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">pre</span>&gt;</span><span class="tag">&lt;<span class="name">code</span>&gt;</span>...<span class="tag">&lt;/<span class="name">code</span>&gt;</span><span class="tag">&lt;/<span class="name">pre</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">figure</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>请注意：这是Hexo中大多数主题默认的代码块渲染结构。</p>
-</blockquote>
+<h1>安装</h1>
+<p>首先，您需要卸载原有的渲染器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br></pre></td></tr></table></figure>
+<p>然后安装新的渲染器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i hexo-renderer-markdown-it --save</span><br></pre></td></tr></table></figure>
+<p>接着，您需要安装三个 Markdown-it 子插件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm i markdown-it-checkbox</span><br><span class="line">npm i markdown-it-imsize</span><br><span class="line">npm i markdown-it-expandable</span><br></pre></td></tr></table></figure>
+<div class="warning">
+<p>请注意：科学上网。</p>
+</div>
+<div class="tips">
+<p>Markdown-it 内置了许多子插件，您只需手动安装上述三个。</p>
+</div>
 <hr>
-<h1>创建JavaScript脚本</h1>
-<p>在Hexo博客项目的<strong>根目录</strong>下创建<code>code-copy.js</code>文件。参考路径如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/source/js/code-copy.js</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>请注意：若<code>source</code>目录下<strong>没有</strong><code>js</code>文件夹，则<strong>手动创建之</strong>。</p>
-</blockquote>
-<p>并在<code>code-copy.js</code>文件中写入以下代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;DOMContentLoaded&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;figure.highlight&#x27;</span>).<span class="title function_">forEach</span>(<span class="function">(<span class="params">figure</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (figure.<span class="title function_">querySelector</span>(<span class="string">&#x27;.copy-btn&#x27;</span>)) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> copyBtn = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;button&#x27;</span>);</span><br><span class="line">    copyBtn.<span class="property">className</span> = <span class="string">&#x27;copy-btn&#x27;</span>;</span><br><span class="line">    copyBtn.<span class="property">title</span> = <span class="string">&#x27;复制&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 缩小后的复制图标（14*15）</span></span><br><span class="line">    <span class="keyword">const</span> copyIcon = <span class="string">`</span></span><br><span class="line"><span class="string">      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; height=&quot;14&quot; width=&quot;15&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;white&quot;&gt;</span></span><br><span class="line"><span class="string">        &lt;path d=&quot;M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z&quot;/&gt;</span></span><br><span class="line"><span class="string">      &lt;/svg&gt;</span></span><br><span class="line"><span class="string">    `</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 成功后显示的勾（14*15）</span></span><br><span class="line">    <span class="keyword">const</span> checkIcon = <span class="string">`</span></span><br><span class="line"><span class="string">      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; height=&quot;14&quot; width=&quot;15&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;#00cc66&quot;&gt;</span></span><br><span class="line"><span class="string">        &lt;path d=&quot;M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z&quot;/&gt;</span></span><br><span class="line"><span class="string">      &lt;/svg&gt;</span></span><br><span class="line"><span class="string">    `</span>;</span><br><span class="line"></span><br><span class="line">    copyBtn.<span class="property">innerHTML</span> = copyIcon;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 按钮样式（浅灰底、缩小）</span></span><br><span class="line">    <span class="title class_">Object</span>.<span class="title function_">assign</span>(copyBtn.<span class="property">style</span>, &#123;</span><br><span class="line">      <span class="attr">position</span>: <span class="string">&#x27;absolute&#x27;</span>,</span><br><span class="line">      <span class="attr">top</span>: <span class="string">&#x27;8px&#x27;</span>,</span><br><span class="line">      <span class="attr">right</span>: <span class="string">&#x27;8px&#x27;</span>,</span><br><span class="line">      <span class="attr">padding</span>: <span class="string">&#x27;4px&#x27;</span>,</span><br><span class="line">      <span class="attr">background</span>: <span class="string">&#x27;#aaa&#x27;</span>, </span><br><span class="line">      <span class="attr">border</span>: <span class="string">&#x27;none&#x27;</span>,</span><br><span class="line">      <span class="attr">borderRadius</span>: <span class="string">&#x27;4px&#x27;</span>,</span><br><span class="line">      <span class="attr">cursor</span>: <span class="string">&#x27;pointer&#x27;</span>,</span><br><span class="line">      <span class="attr">opacity</span>: <span class="string">&#x27;0.85&#x27;</span>,</span><br><span class="line">      <span class="attr">zIndex</span>: <span class="number">1000</span>,</span><br><span class="line">      <span class="attr">transition</span>: <span class="string">&#x27;opacity 0.2s ease&#x27;</span>,</span><br><span class="line">      <span class="attr">boxShadow</span>: <span class="string">&#x27;0 1px 3px rgba(0, 0, 0, 0.15)&#x27;</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    copyBtn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;mouseover&#x27;</span>, <span class="function">() =&gt;</span> copyBtn.<span class="property">style</span>.<span class="property">opacity</span> = <span class="string">&#x27;1&#x27;</span>);</span><br><span class="line">    copyBtn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;mouseout&#x27;</span>, <span class="function">() =&gt;</span> copyBtn.<span class="property">style</span>.<span class="property">opacity</span> = <span class="string">&#x27;0.85&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    copyBtn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> code = figure.<span class="title function_">querySelector</span>(<span class="string">&#x27;td.code&#x27;</span>);</span><br><span class="line">      <span class="keyword">const</span> text = code ? code.<span class="property">innerText</span> : <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">      navigator.<span class="property">clipboard</span>.<span class="title function_">writeText</span>(text).<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        copyBtn.<span class="property">innerHTML</span> = checkIcon;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">          copyBtn.<span class="property">innerHTML</span> = copyIcon;</span><br><span class="line">        &#125;, <span class="number">1000</span>);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    figure.<span class="property">style</span>.<span class="property">position</span> = <span class="string">&#x27;relative&#x27;</span>;</span><br><span class="line">    figure.<span class="title function_">appendChild</span>(copyBtn);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h1>配置</h1>
+<p>在<strong>站点配置文件</strong>的尾部填写 Markdown 渲染器配置：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">markdown:</span></span><br><span class="line">  <span class="attr">preset:</span> <span class="string">&quot;default&quot;</span></span><br><span class="line">  <span class="attr">render:</span></span><br><span class="line">    <span class="attr">html:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">xhtmlOut:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">langPrefix:</span> <span class="string">&quot;language-&quot;</span></span><br><span class="line">    <span class="attr">breaks:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">linkify:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">typographer:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">quotes:</span> <span class="string">&quot;“”‘’&quot;</span></span><br><span class="line">  <span class="attr">enable_rules:</span></span><br><span class="line">  <span class="attr">disable_rules:</span></span><br><span class="line">  <span class="attr">plugins:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-abbr</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-cjk-breaks</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-deflist</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-emoji</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-footnote</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-ins</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-mark</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-sub</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-sup</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-checkbox</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-imsize</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-expandable</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">markdown-it-container</span></span><br><span class="line">      <span class="attr">options:</span> <span class="string">success</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">markdown-it-container</span></span><br><span class="line">      <span class="attr">options:</span> <span class="string">tips</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">markdown-it-container</span></span><br><span class="line">      <span class="attr">options:</span> <span class="string">warning</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">markdown-it-container</span></span><br><span class="line">      <span class="attr">options:</span> <span class="string">danger</span></span><br><span class="line">  <span class="attr">anchors:</span></span><br><span class="line">    <span class="attr">level:</span> <span class="number">2</span></span><br><span class="line">    <span class="attr">collisionSuffix:</span> <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="attr">permalink:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">permalinkClass:</span> <span class="string">&quot;header-anchor&quot;</span></span><br><span class="line">    <span class="attr">permalinkSide:</span> <span class="string">&quot;left&quot;</span></span><br><span class="line">    <span class="attr">permalinkSymbol:</span> <span class="string">&quot;¶&quot;</span></span><br><span class="line">    <span class="attr">case:</span> <span class="number">0</span></span><br><span class="line">    <span class="attr">separator:</span> <span class="string">&quot;-&quot;</span></span><br></pre></td></tr></table></figure>
+<div class="tips">
+<p>要禁用某插件，您可<strong>注释</strong>该行。例如：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># - markdown-it-abbr</span></span><br></pre></td></tr></table></figure>
+<p><s>或者直接删了</s></p>
+</div>
 <hr>
-<h1>引用JS脚本</h1>
-<p>打开此文件：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">themes/next/layout/_partial/footer.swig</span><br></pre></td></tr></table></figure>
-<p>在<code>footer.swig</code>文件中，找到<code>&lt;/body&gt;</code>标签之前，添加以下代码：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;/js/code-copy.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>请注意：如果<strong>找不到</strong><code>&lt;/body&gt;</code>标签，则可以尝试在<code>footer.swig</code>文件<strong>末尾</strong>添加之。</p>
-</blockquote>
+<h1>修改CSS</h1>
+<p><a href="#Section">自定义容器</a>的样式需要您手动修改。对于NexT主题，您需要在以下路径的文件中添加CSS样式代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">themes\next\source\css\_common\scaffolding\base.styl</span><br></pre></td></tr></table></figure>
+<p>参考样式：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.tips</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">background-color</span> rgba(<span class="number">52</span>,<span class="number">152</span>,<span class="number">219</span>,.<span class="number">3</span>);</span><br><span class="line">    <span class="attribute">border-left</span> <span class="number">4px</span> solid rgb(<span class="number">52</span>,<span class="number">152</span>,<span class="number">219</span>);</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">darken</span>(<span class="built_in">rgb</span>(<span class="number">52</span>,<span class="number">152</span>,<span class="number">219</span>),<span class="number">20%</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.success</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">background-color</span> rgba(<span class="number">46</span>,<span class="number">204</span>,<span class="number">113</span>,.<span class="number">3</span>);</span><br><span class="line">    <span class="attribute">border-left</span> <span class="number">4px</span> solid rgb(<span class="number">46</span>,<span class="number">204</span>,<span class="number">113</span>);</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">darken</span>(<span class="built_in">rgb</span>(<span class="number">46</span>,<span class="number">204</span>,<span class="number">113</span>),<span class="number">20%</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.warning</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">background-color</span> rgba(<span class="number">241</span>,<span class="number">196</span>,<span class="number">15</span>,.<span class="number">3</span>);</span><br><span class="line">    <span class="attribute">border-left</span> <span class="number">4px</span> solid rgb(<span class="number">241</span>,<span class="number">196</span>,<span class="number">15</span>);</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">darken</span>(<span class="built_in">rgb</span>(<span class="number">241</span>,<span class="number">196</span>,<span class="number">15</span>),<span class="number">20%</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.danger</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">background-color</span> rgba(<span class="number">231</span>,<span class="number">76</span>,<span class="number">60</span>,.<span class="number">3</span>);</span><br><span class="line">    <span class="attribute">border-left</span> <span class="number">4px</span> solid rgb(<span class="number">231</span>,<span class="number">76</span>,<span class="number">60</span>);</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">darken</span>(<span class="built_in">rgb</span>(<span class="number">231</span>,<span class="number">76</span>,<span class="number">60</span>),<span class="number">20%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="tips">
+<p>其他主题，您可<strong>自行查找</strong></p>
+</div>
 <hr>
-<h1>更新博客</h1>
-<p>运行Hexo三部曲：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<p>可以输入<code>hexo s</code>在本地启动服务，访问<code>https://localhost:4000</code>查看效果。或者在<strong>GitHub Pages</strong>上查看效果。</p>
+<h1>调用</h1>
+<h2 id="基础">基础</h2>
+<table>
+<thead>
+<tr>
+<th>插件</th>
+<th>描述</th>
+<th>语法</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>markdown-it-abbr</td>
+<td>注释</td>
+<td><code>*[HTML]: Hyper Text Markup Language</code></td>
+<td>*[HTML]: Hyper Text Markup Language</td>
+</tr>
+<tr>
+<td>markdown-it-emoji</td>
+<td>表情</td>
+<td><code>:+1:</code></td>
+<td>👍</td>
+</tr>
+<tr>
+<td>markdown-it-footnote</td>
+<td>脚注</td>
+<td><code>文本[^1]文本</code></td>
+<td>文本<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>文本</td>
+</tr>
+<tr>
+<td>markdown-it-ins</td>
+<td>下划线</td>
+<td><code>++Inserted text++</code></td>
+<td><ins>Inserted text</ins></td>
+</tr>
+<tr>
+<td>markdown-it-mark</td>
+<td>突出显示</td>
+<td><code>==Marked text==</code></td>
+<td><mark>Marked text</mark></td>
+</tr>
+<tr>
+<td>markdown-it-sub</td>
+<td>下标</td>
+<td><code>H~2~O</code></td>
+<td>H<sub>2</sub>O</td>
+</tr>
+<tr>
+<td>markdown-it-sup</td>
+<td>上标</td>
+<td><code>X^2^</code></td>
+<td>X<sup>2</sup></td>
+</tr>
+<tr>
+<td>markdown-it-checkbox</td>
+<td>复选框</td>
+<td><code>- []未选中</code><br><code>- [x]已选中</code></td>
+<td><input type="checkbox" id="checkbox1"><label for="checkbox1">未选中</label><br><input type="checkbox" id="checkbox0" checked="true"><label for="checkbox0">已选中</label></td>
+</tr>
+</tbody>
+</table>
+<h2 id="进阶">进阶</h2>
+<h3 id="折叠">折叠</h3>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+++ <span class="strong">**点击此处**</span></span><br><span class="line">这是被隐藏的内容。</span><br><span class="line">+++</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<details open>
+<summary><span class="pre-summary">&nbsp;</span><strong>点击此处</strong></summary><p>这是被隐藏的内容。</p>
+</details>
+<p><a id="Section"></a></p>
+<h3 id="自定义容器">自定义容器</h3>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">::: tips</span><br><span class="line"><span class="strong">**提示**</span></span><br><span class="line">这是一个提示</span><br><span class="line">:::</span><br><span class="line"></span><br><span class="line">::: warning</span><br><span class="line"><span class="strong">**警告**</span></span><br><span class="line">这是一个警告</span><br><span class="line">:::</span><br><span class="line"></span><br><span class="line">::: danger</span><br><span class="line"><span class="strong">**危险**</span></span><br><span class="line">这是一个危险信号</span><br><span class="line">:::</span><br><span class="line"></span><br><span class="line">::: success</span><br><span class="line"><span class="strong">**成功**</span></span><br><span class="line">这是一个成功信号</span><br><span class="line">:::</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<div class="tips">
+<p><strong>提示</strong><br>
+这是一个提示</p>
+</div>
+<div class="warning">
+<p><strong>警告</strong><br>
+这是一个警告</p>
+</div>
+<div class="danger">
+<p><strong>危险</strong><br>
+这是一个危险信号</p>
+</div>
+<div class="success">
+<p><strong>成功</strong><br>
+这是一个成功信号</p>
+</div>
+<hr>
+<h2 id="推荐">推荐</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>查找 Emoji 的写法，您可参考：<a target="_blank" rel="noopener" href="https://www.emojiall.com/zh-hans">EMOJIALL</a></p>
+</li>
+<li class="lvl-2">
+<p>查阅 Markdown-it 文档，您可参考：<a target="_blank" rel="noopener" href="https://mdit-plugins.github.io/zh/">Markdown It 插件</a></p>
+</li>
+<li class="lvl-2">
+<p>了解更多 Markdown 语法，您可参考：<a target="_blank" rel="noopener" href="https://markdown.com.cn/">Markdown 教程</a></p>
+</li>
+</ul>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>这是参考文献。 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 
     </div>
 
@@ -358,7 +464,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://samuflore.top/posts/8a8b0861/" title="Blog 2：[Hexo教程]Hexo之代码块添加复制按钮">http://samuflore.top/posts/8a8b0861/</a>
+    <a href="http://samuflore.top/posts/e11361f1/" title="Blog 7：[Hexo教程]更高级的 Markdown 渲染器：Markdown-it">http://samuflore.top/posts/e11361f1/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -370,8 +476,8 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
-              <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
               <a href="/tags/Tutorial/" rel="tag"><i class="fa fa-tag"></i> Tutorial</a>
+              <a href="/tags/Markdown/" rel="tag"><i class="fa fa-tag"></i> Markdown</a>
           </div>
 
         
@@ -380,13 +486,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/95afa136/" rel="prev" title="Blog 1：[詩歌]诗二首">
-      <i class="fa fa-chevron-left"></i> Blog 1：[詩歌]诗二首
+    <a href="/posts/9eefdea9/" rel="prev" title="序">
+      <i class="fa fa-chevron-left"></i> 序
     </a></div>
-      <div class="post-nav-item">
-    <a href="/posts/85c2880f/" rel="next" title="Blog 3：[插畫]本站背景图">
-      Blog 3：[插畫]本站背景图 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -457,7 +560,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">创建JavaScript脚本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">引用JS脚本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">更新博客</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">修改CSS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">调用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80"><span class="nav-number">5.1.</span> <span class="nav-text">基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E9%98%B6"><span class="nav-number">5.2.</span> <span class="nav-text">进阶</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%98%E5%8F%A0"><span class="nav-number">5.2.1.</span> <span class="nav-text">折叠</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AE%B9%E5%99%A8"><span class="nav-number">5.2.2.</span> <span class="nav-text">自定义容器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A8%E8%8D%90"><span class="nav-number">5.3.</span> <span class="nav-text">推荐</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

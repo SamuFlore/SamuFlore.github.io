@@ -51,6 +51,188 @@
       </tags>
   </entry>
   <entry>
+    <title>Blog 1：[詩歌]诗二首</title>
+    <url>/posts/95afa136/</url>
+    <content><![CDATA[<h1>川上</h1>
+<p>臺前瀧上望、曉霧隱晨輝<br>
+鳥鳴長天浪、凇華璃光杯<br>
+黛道負白雪、青枝承芬菲<br>
+墨川浮一葉、蒼雲何照歸</p>
+<h1>予楊公之長安</h1>
+<p>七十六年題名日、少年滿心在三千<br>
+而今秦川八百外、一步一顧瀟湘間<br>
+藤原魂斷蓬萊上、不見西行花滿天<br>
+月夜襲得心百感、落木生春又一年</p>
+]]></content>
+      <categories>
+        <category>詩歌</category>
+      </categories>
+      <tags>
+        <tag>Poem</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Blog 7：[Hexo教程]更高级的 Markdown 渲染器：Markdown-it</title>
+    <url>/posts/e11361f1/</url>
+    <content><![CDATA[<div class="tips">
+<p>我正在使用 Markdown-it 来渲染此博文！</p>
+</div>
+<h1>序</h1>
+<p>Hexo 默认使用 <strong>hexo-renderer-marked</strong> 来渲染 Markdown 文件。此渲染器只支持一些基础语法。我们可以将其替换为更高级的 <strong>Markdown-it</strong> 渲染器。</p>
+<span id="more"></span>
+<hr>
+<h1>安装</h1>
+<p>首先，您需要卸载原有的渲染器：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br></pre></td></tr></table></figure>
+<p>然后安装新的渲染器：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i hexo-renderer-markdown-it --save</span><br></pre></td></tr></table></figure>
+<p>接着，您需要安装三个 Markdown-it 子插件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i markdown-it-checkbox</span><br><span class="line">npm i markdown-it-imsize</span><br><span class="line">npm i markdown-it-expandable</span><br></pre></td></tr></table></figure>
+<div class="warning">
+<p>请注意：科学上网。</p>
+</div>
+<div class="tips">
+<p>Markdown-it 内置了许多子插件，您只需手动安装上述三个。</p>
+</div>
+<hr>
+<h1>配置</h1>
+<p>在<strong>站点配置文件</strong>的尾部填写 Markdown 渲染器配置：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">markdown:</span></span><br><span class="line">  <span class="attr">preset:</span> <span class="string">&quot;default&quot;</span></span><br><span class="line">  <span class="attr">render:</span></span><br><span class="line">    <span class="attr">html:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">xhtmlOut:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">langPrefix:</span> <span class="string">&quot;language-&quot;</span></span><br><span class="line">    <span class="attr">breaks:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">linkify:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">typographer:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">quotes:</span> <span class="string">&quot;“”‘’&quot;</span></span><br><span class="line">  <span class="attr">enable_rules:</span></span><br><span class="line">  <span class="attr">disable_rules:</span></span><br><span class="line">  <span class="attr">plugins:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-abbr</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-cjk-breaks</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-deflist</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-emoji</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-footnote</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-ins</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-mark</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-sub</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-sup</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-checkbox</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-imsize</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-expandable</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">markdown-it-container</span></span><br><span class="line">      <span class="attr">options:</span> <span class="string">success</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">markdown-it-container</span></span><br><span class="line">      <span class="attr">options:</span> <span class="string">tips</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">markdown-it-container</span></span><br><span class="line">      <span class="attr">options:</span> <span class="string">warning</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">markdown-it-container</span></span><br><span class="line">      <span class="attr">options:</span> <span class="string">danger</span></span><br><span class="line">  <span class="attr">anchors:</span></span><br><span class="line">    <span class="attr">level:</span> <span class="number">2</span></span><br><span class="line">    <span class="attr">collisionSuffix:</span> <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="attr">permalink:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">permalinkClass:</span> <span class="string">&quot;header-anchor&quot;</span></span><br><span class="line">    <span class="attr">permalinkSide:</span> <span class="string">&quot;left&quot;</span></span><br><span class="line">    <span class="attr">permalinkSymbol:</span> <span class="string">&quot;¶&quot;</span></span><br><span class="line">    <span class="attr">case:</span> <span class="number">0</span></span><br><span class="line">    <span class="attr">separator:</span> <span class="string">&quot;-&quot;</span></span><br></pre></td></tr></table></figure>
+<div class="tips">
+<p>要禁用某插件，您可<strong>注释</strong>该行。例如：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># - markdown-it-abbr</span></span><br></pre></td></tr></table></figure>
+<p><s>或者直接删了</s></p>
+</div>
+<hr>
+<h1>修改CSS</h1>
+<p><a href="#Section">自定义容器</a>的样式需要您手动修改。对于NexT主题，您需要在以下路径的文件中添加CSS样式代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">themes\next\source\css\_common\scaffolding\base.styl</span><br></pre></td></tr></table></figure>
+<p>参考样式：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.tips</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">background-color</span> rgba(<span class="number">52</span>,<span class="number">152</span>,<span class="number">219</span>,.<span class="number">3</span>);</span><br><span class="line">    <span class="attribute">border-left</span> <span class="number">4px</span> solid rgb(<span class="number">52</span>,<span class="number">152</span>,<span class="number">219</span>);</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">darken</span>(<span class="built_in">rgb</span>(<span class="number">52</span>,<span class="number">152</span>,<span class="number">219</span>),<span class="number">20%</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.success</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">background-color</span> rgba(<span class="number">46</span>,<span class="number">204</span>,<span class="number">113</span>,.<span class="number">3</span>);</span><br><span class="line">    <span class="attribute">border-left</span> <span class="number">4px</span> solid rgb(<span class="number">46</span>,<span class="number">204</span>,<span class="number">113</span>);</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">darken</span>(<span class="built_in">rgb</span>(<span class="number">46</span>,<span class="number">204</span>,<span class="number">113</span>),<span class="number">20%</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.warning</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">background-color</span> rgba(<span class="number">241</span>,<span class="number">196</span>,<span class="number">15</span>,.<span class="number">3</span>);</span><br><span class="line">    <span class="attribute">border-left</span> <span class="number">4px</span> solid rgb(<span class="number">241</span>,<span class="number">196</span>,<span class="number">15</span>);</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">darken</span>(<span class="built_in">rgb</span>(<span class="number">241</span>,<span class="number">196</span>,<span class="number">15</span>),<span class="number">20%</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.danger</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">background-color</span> rgba(<span class="number">231</span>,<span class="number">76</span>,<span class="number">60</span>,.<span class="number">3</span>);</span><br><span class="line">    <span class="attribute">border-left</span> <span class="number">4px</span> solid rgb(<span class="number">231</span>,<span class="number">76</span>,<span class="number">60</span>);</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">darken</span>(<span class="built_in">rgb</span>(<span class="number">231</span>,<span class="number">76</span>,<span class="number">60</span>),<span class="number">20%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="tips">
+<p>其他主题，您可<strong>自行查找</strong></p>
+</div>
+<hr>
+<h1>调用</h1>
+<h2 id="基础">基础</h2>
+<table>
+<thead>
+<tr>
+<th>插件</th>
+<th>描述</th>
+<th>语法</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>markdown-it-abbr</td>
+<td>注释</td>
+<td><code>*[HTML]: Hyper Text Markup Language</code></td>
+<td>*[HTML]: Hyper Text Markup Language</td>
+</tr>
+<tr>
+<td>markdown-it-emoji</td>
+<td>表情</td>
+<td><code>:+1:</code></td>
+<td>👍</td>
+</tr>
+<tr>
+<td>markdown-it-footnote</td>
+<td>脚注</td>
+<td><code>文本[^1]文本</code></td>
+<td>文本<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>文本</td>
+</tr>
+<tr>
+<td>markdown-it-ins</td>
+<td>下划线</td>
+<td><code>++Inserted text++</code></td>
+<td><ins>Inserted text</ins></td>
+</tr>
+<tr>
+<td>markdown-it-mark</td>
+<td>突出显示</td>
+<td><code>==Marked text==</code></td>
+<td><mark>Marked text</mark></td>
+</tr>
+<tr>
+<td>markdown-it-sub</td>
+<td>下标</td>
+<td><code>H~2~O</code></td>
+<td>H<sub>2</sub>O</td>
+</tr>
+<tr>
+<td>markdown-it-sup</td>
+<td>上标</td>
+<td><code>X^2^</code></td>
+<td>X<sup>2</sup></td>
+</tr>
+<tr>
+<td>markdown-it-checkbox</td>
+<td>复选框</td>
+<td><code>- []未选中</code><br><code>- [x]已选中</code></td>
+<td><input type="checkbox" id="checkbox1"><label for="checkbox1">未选中</label><br><input type="checkbox" id="checkbox0" checked="true"><label for="checkbox0">已选中</label></td>
+</tr>
+</tbody>
+</table>
+<h2 id="进阶">进阶</h2>
+<h3 id="折叠">折叠</h3>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">+++ <span class="strong">**点击此处**</span></span><br><span class="line">这是被隐藏的内容。</span><br><span class="line">+++</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<details open>
+<summary><span class="pre-summary">&nbsp;</span><strong>点击此处</strong></summary><p>这是被隐藏的内容。</p>
+</details>
+<p><a id="Section"></a></p>
+<h3 id="自定义容器">自定义容器</h3>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">::: tips</span><br><span class="line"><span class="strong">**提示**</span></span><br><span class="line">这是一个提示</span><br><span class="line">:::</span><br><span class="line"></span><br><span class="line">::: warning</span><br><span class="line"><span class="strong">**警告**</span></span><br><span class="line">这是一个警告</span><br><span class="line">:::</span><br><span class="line"></span><br><span class="line">::: danger</span><br><span class="line"><span class="strong">**危险**</span></span><br><span class="line">这是一个危险信号</span><br><span class="line">:::</span><br><span class="line"></span><br><span class="line">::: success</span><br><span class="line"><span class="strong">**成功**</span></span><br><span class="line">这是一个成功信号</span><br><span class="line">:::</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<div class="tips">
+<p><strong>提示</strong><br>
+这是一个提示</p>
+</div>
+<div class="warning">
+<p><strong>警告</strong><br>
+这是一个警告</p>
+</div>
+<div class="danger">
+<p><strong>危险</strong><br>
+这是一个危险信号</p>
+</div>
+<div class="success">
+<p><strong>成功</strong><br>
+这是一个成功信号</p>
+</div>
+<hr>
+<h2 id="推荐">推荐</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>查找 Emoji 的写法，您可参考：<a href="https://www.emojiall.com/zh-hans">EMOJIALL</a></p>
+</li>
+<li class="lvl-2">
+<p>查阅 Markdown-it 文档，您可参考：<a href="https://mdit-plugins.github.io/zh/">Markdown It 插件</a></p>
+</li>
+<li class="lvl-2">
+<p>了解更多 Markdown 语法，您可参考：<a href="https://markdown.com.cn/">Markdown 教程</a></p>
+</li>
+</ul>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>这是参考文献。 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content>
+      <categories>
+        <category>Hexo教程</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Tutorial</tag>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Blog 5：[遊記]井冈山（更新中）</title>
     <url>/posts/82cd8a81/</url>
     <content><![CDATA[<h1>序</h1>
