@@ -249,10 +249,12 @@ hr {
   margin: 40px 0;
 }
 blockquote {
-  border-left: 4px solid #ddd;
+  border-left: 4px solid #6a5acd;
   color: var(--blockquote-color);
   margin: 0;
   padding: 0 15px;
+  font-family: Times New Roman, FangSong, sans-serif;
+  background-color: #f9f9f9;
 }
 blockquote cite::before {
   content: '-';
@@ -275,6 +277,30 @@ kbd {
   font-family: inherit;
   padding: 0.1em 0.3em;
   white-space: nowrap;
+}
+.tips {
+  padding-left: 10px;
+  background-color: rgba(52,152,219,0.3);
+  border-left: 4px solid #3498db;
+  color: #217bb8;
+}
+.success {
+  padding-left: 10px;
+  background-color: rgba(46,204,113,0.3);
+  border-left: 4px solid #2ecc71;
+  color: #25a35a;
+}
+.warning {
+  padding-left: 10px;
+  background-color: rgba(241,196,15,0.3);
+  border-left: 4px solid #f1c40f;
+  color: #c29d0b;
+}
+.danger {
+  padding-left: 10px;
+  background-color: rgba(231,76,60,0.3);
+  border-left: 4px solid #e74c3c;
+  color: #cf2b1a;
 }
 .table-container {
   overflow: auto;
@@ -1169,7 +1195,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #9f8b54;
+  background: #ed86ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1184,7 +1210,7 @@ pre .javascript .function {
 .sidebar-button a {
   border: 1px solid #fc6423;
   border-radius: 4px;
-  color: #6a5acd;
+  color: #fc6423;
   display: inline-block;
   padding: 0 15px;
 }
