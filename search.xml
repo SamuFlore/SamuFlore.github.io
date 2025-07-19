@@ -1,196 +1,501 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>Blog 7：[Hexo教程]更高级的 Markdown 渲染器：Markdown-it</title>
-      <link href="/posts/e11361f1/"/>
-      <url>/posts/e11361f1/</url>
-      
-        <content type="html"><![CDATA[<div class="tips"><p>我正在使用 Markdown-it 来渲染此博文！</p></div><h1 id="序">序</h1><p>Hexo 默认使用 <strong>hexo-renderer-marked</strong> 来渲染 Markdown 文件。此渲染器只支持一些基础语法。我们可以将其替换为更高级的 <strong>Markdown-it</strong> 渲染器。</p><span id="more"></span><hr><h1 id="安装">安装</h1><p>首先，您需要卸载原有的渲染器：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br></pre></td></tr></table></figure><p>然后安装新的渲染器：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i hexo-renderer-markdown-it --save</span><br></pre></td></tr></table></figure><p>接着，您需要安装三个 Markdown-it 子插件：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm i markdown-it-checkbox</span><br><span class="line">npm i markdown-it-imsize</span><br><span class="line">npm i markdown-it-expandable</span><br></pre></td></tr></table></figure><div class="warning"><p>请注意：科学上网。</p></div><div class="tips"><p>Markdown-it 内置了许多子插件，您只需手动安装上述三个。</p></div><hr><h1 id="配置">配置</h1><p>在<strong>站点配置文件</strong>的尾部填写 Markdown 渲染器配置：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">markdown:</span></span><br><span class="line">  <span class="attr">preset:</span> <span class="string">&quot;default&quot;</span></span><br><span class="line">  <span class="attr">render:</span></span><br><span class="line">    <span class="attr">html:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">xhtmlOut:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">langPrefix:</span> <span class="string">&quot;language-&quot;</span></span><br><span class="line">    <span class="attr">breaks:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">linkify:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">typographer:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">quotes:</span> <span class="string">&quot;“”‘’&quot;</span></span><br><span class="line">  <span class="attr">enable_rules:</span></span><br><span class="line">  <span class="attr">disable_rules:</span></span><br><span class="line">  <span class="attr">plugins:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-abbr</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-cjk-breaks</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-deflist</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-emoji</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-footnote</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-ins</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-mark</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-sub</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-sup</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-checkbox</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-imsize</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-expandable</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">markdown-it-container</span></span><br><span class="line">      <span class="attr">options:</span> <span class="string">success</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">markdown-it-container</span></span><br><span class="line">      <span class="attr">options:</span> <span class="string">tips</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">markdown-it-container</span></span><br><span class="line">      <span class="attr">options:</span> <span class="string">warning</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">markdown-it-container</span></span><br><span class="line">      <span class="attr">options:</span> <span class="string">danger</span></span><br><span class="line">  <span class="attr">anchors:</span></span><br><span class="line">    <span class="attr">level:</span> <span class="number">1</span></span><br><span class="line">    <span class="attr">collisionSuffix:</span> <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="attr">permalink:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">permalinkClass:</span> <span class="string">&quot;header-anchor&quot;</span></span><br><span class="line">    <span class="attr">permalinkSide:</span> <span class="string">&quot;left&quot;</span></span><br><span class="line">    <span class="attr">permalinkSymbol:</span> <span class="string">&quot;¶&quot;</span></span><br><span class="line">    <span class="attr">case:</span> <span class="number">0</span></span><br><span class="line">    <span class="attr">separator:</span> <span class="string">&quot;-&quot;</span></span><br></pre></td></tr></table></figure><div class="tips"><p>要禁用某插件，您可<strong>注释</strong>该行。例如：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># - markdown-it-abbr</span></span><br></pre></td></tr></table></figure><p><s>或者直接删了</s></p></div><div class="warning"><p>上述代码的 <code>level</code> 字段表示最上级锚点的层级。当设置为 1 时，表示 <code>&lt;h1&gt;</code> 到 <code>&lt;h6&gt;</code> 都可以作为锚点。用于目录的跳转。</p></div><hr><h1 id="修改CSS">修改CSS</h1><p><a href="#Section">自定义容器</a>的样式需要您手动修改。对于NexT主题，您需要在以下路径的文件中添加CSS样式代码：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">themes\next\source\css\_common\scaffolding\base.styl</span><br></pre></td></tr></table></figure><p>参考样式：</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.tips</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">background-color</span> rgba(<span class="number">52</span>,<span class="number">152</span>,<span class="number">219</span>,.<span class="number">3</span>);</span><br><span class="line">    <span class="attribute">border-left</span> <span class="number">4px</span> solid rgb(<span class="number">52</span>,<span class="number">152</span>,<span class="number">219</span>);</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">darken</span>(<span class="built_in">rgb</span>(<span class="number">52</span>,<span class="number">152</span>,<span class="number">219</span>),<span class="number">20%</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.success</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">background-color</span> rgba(<span class="number">46</span>,<span class="number">204</span>,<span class="number">113</span>,.<span class="number">3</span>);</span><br><span class="line">    <span class="attribute">border-left</span> <span class="number">4px</span> solid rgb(<span class="number">46</span>,<span class="number">204</span>,<span class="number">113</span>);</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">darken</span>(<span class="built_in">rgb</span>(<span class="number">46</span>,<span class="number">204</span>,<span class="number">113</span>),<span class="number">20%</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.warning</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">background-color</span> rgba(<span class="number">241</span>,<span class="number">196</span>,<span class="number">15</span>,.<span class="number">3</span>);</span><br><span class="line">    <span class="attribute">border-left</span> <span class="number">4px</span> solid rgb(<span class="number">241</span>,<span class="number">196</span>,<span class="number">15</span>);</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">darken</span>(<span class="built_in">rgb</span>(<span class="number">241</span>,<span class="number">196</span>,<span class="number">15</span>),<span class="number">20%</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.danger</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">background-color</span> rgba(<span class="number">231</span>,<span class="number">76</span>,<span class="number">60</span>,.<span class="number">3</span>);</span><br><span class="line">    <span class="attribute">border-left</span> <span class="number">4px</span> solid rgb(<span class="number">231</span>,<span class="number">76</span>,<span class="number">60</span>);</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">darken</span>(<span class="built_in">rgb</span>(<span class="number">231</span>,<span class="number">76</span>,<span class="number">60</span>),<span class="number">20%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><div class="tips"><p>其他主题，您可<strong>自行查找</strong></p></div><hr><h1 id="调用">调用</h1><h2 id="基础">基础</h2><table><thead><tr><th>插件</th><th>描述</th><th>语法</th><th>效果</th></tr></thead><tbody><tr><td>markdown-it-abbr</td><td>注释</td><td><code>*[HTML]: Hyper Text Markup Language</code></td><td>*[HTML]: Hyper Text Markup Language</td></tr><tr><td>markdown-it-emoji</td><td>表情</td><td><code>:+1:</code></td><td>👍</td></tr><tr><td>markdown-it-footnote</td><td>脚注</td><td><code>文本[^1]文本</code></td><td>文本<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>文本</td></tr><tr><td>markdown-it-ins</td><td>下划线</td><td><code>++Inserted text++</code></td><td><ins>Inserted text</ins></td></tr><tr><td>markdown-it-mark</td><td>突出显示</td><td><code>==Marked text==</code></td><td><mark>Marked text</mark></td></tr><tr><td>markdown-it-sub</td><td>下标</td><td><code>H~2~O</code></td><td>H<sub>2</sub>O</td></tr><tr><td>markdown-it-sup</td><td>上标</td><td><code>X^2^</code></td><td>X<sup>2</sup></td></tr><tr><td>markdown-it-checkbox</td><td>复选框</td><td><code>- []未选中</code><br><code>- [x]已选中</code></td><td><input type="checkbox" id="checkbox1"><label for="checkbox1">未选中</label><br><input type="checkbox" id="checkbox0" checked="true"><label for="checkbox0">已选中</label></td></tr></tbody></table><h2 id="进阶">进阶</h2><h3 id="折叠">折叠</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+++ <span class="strong">**点击此处**</span></span><br><span class="line">这是被隐藏的内容。</span><br><span class="line">+++</span><br></pre></td></tr></table></figure><p>效果：</p><details open><summary><span class="pre-summary">&nbsp;</span><strong>点击此处</strong></summary><p>这是被隐藏的内容。</p></details><p><a id="Section"></a></p><h3 id="自定义容器">自定义容器</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">::: tips</span><br><span class="line"><span class="strong">**提示**</span></span><br><span class="line">这是一个提示</span><br><span class="line">:::</span><br><span class="line"></span><br><span class="line">::: warning</span><br><span class="line"><span class="strong">**警告**</span></span><br><span class="line">这是一个警告</span><br><span class="line">:::</span><br><span class="line"></span><br><span class="line">::: danger</span><br><span class="line"><span class="strong">**危险**</span></span><br><span class="line">这是一个危险信号</span><br><span class="line">:::</span><br><span class="line"></span><br><span class="line">::: success</span><br><span class="line"><span class="strong">**成功**</span></span><br><span class="line">这是一个成功信号</span><br><span class="line">:::</span><br></pre></td></tr></table></figure><p>效果：</p><div class="tips"><p><strong>提示</strong><br>这是一个提示</p></div><div class="warning"><p><strong>警告</strong><br>这是一个警告</p></div><div class="danger"><p><strong>危险</strong><br>这是一个危险信号</p></div><div class="success"><p><strong>成功</strong><br>这是一个成功信号</p></div><hr><h1 id="推荐">推荐</h1><ul class="lvl-0"><li class="lvl-2"><p>查找 Emoji 的写法，您可参考：<a href="https://www.emojiall.com/zh-hans">EMOJIALL</a></p></li><li class="lvl-2"><p>查阅 Markdown-it 文档，您可参考：<a href="https://mdit-plugins.github.io/zh/">Markdown It 插件</a></p></li><li class="lvl-2"><p>了解更多 Markdown 语法，您可参考：<a href="https://markdown.com.cn/">Markdown 教程</a></p></li></ul><hr class="footnotes-sep"><section class="footnotes"><ol class="footnotes-list"><li id="fn1" class="footnote-item"><p>这是参考文献。 <a href="#fnref1" class="footnote-backref">↩︎</a></p></li></ol></section>]]></content>
-      
-      
+<search>
+  <entry>
+    <title>Blog 1：[詩歌]诗二首</title>
+    <url>/posts/95afa136/</url>
+    <content><![CDATA[<h1 id="川上">川上</h1>
+<p>臺前瀧上望、曉霧隱晨輝<br>
+鳥鳴長天浪、凇華璃光杯<br>
+黛道負白雪、青枝承芬菲<br>
+墨川浮一葉、蒼雲何照歸</p>
+<h1 id="予楊公之長安">予楊公之長安</h1>
+<p>七十六年題名日、少年滿心在三千<br>
+而今秦川八百外、一步一顧瀟湘間<br>
+藤原魂斷蓬萊上、不見西行花滿天<br>
+月夜襲得心百感、落木生春又一年</p>
+]]></content>
       <categories>
-          
-          <category> Hexo教程 </category>
-          
+        <category>詩歌</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> Hexo </tag>
-            
-            <tag> Tutorial </tag>
-            
-            <tag> Markdown </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>序</title>
-      <link href="/posts/9eefdea9/"/>
-      <url>/posts/9eefdea9/</url>
-      
-        <content type="html"><![CDATA[<p><i class="fa fa-comment" aria-hidden="true" style="color: #6A5ACD; font-size: 1.5rem;"></i><span style="font-size: 12px; color: #695acd91;"> 随机句子由一言 API 提供</span></p><p id="hitokoto" style="text-align:center;font-weight:bold;color:#6A5ACD">  “<a href="#" id="hitokoto_text">:D 获取中...</a>”</p><script>  fetch('https://v1.hitokoto.cn')    .then(response => response.json())    .then(data => {      const hitokoto = document.querySelector('#hitokoto_text')      hitokoto.href = `https://hitokoto.cn/?uuid=${data.uuid}`      hitokoto.innerText = data.hitokoto    })    .catch(console.error)</script><blockquote><p>“创作是并没有什么秘诀，能够交头接耳，一句话就传授给别一个的，倘不然，只要有这秘诀，就真可以登广告，收学费，开一个三天包成文豪学校了。以中国之大，或者也许会有罢，但是，这其实是骗子。”<br><strong>《不应该那么写》 鲁迅</strong></p></blockquote><p>我已经记了若干天的博文，这才想起来应该为整个博客写一篇序。先前一直用<a href="http://samuflore.top/posts/95afa136/">两篇小诗</a>充门面，观赏了几位大佬<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>的博客页面之后，决心要做一些正式的事情了。<br>于是我又选择了这个将要睡觉的时间开始。<br>按照我妈的说法，我仿佛永远都选择将要睡觉的这个时间点开始做所谓“重要的事”，譬如突然要给 200G 的压缩包解压缩<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>，或者安装进度到了70%……总之一条，是不能关电脑，也不能安心上床，结果“搞得大家都睡不了觉”。可是这个时间段恰好是最适合开始做某件事的时候——未必能做完，但是能开个好头。<br><strong>所以，现在我要写小序了。</strong></p><span id="more"></span><h1 id="字与码">字与码</h1><p>我进入六系既成事实，那么接下来的若干年必然是与代码打交道居多。这博客正好可以记录我的编程之旅，也算是为自己留下一点纪念。<br>所谓<strong>码字</strong>一词，在博客的创作过程中，真可谓十分贴切。使用 Markdown 编写博文，甚至于使用 HTML。Markdown 如此之简洁和优雅，几乎融于文字之中，正是<strong>字</strong>与<strong>码</strong>的结合。HTML 则时常将我从<strong>字</strong>里拉回<strong>码</strong>中。我不知道<strong>古法写作</strong>是否会长盛不衰，不过其面临这样一种对手，或许会走入另一条道路上。<br><strong>古法写作</strong>，我杜撰了这个词，但使用起来很奇怪。何谓“古”，很难说清。如果用创作文字之方法区分，则没有明确的界限，或者以 AI 辅佐写作之出现来划分，又显得这个“古”字很“新”了，并不贴切。可是论其本质，那么所谓古法、码字，又殊途同归了，那就是<strong>记录</strong>，<strong>记录</strong>。<br>古代，我们往石头上刻，往竹简上刻，这就叫做“刻录”。后来<strong>蔡伦</strong>改良了造纸术，我们就往纸上记，这就叫做“记录”。记了几千年，后来发明了软盘、磁带、硬盘，我们又回到刻。以上种种，无非是留存人存在过的痕迹。每个人都是时代的一粒沙，无后的，一代人的时间就会消失得无影无踪；好一些的，也不过三四代而已。流芳百世，少之又少。<strong>而文字的生命却是决定于载体</strong>。流传千年的语言不少，而其载体是人，这又回到了人在时代面前之渺小。譬如<strong>拉丁语</strong>，早已成为冢中枯骨。而文字，文字，载体是物，物质世界正是文字世界。在这样宏观的视角来看，似乎并无必要将<strong>字</strong>与<strong>码</strong>划清界限。<br>创作方面，<strong>字</strong>与<strong>码</strong>仿佛又有所相通。这里又可说起<strong>古法写作</strong>了。不论概念，可以明确的是自<strong>生成式人工智能</strong>广泛应用后，早已不是所谓<strong>古法写作</strong>的时代了。然而其方法和宗旨是经久不衰的，并且不仅限于<strong>字</strong>，也是可以推广到<strong>码</strong>上的。倘若今天我们<strong>突然</strong>需要写一篇 5000 字的<strong>法律与科技</strong>结课报告<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>，那么不但要用 AI ，还要<strong>严谨地</strong><sup class="footnote-ref"><a href="#fn3" id="fnref3:1">[3:1]</a></sup>用，所谓<strong>古法</strong>，在期末周，在水课面前，自然是毫不犹豫地放弃的。然而平时的创作，如果依赖于 AI ，后果确实不堪设想。文笔是一定会生疏的，危害更甚于提笔忘字，到了有口说不出、有笔写不了的地步。<strong>更何况互联网的混乱已经相当程度摧残了各种语言</strong>。<strong>码</strong>的时候，同样会遭遇这种困境。确实，用 <strong>Copilot</strong> 或 <strong>Fitten Code</strong> 代行一些结构高度重复的代码编写，节约时间用于思考。可是人总是顺应惰性，<code>Tab</code> 按个不停，一眨眼，就连思考也被<strong>自动补全</strong>了。这岂不与前述的面临一样的麻烦吗？<br><strong>字</strong>与<strong>码</strong>，这两者的界限，似乎并不那么清晰。<br>总之，我会尽量继续探索这二者——当然，是以一篇篇博文的形式，而非论文。也许一切明了的时候，我会写出一篇总的，来综述我的观点，而不是像这样一篇凌晨一点写的小序——<strong>散</strong>、<strong>乱</strong>、<strong>迷</strong>。不明了的时候，当然，继续更新些<strong>别的</strong>。<br><strong>仿佛找到了一个比游戏更有意思的事情。</strong><br>构建本站的时候，我的想法通常不会有明确的规划。如果您不知道从哪开始，建议您从 <a href="http://samuflore.top/about/"><i class="fa fa-thumbs-up" aria-hidden="true"></i> 此处</a> 开始探索。<br><strong>感谢您的时间。</strong></p><hr class="footnotes-sep"><section class="footnotes"><ol class="footnotes-list"><li id="fn1" class="footnote-item"><p><a href="https://thysrael.github.io/">钟鼓楼</a>、<a href="https://hyggge.github.io/#!">Hyggge’s Blog</a>、<a href="https://x-parker.github.io/">Parker’s Blog</a> ，以及其他大佬。 <a href="#fnref1" class="footnote-backref">↩︎</a></p></li><li id="fn2" class="footnote-item"><p>我可能正准备游玩 <strong>The Elder Scrolls V: Skyrim</strong> 的某个整合包（ <a href="#fnref2" class="footnote-backref">↩︎</a></p></li><li id="fn3" class="footnote-item"><p>确有其事。 <a href="#fnref3" class="footnote-backref">↩︎</a> <a href="#fnref3:1" class="footnote-backref">↩︎</a></p></li></ol></section>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> Introduction </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Blog 5：[遊記]井冈山（更新中）</title>
-      <link href="/posts/82cd8a81/"/>
-      <url>/posts/82cd8a81/</url>
-      
-        <content type="html"><![CDATA[<h1 id="序">序</h1><blockquote><p>请注意：本博文按<strong>时间顺序</strong>组织。</p></blockquote><p>国内旅游我有两个“<strong>东南西北</strong>”的计划，我愿称之为<strong>大</strong>东南西北和<strong>小</strong>东南西北。我正在完成<strong>小</strong>东南西北的<strong>东</strong>。</p><span id="more"></span><ul class="lvl-0"><li class="lvl-2"><p>大东南西北，意思就是全国的东南西北要至少取四个有代表性的地方旅游一次。</p><ul class="lvl-2"><li class="lvl-6">北：<s>目前我在北京上学</s>大一寒假去<strong>吉林吉林</strong>滑雪了。</li><li class="lvl-6">南：<strong>尚未计划</strong>。</li><li class="lvl-6">西：<strong>计划今年国庆去西安旅游</strong></li><li class="lvl-6">东：去过<strong>山东泰安</strong>和<strong>青岛</strong>，以及<strong>上海</strong>、<strong>无锡</strong></li></ul></li><li class="lvl-2"><p>小东南西北，自不用说，就是相对<strong>湖南</strong>的东南西北了。</p><ul class="lvl-2"><li class="lvl-6">北：<strong>湖北武汉</strong>，好吃，但是好危险。</li><li class="lvl-6">南：<strong>尚未计划</strong>。</li><li class="lvl-6">东：本篇博客的重头戏，<strong>江西吉安</strong>，具体说来是<strong>井冈山</strong>。</li><li class="lvl-6">西：<strong>贵州铜仁</strong>，就这个暑假去的，爬<strong>梵净山</strong>，风景很好，但是被淋成落汤鸡了。</li></ul></li></ul><p>希望大四前可以完成这两个计划吧，毕竟还是很有希望的。</p><hr><h1 id="第-0-天：吉安">第 0 天：吉安</h1><p>下午好，<strong>江西</strong>~</p><p><img src="/posts/82cd8a81/%E5%90%89%E5%AE%89%E7%AB%99.jpg" alt="吉安站" title="抵达"></p><h2 id="出发前">出发前</h2><p>从18日起，我就要到<strong>井冈山</strong>去和<strong>湘贤汇航</strong>实践队成员参加社会实践活动，直至26日结束。今天提前一天到<strong>吉安</strong>做准备。说实话，17日到18日这一小段在<strong>吉安</strong>的时间，算得上是我第一次完完全全<strong>独自</strong>旅行。没有任何同伴，也没有任何计划，只有纯粹的自由。有点奇妙的感觉。<br><em>（高铁、Switch满电、无尿、4小时.jpg）</em><br><s>坐我边上的女生打农开麦被前排阿姨骂了，害怕</s></p><h2 id="落地">落地</h2><p>我总是喜欢把到达叫做落地，尽管并没有坐飞机。<br>对于人来说，双脚同时踏上地面，才有一种踏实的感觉，这就叫做脚踏实地。对我而言，可能只有整个人都在站台上的时候，我才会觉得真正到了这个地方吧。<br>打个的直奔酒店，环境很不错，司机师傅人也很好，他告诉我从<strong>吉安</strong>到<strong>井冈山</strong>打车要两三百，大学生还是老老实实去坐大巴吧……</p><blockquote><p>“你不是<strong>井冈山</strong>人吧？”<br>“你没有报销吧？有钱人，要去<strong>井冈山</strong>，人家不想坐大巴，又懒得坐火车，嫌麻烦，就打个的，又有报销。”</p></blockquote><p>太有道理了。<s>不过我好像有报销</s><br>师傅确实很友善，走的时候我第一次给一个司机师傅道谢。</p><blockquote><p>“谢谢师傅啊。”</p></blockquote><p>初来乍到碰见一个友善的陌生人还是挺不错的。</p><h2 id="晚餐">晚餐</h2><p>对于我这种人，到了一个新地方那必须要尝尝<strong>地地地道地地道道</strong>的美食。<br>于是直接美团点了<s>南昌拌粉</s><em>（没做攻略是这样的，当地有什么美食都不清白）</em>。</p><p><img src="/posts/82cd8a81/%E5%8D%97%E6%98%8C%E6%8B%8C%E7%B2%89.jpg" alt="南昌拌粉" title="好吃的"></p><p align="center" style="font-size:10px; color:#C0C0C0">腐竹，我加了腐竹</p> <p>作为一个<strong>芙兰</strong>人，我觉得它还是有点<strong>清淡</strong>了。看上去是放了<strong>蛮多</strong>辣椒，但是咸也不咸，辣也不辣，不过<strong>口感倒是独特</strong>。这拌粉吃起来很<strong>清爽</strong>，没有<strong>热干面</strong>那种黏糊糊的感觉，很顺滑。配的汤很不错。</p><p>吃饱喝足要不要出去逛逛，还没想好，先写到这吧。</p><h2 id="夜行">夜行</h2><p>那还是要散散步消化消化的。挑个最近的景点直接出发了。</p><p><img src="/posts/82cd8a81/%E5%AF%BC%E8%88%AA.jpg" alt="导航" title="前往庐陵文化城"></p><blockquote><p><strong>庐陵</strong>，地名，位于<strong>中国江西省</strong>。<strong>吉安市</strong>在<strong>隋朝</strong>成为<strong>庐陵郡</strong>，故<strong>吉安</strong>古时又称<strong>庐陵</strong>。<strong>元</strong>初取“吉泰民安”之意改称<strong>吉安</strong>。<strong>民国三年庐陵县</strong>改称<strong>吉安县</strong>。———<a href="https://baike.baidu.com/item/%E5%BA%90%E9%99%B5/2836483">百度百科</a></p></blockquote><p><strong>吉安</strong>自古人杰地灵，乃是<strong>吉州福地</strong>、<strong>文章节义之邦</strong>。这么一小段路，给人第一感觉是城建规划良好，道路宽阔，功能完备。此时已日落，气温渐降，市民慢慢从空调房里回到街上散步消食。这种慢悠悠的生活节奏令我很舒服。<br>走着走着突然走上桥了———散漫到这种程度，甚至没看这<strong>庐陵文化城</strong>是沿江而建的。</p><p><img src="/posts/82cd8a81/%E6%B1%9F%E6%99%AF.jpg" alt="江景" title="不是很清楚"></p><p>此地已经被打造成类似公园的场所。沿着绿道走有商店、咖啡馆、书店（里面书不多，装潢倒不错）、小吃摊（世界的<strong>冰凉粉</strong>）。夜晚拜访很不错，江边很凉快，游人不多也不少，正好融进风景中。我刻意绕了远路，把两座桥都逛了一遍，准备撤的时候又被一座<strong>神秘建筑</strong>吸引了过去。</p><p><img src="/posts/82cd8a81/%E5%87%A4%E5%87%B01.jpg" alt="凤凰" title="神秘建筑"></p><p align="center" style="font-size:10px; color:#C0C0C0">这里是真有凤凰</p><p>雕像前有露天剧院般的台阶座椅，已经聚集了许多人在观赏了。<br>不知道怎么，我瞥了一眼一旁的告示牌———没有灯，位置也不醒目，但是上面赫然写着：</p><blockquote><p><strong>凤凰水幕光影秀</strong><br>每晚演出时间：<strong>20:30</strong></p></blockquote><p>这时一看表，只有5分钟了，难怪人群都聚集在这。于是找了个空位坐下来歇脚、拍照。 琢磨一下怎么安排明天去<strong>井冈山</strong>的行程。</p><blockquote><p>叔叔，你要买水吗？<br>……？</p></blockquote><p>我面前正站着一个小孩，正举着一瓶矿泉水看着我。<br>原来已经变成叔叔了，今天睡不着了。</p><p><img src="/posts/82cd8a81/%E5%87%A4%E5%87%B02.jpg" alt="凤凰" title="神秘建筑"></p><p align="center" style="font-size:10px; color:#C0C0C0">凤凰展翅</p><hr><h1 id="第-1-天：有惊无险">第 1 天：有惊无险</h1><p>按照昨天的规划，我还是打算坐大巴去<strong>井冈山</strong>。一看路线，竟有一站距离我宾馆只有 25 分钟步行路程，走走路就能免掉十几块去<strong>吉安西</strong>的网约车费用，岂不美哉。可是这却差点害死我。<br>我在<strong>某度地图</strong>上设定了这个<strong>人民广场站</strong>，还三番五次确认是否有重名的可能。谁料到一出宾馆大门，竟然下起<strong>太阳雨</strong>来，现在想想真可谓一个噩兆。抵达<strong>人民广场站</strong>后我就松懈下来，找了个阴处开始休息。<s>一边还喝了几杯米酿</s><br>还有七八分钟的时候，我掏出手机一看，总觉得不对。细看大巴的来车方向，竟然是马路对面，这下彻底晕了。在这边公交站望去，对面看不到有没有站台，但是手机上却明明白白的标着方向。要不要换边，现在做决定。<br>当然，我还是拿起行李又慌慌张张地过马路了。所幸，还是相信了<strong>科学</strong>。</p><p><img src="/posts/82cd8a81/%E5%9F%BA%E5%9C%B0.jpg" alt="基地" title="基地"></p><p align="center" style="font-size:10px; color:#C0C0C0">井冈山基地，环境还挺好的</p>  <p><img src="/posts/82cd8a81/%E5%A4%A9%E6%B0%94.jpg" alt="天气" title="天气"></p><p align="center" style="font-size:10px; color:#C0C0C0">只是天气的确有点死了</p>  <h2 id="另一条路">另一条路</h2><p>高中以来，我父母，奶奶（准确说是外婆，但是我特别讨厌这个“外”字，从来都是喊奶奶），劝我报考<strong>国防科技大学</strong>，到了<strong>无所不用其极</strong>的地步。甚至，我已经被 <strong>BUAA</strong> 录取了，他们还会在我耳旁念叨，说某同学与我一届，正是报的<strong>国防科大</strong>，每次回来，军装在身，多么漂亮！说某外地考生，斩获高分，仍然放弃名校，要上<strong>国防科大</strong>，其真实性，不可考究，但是他们在我耳边磨过来磨过去，我反正是确信有这样一号人物的。<br>我并非受不了军事化管理，只是觉得大学应当有更多的自由，否则如何对得起这 12 年的不自由？因此我从未考虑过报考它。不过，它的确在我心中蒙着一层神秘的面纱。</p><p><img src="/posts/82cd8a81/%E6%BC%94%E8%AE%B2.jpg" alt="演讲" title="演讲"></p><p align="center" style="font-size:10px; color:#C0C0C0">今天，机会来了</p>  <p>甚至是由一位本科就读于<strong>空军工程大学</strong>、在<strong>国防科技大学</strong>读研究生的学长来为我们讲演。这样一位人物，我倒觉得很亲切了，因为我的确认识在<strong>空军工程大学</strong>就读的某同学<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>，并不像所谓<strong>高分就读</strong>的某同学那么缥缈。<br>阅历丰富，做讲演时各种例证都是手到擒来，观感十分好。一把颠覆了军人在我心中不苟言笑的刻板印象。<br>也许，这真的是另一条道路？</p><h1 id="第-2-天：上课、吃饭与昏昏欲睡">第 2 天：上课、吃饭与昏昏欲睡</h1><p><img src="/posts/82cd8a81/%E8%AF%BE%E7%A8%8B.png" alt="课程" title="报告厅昏昏欲睡"></p><p align="center" style="font-size:10px; color:#C0C0C0">教学安排</p>  <h2 id="想睡觉">想睡觉</h2><p>早上六点多有个<s>神秘</s>早读，第一天入住又不太习惯，导致睡眠实在不充分。困啊……<br>基地的管理倒很松，时间也充裕，每天晚上还有时间更新博客。至于课程的内容，确实，老师已经竭尽全力追求新的讲课方式了，部分内容的确很不错。可惜，困啊……<br>伙食方面则大大超出预期了。菜品种类虽不是很丰富，不过可以任选，而且味道不错。此外，<strong>江西老表</strong>和我们<strong>芙兰</strong>人一样喜欢吃辣椒，甚至食堂还供应了<strong>剁辣椒</strong>，咸香酸辣，岂不美哉！<strong>比起我在北京吃的网购包装辣椒，这简直是天下无双</strong>。<em>（后半句是 AI 自动补全的，天下无双都被想出来了。）</em></p><h2 id="忠贞不渝">忠贞不渝</h2><blockquote><p>只有爱给你解开不死之谜。<br><strong>费尔巴哈</strong></p></blockquote><p>两千年前，我们讲“山无陵，江水为竭。冬雷震震，夏雨雪。天地合，乃敢与君绝”；两百年前，我们讲“生命诚可贵，爱情价更高；若为自由故，二者皆可抛”；今天，它几乎成了一文不值的垃圾。<br>现代社会也许不会再有<strong>池煜华</strong>这样的人出现了，毕竟大家没有几个 70 年可以“<strong>浪费</strong>”。<br>什么是一诺千金，什么是千金一诺，她也许永远都不会知道了。她甚至不会知道自己已经等了七十年。镜子里的她老了，可她却不老，否则丈夫要怎样认出她来呢？<br>但是什么是爱，什么是眼泪，她一定是知道的。爱让她感受不死，眼泪让她感受活着。<br>后来她再也没有眼泪了，因为她终于等到了<strong>李才莲</strong>。只是镜子、信和家门口的小路已经永远埋没了。</p><p><i class="fa fa-spinner" aria-hidden="true" style="color: #6A5ACD"></i>（未完待续）</p><hr class="footnotes-sep"><section class="footnotes"><ol class="footnotes-list"><li id="fn1" class="footnote-item"><p>同为24届毕业生的 P 君，又被称之为“<strong>天皇</strong>”。 <a href="#fnref1" class="footnote-backref">↩︎</a></p></li></ol></section>]]></content>
-      
-      
+      <tags>
+        <tag>Poem</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>序</title>
+    <url>/posts/9eefdea9/</url>
+    <content><![CDATA[<p><i class="fa fa-comment" aria-hidden="true" style="color: #6A5ACD; font-size: 1.5rem;"></i><span style="font-size: 12px; color: #695acd91;"> 随机句子由一言 API 提供</span></p>
+<p id="hitokoto" style="text-align:center;font-weight:bold;color:#6A5ACD">
+  “<a href="#" id="hitokoto_text">:D 获取中...</a>”
+</p>
+<script>
+  fetch('https://v1.hitokoto.cn')
+    .then(response => response.json())
+    .then(data => {
+      const hitokoto = document.querySelector('#hitokoto_text')
+      hitokoto.href = `https://hitokoto.cn/?uuid=${data.uuid}`
+      hitokoto.innerText = data.hitokoto
+    })
+    .catch(console.error)
+</script>
+<blockquote>
+<p>“创作是并没有什么秘诀，能够交头接耳，一句话就传授给别一个的，倘不然，只要有这秘诀，就真可以登广告，收学费，开一个三天包成文豪学校了。以中国之大，或者也许会有罢，但是，这其实是骗子。”<br>
+<strong>《不应该那么写》 鲁迅</strong></p>
+</blockquote>
+<p>我已经记了若干天的博文，这才想起来应该为整个博客写一篇序。先前一直用<a href="http://samuflore.top/posts/95afa136/">两篇小诗</a>充门面，观赏了几位大佬<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>的博客页面之后，决心要做一些正式的事情了。<br>
+于是我又选择了这个将要睡觉的时间开始。<br>
+按照我妈的说法，我仿佛永远都选择将要睡觉的这个时间点开始做所谓“重要的事”，譬如突然要给 200G 的压缩包解压缩<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>，或者安装进度到了70%……总之一条，是不能关电脑，也不能安心上床，结果“搞得大家都睡不了觉”。可是这个时间段恰好是最适合开始做某件事的时候——未必能做完，但是能开个好头。<br>
+<strong>所以，现在我要写小序了。</strong></p>
+<span id="more"></span>
+<h1 id="字与码">字与码</h1>
+<p>我进入六系既成事实，那么接下来的若干年必然是与代码打交道居多。这博客正好可以记录我的编程之旅，也算是为自己留下一点纪念。<br>
+所谓<strong>码字</strong>一词，在博客的创作过程中，真可谓十分贴切。使用 Markdown 编写博文，甚至于使用 HTML。Markdown 如此之简洁和优雅，几乎融于文字之中，正是<strong>字</strong>与<strong>码</strong>的结合。HTML 则时常将我从<strong>字</strong>里拉回<strong>码</strong>中。我不知道<strong>古法写作</strong>是否会长盛不衰，不过其面临这样一种对手，或许会走入另一条道路上。<br>
+<strong>古法写作</strong>，我杜撰了这个词，但使用起来很奇怪。何谓“古”，很难说清。如果用创作文字之方法区分，则没有明确的界限，或者以 AI 辅佐写作之出现来划分，又显得这个“古”字很“新”了，并不贴切。可是论其本质，那么所谓古法、码字，又殊途同归了，那就是<strong>记录</strong>，<strong>记录</strong>。<br>
+古代，我们往石头上刻，往竹简上刻，这就叫做“刻录”。后来<strong>蔡伦</strong>改良了造纸术，我们就往纸上记，这就叫做“记录”。记了几千年，后来发明了软盘、磁带、硬盘，我们又回到刻。以上种种，无非是留存人存在过的痕迹。每个人都是时代的一粒沙，无后的，一代人的时间就会消失得无影无踪；好一些的，也不过三四代而已。流芳百世，少之又少。<strong>而文字的生命却是决定于载体</strong>。流传千年的语言不少，而其载体是人，这又回到了人在时代面前之渺小。譬如<strong>拉丁语</strong>，早已成为冢中枯骨。而文字，文字，载体是物，物质世界正是文字世界。在这样宏观的视角来看，似乎并无必要将<strong>字</strong>与<strong>码</strong>划清界限。<br>
+创作方面，<strong>字</strong>与<strong>码</strong>仿佛又有所相通。这里又可说起<strong>古法写作</strong>了。不论概念，可以明确的是自<strong>生成式人工智能</strong>广泛应用后，早已不是所谓<strong>古法写作</strong>的时代了。然而其方法和宗旨是经久不衰的，并且不仅限于<strong>字</strong>，也是可以推广到<strong>码</strong>上的。倘若今天我们<strong>突然</strong>需要写一篇 5000 字的<strong>法律与科技</strong>结课报告<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>，那么不但要用 AI ，还要<strong>严谨地</strong><sup class="footnote-ref"><a href="#fn3" id="fnref3:1">[3:1]</a></sup>用，所谓<strong>古法</strong>，在期末周，在水课面前，自然是毫不犹豫地放弃的。然而平时的创作，如果依赖于 AI ，后果确实不堪设想。文笔是一定会生疏的，危害更甚于提笔忘字，到了有口说不出、有笔写不了的地步。<strong>更何况互联网的混乱已经相当程度摧残了各种语言</strong>。<strong>码</strong>的时候，同样会遭遇这种困境。确实，用 <strong>Copilot</strong> 或 <strong>Fitten Code</strong> 代行一些结构高度重复的代码编写，节约时间用于思考。可是人总是顺应惰性，<code>Tab</code> 按个不停，一眨眼，就连思考也被<strong>自动补全</strong>了。这岂不与前述的面临一样的麻烦吗？<br>
+<strong>字</strong>与<strong>码</strong>，这两者的界限，似乎并不那么清晰。<br>
+总之，我会尽量继续探索这二者——当然，是以一篇篇博文的形式，而非论文。也许一切明了的时候，我会写出一篇总的，来综述我的观点，而不是像这样一篇凌晨一点写的小序——<strong>散</strong>、<strong>乱</strong>、<strong>迷</strong>。不明了的时候，当然，继续更新些<strong>别的</strong>。<br>
+<strong>仿佛找到了一个比游戏更有意思的事情。</strong><br>
+构建本站的时候，我的想法通常不会有明确的规划。如果您不知道从哪开始，建议您从 <a href="http://samuflore.top/about/"><i class="fa fa-thumbs-up" aria-hidden="true"></i> 此处</a> 开始探索。<br>
+<strong>感谢您的时间。</strong></p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a href="https://thysrael.github.io/">钟鼓楼</a>、<a href="https://hyggge.github.io/#!">Hyggge’s Blog</a>、<a href="https://x-parker.github.io/">Parker’s Blog</a> ，以及其他大佬。 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>我可能正准备游玩 <strong>The Elder Scrolls V: Skyrim</strong> 的某个整合包（ <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>确有其事。 <a href="#fnref3" class="footnote-backref">↩︎</a> <a href="#fnref3:1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content>
+      <tags>
+        <tag>Introduction</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Blog 2：[Hexo教程]Hexo之代码块添加复制按钮</title>
+    <url>/posts/8a8b0861/</url>
+    <content><![CDATA[<blockquote>
+<p>请注意：本文<strong>转载</strong>自<a href="https://evannzhongg.github.io/2025/03/26/Add-Copy-Button-to-Code-Blocks-in-Hexo/#Hexo-%E4%B8%BA%E4%BB%A3%E7%A0%81%E5%9D%97%E6%B7%BB%E5%8A%A0%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD%E6%8C%89%E9%92%AE">Evan Zhong’s Blog</a>，根据目前版本之Hexo和NexT进行了微调。</p>
+</blockquote>
+<h1 id="序">序</h1>
+<p>使用<strong>JavaScript</strong>实现之。</p>
+<span id="more"></span>
+<hr>
+<h1 id="准备">准备</h1>
+<p>本JS脚本适用于以下结构的代码块：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">figure</span> <span class="attr">class</span>=<span class="string">&quot;highlight&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">&quot;gutter&quot;</span>&gt;</span>...<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">&quot;code&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">pre</span>&gt;</span><span class="tag">&lt;<span class="name">code</span>&gt;</span>...<span class="tag">&lt;/<span class="name">code</span>&gt;</span><span class="tag">&lt;/<span class="name">pre</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">figure</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>请注意：这是Hexo中大多数主题默认的代码块渲染结构。</p>
+</blockquote>
+<hr>
+<h1 id="创建JavaScript脚本">创建JavaScript脚本</h1>
+<p>在Hexo博客项目的<strong>根目录</strong>下创建<code>code-copy.js</code>文件。参考路径如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/source/js/code-copy.js</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>请注意：若<code>source</code>目录下<strong>没有</strong><code>js</code>文件夹，则<strong>手动创建之</strong>。</p>
+</blockquote>
+<p>并在<code>code-copy.js</code>文件中写入以下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;DOMContentLoaded&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;figure.highlight&#x27;</span>).<span class="title function_">forEach</span>(<span class="function">(<span class="params">figure</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (figure.<span class="title function_">querySelector</span>(<span class="string">&#x27;.copy-btn&#x27;</span>)) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> copyBtn = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;button&#x27;</span>);</span><br><span class="line">    copyBtn.<span class="property">className</span> = <span class="string">&#x27;copy-btn&#x27;</span>;</span><br><span class="line">    copyBtn.<span class="property">title</span> = <span class="string">&#x27;复制&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 缩小后的复制图标（14*15）</span></span><br><span class="line">    <span class="keyword">const</span> copyIcon = <span class="string">`</span></span><br><span class="line"><span class="string">      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; height=&quot;14&quot; width=&quot;15&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;white&quot;&gt;</span></span><br><span class="line"><span class="string">        &lt;path d=&quot;M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z&quot;/&gt;</span></span><br><span class="line"><span class="string">      &lt;/svg&gt;</span></span><br><span class="line"><span class="string">    `</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 成功后显示的勾（14*15）</span></span><br><span class="line">    <span class="keyword">const</span> checkIcon = <span class="string">`</span></span><br><span class="line"><span class="string">      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; height=&quot;14&quot; width=&quot;15&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;#00cc66&quot;&gt;</span></span><br><span class="line"><span class="string">        &lt;path d=&quot;M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z&quot;/&gt;</span></span><br><span class="line"><span class="string">      &lt;/svg&gt;</span></span><br><span class="line"><span class="string">    `</span>;</span><br><span class="line"></span><br><span class="line">    copyBtn.<span class="property">innerHTML</span> = copyIcon;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 按钮样式（浅灰底、缩小）</span></span><br><span class="line">    <span class="title class_">Object</span>.<span class="title function_">assign</span>(copyBtn.<span class="property">style</span>, &#123;</span><br><span class="line">      <span class="attr">position</span>: <span class="string">&#x27;absolute&#x27;</span>,</span><br><span class="line">      <span class="attr">top</span>: <span class="string">&#x27;8px&#x27;</span>,</span><br><span class="line">      <span class="attr">right</span>: <span class="string">&#x27;8px&#x27;</span>,</span><br><span class="line">      <span class="attr">padding</span>: <span class="string">&#x27;4px&#x27;</span>,</span><br><span class="line">      <span class="attr">background</span>: <span class="string">&#x27;#aaa&#x27;</span>, </span><br><span class="line">      <span class="attr">border</span>: <span class="string">&#x27;none&#x27;</span>,</span><br><span class="line">      <span class="attr">borderRadius</span>: <span class="string">&#x27;4px&#x27;</span>,</span><br><span class="line">      <span class="attr">cursor</span>: <span class="string">&#x27;pointer&#x27;</span>,</span><br><span class="line">      <span class="attr">opacity</span>: <span class="string">&#x27;0.85&#x27;</span>,</span><br><span class="line">      <span class="attr">zIndex</span>: <span class="number">1000</span>,</span><br><span class="line">      <span class="attr">transition</span>: <span class="string">&#x27;opacity 0.2s ease&#x27;</span>,</span><br><span class="line">      <span class="attr">boxShadow</span>: <span class="string">&#x27;0 1px 3px rgba(0, 0, 0, 0.15)&#x27;</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    copyBtn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;mouseover&#x27;</span>, <span class="function">() =&gt;</span> copyBtn.<span class="property">style</span>.<span class="property">opacity</span> = <span class="string">&#x27;1&#x27;</span>);</span><br><span class="line">    copyBtn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;mouseout&#x27;</span>, <span class="function">() =&gt;</span> copyBtn.<span class="property">style</span>.<span class="property">opacity</span> = <span class="string">&#x27;0.85&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    copyBtn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> code = figure.<span class="title function_">querySelector</span>(<span class="string">&#x27;td.code&#x27;</span>);</span><br><span class="line">      <span class="keyword">const</span> text = code ? code.<span class="property">innerText</span> : <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">      navigator.<span class="property">clipboard</span>.<span class="title function_">writeText</span>(text).<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        copyBtn.<span class="property">innerHTML</span> = checkIcon;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">          copyBtn.<span class="property">innerHTML</span> = copyIcon;</span><br><span class="line">        &#125;, <span class="number">1000</span>);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    figure.<span class="property">style</span>.<span class="property">position</span> = <span class="string">&#x27;relative&#x27;</span>;</span><br><span class="line">    figure.<span class="title function_">appendChild</span>(copyBtn);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="引用JS脚本">引用JS脚本</h1>
+<p>打开此文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">themes/next/layout/_partial/footer.swig</span><br></pre></td></tr></table></figure>
+<p>在<code>footer.swig</code>文件中，找到<code>&lt;/body&gt;</code>标签之前，添加以下代码：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;/js/code-copy.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>请注意：如果<strong>找不到</strong><code>&lt;/body&gt;</code>标签，则可以尝试在<code>footer.swig</code>文件<strong>末尾</strong>添加之。</p>
+</blockquote>
+<hr>
+<h1 id="更新博客">更新博客</h1>
+<p>运行Hexo三部曲：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>可以输入<code>hexo s</code>在本地启动服务，访问<code>https://localhost:4000</code>查看效果。或者在<strong>GitHub Pages</strong>上查看效果。</p>
+]]></content>
       <categories>
-          
-          <category> 遊記 </category>
-          
+        <category>Hexo教程</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> Travel </tag>
-            
-            <tag> Trip </tag>
-            
-            <tag> Mount Jinggang </tag>
-            
-            <tag> Jiangxi Province </tag>
-            
-            <tag> Ji&#39;an City </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Blog 4：[Hexo教程]Hexo之博文添加图片</title>
-      <link href="/posts/1bea1421/"/>
-      <url>/posts/1bea1421/</url>
-      
-        <content type="html"><![CDATA[<blockquote><p>请注意：本文参考了<a href="https://blog.csdn.net/m0_43401436/article/details/107191688">CSDN</a>的有关教程。</p></blockquote><h1 id="序">序</h1><p>博文美化小妙招（</p><span id="more"></span><hr><h1 id="启用post-asset-folder开关">启用post_asset_folder开关</h1><p>在<strong>站内配置文件</strong><code>_config.yml</code>中，<code>Ctrl + F</code>搜索字段<code>post_asset_folder</code>，将其值设置为<code>true</code>。此操作将允许在<code>hexo new &quot;filename&quot;</code>时，在<code>source/_posts/</code>目录下创建同名文件夹，以管理博文中的各种附件。</p><hr><h1 id="安装hexo-asset-image插件">安装hexo-asset-image插件</h1><blockquote><p>注意<strong>科学上网~</strong></p></blockquote><p>在Hexo根目录下打开<code>Git Bash</code>，输入：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure><p>等待。</p><blockquote><p>本机测试时，<code>npm install hexo-asset-image --save</code>无法实现上述功能，因而换用。读者可以自行尝试之。</p></blockquote><hr><h1 id="在Markdown中引用图片">在Markdown中引用图片</h1><p>在博文中，引用图片的语法如下：</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">&quot;替换文本&quot;</span>](<span class="link">图片名称.扩展名 &quot;描述文本&quot;</span>)</span><br></pre></td></tr></table></figure><blockquote><ul class="lvl-1"><li class="lvl-2"><p>请注意：<code>&quot;替换文本&quot;</code>和<code>&quot;描述文本&quot;</code>是可选的。</p></li><li class="lvl-2"><p>请将图片预先放在上述创建之同名文件夹下。</p></li><li class="lvl-2"><p><strong>只需</strong>填入图片名而<strong>无需</strong>填写路径。这是因为hexo-asset-image插件在Hexo将Markdown渲染为HTML时，会自动补全路径。</p></li></ul></blockquote><p>例如：</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">title</span>](<span class="link">image.jpg &quot;description&quot;</span>)</span><br></pre></td></tr></table></figure><hr><h1 id="效果">效果</h1><p><a href="http://samuflore.top/posts/85c2880f/"><img src="/posts/1bea1421/%E6%95%88%E6%9E%9C.png" alt="效果" title="可以参考第三篇Blog~"></a></p>]]></content>
-      
-      
+      <tags>
+        <tag>Hexo</tag>
+        <tag>JavaScript</tag>
+        <tag>Tutorial</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Blog 3：[插畫]本站背景图</title>
+    <url>/posts/85c2880f/</url>
+    <content><![CDATA[<p>原作 <a href="https://www.pixiv.net/users/6681779"><strong>黄瓜</strong></a><br>
+原题 <strong>89</strong><br>
+<a href="https://www.pixiv.net/artworks/110724378">Pixiv: https://www.pixiv.net/artworks/110724378</a><br>
+<img src="/posts/85c2880f/background.png" alt="title" title="结界组赛高~"></p>
+]]></content>
       <categories>
-          
-          <category> Hexo教程 </category>
-          
+        <category>插畫</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> Hexo </tag>
-            
-            <tag> Tutorial </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Blog 3：[插畫]本站背景图</title>
-      <link href="/posts/85c2880f/"/>
-      <url>/posts/85c2880f/</url>
-      
-        <content type="html"><![CDATA[<p>原作 <a href="https://www.pixiv.net/users/6681779"><strong>黄瓜</strong></a><br>原题 <strong>89</strong><br><a href="https://www.pixiv.net/artworks/110724378">Pixiv: https://www.pixiv.net/artworks/110724378</a><br><img src="/posts/85c2880f/background.png" alt="title" title="结界组赛高~"></p>]]></content>
-      
-      
+      <tags>
+        <tag>Picture</tag>
+        <tag>Pixiv</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Blog 4：[Hexo教程]Hexo之博文添加图片</title>
+    <url>/posts/1bea1421/</url>
+    <content><![CDATA[<blockquote>
+<p>请注意：本文参考了<a href="https://blog.csdn.net/m0_43401436/article/details/107191688">CSDN</a>的有关教程。</p>
+</blockquote>
+<h1 id="序">序</h1>
+<p>博文美化小妙招（</p>
+<span id="more"></span>
+<hr>
+<h1 id="启用post-asset-folder开关">启用post_asset_folder开关</h1>
+<p>在<strong>站内配置文件</strong><code>_config.yml</code>中，<code>Ctrl + F</code>搜索字段<code>post_asset_folder</code>，将其值设置为<code>true</code>。此操作将允许在<code>hexo new &quot;filename&quot;</code>时，在<code>source/_posts/</code>目录下创建同名文件夹，以管理博文中的各种附件。</p>
+<hr>
+<h1 id="安装hexo-asset-image插件">安装hexo-asset-image插件</h1>
+<blockquote>
+<p>注意<strong>科学上网~</strong></p>
+</blockquote>
+<p>在Hexo根目录下打开<code>Git Bash</code>，输入：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+<p>等待。</p>
+<blockquote>
+<p>本机测试时，<code>npm install hexo-asset-image --save</code>无法实现上述功能，因而换用。读者可以自行尝试之。</p>
+</blockquote>
+<hr>
+<h1 id="在Markdown中引用图片">在Markdown中引用图片</h1>
+<p>在博文中，引用图片的语法如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">&quot;替换文本&quot;</span>](<span class="link">图片名称.扩展名 &quot;描述文本&quot;</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>请注意：<code>&quot;替换文本&quot;</code>和<code>&quot;描述文本&quot;</code>是可选的。</p>
+</li>
+<li class="lvl-2">
+<p>请将图片预先放在上述创建之同名文件夹下。</p>
+</li>
+<li class="lvl-2">
+<p><strong>只需</strong>填入图片名而<strong>无需</strong>填写路径。这是因为hexo-asset-image插件在Hexo将Markdown渲染为HTML时，会自动补全路径。</p>
+</li>
+</ul>
+</blockquote>
+<p>例如：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">title</span>](<span class="link">image.jpg &quot;description&quot;</span>)</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="效果">效果</h1>
+<p><a href="http://samuflore.top/posts/85c2880f/"><img src="/posts/1bea1421/%E6%95%88%E6%9E%9C.png" alt="效果" title="可以参考第三篇Blog~"></a></p>
+]]></content>
       <categories>
-          
-          <category> 插畫 </category>
-          
+        <category>Hexo教程</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> Picture </tag>
-            
-            <tag> Pixiv </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Blog 2：[Hexo教程]Hexo之代码块添加复制按钮</title>
-      <link href="/posts/8a8b0861/"/>
-      <url>/posts/8a8b0861/</url>
-      
-        <content type="html"><![CDATA[<blockquote><p>请注意：本文<strong>转载</strong>自<a href="https://evannzhongg.github.io/2025/03/26/Add-Copy-Button-to-Code-Blocks-in-Hexo/#Hexo-%E4%B8%BA%E4%BB%A3%E7%A0%81%E5%9D%97%E6%B7%BB%E5%8A%A0%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD%E6%8C%89%E9%92%AE">Evan Zhong’s Blog</a>，根据目前版本之Hexo和NexT进行了微调。</p></blockquote><h1 id="序">序</h1><p>使用<strong>JavaScript</strong>实现之。</p><span id="more"></span><hr><h1 id="准备">准备</h1><p>本JS脚本适用于以下结构的代码块：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">figure</span> <span class="attr">class</span>=<span class="string">&quot;highlight&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">&quot;gutter&quot;</span>&gt;</span>...<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">&quot;code&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">pre</span>&gt;</span><span class="tag">&lt;<span class="name">code</span>&gt;</span>...<span class="tag">&lt;/<span class="name">code</span>&gt;</span><span class="tag">&lt;/<span class="name">pre</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">figure</span>&gt;</span></span><br></pre></td></tr></table></figure><blockquote><p>请注意：这是Hexo中大多数主题默认的代码块渲染结构。</p></blockquote><hr><h1 id="创建JavaScript脚本">创建JavaScript脚本</h1><p>在Hexo博客项目的<strong>根目录</strong>下创建<code>code-copy.js</code>文件。参考路径如下：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/source/js/code-copy.js</span><br></pre></td></tr></table></figure><blockquote><p>请注意：若<code>source</code>目录下<strong>没有</strong><code>js</code>文件夹，则<strong>手动创建之</strong>。</p></blockquote><p>并在<code>code-copy.js</code>文件中写入以下代码：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;DOMContentLoaded&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;figure.highlight&#x27;</span>).<span class="title function_">forEach</span>(<span class="function">(<span class="params">figure</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (figure.<span class="title function_">querySelector</span>(<span class="string">&#x27;.copy-btn&#x27;</span>)) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> copyBtn = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;button&#x27;</span>);</span><br><span class="line">    copyBtn.<span class="property">className</span> = <span class="string">&#x27;copy-btn&#x27;</span>;</span><br><span class="line">    copyBtn.<span class="property">title</span> = <span class="string">&#x27;复制&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 缩小后的复制图标（14*15）</span></span><br><span class="line">    <span class="keyword">const</span> copyIcon = <span class="string">`</span></span><br><span class="line"><span class="string">      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; height=&quot;14&quot; width=&quot;15&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;white&quot;&gt;</span></span><br><span class="line"><span class="string">        &lt;path d=&quot;M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z&quot;/&gt;</span></span><br><span class="line"><span class="string">      &lt;/svg&gt;</span></span><br><span class="line"><span class="string">    `</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 成功后显示的勾（14*15）</span></span><br><span class="line">    <span class="keyword">const</span> checkIcon = <span class="string">`</span></span><br><span class="line"><span class="string">      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; height=&quot;14&quot; width=&quot;15&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;#00cc66&quot;&gt;</span></span><br><span class="line"><span class="string">        &lt;path d=&quot;M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z&quot;/&gt;</span></span><br><span class="line"><span class="string">      &lt;/svg&gt;</span></span><br><span class="line"><span class="string">    `</span>;</span><br><span class="line"></span><br><span class="line">    copyBtn.<span class="property">innerHTML</span> = copyIcon;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 按钮样式（浅灰底、缩小）</span></span><br><span class="line">    <span class="title class_">Object</span>.<span class="title function_">assign</span>(copyBtn.<span class="property">style</span>, &#123;</span><br><span class="line">      <span class="attr">position</span>: <span class="string">&#x27;absolute&#x27;</span>,</span><br><span class="line">      <span class="attr">top</span>: <span class="string">&#x27;8px&#x27;</span>,</span><br><span class="line">      <span class="attr">right</span>: <span class="string">&#x27;8px&#x27;</span>,</span><br><span class="line">      <span class="attr">padding</span>: <span class="string">&#x27;4px&#x27;</span>,</span><br><span class="line">      <span class="attr">background</span>: <span class="string">&#x27;#aaa&#x27;</span>, </span><br><span class="line">      <span class="attr">border</span>: <span class="string">&#x27;none&#x27;</span>,</span><br><span class="line">      <span class="attr">borderRadius</span>: <span class="string">&#x27;4px&#x27;</span>,</span><br><span class="line">      <span class="attr">cursor</span>: <span class="string">&#x27;pointer&#x27;</span>,</span><br><span class="line">      <span class="attr">opacity</span>: <span class="string">&#x27;0.85&#x27;</span>,</span><br><span class="line">      <span class="attr">zIndex</span>: <span class="number">1000</span>,</span><br><span class="line">      <span class="attr">transition</span>: <span class="string">&#x27;opacity 0.2s ease&#x27;</span>,</span><br><span class="line">      <span class="attr">boxShadow</span>: <span class="string">&#x27;0 1px 3px rgba(0, 0, 0, 0.15)&#x27;</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    copyBtn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;mouseover&#x27;</span>, <span class="function">() =&gt;</span> copyBtn.<span class="property">style</span>.<span class="property">opacity</span> = <span class="string">&#x27;1&#x27;</span>);</span><br><span class="line">    copyBtn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;mouseout&#x27;</span>, <span class="function">() =&gt;</span> copyBtn.<span class="property">style</span>.<span class="property">opacity</span> = <span class="string">&#x27;0.85&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    copyBtn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> code = figure.<span class="title function_">querySelector</span>(<span class="string">&#x27;td.code&#x27;</span>);</span><br><span class="line">      <span class="keyword">const</span> text = code ? code.<span class="property">innerText</span> : <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">      navigator.<span class="property">clipboard</span>.<span class="title function_">writeText</span>(text).<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        copyBtn.<span class="property">innerHTML</span> = checkIcon;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">          copyBtn.<span class="property">innerHTML</span> = copyIcon;</span><br><span class="line">        &#125;, <span class="number">1000</span>);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    figure.<span class="property">style</span>.<span class="property">position</span> = <span class="string">&#x27;relative&#x27;</span>;</span><br><span class="line">    figure.<span class="title function_">appendChild</span>(copyBtn);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><hr><h1 id="引用JS脚本">引用JS脚本</h1><p>打开此文件：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">themes/next/layout/_partial/footer.swig</span><br></pre></td></tr></table></figure><p>在<code>footer.swig</code>文件中，找到<code>&lt;/body&gt;</code>标签之前，添加以下代码：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;/js/code-copy.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><blockquote><p>请注意：如果<strong>找不到</strong><code>&lt;/body&gt;</code>标签，则可以尝试在<code>footer.swig</code>文件<strong>末尾</strong>添加之。</p></blockquote><hr><h1 id="更新博客">更新博客</h1><p>运行Hexo三部曲：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure><p>可以输入<code>hexo s</code>在本地启动服务，访问<code>https://localhost:4000</code>查看效果。或者在<strong>GitHub Pages</strong>上查看效果。</p>]]></content>
-      
-      
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Tutorial</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Blog 5：[遊記]井冈山（更新中）</title>
+    <url>/posts/82cd8a81/</url>
+    <content><![CDATA[<h1 id="序">序</h1>
+<blockquote>
+<p>请注意：本博文按<strong>时间顺序</strong>组织。</p>
+</blockquote>
+<p>国内旅游我有两个“<strong>东南西北</strong>”的计划，我愿称之为<strong>大</strong>东南西北和<strong>小</strong>东南西北。我正在完成<strong>小</strong>东南西北的<strong>东</strong>。</p>
+<span id="more"></span>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>大东南西北，意思就是全国的东南西北要至少取四个有代表性的地方旅游一次。</p>
+<ul class="lvl-2">
+<li class="lvl-6">北：<s>目前我在北京上学</s>大一寒假去<strong>吉林吉林</strong>滑雪了。</li>
+<li class="lvl-6">南：<strong>尚未计划</strong>。</li>
+<li class="lvl-6">西：<strong>计划今年国庆去西安旅游</strong></li>
+<li class="lvl-6">东：去过<strong>山东泰安</strong>和<strong>青岛</strong>，以及<strong>上海</strong>、<strong>无锡</strong></li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>小东南西北，自不用说，就是相对<strong>湖南</strong>的东南西北了。</p>
+<ul class="lvl-2">
+<li class="lvl-6">北：<strong>湖北武汉</strong>，好吃，但是好危险。</li>
+<li class="lvl-6">南：<strong>尚未计划</strong>。</li>
+<li class="lvl-6">东：本篇博客的重头戏，<strong>江西吉安</strong>，具体说来是<strong>井冈山</strong>。</li>
+<li class="lvl-6">西：<strong>贵州铜仁</strong>，就这个暑假去的，爬<strong>梵净山</strong>，风景很好，但是被淋成落汤鸡了。</li>
+</ul>
+</li>
+</ul>
+<p>希望大四前可以完成这两个计划吧，毕竟还是很有希望的。</p>
+<hr>
+<h1 id="第-0-天：吉安">第 0 天：吉安</h1>
+<p>下午好，<strong>江西</strong>~</p>
+<p><img src="/posts/82cd8a81/%E5%90%89%E5%AE%89%E7%AB%99.jpg" alt="吉安站" title="抵达"></p>
+<h2 id="出发前">出发前</h2>
+<p>从18日起，我就要到<strong>井冈山</strong>去和<strong>湘贤汇航</strong>实践队成员参加社会实践活动，直至26日结束。今天提前一天到<strong>吉安</strong>做准备。说实话，17日到18日这一小段在<strong>吉安</strong>的时间，算得上是我第一次完完全全<strong>独自</strong>旅行。没有任何同伴，也没有任何计划，只有纯粹的自由。有点奇妙的感觉。<br>
+<em>（高铁、Switch满电、无尿、4小时.jpg）</em><br>
+<s>坐我边上的女生打农开麦被前排阿姨骂了，害怕</s></p>
+<h2 id="落地">落地</h2>
+<p>我总是喜欢把到达叫做落地，尽管并没有坐飞机。<br>
+对于人来说，双脚同时踏上地面，才有一种踏实的感觉，这就叫做脚踏实地。对我而言，可能只有整个人都在站台上的时候，我才会觉得真正到了这个地方吧。<br>
+打个的直奔酒店，环境很不错，司机师傅人也很好，他告诉我从<strong>吉安</strong>到<strong>井冈山</strong>打车要两三百，大学生还是老老实实去坐大巴吧……</p>
+<blockquote>
+<p>“你不是<strong>井冈山</strong>人吧？”<br>
+“你没有报销吧？有钱人，要去<strong>井冈山</strong>，人家不想坐大巴，又懒得坐火车，嫌麻烦，就打个的，又有报销。”</p>
+</blockquote>
+<p>太有道理了。<s>不过我好像有报销</s><br>
+师傅确实很友善，走的时候我第一次给一个司机师傅道谢。</p>
+<blockquote>
+<p>“谢谢师傅啊。”</p>
+</blockquote>
+<p>初来乍到碰见一个友善的陌生人还是挺不错的。</p>
+<h2 id="晚餐">晚餐</h2>
+<p>对于我这种人，到了一个新地方那必须要尝尝<strong>地地地道地地道道</strong>的美食。<br>
+于是直接美团点了<s>南昌拌粉</s><em>（没做攻略是这样的，当地有什么美食都不清白）</em>。</p>
+<p><img src="/posts/82cd8a81/%E5%8D%97%E6%98%8C%E6%8B%8C%E7%B2%89.jpg" alt="南昌拌粉" title="好吃的"></p>
+<p align="center" style="font-size:10px; color:#C0C0C0">腐竹，我加了腐竹</p> 
+<p>作为一个<strong>芙兰</strong>人，我觉得它还是有点<strong>清淡</strong>了。看上去是放了<strong>蛮多</strong>辣椒，但是咸也不咸，辣也不辣，不过<strong>口感倒是独特</strong>。这拌粉吃起来很<strong>清爽</strong>，没有<strong>热干面</strong>那种黏糊糊的感觉，很顺滑。配的汤很不错。</p>
+<p>吃饱喝足要不要出去逛逛，还没想好，先写到这吧。</p>
+<h2 id="夜行">夜行</h2>
+<p>那还是要散散步消化消化的。挑个最近的景点直接出发了。</p>
+<p><img src="/posts/82cd8a81/%E5%AF%BC%E8%88%AA.jpg" alt="导航" title="前往庐陵文化城"></p>
+<blockquote>
+<p><strong>庐陵</strong>，地名，位于<strong>中国江西省</strong>。<strong>吉安市</strong>在<strong>隋朝</strong>成为<strong>庐陵郡</strong>，故<strong>吉安</strong>古时又称<strong>庐陵</strong>。<strong>元</strong>初取“吉泰民安”之意改称<strong>吉安</strong>。<strong>民国三年庐陵县</strong>改称<strong>吉安县</strong>。———<a href="https://baike.baidu.com/item/%E5%BA%90%E9%99%B5/2836483">百度百科</a></p>
+</blockquote>
+<p><strong>吉安</strong>自古人杰地灵，乃是<strong>吉州福地</strong>、<strong>文章节义之邦</strong>。这么一小段路，给人第一感觉是城建规划良好，道路宽阔，功能完备。此时已日落，气温渐降，市民慢慢从空调房里回到街上散步消食。这种慢悠悠的生活节奏令我很舒服。<br>
+走着走着突然走上桥了———散漫到这种程度，甚至没看这<strong>庐陵文化城</strong>是沿江而建的。</p>
+<p><img src="/posts/82cd8a81/%E6%B1%9F%E6%99%AF.jpg" alt="江景" title="不是很清楚"></p>
+<p>此地已经被打造成类似公园的场所。沿着绿道走有商店、咖啡馆、书店（里面书不多，装潢倒不错）、小吃摊（世界的<strong>冰凉粉</strong>）。夜晚拜访很不错，江边很凉快，游人不多也不少，正好融进风景中。我刻意绕了远路，把两座桥都逛了一遍，准备撤的时候又被一座<strong>神秘建筑</strong>吸引了过去。</p>
+<p><img src="/posts/82cd8a81/%E5%87%A4%E5%87%B01.jpg" alt="凤凰" title="神秘建筑"></p>
+<p align="center" style="font-size:10px; color:#C0C0C0">这里是真有凤凰</p>
+<p>雕像前有露天剧院般的台阶座椅，已经聚集了许多人在观赏了。<br>
+不知道怎么，我瞥了一眼一旁的告示牌———没有灯，位置也不醒目，但是上面赫然写着：</p>
+<blockquote>
+<p><strong>凤凰水幕光影秀</strong><br>
+每晚演出时间：<strong>20:30</strong></p>
+</blockquote>
+<p>这时一看表，只有5分钟了，难怪人群都聚集在这。于是找了个空位坐下来歇脚、拍照。 琢磨一下怎么安排明天去<strong>井冈山</strong>的行程。</p>
+<blockquote>
+<p>叔叔，你要买水吗？<br>
+……？</p>
+</blockquote>
+<p>我面前正站着一个小孩，正举着一瓶矿泉水看着我。<br>
+原来已经变成叔叔了，今天睡不着了。</p>
+<p><img src="/posts/82cd8a81/%E5%87%A4%E5%87%B02.jpg" alt="凤凰" title="神秘建筑"></p>
+<p align="center" style="font-size:10px; color:#C0C0C0">凤凰展翅</p>
+<hr>
+<h1 id="第-1-天：有惊无险">第 1 天：有惊无险</h1>
+<p>按照昨天的规划，我还是打算坐大巴去<strong>井冈山</strong>。一看路线，竟有一站距离我宾馆只有 25 分钟步行路程，走走路就能免掉十几块去<strong>吉安西</strong>的网约车费用，岂不美哉。可是这却差点害死我。<br>
+我在<strong>某度地图</strong>上设定了这个<strong>人民广场站</strong>，还三番五次确认是否有重名的可能。谁料到一出宾馆大门，竟然下起<strong>太阳雨</strong>来，现在想想真可谓一个噩兆。抵达<strong>人民广场站</strong>后我就松懈下来，找了个阴处开始休息。<s>一边还喝了几杯米酿</s><br>
+还有七八分钟的时候，我掏出手机一看，总觉得不对。细看大巴的来车方向，竟然是马路对面，这下彻底晕了。在这边公交站望去，对面看不到有没有站台，但是手机上却明明白白的标着方向。要不要换边，现在做决定。<br>
+当然，我还是拿起行李又慌慌张张地过马路了。所幸，还是相信了<strong>科学</strong>。</p>
+<p><img src="/posts/82cd8a81/%E5%9F%BA%E5%9C%B0.jpg" alt="基地" title="基地"></p>
+<p align="center" style="font-size:10px; color:#C0C0C0">井冈山基地，环境还挺好的</p>  
+<p><img src="/posts/82cd8a81/%E5%A4%A9%E6%B0%94.jpg" alt="天气" title="天气"></p>
+<p align="center" style="font-size:10px; color:#C0C0C0">只是天气的确有点死了</p>  
+<h2 id="另一条路">另一条路</h2>
+<p>高中以来，我父母，奶奶（准确说是外婆，但是我特别讨厌这个“外”字，从来都是喊奶奶），劝我报考<strong>国防科技大学</strong>，到了<strong>无所不用其极</strong>的地步。甚至，我已经被 <strong>BUAA</strong> 录取了，他们还会在我耳旁念叨，说某同学与我一届，正是报的<strong>国防科大</strong>，每次回来，军装在身，多么漂亮！说某外地考生，斩获高分，仍然放弃名校，要上<strong>国防科大</strong>，其真实性，不可考究，但是他们在我耳边磨过来磨过去，我反正是确信有这样一号人物的。<br>
+我并非受不了军事化管理，只是觉得大学应当有更多的自由，否则如何对得起这 12 年的不自由？因此我从未考虑过报考它。不过，它的确在我心中蒙着一层神秘的面纱。</p>
+<p><img src="/posts/82cd8a81/%E6%BC%94%E8%AE%B2.jpg" alt="演讲" title="演讲"></p>
+<p align="center" style="font-size:10px; color:#C0C0C0">今天，机会来了</p>  
+<p>甚至是由一位本科就读于<strong>空军工程大学</strong>、在<strong>国防科技大学</strong>读研究生的学长来为我们讲演。这样一位人物，我倒觉得很亲切了，因为我的确认识在<strong>空军工程大学</strong>就读的某同学<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>，并不像所谓<strong>高分就读</strong>的某同学那么缥缈。<br>
+阅历丰富，做讲演时各种例证都是手到擒来，观感十分好。一把颠覆了军人在我心中不苟言笑的刻板印象。<br>
+也许，这真的是另一条道路？</p>
+<h1 id="第-2-天：上课、吃饭与昏昏欲睡">第 2 天：上课、吃饭与昏昏欲睡</h1>
+<p><img src="/posts/82cd8a81/%E8%AF%BE%E7%A8%8B.png" alt="课程" title="报告厅昏昏欲睡"></p>
+<p align="center" style="font-size:10px; color:#C0C0C0">教学安排</p>  
+<h2 id="想睡觉">想睡觉</h2>
+<p>早上六点多有个<s>神秘</s>早读，第一天入住又不太习惯，导致睡眠实在不充分。困啊……<br>
+基地的管理倒很松，时间也充裕，每天晚上还有时间更新博客。至于课程的内容，确实，老师已经竭尽全力追求新的讲课方式了，部分内容的确很不错。可惜，困啊……<br>
+伙食方面则大大超出预期了。菜品种类虽不是很丰富，不过可以任选，而且味道不错。此外，<strong>江西老表</strong>和我们<strong>芙兰</strong>人一样喜欢吃辣椒，甚至食堂还供应了<strong>剁辣椒</strong>，咸香酸辣，岂不美哉！<strong>比起我在北京吃的网购包装辣椒，这简直是天下无双</strong>。<em>（后半句是 AI 自动补全的，天下无双都被想出来了😦）</em></p>
+<h2 id="忠贞不渝">忠贞不渝</h2>
+<blockquote>
+<p>只有爱给你解开不死之谜。<br>
+<strong>费尔巴哈</strong></p>
+</blockquote>
+<p>两千年前，我们讲“山无陵，江水为竭。冬雷震震，夏雨雪。天地合，乃敢与君绝”；两百年前，我们讲“生命诚可贵，爱情价更高；若为自由故，二者皆可抛”；今天，它几乎成了一文不值的垃圾。<br>
+现代社会也许不会再有<strong>池煜华</strong>这样的人出现了，毕竟大家没有几个 70 年可以“<strong>浪费</strong>”。<br>
+什么是一诺千金，什么是千金一诺，她也许永远都不会知道了。她甚至不会知道自己已经等了七十年。镜子里的她老了，可她却不老，否则丈夫要怎样认出她来呢？<br>
+但是什么是爱，什么是眼泪，她一定是知道的。爱让她感受不死，眼泪让她感受活着。<br>
+后来她再也没有眼泪了，因为她终于等到了<strong>李才莲</strong>。只是镜子、信和家门口的小路已经永远埋没了。</p>
+<p><i class="fa fa-spinner" aria-hidden="true" style="color: #6A5ACD"></i>（未完待续）</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>同为24届毕业生的 P 君，又被称之为“<strong>天皇</strong>”。 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content>
       <categories>
-          
-          <category> Hexo教程 </category>
-          
+        <category>遊記</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> Hexo </tag>
-            
-            <tag> JavaScript </tag>
-            
-            <tag> Tutorial </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Blog 1：[詩歌]诗二首</title>
-      <link href="/posts/95afa136/"/>
-      <url>/posts/95afa136/</url>
-      
-        <content type="html"><![CDATA[<h1 id="川上">川上</h1><p>臺前瀧上望、曉霧隱晨輝<br>鳥鳴長天浪、凇華璃光杯<br>黛道負白雪、青枝承芬菲<br>墨川浮一葉、蒼雲何照歸</p><h1 id="予楊公之長安">予楊公之長安</h1><p>七十六年題名日、少年滿心在三千<br>而今秦川八百外、一步一顧瀟湘間<br>藤原魂斷蓬萊上、不見西行花滿天<br>月夜襲得心百感、落木生春又一年</p>]]></content>
-      
-      
+      <tags>
+        <tag>Travel</tag>
+        <tag>Trip</tag>
+        <tag>Mount Jinggang</tag>
+        <tag>Jiangxi Province</tag>
+        <tag>Ji&#39;an City</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Blog 7：[Hexo教程]更高级的 Markdown 渲染器：Markdown-it</title>
+    <url>/posts/e11361f1/</url>
+    <content><![CDATA[<div class="tips">
+<p>我正在使用 Markdown-it 来渲染此博文！</p>
+</div>
+<h1 id="序">序</h1>
+<p>Hexo 默认使用 <strong>hexo-renderer-marked</strong> 来渲染 Markdown 文件。此渲染器只支持一些基础语法。我们可以将其替换为更高级的 <strong>Markdown-it</strong> 渲染器。</p>
+<span id="more"></span>
+<hr>
+<h1 id="安装">安装</h1>
+<p>首先，您需要卸载原有的渲染器：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br></pre></td></tr></table></figure>
+<p>然后安装新的渲染器：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i hexo-renderer-markdown-it --save</span><br></pre></td></tr></table></figure>
+<p>接着，您需要安装三个 Markdown-it 子插件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i markdown-it-checkbox</span><br><span class="line">npm i markdown-it-imsize</span><br><span class="line">npm i markdown-it-expandable</span><br></pre></td></tr></table></figure>
+<div class="warning">
+<p>请注意：科学上网。</p>
+</div>
+<div class="tips">
+<p>Markdown-it 内置了许多子插件，您只需手动安装上述三个。</p>
+</div>
+<hr>
+<h1 id="配置">配置</h1>
+<p>在<strong>站点配置文件</strong>的尾部填写 Markdown 渲染器配置：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">markdown:</span></span><br><span class="line">  <span class="attr">preset:</span> <span class="string">&quot;default&quot;</span></span><br><span class="line">  <span class="attr">render:</span></span><br><span class="line">    <span class="attr">html:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">xhtmlOut:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">langPrefix:</span> <span class="string">&quot;language-&quot;</span></span><br><span class="line">    <span class="attr">breaks:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">linkify:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">typographer:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">quotes:</span> <span class="string">&quot;“”‘’&quot;</span></span><br><span class="line">  <span class="attr">enable_rules:</span></span><br><span class="line">  <span class="attr">disable_rules:</span></span><br><span class="line">  <span class="attr">plugins:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-abbr</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-cjk-breaks</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-deflist</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-emoji</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-footnote</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-ins</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-mark</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-sub</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-sup</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-checkbox</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-imsize</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-expandable</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">markdown-it-container</span></span><br><span class="line">      <span class="attr">options:</span> <span class="string">success</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">markdown-it-container</span></span><br><span class="line">      <span class="attr">options:</span> <span class="string">tips</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">markdown-it-container</span></span><br><span class="line">      <span class="attr">options:</span> <span class="string">warning</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">markdown-it-container</span></span><br><span class="line">      <span class="attr">options:</span> <span class="string">danger</span></span><br><span class="line">  <span class="attr">anchors:</span></span><br><span class="line">    <span class="attr">level:</span> <span class="number">1</span></span><br><span class="line">    <span class="attr">collisionSuffix:</span> <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="attr">permalink:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">permalinkClass:</span> <span class="string">&quot;header-anchor&quot;</span></span><br><span class="line">    <span class="attr">permalinkSide:</span> <span class="string">&quot;left&quot;</span></span><br><span class="line">    <span class="attr">permalinkSymbol:</span> <span class="string">&quot;¶&quot;</span></span><br><span class="line">    <span class="attr">case:</span> <span class="number">0</span></span><br><span class="line">    <span class="attr">separator:</span> <span class="string">&quot;-&quot;</span></span><br></pre></td></tr></table></figure>
+<div class="tips">
+<p>要禁用某插件，您可<strong>注释</strong>该行。例如：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># - markdown-it-abbr</span></span><br></pre></td></tr></table></figure>
+<p><s>或者直接删了</s></p>
+</div>
+<div class="warning">
+<p>上述代码的 <code>level</code> 字段表示最上级锚点的层级。当设置为 1 时，表示 <code>&lt;h1&gt;</code> 到 <code>&lt;h6&gt;</code> 都可以作为锚点。用于目录的跳转。</p>
+</div>
+<hr>
+<h1 id="修改CSS">修改CSS</h1>
+<p><a href="#Section">自定义容器</a>的样式需要您手动修改。对于NexT主题，您需要在以下路径的文件中添加CSS样式代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">themes\next\source\css\_common\scaffolding\base.styl</span><br></pre></td></tr></table></figure>
+<p>参考样式：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.tips</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">background-color</span> rgba(<span class="number">52</span>,<span class="number">152</span>,<span class="number">219</span>,.<span class="number">3</span>);</span><br><span class="line">    <span class="attribute">border-left</span> <span class="number">4px</span> solid rgb(<span class="number">52</span>,<span class="number">152</span>,<span class="number">219</span>);</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">darken</span>(<span class="built_in">rgb</span>(<span class="number">52</span>,<span class="number">152</span>,<span class="number">219</span>),<span class="number">20%</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.success</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">background-color</span> rgba(<span class="number">46</span>,<span class="number">204</span>,<span class="number">113</span>,.<span class="number">3</span>);</span><br><span class="line">    <span class="attribute">border-left</span> <span class="number">4px</span> solid rgb(<span class="number">46</span>,<span class="number">204</span>,<span class="number">113</span>);</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">darken</span>(<span class="built_in">rgb</span>(<span class="number">46</span>,<span class="number">204</span>,<span class="number">113</span>),<span class="number">20%</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.warning</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">background-color</span> rgba(<span class="number">241</span>,<span class="number">196</span>,<span class="number">15</span>,.<span class="number">3</span>);</span><br><span class="line">    <span class="attribute">border-left</span> <span class="number">4px</span> solid rgb(<span class="number">241</span>,<span class="number">196</span>,<span class="number">15</span>);</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">darken</span>(<span class="built_in">rgb</span>(<span class="number">241</span>,<span class="number">196</span>,<span class="number">15</span>),<span class="number">20%</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.danger</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">background-color</span> rgba(<span class="number">231</span>,<span class="number">76</span>,<span class="number">60</span>,.<span class="number">3</span>);</span><br><span class="line">    <span class="attribute">border-left</span> <span class="number">4px</span> solid rgb(<span class="number">231</span>,<span class="number">76</span>,<span class="number">60</span>);</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">darken</span>(<span class="built_in">rgb</span>(<span class="number">231</span>,<span class="number">76</span>,<span class="number">60</span>),<span class="number">20%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="tips">
+<p>其他主题，您可<strong>自行查找</strong></p>
+</div>
+<hr>
+<h1 id="调用">调用</h1>
+<h2 id="基础">基础</h2>
+<table>
+<thead>
+<tr>
+<th>插件</th>
+<th>描述</th>
+<th>语法</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>markdown-it-abbr</td>
+<td>注释</td>
+<td><code>*[HTML]: Hyper Text Markup Language</code></td>
+<td>*[HTML]: Hyper Text Markup Language</td>
+</tr>
+<tr>
+<td>markdown-it-emoji</td>
+<td>表情</td>
+<td><code>:+1:</code></td>
+<td>👍</td>
+</tr>
+<tr>
+<td>markdown-it-footnote</td>
+<td>脚注</td>
+<td><code>文本[^1]文本</code></td>
+<td>文本<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>文本</td>
+</tr>
+<tr>
+<td>markdown-it-ins</td>
+<td>下划线</td>
+<td><code>++Inserted text++</code></td>
+<td><ins>Inserted text</ins></td>
+</tr>
+<tr>
+<td>markdown-it-mark</td>
+<td>突出显示</td>
+<td><code>==Marked text==</code></td>
+<td><mark>Marked text</mark></td>
+</tr>
+<tr>
+<td>markdown-it-sub</td>
+<td>下标</td>
+<td><code>H~2~O</code></td>
+<td>H<sub>2</sub>O</td>
+</tr>
+<tr>
+<td>markdown-it-sup</td>
+<td>上标</td>
+<td><code>X^2^</code></td>
+<td>X<sup>2</sup></td>
+</tr>
+<tr>
+<td>markdown-it-checkbox</td>
+<td>复选框</td>
+<td><code>- []未选中</code><br><code>- [x]已选中</code></td>
+<td><input type="checkbox" id="checkbox1"><label for="checkbox1">未选中</label><br><input type="checkbox" id="checkbox0" checked="true"><label for="checkbox0">已选中</label></td>
+</tr>
+</tbody>
+</table>
+<h2 id="进阶">进阶</h2>
+<h3 id="折叠">折叠</h3>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">+++ <span class="strong">**点击此处**</span></span><br><span class="line">这是被隐藏的内容。</span><br><span class="line">+++</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<details open>
+<summary><span class="pre-summary">&nbsp;</span><strong>点击此处</strong></summary><p>这是被隐藏的内容。</p>
+</details>
+<p><a id="Section"></a></p>
+<h3 id="自定义容器">自定义容器</h3>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">::: tips</span><br><span class="line"><span class="strong">**提示**</span></span><br><span class="line">这是一个提示</span><br><span class="line">:::</span><br><span class="line"></span><br><span class="line">::: warning</span><br><span class="line"><span class="strong">**警告**</span></span><br><span class="line">这是一个警告</span><br><span class="line">:::</span><br><span class="line"></span><br><span class="line">::: danger</span><br><span class="line"><span class="strong">**危险**</span></span><br><span class="line">这是一个危险信号</span><br><span class="line">:::</span><br><span class="line"></span><br><span class="line">::: success</span><br><span class="line"><span class="strong">**成功**</span></span><br><span class="line">这是一个成功信号</span><br><span class="line">:::</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<div class="tips">
+<p><strong>提示</strong><br>
+这是一个提示</p>
+</div>
+<div class="warning">
+<p><strong>警告</strong><br>
+这是一个警告</p>
+</div>
+<div class="danger">
+<p><strong>危险</strong><br>
+这是一个危险信号</p>
+</div>
+<div class="success">
+<p><strong>成功</strong><br>
+这是一个成功信号</p>
+</div>
+<hr>
+<h1 id="推荐">推荐</h1>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>查找 Emoji 的写法，您可参考：<a href="https://www.emojiall.com/zh-hans">EMOJIALL</a></p>
+</li>
+<li class="lvl-2">
+<p>查阅 Markdown-it 文档，您可参考：<a href="https://mdit-plugins.github.io/zh/">Markdown It 插件</a></p>
+</li>
+<li class="lvl-2">
+<p>了解更多 Markdown 语法，您可参考：<a href="https://markdown.com.cn/">Markdown 教程</a></p>
+</li>
+</ul>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>这是参考文献。 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content>
       <categories>
-          
-          <category> 詩歌 </category>
-          
+        <category>Hexo教程</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> Poem </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-  
-  
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Tutorial</tag>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
 </search>

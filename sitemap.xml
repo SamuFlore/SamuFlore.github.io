@@ -110,13 +110,6 @@
 
   
   <url>
-    <loc>http://samuflore.top/tags/Introduction/</loc>
-    <lastmod>2025-07-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://samuflore.top/tags/Poem/</loc>
     <lastmod>2025-07-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -124,14 +117,7 @@
   </url>
   
   <url>
-    <loc>http://samuflore.top/tags/Picture/</loc>
-    <lastmod>2025-07-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://samuflore.top/tags/Pixiv/</loc>
+    <loc>http://samuflore.top/tags/Introduction/</loc>
     <lastmod>2025-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -153,6 +139,20 @@
   
   <url>
     <loc>http://samuflore.top/tags/Tutorial/</loc>
+    <lastmod>2025-07-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuflore.top/tags/Picture/</loc>
+    <lastmod>2025-07-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuflore.top/tags/Pixiv/</loc>
     <lastmod>2025-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -210,14 +210,14 @@
   </url>
   
   <url>
-    <loc>http://samuflore.top/categories/%E6%8F%92%E7%95%AB/</loc>
+    <loc>http://samuflore.top/categories/Hexo%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2025-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://samuflore.top/categories/Hexo%E6%95%99%E7%A8%8B/</loc>
+    <loc>http://samuflore.top/categories/%E6%8F%92%E7%95%AB/</loc>
     <lastmod>2025-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
