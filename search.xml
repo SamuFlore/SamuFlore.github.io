@@ -54,27 +54,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Blog 1：[詩歌]诗二首</title>
-    <url>/posts/95afa136/</url>
-    <content><![CDATA[<h1 id="川上">川上</h1>
-<p>臺前瀧上望、曉霧隱晨輝<br>
-鳥鳴長天浪、凇華璃光杯<br>
-黛道負白雪、青枝承芬菲<br>
-墨川浮一葉、蒼雲何照歸</p>
-<h1 id="予楊公之長安">予楊公之長安</h1>
-<p>七十六年題名日、少年滿心在三千<br>
-而今秦川八百外、一步一顧瀟湘間<br>
-藤原魂斷蓬萊上、不見西行花滿天<br>
-月夜襲得心百感、落木生春又一年</p>
-]]></content>
-      <categories>
-        <category>詩歌</category>
-      </categories>
-      <tags>
-        <tag>Poem</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Blog 7：[Hexo教程]更高级的 Markdown 渲染器：Markdown-it</title>
     <url>/posts/e11361f1/</url>
     <content><![CDATA[<div class="tips">
@@ -494,8 +473,29 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-        <tag>JavaScript</tag>
         <tag>Tutorial</tag>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Blog 1：[詩歌]诗二首</title>
+    <url>/posts/95afa136/</url>
+    <content><![CDATA[<h1 id="川上">川上</h1>
+<p>臺前瀧上望、曉霧隱晨輝<br>
+鳥鳴長天浪、凇華璃光杯<br>
+黛道負白雪、青枝承芬菲<br>
+墨川浮一葉、蒼雲何照歸</p>
+<h1 id="予楊公之長安">予楊公之長安</h1>
+<p>七十六年題名日、少年滿心在三千<br>
+而今秦川八百外、一步一顧瀟湘間<br>
+藤原魂斷蓬萊上、不見西行花滿天<br>
+月夜襲得心百感、落木生春又一年</p>
+]]></content>
+      <categories>
+        <category>詩歌</category>
+      </categories>
+      <tags>
+        <tag>Poem</tag>
       </tags>
   </entry>
 </search>
