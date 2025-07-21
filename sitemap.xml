@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://samuflore.top/posts/ff51cb4c/</loc>
+    
+    <lastmod>2025-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://samuflore.top/posts/82cd8a81/</loc>
     
     <lastmod>2025-07-21</lastmod>
@@ -110,7 +119,7 @@
 
   
   <url>
-    <loc>http://samuflore.top/tags/Introduction/</loc>
+    <loc>http://samuflore.top/tags/Poem/</loc>
     <lastmod>2025-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -138,13 +147,6 @@
   </url>
   
   <url>
-    <loc>http://samuflore.top/tags/Poem/</loc>
-    <lastmod>2025-07-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://samuflore.top/tags/Picture/</loc>
     <lastmod>2025-07-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -153,6 +155,13 @@
   
   <url>
     <loc>http://samuflore.top/tags/Pixiv/</loc>
+    <lastmod>2025-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuflore.top/tags/Introduction/</loc>
     <lastmod>2025-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -200,17 +209,45 @@
     <priority>0.2</priority>
   </url>
   
-
-  
   <url>
-    <loc>http://samuflore.top/categories/Hexo%E6%95%99%E7%A8%8B/</loc>
+    <loc>http://samuflore.top/tags/SEO/</loc>
     <lastmod>2025-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
+    <loc>http://samuflore.top/tags/Baidu/</loc>
+    <lastmod>2025-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuflore.top/tags/Google/</loc>
+    <lastmod>2025-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuflore.top/tags/Bing/</loc>
+    <lastmod>2025-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+
+  
+  <url>
     <loc>http://samuflore.top/categories/%E8%A9%A9%E6%AD%8C/</loc>
+    <lastmod>2025-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuflore.top/categories/Hexo%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2025-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
