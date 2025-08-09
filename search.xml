@@ -618,16 +618,21 @@ L：好的，谢谢！</p>
 <h1 id="启用post-asset-folder开关">启用post_asset_folder开关</h1>
 <p>在<strong>站内配置文件</strong><code>_config.yml</code>中，<code>Ctrl + F</code>搜索字段<code>post_asset_folder</code>，将其值设置为<code>true</code>。此操作将允许在<code>hexo new &quot;filename&quot;</code>时，在<code>source/_posts/</code>目录下创建同名文件夹，以管理博文中的各种附件。</p>
 <hr>
-<p><s># 安装hexo-asset-image插件</s></p>
-<blockquote>
-<p>注意<strong>科学上网~</strong></p>
-</blockquote>
-<p>在Hexo根目录下打开<code>Git Bash</code>，输入：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+<p><s># 安装hexo-asset-image插件</s><br>
+<s>&gt; 注意<strong>科学上网</strong></s></p>
+<p><s>在Hexo根目录下打开<code>Git Bash</code>，输入：</s><s><code>bash~~ ~~npm install https://github.com/CodeFalling/hexo-asset-image --save~~ ~~</code></s><br>
+<s>等待。</s><br>
+<s>&gt; 本机测试时，<code>npm install hexo-asset-image --save</code>无法实现上述功能，因而换用。读者可以自行尝试之。</s></p>
+<div class="warning">
+<p><strong>注意</strong><br>
+本条更新于8/8/25，<code>hexo-asset-image</code> 插件已经失效。换用 <code>hexo-asset-img</code> 插件。</p>
+</div>
+<h1 id="安装hexo-asset-img插件">安装hexo-asset-img插件</h1>
+<p>在 Hexo 根目录下打开 Git Bash，输入：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-asset-img --save</span><br></pre></td></tr></table></figure>
 <p>等待。</p>
-<blockquote>
-<p>本机测试时，<code>npm install hexo-asset-image --save</code>无法实现上述功能，因而换用。读者可以自行尝试之。</p>
-</blockquote>
+<p>修改站点配置文件 <code>_config.yml</code>。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">marked:</span></span><br><span class="line">  <span class="attr">prependRoot:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">postAsset:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">relative_link:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
 <hr>
 <h1 id="在Markdown中引用图片">在Markdown中引用图片</h1>
 <p>在博文中，引用图片的语法如下：</p>
