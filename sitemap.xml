@@ -11,6 +11,15 @@
   </url>
   
   <url>
+    <loc>http://samuflore.top/about/index.html</loc>
+    
+    <lastmod>2025-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://samuflore.top/posts/8a8b0861/</loc>
     
     <lastmod>2025-08-09</lastmod>
@@ -32,15 +41,6 @@
     <loc>http://samuflore.top/posts/82cd8a81/</loc>
     
     <lastmod>2025-07-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://samuflore.top/about/index.html</loc>
-    
-    <lastmod>2025-07-23</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -179,7 +179,7 @@
   </url>
   
   <url>
-    <loc>http://samuflore.top/tags/Markdown/</loc>
+    <loc>http://samuflore.top/tags/Introduction/</loc>
     <lastmod>2025-08-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -221,7 +221,7 @@
   </url>
   
   <url>
-    <loc>http://samuflore.top/tags/Introduction/</loc>
+    <loc>http://samuflore.top/tags/Markdown/</loc>
     <lastmod>2025-08-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

@@ -301,8 +301,6 @@ kbd {
 .tips {
   padding-left: 10px;
   padding-right: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
   background-color: rgba(52,152,219,0.3);
   border-left: 4px solid #3498db;
   color: #217bb8;
@@ -310,8 +308,6 @@ kbd {
 .success {
   padding-left: 10px;
   padding-right: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
   background-color: rgba(46,204,113,0.3);
   border-left: 4px solid #2ecc71;
   color: #25a35a;
@@ -319,8 +315,6 @@ kbd {
 .warning {
   padding-left: 10px;
   padding-right: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
   background-color: rgba(241,196,15,0.3);
   border-left: 4px solid #f1c40f;
   color: #c29d0b;
@@ -328,8 +322,6 @@ kbd {
 .danger {
   padding-left: 10px;
   padding-right: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
   background-color: rgba(231,76,60,0.3);
   border-left: 4px solid #e74c3c;
   color: #cf2b1a;
@@ -1307,7 +1299,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #5096ff;
+  background: #ff5409;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
