@@ -4,12 +4,21 @@
   let errorDay = 365;
   // 确保能够获取到文章时间以及在文章详情页
   let times = document.getElementsByTagName('time');
+  console.log(times);
   if (times.length === 0) { return; }
   let posts = document.getElementsByClassName('post-body');
   if (posts.length === 0) { return; }
 
   // 获取系统当前的时间
-  let pubTime = new Date(times[1].dateTime);  /* 文章发布时间戳 */
+  let pubTime;
+  if (times.length === 2)
+  {
+    pubTime = new Date(times[1].dateTime);  /* 文章更新时间戳 */
+  }
+  else
+  {
+    pubTime = new Date(times[0].dateTime);  /* 文章发布时间戳 */
+  }
   let now = Date.now()  /* 当前时间戳 */
   let interval = parseInt(now - pubTime)
   let days = parseInt(interval / 86400000)
