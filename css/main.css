@@ -271,7 +271,8 @@ blockquote {
   color: var(--blockquote-color);
   margin: 0;
   padding: 0 15px;
-  font-family: Mozilla Headline, Noto Serif SC;
+  font-family: Mozilla Headline, 'Cactus Classical Serif', 'LXGW WenKai TC', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 0.9em;
   background-color: #f9f9f9;
 }
 blockquote cite::before {
@@ -1029,7 +1030,7 @@ pre .javascript .function {
   color: var(--brand-hover-color);
 }
 .site-title {
-  font-family: 'Noto Sans SC Black', 'LXGW WenKai TC', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Pinyon Script', 'LXGW WenKai TC', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1.375em;
   font-weight: normal;
   margin: 0;
@@ -1213,7 +1214,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff6754;
+  background: #f9ff65;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
