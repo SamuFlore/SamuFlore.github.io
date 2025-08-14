@@ -197,6 +197,13 @@
   </url>
   
   <url>
+    <loc>https://samuflore.top/tags/Introduction/</loc>
+    <lastmod>2025-08-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://samuflore.top/tags/CO/</loc>
     <lastmod>2025-08-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -226,6 +233,13 @@
   
   <url>
     <loc>https://samuflore.top/tags/Two-s-Complement/</loc>
+    <lastmod>2025-08-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://samuflore.top/tags/Markdown/</loc>
     <lastmod>2025-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -267,34 +281,6 @@
   </url>
   
   <url>
-    <loc>https://samuflore.top/tags/Introduction/</loc>
-    <lastmod>2025-08-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://samuflore.top/tags/NexT/</loc>
-    <lastmod>2025-08-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://samuflore.top/tags/Font/</loc>
-    <lastmod>2025-08-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://samuflore.top/tags/Markdown/</loc>
-    <lastmod>2025-08-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://samuflore.top/tags/SEO/</loc>
     <lastmod>2025-08-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -317,6 +303,20 @@
   
   <url>
     <loc>https://samuflore.top/tags/Bing/</loc>
+    <lastmod>2025-08-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://samuflore.top/tags/NexT/</loc>
+    <lastmod>2025-08-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://samuflore.top/tags/Font/</loc>
     <lastmod>2025-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
