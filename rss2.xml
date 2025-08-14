@@ -9,8 +9,27 @@
     <atom:link href="http://samuflore.top/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>一人倒、衆人倒。</description>
-    <pubDate>Thu, 14 Aug 2025 04:10:44 GMT</pubDate>
+    <pubDate>Thu, 14 Aug 2025 05:11:53 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>加密文章测试</title>
+      <link>http://samuflore.top/posts/7e709353/</link>
+      <guid>http://samuflore.top/posts/7e709353/</guid>
+      <pubDate>Thu, 14 Aug 2025 04:59:28 GMT</pubDate>
+      
+      <description>此處已加密</description>
+      
+      
+      
+      <content:encoded><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="密碼錯誤，請重試。" data-whm="哈希錯誤，您可繼續查看之。">  <script id="hbeData" type="hbeData" data-hmacdigest="e51da5b86cbbc76e46e127f10949edd09b362ac81c170ab7e01736f04b5aa8c8">e55adbd63f533766c9f21930da64422ba895a6bdbe5300133465591509dc5c39</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-xray">      <input class="hbe hbe-input-field hbe-input-field-xray" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-xray" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-xray">此處輸入密碼</span>      </label>      <svg class="hbe hbe-graphic hbe-graphic-xray" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>        <path d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0"></path>      </svg>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content:encoded>
+      
+      
+      
+      
+      <comments>http://samuflore.top/posts/7e709353/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>[CO Pre]原码、反码与补码</title>
@@ -311,39 +330,6 @@
       
       
       <comments>http://samuflore.top/posts/8a8b0861/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Blog 1：[詩歌]诗二首</title>
-      <link>http://samuflore.top/posts/95afa136/</link>
-      <guid>http://samuflore.top/posts/95afa136/</guid>
-      <pubDate>Tue, 15 Jul 2025 10:30:43 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h1 id=&quot;川上&quot;&gt;川上&lt;/h1&gt;
-&lt;p&gt;臺前瀧上望、曉霧隱晨輝&lt;br&gt;
-鳥鳴長天浪、凇華璃光杯&lt;br&gt;
-黛道負白雪、青枝承芬菲&lt;br&gt;
-墨川浮一葉、蒼雲何照歸&lt;/p&gt;
-&lt;h1 id=&quot;予楊公之長安&quot;&gt;予楊公之長安&lt;/h1&gt;
-&lt;p&gt;七十六年題名日、少年滿心在三千&lt;br&gt;
-而今</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h1 id="川上">川上</h1><p>臺前瀧上望、曉霧隱晨輝<br>鳥鳴長天浪、凇華璃光杯<br>黛道負白雪、青枝承芬菲<br>墨川浮一葉、蒼雲何照歸</p><h1 id="予楊公之長安">予楊公之長安</h1><p>七十六年題名日、少年滿心在三千<br>而今秦川八百外、一步一顧瀟湘間<br>藤原魂斷蓬萊上、不見西行花滿天<br>月夜襲得心百感、落木生春又一年</p>]]></content:encoded>
-      
-      
-      <category domain="http://samuflore.top/categories/%E8%A9%A9%E6%AD%8C/">詩歌</category>
-      
-      
-      <category domain="http://samuflore.top/tags/Poem/">Poem</category>
-      
-      
-      <comments>http://samuflore.top/posts/95afa136/#disqus_thread</comments>
       
     </item>
     
