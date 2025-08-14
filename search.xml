@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Blog 1：[詩歌]诗二首</title>
+    <url>/posts/95afa136/</url>
+    <content><![CDATA[<h1 id="川上">川上</h1>
+<p>臺前瀧上望、曉霧隱晨輝<br>
+鳥鳴長天浪、凇華璃光杯<br>
+黛道負白雪、青枝承芬菲<br>
+墨川浮一葉、蒼雲何照歸</p>
+<h1 id="予楊公之長安">予楊公之長安</h1>
+<p>七十六年題名日、少年滿心在三千<br>
+而今秦川八百外、一步一顧瀟湘間<br>
+藤原魂斷蓬萊上、不見西行花滿天<br>
+月夜襲得心百感、落木生春又一年</p>
+]]></content>
+      <categories>
+        <category>詩歌</category>
+      </categories>
+      <tags>
+        <tag>Poem</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Blog 2：[Hexo教程]Hexo之代码块添加复制按钮</title>
     <url>/posts/8a8b0861/</url>
     <content><![CDATA[<div class="danger">
@@ -56,24 +77,19 @@
       </tags>
   </entry>
   <entry>
-    <title>Blog 1：[詩歌]诗二首</title>
-    <url>/posts/95afa136/</url>
-    <content><![CDATA[<h1 id="川上">川上</h1>
-<p>臺前瀧上望、曉霧隱晨輝<br>
-鳥鳴長天浪、凇華璃光杯<br>
-黛道負白雪、青枝承芬菲<br>
-墨川浮一葉、蒼雲何照歸</p>
-<h1 id="予楊公之長安">予楊公之長安</h1>
-<p>七十六年題名日、少年滿心在三千<br>
-而今秦川八百外、一步一顧瀟湘間<br>
-藤原魂斷蓬萊上、不見西行花滿天<br>
-月夜襲得心百感、落木生春又一年</p>
+    <title>Blog 3：[插畫]本站背景图</title>
+    <url>/posts/85c2880f/</url>
+    <content><![CDATA[<p>原作 <a href="https://www.pixiv.net/users/6681779"><strong>黄瓜</strong></a><br>
+原题 <strong>89</strong><br>
+<a href="https://www.pixiv.net/artworks/110724378">Pixiv: https://www.pixiv.net/artworks/110724378</a><br>
+<img src="/posts/85c2880f/background.png" alt="title" title="结界组赛高~"></p>
 ]]></content>
       <categories>
-        <category>詩歌</category>
+        <category>插畫</category>
       </categories>
       <tags>
-        <tag>Poem</tag>
+        <tag>Picture</tag>
+        <tag>Pixiv</tag>
       </tags>
   </entry>
   <entry>
@@ -136,72 +152,120 @@
       </tags>
   </entry>
   <entry>
-    <title>序</title>
-    <url>/posts/9eefdea9/</url>
-    <content><![CDATA[<p><i class="fa fa-comment" aria-hidden="true" style="color: #6A5ACD; font-size: 1.5rem;"></i><span style="font-size: 12px; color: #695acd91;"> 随机句子由一言 API 提供</span></p>
-<p id="hitokoto" style="text-align:center;font-weight:bold;color:#6A5ACD">
-  “<a href="#" id="hitokoto_text">:D 获取中...</a>”
-</p>
-<script>
-  fetch('https://v1.hitokoto.cn')
-    .then(response => response.json())
-    .then(data => {
-      const hitokoto = document.querySelector('#hitokoto_text')
-      hitokoto.href = `https://hitokoto.cn/?uuid=${data.uuid}`
-      hitokoto.innerText = data.hitokoto
-    })
-    .catch(console.error)
-</script>
-<blockquote>
-<p>“创作是并没有什么秘诀，能够交头接耳，一句话就传授给别一个的，倘不然，只要有这秘诀，就真可以登广告，收学费，开一个三天包成文豪学校了。以中国之大，或者也许会有罢，但是，这其实是骗子。”<br>
-<strong>《不应该那么写》 鲁迅</strong></p>
-</blockquote>
-<p>我已经记了若干天的博文，这才想起来应该为整个博客写一篇序。先前一直用<a href="http://samuflore.top/posts/95afa136/">两篇小诗</a>充门面，观赏了几位大佬<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>的博客页面之后，决心要做一些正式的事情了。<br>
-于是我又选择了这个将要睡觉的时间开始。<br>
-按照我妈的说法，我仿佛永远都选择将要睡觉的这个时间点开始做所谓“重要的事”，譬如突然要给 200G 的压缩包解压缩<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>，或者安装进度到了70%……总之一条，是不能关电脑，也不能安心上床，结果“搞得大家都睡不了觉”。可是这个时间段恰好是最适合开始做某件事的时候——未必能做完，但是能开个好头。<br>
-<strong>所以，现在我要写小序了。</strong></p>
+    <title>[CO Pre]原码、反码与补码</title>
+    <url>/posts/908cc5fb/</url>
+    <content><![CDATA[<h1 id="序">序</h1>
+<p>计组 Pre 开始了，但是我把上学期学的内容都忘了（<br>
+所以先从<strong>数制</strong>开始吧。</p>
 <span id="more"></span>
-<h1 id="字与码">字与码</h1>
-<p>我进入六系既成事实，那么接下来的若干年必然是与代码打交道居多。这博客正好可以记录我的编程之旅，也算是为自己留下一点纪念。<br>
-所谓<strong>码字</strong>一词，在博客的创作过程中，真可谓十分贴切。使用 Markdown 编写博文，甚至于使用 HTML。Markdown 如此之简洁和优雅，几乎融于文字之中，正是<strong>字</strong>与<strong>码</strong>的结合。HTML 则时常将我从<strong>字</strong>里拉回<strong>码</strong>中。我不知道<strong>古法写作</strong>是否会长盛不衰，不过其面临这样一种对手，或许会走入另一条道路上。<br>
-<strong>古法写作</strong>，我杜撰了这个词，但使用起来很奇怪。何谓“古”，很难说清。如果用创作文字之方法区分，则没有明确的界限，或者以 AI 辅佐写作之出现来划分，又显得这个“古”字很“新”了，并不贴切。可是论其本质，那么所谓古法、码字，又殊途同归了，那就是<strong>记录</strong>，<strong>记录</strong>。<br>
-古代，我们往石头上刻，往竹简上刻，这就叫做“刻录”。后来<strong>蔡伦</strong>改良了造纸术，我们就往纸上记，这就叫做“记录”。记了几千年，后来发明了软盘、磁带、硬盘，我们又回到刻。以上种种，无非是留存人存在过的痕迹。每个人都是时代的一粒沙，无后的，一代人的时间就会消失得无影无踪；好一些的，也不过三四代而已。流芳百世，少之又少。<strong>而文字的生命却是决定于载体</strong>。流传千年的语言不少，而其载体是人，这又回到了人在时代面前之渺小。譬如<strong>拉丁语</strong>，早已成为冢中枯骨。而文字，文字，载体是物，物质世界正是文字世界。在这样宏观的视角来看，似乎并无必要将<strong>字</strong>与<strong>码</strong>划清界限。<br>
-创作方面，<strong>字</strong>与<strong>码</strong>仿佛又有所相通。这里又可说起<strong>古法写作</strong>了。不论概念，可以明确的是自<strong>生成式人工智能</strong>广泛应用后，早已不是所谓<strong>古法写作</strong>的时代了。然而其方法和宗旨是经久不衰的，并且不仅限于<strong>字</strong>，也是可以推广到<strong>码</strong>上的。倘若今天我们<strong>突然</strong>需要写一篇 5000 字的<strong>法律与科技</strong>结课报告<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>，那么不但要用 AI ，还要<strong>严谨地</strong><sup class="footnote-ref"><a href="#fn3" id="fnref3:1">[3:1]</a></sup>用，所谓<strong>古法</strong>，在期末周，在水课面前，自然是毫不犹豫地放弃的。然而平时的创作，如果依赖于 AI ，后果确实不堪设想。文笔是一定会生疏的，危害更甚于提笔忘字，到了有口说不出、有笔写不了的地步。<strong>更何况互联网的混乱已经相当程度摧残了各种语言</strong>。<strong>码</strong>的时候，同样会遭遇这种困境。确实，用 <strong>Copilot</strong> 或 <strong>Fitten Code</strong> 代行一些结构高度重复的代码编写，节约时间用于思考。可是人总是顺应惰性，<code>Tab</code> 按个不停，一眨眼，就连思考也被<strong>自动补全</strong>了。这岂不与前述的面临一样的麻烦吗？<br>
-<strong>字</strong>与<strong>码</strong>，这两者的界限，似乎并不那么清晰。<br>
-总之，我会尽量继续探索这二者——当然，是以一篇篇博文的形式，而非论文。也许一切明了的时候，我会写出一篇总的，来综述我的观点，而不是像这样一篇凌晨一点写的小序——<strong>散</strong>、<strong>乱</strong>、<strong>迷</strong>。不明了的时候，当然，继续更新些<strong>别的</strong>。<br>
-<strong>仿佛找到了一个比游戏更有意思的事情。</strong><br>
-构建本站的时候，我的想法通常不会有明确的规划。如果您不知道从哪开始，建议您从 <a href="http://samuflore.top/about/"><i class="fa fa-thumbs-up" aria-hidden="true"></i> 此处</a> 开始探索。<br>
-<strong>感谢您的时间。</strong></p>
-<hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p><a href="https://thysrael.github.io/">钟鼓楼</a>、<a href="https://hyggge.github.io/#!">Hyggge’s Blog</a>、<a href="https://x-parker.github.io/">Parker’s Blog</a> ，以及其他大佬。 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+<hr>
+<h1 id="机器数">机器数</h1>
+<p>一个数在计算机中的二进制表示形式被称为<strong>机器数</strong>。<br>
+机器数是有符号的，计算机中将机器数的最高位（最左边）称为符号位，用以表示符号。0 表示正数，1 表示负数。</p>
+<hr>
+<h1 id="真值">真值</h1>
+<p>机器数的<strong>真值</strong>是指该机器数对应的实际数值。<br>
+对于一个有符号数，它的机器数未必等于它本身。<br>
+譬如十进制数 -7，它的机器数为 10000111，但 10000111 如果当作二进制表示，对应的十进制数是 135。故 -7 的机器数的真值应该是 00000111。</p>
+<hr>
+<h1 id="原码">原码</h1>
+<p><strong>原码</strong>就是<strong>符号位</strong>和<strong>真值</strong>的组合。即用最高位表示符号，其余位表示数字大小。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>[+1]原码：0000 0001</p>
 </li>
-<li id="fn2" class="footnote-item"><p>我可能正准备游玩 <strong>The Elder Scrolls V: Skyrim</strong> 的某个整合包（ <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+<li class="lvl-2">
+<p>[-1]原码：1000 0001</p>
 </li>
-<li id="fn3" class="footnote-item"><p>确有其事。 <a href="#fnref3" class="footnote-backref">↩︎</a> <a href="#fnref3:1" class="footnote-backref">↩︎</a></p>
+</ul>
+<hr>
+<h1 id="反码">反码</h1>
+<p><strong>反码</strong>的表示方法如下：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>正数的反码是其原码本身。</p>
 </li>
-</ol>
-</section>
-]]></content>
-      <tags>
-        <tag>Introduction</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Blog 3：[插畫]本站背景图</title>
-    <url>/posts/85c2880f/</url>
-    <content><![CDATA[<p>原作 <a href="https://www.pixiv.net/users/6681779"><strong>黄瓜</strong></a><br>
-原题 <strong>89</strong><br>
-<a href="https://www.pixiv.net/artworks/110724378">Pixiv: https://www.pixiv.net/artworks/110724378</a><br>
-<img src="/posts/85c2880f/background.png" alt="title" title="结界组赛高~"></p>
+<li class="lvl-2">
+<p>负数的反码将其原码的符号位不变，其余各位<strong>按位取反</strong>。<br>
+比如：</p>
+</li>
+<li class="lvl-2">
+<p>[+1]反码：0000 0001</p>
+</li>
+<li class="lvl-2">
+<p>[-1]反码：1111 1110</p>
+</li>
+</ul>
+<hr>
+<h1 id="补码">补码</h1>
+<p><strong>补码</strong>的表示方法如下：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>正数的补码是其原码本身。</p>
+</li>
+<li class="lvl-2">
+<p>负数的补码是其反码加 1。</p>
+</li>
+</ul>
+<div class="warning">
+<p><strong>注意</strong><br>
+加 1 指的是二进制加法，注意进位。</p>
+</div>
+<p>比如：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>[+1]补码：0000 0001</p>
+</li>
+<li class="lvl-2">
+<p>[-1]补码：1111 1111</p>
+</li>
+</ul>
+<hr>
+<h1 id="为什么要这么复杂？">为什么要这么复杂？</h1>
+<p>数字存储在计算机中，是需要用来运算的。根据四则运算的性质，人们只需要解决<strong>加法</strong>的运算方法就可以了。<br>
+可是，对于人脑而言，进行有符号数的加法是很简单的，因为大家都能一眼看出数字的符号，再根据符号决定运算。对于计算机而言，倘若要模拟人的运算，就必须拥有识别符号的能力，这无疑是增加了复杂度。<br>
+于是聪明的人们就想到了把符号位也纳入运算中。</p>
+<h2 id="原码运算">原码运算</h2>
+<p>大家都知道，1 - 1 = 0。<br>
+如果使用原码运算，那么 1 - 1 = 1 + (-1) = 0000 0001 + 1000 0001 = 1000 0010。<br>
+按照原码的定义，这显然等于 -2。因此，原码是不行的。</p>
+<h2 id="反码运算">反码运算</h2>
+<p>仍然是 1 - 1 = 0 这个问题。<br>
+1 - 1 = 1 + (-1) = 0000 0001[反码] + 1111 1110[反码] = 1111 1111[反码] = 1000 0000[原码] = -0。<br>
+-0，人们都知道 0 和 -0 是一样的，可如果使用反码运算，-0 和 0 就成了两个数。如果用 -0 和 0 分别进行一些运算：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>-0 + 1 = 1111 1111[反码] + 0000 0001[反码] = 1 0000 0000[反码]<br>
+对于反码的加法运算，倘若位数溢出，则需要把溢出的位数依次补到末尾，称之为<strong>循环进位</strong>。<br>
+故 1 0000 0000[反码] = 0000 0001[反码] = 0000 0001[原码] = 1。</p>
+</li>
+<li class="lvl-2">
+<p>0 + 1 = 0000 0000[反码] + 0000 0001[反码] = 0000 0001[反码] = 0000 0001[原码] = 1。</p>
+</li>
+</ul>
+<p>可见，反码的运算是繁琐而有歧义的，问题就出在 0 和 -0 的区分上。</p>
+<h2 id="补码运算">补码运算</h2>
+<p>1 - 1 = 1 + (-1) = 0000 0001[补码] + 1111 1111[补码] = 1 0000 0000[补码]<br>
+补码运算中，没有循环进位，溢出位舍弃。<br>
+故 1 0000 0000[补码] = 0000 0000[补码] = 0000 0000[原码] = 0。<br>
+补码中是没有 0 和 -0 的区分的：0 就是 0000 0000，而 1000 0000 则被用来表示 -128。</p>
+<div class="tips">
+<p><strong>为什么是 -128？</strong><br>
+-1 + (-127) = 1111 1111 + 1000 0001 = 1000 0000 = -128。</p>
+</div>
+<p>补码是可以解决问题的。</p>
+<hr>
+<p>关于原码、反码和补码的数学原理探讨，您可参考<a href="https://zhuanlan.zhihu.com/p/118432554">这篇文章</a>。</p>
 ]]></content>
       <categories>
-        <category>插畫</category>
+        <category>計算機組成原理</category>
       </categories>
       <tags>
-        <tag>Picture</tag>
-        <tag>Pixiv</tag>
+        <tag>CO</tag>
+        <tag>CO Pre</tag>
+        <tag>Sign-Magnitude</tag>
+        <tag>Ones&#39; Complement</tag>
+        <tag>Two&#39;s Complement</tag>
       </tags>
   </entry>
   <entry>
@@ -471,112 +535,56 @@ L：好的，谢谢！</p>
       </tags>
   </entry>
   <entry>
-    <title>[CO Pre]原码、反码与补码</title>
-    <url>/posts/908cc5fb/</url>
-    <content><![CDATA[<h1 id="序">序</h1>
-<p>计组 Pre 开始了，但是我把上学期学的内容都忘了（<br>
-所以先从<strong>数制</strong>开始吧。</p>
-<h1 id="机器数">机器数</h1>
-<p>一个数在计算机中的二进制表示形式被称为<strong>机器数</strong>。<br>
-机器数是有符号的，计算机中将机器数的最高位（最左边）称为符号位，用以表示符号。0 表示正数，1 表示负数。</p>
-<h1 id="真值">真值</h1>
-<p>机器数的<strong>真值</strong>是指该机器数对应的实际数值。<br>
-对于一个有符号数，它的机器数未必等于它本身。<br>
-譬如十进制数 -7，它的机器数为 10000111，但 10000111 如果当作二进制表示，对应的十进制数是 135。故 -7 的机器数的真值应该是 00000111。</p>
-<h1 id="原码">原码</h1>
-<p><strong>原码</strong>就是<strong>符号位</strong>和<strong>真值</strong>的组合。即用最高位表示符号，其余位表示数字大小。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>[+1]原码：0000 0001</p>
+    <title>序</title>
+    <url>/posts/9eefdea9/</url>
+    <content><![CDATA[<p><i class="fa fa-comment" aria-hidden="true" style="color: #6A5ACD; font-size: 1.5rem;"></i><span style="font-size: 12px; color: #695acd91;"> 随机句子由一言 API 提供</span></p>
+<p id="hitokoto" style="text-align:center;font-weight:bold;color:#6A5ACD">
+  “<a href="#" id="hitokoto_text">:D 获取中...</a>”
+</p>
+<script>
+  fetch('https://v1.hitokoto.cn')
+    .then(response => response.json())
+    .then(data => {
+      const hitokoto = document.querySelector('#hitokoto_text')
+      hitokoto.href = `https://hitokoto.cn/?uuid=${data.uuid}`
+      hitokoto.innerText = data.hitokoto
+    })
+    .catch(console.error)
+</script>
+<blockquote>
+<p>“创作是并没有什么秘诀，能够交头接耳，一句话就传授给别一个的，倘不然，只要有这秘诀，就真可以登广告，收学费，开一个三天包成文豪学校了。以中国之大，或者也许会有罢，但是，这其实是骗子。”<br>
+<strong>《不应该那么写》 鲁迅</strong></p>
+</blockquote>
+<p>我已经记了若干天的博文，这才想起来应该为整个博客写一篇序。先前一直用<a href="http://samuflore.top/posts/95afa136/">两篇小诗</a>充门面，观赏了几位大佬<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>的博客页面之后，决心要做一些正式的事情了。<br>
+于是我又选择了这个将要睡觉的时间开始。<br>
+按照我妈的说法，我仿佛永远都选择将要睡觉的这个时间点开始做所谓“重要的事”，譬如突然要给 200G 的压缩包解压缩<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>，或者安装进度到了70%……总之一条，是不能关电脑，也不能安心上床，结果“搞得大家都睡不了觉”。可是这个时间段恰好是最适合开始做某件事的时候——未必能做完，但是能开个好头。<br>
+<strong>所以，现在我要写小序了。</strong></p>
+<span id="more"></span>
+<h1 id="字与码">字与码</h1>
+<p>我进入六系既成事实，那么接下来的若干年必然是与代码打交道居多。这博客正好可以记录我的编程之旅，也算是为自己留下一点纪念。<br>
+所谓<strong>码字</strong>一词，在博客的创作过程中，真可谓十分贴切。使用 Markdown 编写博文，甚至于使用 HTML。Markdown 如此之简洁和优雅，几乎融于文字之中，正是<strong>字</strong>与<strong>码</strong>的结合。HTML 则时常将我从<strong>字</strong>里拉回<strong>码</strong>中。我不知道<strong>古法写作</strong>是否会长盛不衰，不过其面临这样一种对手，或许会走入另一条道路上。<br>
+<strong>古法写作</strong>，我杜撰了这个词，但使用起来很奇怪。何谓“古”，很难说清。如果用创作文字之方法区分，则没有明确的界限，或者以 AI 辅佐写作之出现来划分，又显得这个“古”字很“新”了，并不贴切。可是论其本质，那么所谓古法、码字，又殊途同归了，那就是<strong>记录</strong>，<strong>记录</strong>。<br>
+古代，我们往石头上刻，往竹简上刻，这就叫做“刻录”。后来<strong>蔡伦</strong>改良了造纸术，我们就往纸上记，这就叫做“记录”。记了几千年，后来发明了软盘、磁带、硬盘，我们又回到刻。以上种种，无非是留存人存在过的痕迹。每个人都是时代的一粒沙，无后的，一代人的时间就会消失得无影无踪；好一些的，也不过三四代而已。流芳百世，少之又少。<strong>而文字的生命却是决定于载体</strong>。流传千年的语言不少，而其载体是人，这又回到了人在时代面前之渺小。譬如<strong>拉丁语</strong>，早已成为冢中枯骨。而文字，文字，载体是物，物质世界正是文字世界。在这样宏观的视角来看，似乎并无必要将<strong>字</strong>与<strong>码</strong>划清界限。<br>
+创作方面，<strong>字</strong>与<strong>码</strong>仿佛又有所相通。这里又可说起<strong>古法写作</strong>了。不论概念，可以明确的是自<strong>生成式人工智能</strong>广泛应用后，早已不是所谓<strong>古法写作</strong>的时代了。然而其方法和宗旨是经久不衰的，并且不仅限于<strong>字</strong>，也是可以推广到<strong>码</strong>上的。倘若今天我们<strong>突然</strong>需要写一篇 5000 字的<strong>法律与科技</strong>结课报告<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>，那么不但要用 AI ，还要<strong>严谨地</strong><sup class="footnote-ref"><a href="#fn3" id="fnref3:1">[3:1]</a></sup>用，所谓<strong>古法</strong>，在期末周，在水课面前，自然是毫不犹豫地放弃的。然而平时的创作，如果依赖于 AI ，后果确实不堪设想。文笔是一定会生疏的，危害更甚于提笔忘字，到了有口说不出、有笔写不了的地步。<strong>更何况互联网的混乱已经相当程度摧残了各种语言</strong>。<strong>码</strong>的时候，同样会遭遇这种困境。确实，用 <strong>Copilot</strong> 或 <strong>Fitten Code</strong> 代行一些结构高度重复的代码编写，节约时间用于思考。可是人总是顺应惰性，<code>Tab</code> 按个不停，一眨眼，就连思考也被<strong>自动补全</strong>了。这岂不与前述的面临一样的麻烦吗？<br>
+<strong>字</strong>与<strong>码</strong>，这两者的界限，似乎并不那么清晰。<br>
+总之，我会尽量继续探索这二者——当然，是以一篇篇博文的形式，而非论文。也许一切明了的时候，我会写出一篇总的，来综述我的观点，而不是像这样一篇凌晨一点写的小序——<strong>散</strong>、<strong>乱</strong>、<strong>迷</strong>。不明了的时候，当然，继续更新些<strong>别的</strong>。<br>
+<strong>仿佛找到了一个比游戏更有意思的事情。</strong><br>
+构建本站的时候，我的想法通常不会有明确的规划。如果您不知道从哪开始，建议您从 <a href="http://samuflore.top/about/"><i class="fa fa-thumbs-up" aria-hidden="true"></i> 此处</a> 开始探索。<br>
+<strong>感谢您的时间。</strong></p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a href="https://thysrael.github.io/">钟鼓楼</a>、<a href="https://hyggge.github.io/#!">Hyggge’s Blog</a>、<a href="https://x-parker.github.io/">Parker’s Blog</a> ，以及其他大佬。 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
 </li>
-<li class="lvl-2">
-<p>[-1]原码：1000 0001</p>
+<li id="fn2" class="footnote-item"><p>我可能正准备游玩 <strong>The Elder Scrolls V: Skyrim</strong> 的某个整合包（ <a href="#fnref2" class="footnote-backref">↩︎</a></p>
 </li>
-</ul>
-<h1 id="反码">反码</h1>
-<p><strong>反码</strong>的表示方法如下：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>正数的反码是其原码本身。</p>
+<li id="fn3" class="footnote-item"><p>确有其事。 <a href="#fnref3" class="footnote-backref">↩︎</a> <a href="#fnref3:1" class="footnote-backref">↩︎</a></p>
 </li>
-<li class="lvl-2">
-<p>负数的反码将其原码的符号位不变，其余各位<strong>按位取反</strong>。<br>
-比如：</p>
-</li>
-<li class="lvl-2">
-<p>[+1]反码：0000 0001</p>
-</li>
-<li class="lvl-2">
-<p>[-1]反码：1111 1110</p>
-</li>
-</ul>
-<h1 id="补码">补码</h1>
-<p><strong>补码</strong>的表示方法如下：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>正数的补码是其原码本身。</p>
-</li>
-<li class="lvl-2">
-<p>负数的补码是其反码加 1。</p>
-</li>
-</ul>
-<div class="warning">
-<p><strong>注意</strong><br>
-加 1 指的是二进制加法，注意进位。</p>
-</div>
-<p>比如：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>[+1]补码：0000 0001</p>
-</li>
-<li class="lvl-2">
-<p>[-1]补码：1111 1111</p>
-</li>
-</ul>
-<h1 id="为什么要这么复杂？">为什么要这么复杂？</h1>
-<p>数字存储在计算机中，是需要用来运算的。根据四则运算的性质，人们只需要解决<strong>加法</strong>的运算方法就可以了。<br>
-可是，对于人脑而言，进行有符号数的加法是很简单的，因为大家都能一眼看出数字的符号，再根据符号决定运算。对于计算机而言，倘若要模拟人的运算，就必须拥有识别符号的能力，这无疑是增加了复杂度。<br>
-于是聪明的人们就想到了把符号位也纳入运算中。</p>
-<h2 id="原码运算">原码运算</h2>
-<p>大家都知道，1 - 1 = 0。<br>
-如果使用原码运算，那么 1 - 1 = 1 + (-1) = 0000 0001 + 1000 0001 = 1000 0010。<br>
-按照原码的定义，这显然等于 -2。因此，原码是不行的。</p>
-<h2 id="反码运算">反码运算</h2>
-<p>仍然是 1 - 1 = 0 这个问题。<br>
-1 - 1 = 1 + (-1) = 0000 0001[反码] + 1111 1110[反码] = 1111 1111[反码] = 1000 0000[原码] = -0。<br>
--0，人们都知道 0 和 -0 是一样的，可如果使用反码运算，-0 和 0 就成了两个数。如果用 -0 和 0 分别进行一些运算：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>-0 + 1 = 1111 1111[反码] + 0000 0001[反码] = 1 0000 0000[反码]<br>
-对于反码的加法运算，倘若位数溢出，则需要把溢出的位数依次补到末尾，称之为<strong>循环进位</strong>。<br>
-故 1 0000 0000[反码] = 0000 0001[反码] = 0000 0001[原码] = 1。</p>
-</li>
-<li class="lvl-2">
-<p>0 + 1 = 0000 0000[反码] + 0000 0001[反码] = 0000 0001[反码] = 0000 0001[原码] = 1。</p>
-</li>
-</ul>
-<p>可见，反码的运算是繁琐而有歧义的，问题就出在 0 和 -0 的区分上。</p>
-<h2 id="补码运算">补码运算</h2>
-<p>1 - 1 = 1 + (-1) = 0000 0001[补码] + 1111 1111[补码] = 1 0000 0000[补码]<br>
-补码运算中，没有循环进位，溢出位舍弃。<br>
-故 1 0000 0000[补码] = 0000 0000[补码] = 0000 0000[原码] = 0。<br>
-补码中是没有 0 和 -0 的区分的：0 就是 0000 0000，而 1000 0000 则被用来表示 -128。</p>
-<div class="tips">
-<p><strong>为什么是 -128？</strong><br>
--1 + (-127) = 1111 1111 + 1000 0001 = 1000 0000 = -128。</p>
-</div>
-<p>补码是可以解决问题的。</p>
-<p>关于原码、反码和补码的数学原理探讨，您可参考<a href="https://zhuanlan.zhihu.com/p/118432554">这篇文章</a>。</p>
+</ol>
+</section>
 ]]></content>
-      <categories>
-        <category>計算機組成原理</category>
-      </categories>
       <tags>
-        <tag>CO</tag>
-        <tag>CO Pre</tag>
-        <tag>Sign-Magnitude</tag>
-        <tag>Ones&#39; Complement</tag>
-        <tag>Two&#39;s Complement</tag>
+        <tag>Introduction</tag>
       </tags>
   </entry>
   <entry>
