@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>[CO Pre]Logisim 入门</title>
+      <link href="/posts/e7ebcfa7/"/>
+      <url>/posts/e7ebcfa7/</url>
+      
+        <content type="html"><![CDATA[<h1 id="序">序</h1><blockquote><p>Logisim 是一款非常优秀的用于数字电路设计与仿真的教育软件。它提供了丰富的电路库与元件的抽象表示，生成的电路图也比较美观，还提供了时序的模拟功能，能够让我们对 CPU 的结构和运行情况有更直观的理解，并且在开发一些小电路时还有一些其他辅助功能。<br><a href="https://cscore.e1.buaa.edu.cn/tutorial/logisim/logisim-1/logisim-1-1/">为什么要学习 Logisim？</a></p></blockquote><h1 id="这里有什么？">这里有什么？</h1><ul class="lvl-0"><li class="lvl-2"><p>Logisim 门电路</p></li><li class="lvl-2"><p>Logisim 组合电路</p></li><li class="lvl-2"><p>Logisim 时序电路</p></li><li class="lvl-2"><p>Logisim 仿真与调试</p></li><li class="lvl-2"><p>应用与挑战</p></li></ul><span id="more"></span><h1 id="Logisim-门电路">Logisim 门电路</h1><h2 id="界面认识">界面认识</h2><p>打开 Logisim 后，我们会看到如下的界面：<br><img src="/posts/e7ebcfa7/logisim%E7%95%8C%E9%9D%A2.png" alt="界面"><br>Logisim 提供图形界面，可以通过长按拖动的形式新建部件以及进行连线。也可通过 <code>Ctrl + D</code> 快速部署选中的部件。</p><h2 id="元件概览">元件概览</h2><h3 id="Wirings（线路）">Wirings（线路）</h3><p><img src="/posts/e7ebcfa7/wiring.png" alt="wiring"></p><h3 id="Gates（门）">Gates（门）</h3><p><img src="/posts/e7ebcfa7/gate.png" alt="gate"></p><h3 id="Plexers（复用器）">Plexers（复用器）</h3><p><img src="/posts/e7ebcfa7/plexer.png" alt="plexer"></p><h3 id="Arithmetic（运算器）">Arithmetic（运算器）</h3><p><img src="/posts/e7ebcfa7/arithmetic.jpg" alt="arithmetic"></p><h3 id="Memory（存储）">Memory（存储）</h3><p><img src="/posts/e7ebcfa7/memory.png" alt="memory"></p><h3 id="I-O（输入输出）">I/O（输入输出）</h3><p><img src="/posts/e7ebcfa7/io.png" alt="io"></p><h3 id="Base（基本组件）">Base（基本组件）</h3><p><img src="/posts/e7ebcfa7/base.png" alt="base"></p><h2 id="一位全加器">一位全加器</h2><p>一位全加器由两个输入 A 和 B，一个进位输入 Cin，一个输出 S，一个进位输出 Cout 组成。全加器的表达式为：<br><code>S = A ^ B ^ Cin; Cout = A &amp; B | Cin &amp; (A ^ B);</code><sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup><br>对于 S 的运算，我们可以作出：<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup><br><img src="/posts/e7ebcfa7/S.png" alt="S">利用已有的运算结果，进一步搭建整个电路：<br><img src="/posts/e7ebcfa7/Full.png" alt="Full"></p><hr class="footnotes-sep"><section class="footnotes"><ol class="footnotes-list"><li id="fn1" class="footnote-item"><p>优先级：<code>&amp;</code> &gt; <code>^</code> &gt; <code>|</code> <a href="#fnref1" class="footnote-backref">↩︎</a></p></li><li id="fn2" class="footnote-item"><p>Logisim 画布上，高亮代表此线路的真值为 1，不高亮代表此线路的真值为 0。绿色代表通路，蓝色或黑色代表断路。 <a href="#fnref2" class="footnote-backref">↩︎</a></p></li></ol></section>]]></content>
+      
+      
+      <categories>
+          
+          <category> 計算機組成原理 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CO </tag>
+            
+            <tag> CO Pre </tag>
+            
+            <tag> Logisim </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>加密文章测试</title>
       <link href="/posts/7e709353/"/>
       <url>/posts/7e709353/</url>

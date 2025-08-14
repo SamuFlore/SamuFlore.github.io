@@ -9,8 +9,57 @@
     <atom:link href="https://samuflore.top/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>一人倒、衆人倒。</description>
-    <pubDate>Thu, 14 Aug 2025 05:11:53 GMT</pubDate>
+    <pubDate>Thu, 14 Aug 2025 15:50:27 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[CO Pre]Logisim 入门</title>
+      <link>https://samuflore.top/posts/e7ebcfa7/</link>
+      <guid>https://samuflore.top/posts/e7ebcfa7/</guid>
+      <pubDate>Thu, 14 Aug 2025 14:53:54 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;序&quot;&gt;序&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Logisim 是一款非常优秀的用于数字电路设计与仿真的教育软件。它提供了丰富的电路库与元件的抽象表示，生成的电路图也比较美观，还提供了时序的模拟功能，能够让我们对 CPU 的结构和运行情况有更直观的理解，并且在开发一些小电路时还有一些其他辅助功能。&lt;br&gt;
+&lt;a href=&quot;https://cscore.e1.buaa.edu.cn/tutorial/logisim/logisim-1/logisim-1-1/&quot;&gt;为什么要学习 Logisim？&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;这里有什么？&quot;&gt;这里有什么？&lt;/h1&gt;
+&lt;ul class=&quot;lvl-0&quot;&gt;
+&lt;li class=&quot;lvl-2&quot;&gt;
+&lt;p&gt;Logisim 门电路&lt;/p&gt;
+&lt;/li&gt;
+&lt;li class=&quot;lvl-2&quot;&gt;
+&lt;p&gt;Logisim 组合电路&lt;/p&gt;
+&lt;/li&gt;
+&lt;li class=&quot;lvl-2&quot;&gt;
+&lt;p&gt;Logisim 时序电路&lt;/p&gt;
+&lt;/li&gt;
+&lt;li class=&quot;lvl-2&quot;&gt;
+&lt;p&gt;Logisim 仿真与调试&lt;/p&gt;
+&lt;/li&gt;
+&lt;li class=&quot;lvl-2&quot;&gt;
+&lt;p&gt;应用与挑战&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="序">序</h1><blockquote><p>Logisim 是一款非常优秀的用于数字电路设计与仿真的教育软件。它提供了丰富的电路库与元件的抽象表示，生成的电路图也比较美观，还提供了时序的模拟功能，能够让我们对 CPU 的结构和运行情况有更直观的理解，并且在开发一些小电路时还有一些其他辅助功能。<br><a href="https://cscore.e1.buaa.edu.cn/tutorial/logisim/logisim-1/logisim-1-1/">为什么要学习 Logisim？</a></p></blockquote><h1 id="这里有什么？">这里有什么？</h1><ul class="lvl-0"><li class="lvl-2"><p>Logisim 门电路</p></li><li class="lvl-2"><p>Logisim 组合电路</p></li><li class="lvl-2"><p>Logisim 时序电路</p></li><li class="lvl-2"><p>Logisim 仿真与调试</p></li><li class="lvl-2"><p>应用与挑战</p></li></ul><span id="more"></span><h1 id="Logisim-门电路">Logisim 门电路</h1><h2 id="界面认识">界面认识</h2><p>打开 Logisim 后，我们会看到如下的界面：<br><img src="/posts/e7ebcfa7/logisim%E7%95%8C%E9%9D%A2.png" alt="界面"><br>Logisim 提供图形界面，可以通过长按拖动的形式新建部件以及进行连线。也可通过 <code>Ctrl + D</code> 快速部署选中的部件。</p><h2 id="元件概览">元件概览</h2><h3 id="Wirings（线路）">Wirings（线路）</h3><p><img src="/posts/e7ebcfa7/wiring.png" alt="wiring"></p><h3 id="Gates（门）">Gates（门）</h3><p><img src="/posts/e7ebcfa7/gate.png" alt="gate"></p><h3 id="Plexers（复用器）">Plexers（复用器）</h3><p><img src="/posts/e7ebcfa7/plexer.png" alt="plexer"></p><h3 id="Arithmetic（运算器）">Arithmetic（运算器）</h3><p><img src="/posts/e7ebcfa7/arithmetic.jpg" alt="arithmetic"></p><h3 id="Memory（存储）">Memory（存储）</h3><p><img src="/posts/e7ebcfa7/memory.png" alt="memory"></p><h3 id="I-O（输入输出）">I/O（输入输出）</h3><p><img src="/posts/e7ebcfa7/io.png" alt="io"></p><h3 id="Base（基本组件）">Base（基本组件）</h3><p><img src="/posts/e7ebcfa7/base.png" alt="base"></p><h2 id="一位全加器">一位全加器</h2><p>一位全加器由两个输入 A 和 B，一个进位输入 Cin，一个输出 S，一个进位输出 Cout 组成。全加器的表达式为：<br><code>S = A ^ B ^ Cin; Cout = A &amp; B | Cin &amp; (A ^ B);</code><sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup><br>对于 S 的运算，我们可以作出：<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup><br><img src="/posts/e7ebcfa7/S.png" alt="S">利用已有的运算结果，进一步搭建整个电路：<br><img src="/posts/e7ebcfa7/Full.png" alt="Full"></p><hr class="footnotes-sep"><section class="footnotes"><ol class="footnotes-list"><li id="fn1" class="footnote-item"><p>优先级：<code>&amp;</code> &gt; <code>^</code> &gt; <code>|</code> <a href="#fnref1" class="footnote-backref">↩︎</a></p></li><li id="fn2" class="footnote-item"><p>Logisim 画布上，高亮代表此线路的真值为 1，不高亮代表此线路的真值为 0。绿色代表通路，蓝色或黑色代表断路。 <a href="#fnref2" class="footnote-backref">↩︎</a></p></li></ol></section>]]></content:encoded>
+      
+      
+      <category domain="https://samuflore.top/categories/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B5%84%E6%88%90%E5%8E%9F%E7%90%86/">計算機組成原理</category>
+      
+      
+      <category domain="https://samuflore.top/tags/CO/">CO</category>
+      
+      <category domain="https://samuflore.top/tags/CO-Pre/">CO Pre</category>
+      
+      <category domain="https://samuflore.top/tags/Logisim/">Logisim</category>
+      
+      
+      <comments>https://samuflore.top/posts/e7ebcfa7/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>加密文章测试</title>
@@ -293,43 +342,6 @@
       
       
       <comments>https://samuflore.top/posts/85c2880f/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Blog 2：[Hexo教程]Hexo之代码块添加复制按钮</title>
-      <link>https://samuflore.top/posts/8a8b0861/</link>
-      <guid>https://samuflore.top/posts/8a8b0861/</guid>
-      <pubDate>Tue, 15 Jul 2025 14:47:05 GMT</pubDate>
-      
-      <description>&lt;div class=&quot;danger&quot;&gt;
-&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;&lt;br&gt;
-经验证，此方法仅适用于安全域下，否则会报 &lt;code&gt;navigator.clipboard Cannot read properties of undefined (reading ‘writeText‘）&lt;/code&gt;。&lt;br&gt;
-安全域包括本地访问与开启TLS安全认证的地址，如 https 协议的地址、127.0.0.1 或 localhost 。&lt;br&gt;
-具体情况请参照 &lt;a href=&quot;https://blog.csdn.net/qq_58340302/article/details/124480086&quot;&gt;这里&lt;/a&gt;。&lt;/p&gt;
-&lt;/div&gt;
-&lt;blockquote&gt;
-&lt;p&gt;请注意：本文&lt;strong&gt;转载&lt;/strong&gt;自&lt;a href=&quot;https://evannzhongg.github.io/2025/03/26/Add-Copy-Button-to-Code-Blocks-in-Hexo/#Hexo-%E4%B8%BA%E4%BB%A3%E7%A0%81%E5%9D%97%E6%B7%BB%E5%8A%A0%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD%E6%8C%89%E9%92%AE&quot;&gt;Evan Zhong’s Blog&lt;/a&gt;，根据目前版本之Hexo和NexT进行了微调。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&quot;序&quot;&gt;序&lt;/h1&gt;
-&lt;p&gt;使用&lt;strong&gt;JavaScript&lt;/strong&gt;实现之。&lt;/p&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<div class="danger"><p><strong>注意</strong><br>经验证，此方法仅适用于安全域下，否则会报 <code>navigator.clipboard Cannot read properties of undefined (reading ‘writeText‘）</code>。<br>安全域包括本地访问与开启TLS安全认证的地址，如 https 协议的地址、127.0.0.1 或 localhost 。<br>具体情况请参照 <a href="https://blog.csdn.net/qq_58340302/article/details/124480086">这里</a>。</p></div><blockquote><p>请注意：本文<strong>转载</strong>自<a href="https://evannzhongg.github.io/2025/03/26/Add-Copy-Button-to-Code-Blocks-in-Hexo/#Hexo-%E4%B8%BA%E4%BB%A3%E7%A0%81%E5%9D%97%E6%B7%BB%E5%8A%A0%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD%E6%8C%89%E9%92%AE">Evan Zhong’s Blog</a>，根据目前版本之Hexo和NexT进行了微调。</p></blockquote><h1 id="序">序</h1><p>使用<strong>JavaScript</strong>实现之。</p><span id="more"></span><hr><h1 id="准备">准备</h1><p>本JS脚本适用于以下结构的代码块：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">figure</span> <span class="attr">class</span>=<span class="string">&quot;highlight&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">&quot;gutter&quot;</span>&gt;</span>...<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">&quot;code&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">pre</span>&gt;</span><span class="tag">&lt;<span class="name">code</span>&gt;</span>...<span class="tag">&lt;/<span class="name">code</span>&gt;</span><span class="tag">&lt;/<span class="name">pre</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">figure</span>&gt;</span></span><br></pre></td></tr></table></figure><blockquote><p>请注意：这是Hexo中大多数主题默认的代码块渲染结构。</p></blockquote><hr><h1 id="创建JavaScript脚本">创建JavaScript脚本</h1><p>在Hexo博客项目的<strong>根目录</strong>下创建<code>code-copy.js</code>文件。参考路径如下：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/source/js/code-copy.js</span><br></pre></td></tr></table></figure><blockquote><p>请注意：若<code>source</code>目录下<strong>没有</strong><code>js</code>文件夹，则<strong>手动创建之</strong>。</p></blockquote><p>并在<code>code-copy.js</code>文件中写入以下代码：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;DOMContentLoaded&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;figure.highlight&#x27;</span>).<span class="title function_">forEach</span>(<span class="function">(<span class="params">figure</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (figure.<span class="title function_">querySelector</span>(<span class="string">&#x27;.copy-btn&#x27;</span>)) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> copyBtn = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;button&#x27;</span>);</span><br><span class="line">    copyBtn.<span class="property">className</span> = <span class="string">&#x27;copy-btn&#x27;</span>;</span><br><span class="line">    copyBtn.<span class="property">title</span> = <span class="string">&#x27;复制&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 缩小后的复制图标（14*15）</span></span><br><span class="line">    <span class="keyword">const</span> copyIcon = <span class="string">`</span></span><br><span class="line"><span class="string">      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; height=&quot;14&quot; width=&quot;15&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;white&quot;&gt;</span></span><br><span class="line"><span class="string">        &lt;path d=&quot;M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z&quot;/&gt;</span></span><br><span class="line"><span class="string">      &lt;/svg&gt;</span></span><br><span class="line"><span class="string">    `</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 成功后显示的勾（14*15）</span></span><br><span class="line">    <span class="keyword">const</span> checkIcon = <span class="string">`</span></span><br><span class="line"><span class="string">      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; height=&quot;14&quot; width=&quot;15&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;#00cc66&quot;&gt;</span></span><br><span class="line"><span class="string">        &lt;path d=&quot;M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z&quot;/&gt;</span></span><br><span class="line"><span class="string">      &lt;/svg&gt;</span></span><br><span class="line"><span class="string">    `</span>;</span><br><span class="line"></span><br><span class="line">    copyBtn.<span class="property">innerHTML</span> = copyIcon;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 按钮样式（浅灰底、缩小）</span></span><br><span class="line">    <span class="title class_">Object</span>.<span class="title function_">assign</span>(copyBtn.<span class="property">style</span>, &#123;</span><br><span class="line">      <span class="attr">position</span>: <span class="string">&#x27;absolute&#x27;</span>,</span><br><span class="line">      <span class="attr">top</span>: <span class="string">&#x27;8px&#x27;</span>,</span><br><span class="line">      <span class="attr">right</span>: <span class="string">&#x27;8px&#x27;</span>,</span><br><span class="line">      <span class="attr">padding</span>: <span class="string">&#x27;4px&#x27;</span>,</span><br><span class="line">      <span class="attr">background</span>: <span class="string">&#x27;#aaa&#x27;</span>, </span><br><span class="line">      <span class="attr">border</span>: <span class="string">&#x27;none&#x27;</span>,</span><br><span class="line">      <span class="attr">borderRadius</span>: <span class="string">&#x27;4px&#x27;</span>,</span><br><span class="line">      <span class="attr">cursor</span>: <span class="string">&#x27;pointer&#x27;</span>,</span><br><span class="line">      <span class="attr">opacity</span>: <span class="string">&#x27;0.85&#x27;</span>,</span><br><span class="line">      <span class="attr">zIndex</span>: <span class="number">1000</span>,</span><br><span class="line">      <span class="attr">transition</span>: <span class="string">&#x27;opacity 0.2s ease&#x27;</span>,</span><br><span class="line">      <span class="attr">boxShadow</span>: <span class="string">&#x27;0 1px 3px rgba(0, 0, 0, 0.15)&#x27;</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    copyBtn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;mouseover&#x27;</span>, <span class="function">() =&gt;</span> copyBtn.<span class="property">style</span>.<span class="property">opacity</span> = <span class="string">&#x27;1&#x27;</span>);</span><br><span class="line">    copyBtn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;mouseout&#x27;</span>, <span class="function">() =&gt;</span> copyBtn.<span class="property">style</span>.<span class="property">opacity</span> = <span class="string">&#x27;0.85&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    copyBtn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> code = figure.<span class="title function_">querySelector</span>(<span class="string">&#x27;td.code&#x27;</span>);</span><br><span class="line">      <span class="keyword">const</span> text = code ? code.<span class="property">innerText</span> : <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">      navigator.<span class="property">clipboard</span>.<span class="title function_">writeText</span>(text).<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        copyBtn.<span class="property">innerHTML</span> = checkIcon;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">          copyBtn.<span class="property">innerHTML</span> = copyIcon;</span><br><span class="line">        &#125;, <span class="number">1000</span>);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    figure.<span class="property">style</span>.<span class="property">position</span> = <span class="string">&#x27;relative&#x27;</span>;</span><br><span class="line">    figure.<span class="title function_">appendChild</span>(copyBtn);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><hr><h1 id="引用JS脚本">引用JS脚本</h1><p>打开此文件：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">themes/next/layout/_partial/footer.swig</span><br></pre></td></tr></table></figure><p>在<code>footer.swig</code>文件中，找到<code>&lt;/body&gt;</code>标签之前，添加以下代码：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;/js/code-copy.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><blockquote><p>请注意：如果<strong>找不到</strong><code>&lt;/body&gt;</code>标签，则可以尝试在<code>footer.swig</code>文件<strong>末尾</strong>添加之。</p></blockquote><hr><h1 id="更新博客">更新博客</h1><p>运行Hexo三部曲：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure><p>可以输入<code>hexo s</code>在本地启动服务，访问<code>https://localhost:4000</code>查看效果。或者在<strong>GitHub Pages</strong>上查看效果。</p>]]></content:encoded>
-      
-      
-      <category domain="https://samuflore.top/categories/Hexo%E6%95%99%E7%A8%8B/">Hexo教程</category>
-      
-      
-      <category domain="https://samuflore.top/tags/Hexo/">Hexo</category>
-      
-      <category domain="https://samuflore.top/tags/JavaScript/">JavaScript</category>
-      
-      <category domain="https://samuflore.top/tags/Tutorial/">Tutorial</category>
-      
-      
-      <comments>https://samuflore.top/posts/8a8b0861/#disqus_thread</comments>
       
     </item>
     

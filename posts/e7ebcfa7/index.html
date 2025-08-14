@@ -24,17 +24,33 @@
     var CONFIG = {"hostname":"samuflore.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#6A5ACD","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="一人倒、衆人倒。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="SamuFlore&#39;s Dimension">
-<meta property="og:url" content="https://samuflore.top/tags/CO/index.html">
+  <meta name="description" content="序  Logisim 是一款非常优秀的用于数字电路设计与仿真的教育软件。它提供了丰富的电路库与元件的抽象表示，生成的电路图也比较美观，还提供了时序的模拟功能，能够让我们对 CPU 的结构和运行情况有更直观的理解，并且在开发一些小电路时还有一些其他辅助功能。 为什么要学习 Logisim？  这里有什么？   Logisim 门电路   Logisim 组合电路   Logisim 时序电路   L">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[CO Pre]Logisim 入门">
+<meta property="og:url" content="https://samuflore.top/posts/e7ebcfa7/index.html">
 <meta property="og:site_name" content="SamuFlore&#39;s Dimension">
-<meta property="og:description" content="一人倒、衆人倒。">
+<meta property="og:description" content="序  Logisim 是一款非常优秀的用于数字电路设计与仿真的教育软件。它提供了丰富的电路库与元件的抽象表示，生成的电路图也比较美观，还提供了时序的模拟功能，能够让我们对 CPU 的结构和运行情况有更直观的理解，并且在开发一些小电路时还有一些其他辅助功能。 为什么要学习 Logisim？  这里有什么？   Logisim 门电路   Logisim 组合电路   Logisim 时序电路   L">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/logisim%E7%95%8C%E9%9D%A2.png">
+<meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/wiring.png">
+<meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/gate.png">
+<meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/plexer.png">
+<meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/arithmetic.jpg">
+<meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/memory.png">
+<meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/io.png">
+<meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/base.png">
+<meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/S.png">
+<meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/Full.png">
+<meta property="article:published_time" content="2025-08-14T14:53:54.000Z">
+<meta property="article:modified_time" content="2025-08-14T15:50:27.045Z">
 <meta property="article:author" content="Samustach Floresein">
+<meta property="article:tag" content="CO">
+<meta property="article:tag" content="CO Pre">
+<meta property="article:tag" content="Logisim">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://samuflore.top/posts/e7ebcfa7/logisim%E7%95%8C%E9%9D%A2.png">
 
-<link rel="canonical" href="https://samuflore.top/tags/CO/">
+<link rel="canonical" href="https://samuflore.top/posts/e7ebcfa7/">
 
 
 <script id="page-configurations">
@@ -42,12 +58,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签: CO | SamuFlore's Dimension</title>
+  <title>[CO Pre]Logisim 入门 | SamuFlore's Dimension</title>
   
 
 
@@ -203,77 +219,237 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://samuflore.top/posts/e7ebcfa7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Samustach Floresein">
+      <meta itemprop="description" content="一人倒、衆人倒。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SamuFlore's Dimension">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [CO Pre]Logisim 入门
+        </h1>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-08-14 22:53:54 / 修改时间：23:50:27" itemprop="dateCreated datePublished" datetime="2025-08-14T22:53:54+08:00">2025-08-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B5%84%E6%88%90%E5%8E%9F%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">計算機組成原理</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">CO
-          <small>标签</small>
-        </h2>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/e7ebcfa7/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/e7ebcfa7/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>575</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2025</span>
+        <h1 id="序">序</h1>
+<blockquote>
+<p>Logisim 是一款非常优秀的用于数字电路设计与仿真的教育软件。它提供了丰富的电路库与元件的抽象表示，生成的电路图也比较美观，还提供了时序的模拟功能，能够让我们对 CPU 的结构和运行情况有更直观的理解，并且在开发一些小电路时还有一些其他辅助功能。<br>
+<a target="_blank" rel="noopener" href="https://cscore.e1.buaa.edu.cn/tutorial/logisim/logisim-1/logisim-1-1/">为什么要学习 Logisim？</a></p>
+</blockquote>
+<h1 id="这里有什么？">这里有什么？</h1>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>Logisim 门电路</p>
+</li>
+<li class="lvl-2">
+<p>Logisim 组合电路</p>
+</li>
+<li class="lvl-2">
+<p>Logisim 时序电路</p>
+</li>
+<li class="lvl-2">
+<p>Logisim 仿真与调试</p>
+</li>
+<li class="lvl-2">
+<p>应用与挑战</p>
+</li>
+</ul>
+<span id="more"></span>
+<h1 id="Logisim-门电路">Logisim 门电路</h1>
+<h2 id="界面认识">界面认识</h2>
+<p>打开 Logisim 后，我们会看到如下的界面：<br>
+<img src="/posts/e7ebcfa7/logisim%E7%95%8C%E9%9D%A2.png" alt="界面"><br>
+Logisim 提供图形界面，可以通过长按拖动的形式新建部件以及进行连线。也可通过 <code>Ctrl + D</code> 快速部署选中的部件。</p>
+<h2 id="元件概览">元件概览</h2>
+<h3 id="Wirings（线路）">Wirings（线路）</h3>
+<p><img src="/posts/e7ebcfa7/wiring.png" alt="wiring"></p>
+<h3 id="Gates（门）">Gates（门）</h3>
+<p><img src="/posts/e7ebcfa7/gate.png" alt="gate"></p>
+<h3 id="Plexers（复用器）">Plexers（复用器）</h3>
+<p><img src="/posts/e7ebcfa7/plexer.png" alt="plexer"></p>
+<h3 id="Arithmetic（运算器）">Arithmetic（运算器）</h3>
+<p><img src="/posts/e7ebcfa7/arithmetic.jpg" alt="arithmetic"></p>
+<h3 id="Memory（存储）">Memory（存储）</h3>
+<p><img src="/posts/e7ebcfa7/memory.png" alt="memory"></p>
+<h3 id="I-O（输入输出）">I/O（输入输出）</h3>
+<p><img src="/posts/e7ebcfa7/io.png" alt="io"></p>
+<h3 id="Base（基本组件）">Base（基本组件）</h3>
+<p><img src="/posts/e7ebcfa7/base.png" alt="base"></p>
+<h2 id="一位全加器">一位全加器</h2>
+<p>一位全加器由两个输入 A 和 B，一个进位输入 Cin，一个输出 S，一个进位输出 Cout 组成。全加器的表达式为：<br>
+<code>S = A ^ B ^ Cin; Cout = A &amp; B | Cin &amp; (A ^ B);</code><sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup><br>
+对于 S 的运算，我们可以作出：<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup><br>
+<img src="/posts/e7ebcfa7/S.png" alt="S">利用已有的运算结果，进一步搭建整个电路：<br>
+<img src="/posts/e7ebcfa7/Full.png" alt="Full"></p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>优先级：<code>&amp;</code> &gt; <code>^</code> &gt; <code>|</code> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>Logisim 画布上，高亮代表此线路的真值为 1，不高亮代表此线路的真值为 0。绿色代表通路，蓝色或黑色代表断路。 <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2025-08-14T22:53:54+08:00"
-              content="2025-08-14">
-          08-14
-        </time>
+    
+    
+    
+     
+      <div>
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:10px;">-------------本文结束 <i class="fa fa-times"></i> 感谢您的时间-------------</div>
+    
+</div>
       </div>
+    
+        
 
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/e7ebcfa7/" itemprop="url">
-            <span itemprop="name">[CO Pre]Logisim 入门</span>
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Samustach Floresein
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://samuflore.top/posts/e7ebcfa7/" title="[CO Pre]Logisim 入门">https://samuflore.top/posts/e7ebcfa7/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/rss2.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
           </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2025-08-14T00:10:54+08:00"
-              content="2025-08-14">
-          08-14
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/908cc5fb/" itemprop="url">
-            <span itemprop="name">[CO Pre]原码、反码与补码</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+        </div>
     </div>
   </div>
-  
-  
-  
 
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CO/" rel="tag"><i class="fa fa-tag"></i> CO</a>
+              <a href="/tags/CO-Pre/" rel="tag"><i class="fa fa-tag"></i> CO Pre</a>
+              <a href="/tags/Logisim/" rel="tag"><i class="fa fa-tag"></i> Logisim</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/7e709353/" rel="prev" title="加密文章测试">
+      <i class="fa fa-chevron-left"></i> 加密文章测试
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -332,6 +508,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%99%E9%87%8C%E6%9C%89%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">这里有什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logisim-%E9%97%A8%E7%94%B5%E8%B7%AF"><span class="nav-number">3.</span> <span class="nav-text">Logisim 门电路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%95%8C%E9%9D%A2%E8%AE%A4%E8%AF%86"><span class="nav-number">3.1.</span> <span class="nav-text">界面认识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%83%E4%BB%B6%E6%A6%82%E8%A7%88"><span class="nav-number">3.2.</span> <span class="nav-text">元件概览</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Wirings%EF%BC%88%E7%BA%BF%E8%B7%AF%EF%BC%89"><span class="nav-number">3.2.1.</span> <span class="nav-text">Wirings（线路）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gates%EF%BC%88%E9%97%A8%EF%BC%89"><span class="nav-number">3.2.2.</span> <span class="nav-text">Gates（门）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Plexers%EF%BC%88%E5%A4%8D%E7%94%A8%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.3.</span> <span class="nav-text">Plexers（复用器）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arithmetic%EF%BC%88%E8%BF%90%E7%AE%97%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.4.</span> <span class="nav-text">Arithmetic（运算器）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Memory%EF%BC%88%E5%AD%98%E5%82%A8%EF%BC%89"><span class="nav-number">3.2.5.</span> <span class="nav-text">Memory（存储）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#I-O%EF%BC%88%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%EF%BC%89"><span class="nav-number">3.2.6.</span> <span class="nav-text">I&#x2F;O（输入输出）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Base%EF%BC%88%E5%9F%BA%E6%9C%AC%E7%BB%84%E4%BB%B6%EF%BC%89"><span class="nav-number">3.2.7.</span> <span class="nav-text">Base（基本组件）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BD%8D%E5%85%A8%E5%8A%A0%E5%99%A8"><span class="nav-number">3.3.</span> <span class="nav-text">一位全加器</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -619,7 +796,7 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
 });
 </script>
 
-</body>
+<!-- hexo injector body_end start --><script src="/js/outdate.js"></script><!-- hexo injector body_end end --></body>
 </html>
 
 <!-- 页面点击小红心 -->
