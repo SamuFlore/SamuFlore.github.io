@@ -213,6 +213,13 @@
   </url>
   
   <url>
+    <loc>https://samuflore.top/tags/Introduction/</loc>
+    <lastmod>2025-08-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://samuflore.top/tags/Picture/</loc>
     <lastmod>2025-08-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -227,7 +234,28 @@
   </url>
   
   <url>
-    <loc>https://samuflore.top/tags/Introduction/</loc>
+    <loc>https://samuflore.top/tags/Sign-Magnitude/</loc>
+    <lastmod>2025-08-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://samuflore.top/tags/Ones-Complement/</loc>
+    <lastmod>2025-08-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://samuflore.top/tags/Two-s-Complement/</loc>
+    <lastmod>2025-08-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://samuflore.top/tags/Markdown/</loc>
     <lastmod>2025-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -263,34 +291,6 @@
   
   <url>
     <loc>https://samuflore.top/tags/Ji-an-City/</loc>
-    <lastmod>2025-08-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://samuflore.top/tags/Sign-Magnitude/</loc>
-    <lastmod>2025-08-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://samuflore.top/tags/Ones-Complement/</loc>
-    <lastmod>2025-08-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://samuflore.top/tags/Two-s-Complement/</loc>
-    <lastmod>2025-08-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://samuflore.top/tags/Markdown/</loc>
     <lastmod>2025-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
