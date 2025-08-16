@@ -133,6 +133,20 @@ Probe 有点类似于输出引脚，可以显示数值，它可以显示<strong>
 <p><img src="/posts/e7ebcfa7/gate.png" alt="gate"></p>
 <h3 id="Plexers（复用器）">Plexers（复用器）</h3>
 <p><img src="/posts/e7ebcfa7/plexer.png" alt="plexer"></p>
+<h4 id="Bit-Selector（位选择器）">Bit Selector（位选择器）</h4>
+<p>Bit Selector 有两个重要的参数：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>Data Bits</code>: 输入数据的位宽</p>
+</li>
+<li class="lvl-2">
+<p><code>Output Bits</code>: 输出数据的位宽<br>
+Bit Selector 有两个输入：data 和 dist。其中，dist 宽度为 ⌈log<sub>2</sub>(⌈data / <code>Output Bits</code>⌉)⌉。<br>
+一个输出为 <code>Output Bits</code> 位宽。<br>
+Bit Selector 根据输出数据的位宽将输入数据等分成若干段，每段为 <code>Output Bits</code> 位宽。然后根据 <code>dist</code> 指定的编号从低到高选出需要的段并输出。</p>
+</li>
+</ul>
+<p><img src="/posts/e7ebcfa7/BS.png" alt="BS"></p>
 <h3 id="Arithmetic（运算器）">Arithmetic（运算器）</h3>
 <p><img src="/posts/e7ebcfa7/arithmetic.jpg" alt="arithmetic"></p>
 <h4 id="Negator（取反）">Negator（取反）</h4>
@@ -141,7 +155,7 @@ Probe 有点类似于输出引脚，可以显示数值，它可以显示<strong>
 <h4 id="Shifter（移位）">Shifter（移位）</h4>
 <p>Shifter 含有两个输入，data 和 dist，它有一个输出，这是根据 dist 位移动数据的结果。data 和输出具有相同的位宽。</p>
 <div class="note warning">
-            <p>data 的位宽和 dist 的位宽需要满足下述数学关系：<br>dist = ⌊log<sub>2</sub>data⌋ + 1</p>
+            <p>data 的位宽和 dist 的位宽需要满足下述数学关系：<br>dist = ⌈log<sub>2</sub>data⌉</p>
           </div>  
 <p>Shifter 支持以下几种移位方式：</p>
 <ul class="lvl-0">
@@ -165,6 +179,45 @@ Probe 有点类似于输出引脚，可以显示数值，它可以显示<strong>
 <div class="note info">
             <p><a href="https://blog.csdn.net/Hi_KER/article/details/121049347">本小节摘自 CSDN</a></p>
           </div>
+<h4 id="Bit-Finder（位查找）">Bit Finder（位查找）</h4>
+<p>Bit Finder 有一个 n 位宽的输入，有一个 1 位宽的输出，表示在输入中是否找到对应的值。对于 n 位的输入，Bit Finder 有一个 ⌈log<sub>2</sub>n⌉ 位宽的输出表示找到的值的编号。<br>
+Bit Finder 有一个 <code>Type</code> 参数：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>Lowest-order 1: 自<strong>最低位</strong>开始查找 1</p>
+</li>
+<li class="lvl-2">
+<p>Highest-order 1: 自<strong>最高位</strong>开始查找 1</p>
+</li>
+<li class="lvl-2">
+<p>Lowest-order 0: 自<strong>最低位</strong>开始查找 0</p>
+</li>
+<li class="lvl-2">
+<p>Highest-order 0: 自<strong>最高位</strong>开始查找 0</p>
+</li>
+</ul>
+<div class="tips">
+<p>无论何种查找方式，返回的都是绝对位次，即从右往左数从 0 开始的位次。</p>
+</div>
+<p><img src="/posts/e7ebcfa7/BF.png" alt="BF"></p>
+<h4 id="Adder（加法）">Adder（加法）</h4>
+<p>Adder 将两个左端输入值数学相加，并在右端输出结果。</p>
+<p><img src="/posts/e7ebcfa7/Adder.png" alt="Adder"></p>
+<h4 id="Subtractor（减法）">Subtractor（减法）</h4>
+<p>Subtractor 将两个左端输入值数学相减，并在右端输出结果。</p>
+<p><img src="/posts/e7ebcfa7/Subtractor.png" alt="Subtractor"></p>
+<div class="warning">
+<p>差值为负，则结果为其补码。</p>
+</div>
+<h4 id="Bit-Adder（位加法）">Bit Adder（位加法）</h4>
+<p>Bit Adder 计算输入中有多少位是 1，并输出为 1 的位的数量。对于 n 位的输入，Bit Adder 有一个 ⌈log<sub>2</sub>n⌉ 位宽的输出表示 1 的位的数量。</p>
+<div class="warning">
+<p>Bit Adder 可以指定至多 32 个输入。此时 n<sub>总</sub> 为所有输入的 n 之和。</p>
+</div>
+<p><img src="/posts/e7ebcfa7/BA.png" alt="BA"></p>
+<h4 id="Comparator（比较）">Comparator（比较）</h4>
+<p>Comparator 比较两个值（无符号值或两个补码值，可选）的大小。Comparator 有 3 个输出，通常，其中一个输出为1，另外两个输出为0。</p>
+<p><img src="/posts/e7ebcfa7/Comparator.png" alt="Comparator"></p>
 <h3 id="Memory（存储）">Memory（存储）</h3>
 <p><img src="/posts/e7ebcfa7/memory.png" alt="memory"></p>
 <h3 id="I-O（输入输出）">I/O（输入输出）</h3>
