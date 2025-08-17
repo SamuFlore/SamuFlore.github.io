@@ -37,6 +37,8 @@
 <meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/Probe.png">
 <meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/Splitter.png">
 <meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/BE.png">
+<meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/Clock.png">
+<meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/Clock2.png">
 <meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/gate.png">
 <meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/plexer.png">
 <meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/BS.png">
@@ -49,12 +51,16 @@
 <meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/BA.png">
 <meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/Comparator.png">
 <meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/memory.png">
+<meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/Register.png">
 <meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/io.png">
 <meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/base.png">
 <meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/S.png">
 <meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/Full.png">
+<meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/test.png">
+<meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/swap_circuit.png">
+<meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/swap.png">
 <meta property="article:published_time" content="2025-08-14T14:53:54.000Z">
-<meta property="article:modified_time" content="2025-08-16T15:37:45.221Z">
+<meta property="article:modified_time" content="2025-08-17T16:28:17.383Z">
 <meta property="article:author" content="Samustach Floresein">
 <meta property="article:tag" content="Logisim">
 <meta property="article:tag" content="CO">
@@ -269,7 +275,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-08-16 23:37:45" itemprop="dateModified" datetime="2025-08-16T23:37:45+08:00">2025-08-16</time>
+                <time title="修改时间：2025-08-18 00:28:17" itemprop="dateModified" datetime="2025-08-18T00:28:17+08:00">2025-08-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -308,7 +314,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.9k</span>
+              <span>3.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -400,6 +406,16 @@ Probe 有点类似于输出引脚，可以显示数值，它可以显示<strong>
 </ul>
 <p>当输入数据的位宽<strong>大于</strong>输出数据的位宽时，Bit Extender 从低到高截取需要的位数，其余的舍弃。</p>
 <p><img src="/posts/e7ebcfa7/BE.png" alt="BE"></p>
+<h4 id="Clock（时钟）">Clock（时钟）</h4>
+<p>在 Simulate 菜单中开启 Ticks Enabled 选项，Clock 会自动经历周期，释放信号。<br>
+Clock 可以指定 <code>High Duration</code> 和 <code>Low Duration</code>，分别表示高电平持续时间和低电平持续时间。单位为 <code>Tick(s)</code>。</p>
+<p><img src="/posts/e7ebcfa7/Clock.png" alt="Clock"></p>
+<div class="note info">
+            <p>Logisim 对时钟的模拟是理想状态的：在实际电路中，多个时钟会相互漂移，并且永远不会同步移动。 但在 Logisim 中，所有时钟都以相同的速率经历滴答声。</p>
+          </div>
+<p><a id="circle"></a><br>
+Clock 的周期：</p>
+<p><img src="/posts/e7ebcfa7/Clock2.png" alt="Clock2"></p>
 <h3 id="Gates（门）">Gates（门）</h3>
 <p><img src="/posts/e7ebcfa7/gate.png" alt="gate"></p>
 <h3 id="Plexers（复用器）">Plexers（复用器）</h3>
@@ -491,6 +507,12 @@ Bit Finder 有一个 <code>Type</code> 参数：</p>
 <p><img src="/posts/e7ebcfa7/Comparator.png" alt="Comparator"></p>
 <h3 id="Memory（存储）">Memory（存储）</h3>
 <p><img src="/posts/e7ebcfa7/memory.png" alt="memory"></p>
+<h4 id="Register（寄存器）">Register（寄存器）</h4>
+<p>Register 存储单个多位值，该值以<ins>十六进制</ins>形式显示在其矩形内，并在其输出端输出。当时钟信号输入满足 Register 触发条件时，存储在 Register 中的值就会在该时刻改变为 D 输入的值。时钟信号指示 Register 储存值发生改变的确切条件是通过触发属性配置的，Logisim 中一般有时钟<strong>上升沿</strong>和<strong>下降沿</strong>，<strong>高电平</strong>和<strong>低电平</strong>这四种触发方式。</p>
+<p>使能信号：使能信号输入为 1 时，Register 开始工作，输入信号 D 有效。使能信号输入为 0 时，Register 停止工作，输入信号 D 无效。</p>
+<p><img src="/posts/e7ebcfa7/Register.png" alt="Register"></p>
+<p>Reset（复位）输入异步地将 Register 的值重置为0（全部为0），也就是说，只要 Reset 为 1，Register 的值就固定为 0，不管时钟和输入是什么。</p>
+<p>关于四种触发方式在周期的位置，请看<a href="#circle">此处</a></p>
 <h3 id="I-O（输入输出）">I/O（输入输出）</h3>
 <p><img src="/posts/e7ebcfa7/io.png" alt="io"></p>
 <h3 id="Base（基本组件）">Base（基本组件）</h3>
@@ -501,6 +523,34 @@ Bit Finder 有一个 <code>Type</code> 参数：</p>
 对于 S 的运算，我们可以作出：<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup><br>
 <img src="/posts/e7ebcfa7/S.png" alt="S">利用已有的运算结果，进一步搭建整个电路：<br>
 <img src="/posts/e7ebcfa7/Full.png" alt="Full"></p>
+<h2 id="Swap-电路">Swap 电路</h2>
+<p>现在需要你使用基础的门电路搭建这样一个电路，当输入 S 为 0（低电平）时，输出 O1 等于输入 I1，输出 O2 等于输入 I2。当输入 S 为 1（高电平）时，则交换两输出，即输出 O2 等于输入 I1，输出 O1 等于输入 I2。我们给它取名叫做 swap 电路。</p>
+<h3 id="提交要求">提交要求</h3>
+<p><strong>用 Logisim 完成 swap 电路</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>文件内模块名：<code>swap</code></p>
+</li>
+<li class="lvl-2">
+<p>输入：<code>I1</code>(1 bit), <code>I2</code>(1 bit), <code>S</code>(1 bit)</p>
+</li>
+<li class="lvl-2">
+<p>输出：<code>O1</code>(1 bit), <code>O2</code>(1 bit)</p>
+</li>
+<li class="lvl-2">
+<p><strong>注意：请从门级电路开始搭建，切勿使用 Plexers 类元件。</strong></p>
+</li>
+<li class="lvl-2">
+<p><strong>测试电路图（我们将使用下方的电路对你搭建的电路进行测试，测试的原理是将下图的 swap 模块替换为你提交文件中的 swap 模块，随后测试机会仿真运行下图中的电路图，记录其输出并与正确的输出进行对比）</strong></p>
+</li>
+</ul>
+<p><img src="/posts/e7ebcfa7/test.png" alt="test"></p>
+<p>模块样式：</p>
+<p><img src="/posts/e7ebcfa7/swap_circuit.png" alt="swap_circuit"></p>
+<h3 id="解">解</h3>
+<p><strong>答案</strong><br>
+<img src="/posts/e7ebcfa7/swap.png" alt="swap"></p>
+<p><strong>分析</strong></p>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
@@ -654,7 +704,7 @@ Bit Finder 有一个 <code>Type</code> 参数：</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%99%E9%87%8C%E6%9C%89%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">这里有什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logisim-%E9%97%A8%E7%94%B5%E8%B7%AF"><span class="nav-number">3.</span> <span class="nav-text">Logisim 门电路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%95%8C%E9%9D%A2%E8%AE%A4%E8%AF%86"><span class="nav-number">3.1.</span> <span class="nav-text">界面认识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%83%E4%BB%B6%E6%A6%82%E8%A7%88"><span class="nav-number">3.2.</span> <span class="nav-text">元件概览</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Wirings%EF%BC%88%E7%BA%BF%E8%B7%AF%EF%BC%89"><span class="nav-number">3.2.1.</span> <span class="nav-text">Wirings（线路）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Tunnel%EF%BC%88%E9%9A%A7%E9%81%93%EF%BC%89"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">Tunnel（隧道）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Probe%EF%BC%88%E6%8E%A2%E9%92%88%EF%BC%89"><span class="nav-number">3.2.1.2.</span> <span class="nav-text">Probe（探针）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Splitter%EF%BC%88%E5%88%86%E5%8F%89%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.1.3.</span> <span class="nav-text">Splitter（分叉器）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bit-Extender%EF%BC%88%E4%BD%8D%E6%89%A9%E5%B1%95%EF%BC%89"><span class="nav-number">3.2.1.4.</span> <span class="nav-text">Bit Extender（位扩展）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gates%EF%BC%88%E9%97%A8%EF%BC%89"><span class="nav-number">3.2.2.</span> <span class="nav-text">Gates（门）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Plexers%EF%BC%88%E5%A4%8D%E7%94%A8%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.3.</span> <span class="nav-text">Plexers（复用器）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Bit-Selector%EF%BC%88%E4%BD%8D%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.3.1.</span> <span class="nav-text">Bit Selector（位选择器）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arithmetic%EF%BC%88%E8%BF%90%E7%AE%97%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.4.</span> <span class="nav-text">Arithmetic（运算器）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Negator%EF%BC%88%E5%8F%96%E5%8F%8D%EF%BC%89"><span class="nav-number">3.2.4.1.</span> <span class="nav-text">Negator（取反）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Shifter%EF%BC%88%E7%A7%BB%E4%BD%8D%EF%BC%89"><span class="nav-number">3.2.4.2.</span> <span class="nav-text">Shifter（移位）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bit-Finder%EF%BC%88%E4%BD%8D%E6%9F%A5%E6%89%BE%EF%BC%89"><span class="nav-number">3.2.4.3.</span> <span class="nav-text">Bit Finder（位查找）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Adder%EF%BC%88%E5%8A%A0%E6%B3%95%EF%BC%89"><span class="nav-number">3.2.4.4.</span> <span class="nav-text">Adder（加法）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Subtractor%EF%BC%88%E5%87%8F%E6%B3%95%EF%BC%89"><span class="nav-number">3.2.4.5.</span> <span class="nav-text">Subtractor（减法）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bit-Adder%EF%BC%88%E4%BD%8D%E5%8A%A0%E6%B3%95%EF%BC%89"><span class="nav-number">3.2.4.6.</span> <span class="nav-text">Bit Adder（位加法）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Comparator%EF%BC%88%E6%AF%94%E8%BE%83%EF%BC%89"><span class="nav-number">3.2.4.7.</span> <span class="nav-text">Comparator（比较）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Memory%EF%BC%88%E5%AD%98%E5%82%A8%EF%BC%89"><span class="nav-number">3.2.5.</span> <span class="nav-text">Memory（存储）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#I-O%EF%BC%88%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%EF%BC%89"><span class="nav-number">3.2.6.</span> <span class="nav-text">I&#x2F;O（输入输出）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Base%EF%BC%88%E5%9F%BA%E6%9C%AC%E7%BB%84%E4%BB%B6%EF%BC%89"><span class="nav-number">3.2.7.</span> <span class="nav-text">Base（基本组件）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BD%8D%E5%85%A8%E5%8A%A0%E5%99%A8"><span class="nav-number">3.3.</span> <span class="nav-text">一位全加器</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%99%E9%87%8C%E6%9C%89%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">这里有什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logisim-%E9%97%A8%E7%94%B5%E8%B7%AF"><span class="nav-number">3.</span> <span class="nav-text">Logisim 门电路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%95%8C%E9%9D%A2%E8%AE%A4%E8%AF%86"><span class="nav-number">3.1.</span> <span class="nav-text">界面认识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%83%E4%BB%B6%E6%A6%82%E8%A7%88"><span class="nav-number">3.2.</span> <span class="nav-text">元件概览</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Wirings%EF%BC%88%E7%BA%BF%E8%B7%AF%EF%BC%89"><span class="nav-number">3.2.1.</span> <span class="nav-text">Wirings（线路）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Tunnel%EF%BC%88%E9%9A%A7%E9%81%93%EF%BC%89"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">Tunnel（隧道）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Probe%EF%BC%88%E6%8E%A2%E9%92%88%EF%BC%89"><span class="nav-number">3.2.1.2.</span> <span class="nav-text">Probe（探针）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Splitter%EF%BC%88%E5%88%86%E5%8F%89%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.1.3.</span> <span class="nav-text">Splitter（分叉器）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bit-Extender%EF%BC%88%E4%BD%8D%E6%89%A9%E5%B1%95%EF%BC%89"><span class="nav-number">3.2.1.4.</span> <span class="nav-text">Bit Extender（位扩展）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Clock%EF%BC%88%E6%97%B6%E9%92%9F%EF%BC%89"><span class="nav-number">3.2.1.5.</span> <span class="nav-text">Clock（时钟）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gates%EF%BC%88%E9%97%A8%EF%BC%89"><span class="nav-number">3.2.2.</span> <span class="nav-text">Gates（门）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Plexers%EF%BC%88%E5%A4%8D%E7%94%A8%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.3.</span> <span class="nav-text">Plexers（复用器）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Bit-Selector%EF%BC%88%E4%BD%8D%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.3.1.</span> <span class="nav-text">Bit Selector（位选择器）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arithmetic%EF%BC%88%E8%BF%90%E7%AE%97%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.4.</span> <span class="nav-text">Arithmetic（运算器）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Negator%EF%BC%88%E5%8F%96%E5%8F%8D%EF%BC%89"><span class="nav-number">3.2.4.1.</span> <span class="nav-text">Negator（取反）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Shifter%EF%BC%88%E7%A7%BB%E4%BD%8D%EF%BC%89"><span class="nav-number">3.2.4.2.</span> <span class="nav-text">Shifter（移位）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bit-Finder%EF%BC%88%E4%BD%8D%E6%9F%A5%E6%89%BE%EF%BC%89"><span class="nav-number">3.2.4.3.</span> <span class="nav-text">Bit Finder（位查找）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Adder%EF%BC%88%E5%8A%A0%E6%B3%95%EF%BC%89"><span class="nav-number">3.2.4.4.</span> <span class="nav-text">Adder（加法）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Subtractor%EF%BC%88%E5%87%8F%E6%B3%95%EF%BC%89"><span class="nav-number">3.2.4.5.</span> <span class="nav-text">Subtractor（减法）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bit-Adder%EF%BC%88%E4%BD%8D%E5%8A%A0%E6%B3%95%EF%BC%89"><span class="nav-number">3.2.4.6.</span> <span class="nav-text">Bit Adder（位加法）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Comparator%EF%BC%88%E6%AF%94%E8%BE%83%EF%BC%89"><span class="nav-number">3.2.4.7.</span> <span class="nav-text">Comparator（比较）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Memory%EF%BC%88%E5%AD%98%E5%82%A8%EF%BC%89"><span class="nav-number">3.2.5.</span> <span class="nav-text">Memory（存储）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Register%EF%BC%88%E5%AF%84%E5%AD%98%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.5.1.</span> <span class="nav-text">Register（寄存器）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#I-O%EF%BC%88%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%EF%BC%89"><span class="nav-number">3.2.6.</span> <span class="nav-text">I&#x2F;O（输入输出）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Base%EF%BC%88%E5%9F%BA%E6%9C%AC%E7%BB%84%E4%BB%B6%EF%BC%89"><span class="nav-number">3.2.7.</span> <span class="nav-text">Base（基本组件）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BD%8D%E5%85%A8%E5%8A%A0%E5%99%A8"><span class="nav-number">3.3.</span> <span class="nav-text">一位全加器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Swap-%E7%94%B5%E8%B7%AF"><span class="nav-number">3.4.</span> <span class="nav-text">Swap 电路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E4%BA%A4%E8%A6%81%E6%B1%82"><span class="nav-number">3.4.1.</span> <span class="nav-text">提交要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3"><span class="nav-number">3.4.2.</span> <span class="nav-text">解</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -761,12 +811,12 @@ Bit Finder 有一个 <code>Type</code> 参数：</p>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area" style="color:#6A5ACD"></i>
     </span>
-    <span title="站点总字数">博文总字数 28k</span>
+    <span title="站点总字数">博文总字数 29k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee" style="color:#6A5ACD"></i>
     </span>
-    <span title="站点阅读时长">约 25 分钟 可通读</span>
+    <span title="站点阅读时长">约 26 分钟 可通读</span>
 </div>
   <div class="powered-by" style="color:#6A5ACD">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

@@ -129,6 +129,16 @@ Probe 有点类似于输出引脚，可以显示数值，它可以显示<strong>
 </ul>
 <p>当输入数据的位宽<strong>大于</strong>输出数据的位宽时，Bit Extender 从低到高截取需要的位数，其余的舍弃。</p>
 <p><img src="/posts/e7ebcfa7/BE.png" alt="BE"></p>
+<h4 id="Clock（时钟）">Clock（时钟）</h4>
+<p>在 Simulate 菜单中开启 Ticks Enabled 选项，Clock 会自动经历周期，释放信号。<br>
+Clock 可以指定 <code>High Duration</code> 和 <code>Low Duration</code>，分别表示高电平持续时间和低电平持续时间。单位为 <code>Tick(s)</code>。</p>
+<p><img src="/posts/e7ebcfa7/Clock.png" alt="Clock"></p>
+<div class="note info">
+            <p>Logisim 对时钟的模拟是理想状态的：在实际电路中，多个时钟会相互漂移，并且永远不会同步移动。 但在 Logisim 中，所有时钟都以相同的速率经历滴答声。</p>
+          </div>
+<p><a id="circle"></a><br>
+Clock 的周期：</p>
+<p><img src="/posts/e7ebcfa7/Clock2.png" alt="Clock2"></p>
 <h3 id="Gates（门）">Gates（门）</h3>
 <p><img src="/posts/e7ebcfa7/gate.png" alt="gate"></p>
 <h3 id="Plexers（复用器）">Plexers（复用器）</h3>
@@ -220,6 +230,12 @@ Bit Finder 有一个 <code>Type</code> 参数：</p>
 <p><img src="/posts/e7ebcfa7/Comparator.png" alt="Comparator"></p>
 <h3 id="Memory（存储）">Memory（存储）</h3>
 <p><img src="/posts/e7ebcfa7/memory.png" alt="memory"></p>
+<h4 id="Register（寄存器）">Register（寄存器）</h4>
+<p>Register 存储单个多位值，该值以<ins>十六进制</ins>形式显示在其矩形内，并在其输出端输出。当时钟信号输入满足 Register 触发条件时，存储在 Register 中的值就会在该时刻改变为 D 输入的值。时钟信号指示 Register 储存值发生改变的确切条件是通过触发属性配置的，Logisim 中一般有时钟<strong>上升沿</strong>和<strong>下降沿</strong>，<strong>高电平</strong>和<strong>低电平</strong>这四种触发方式。</p>
+<p>使能信号：使能信号输入为 1 时，Register 开始工作，输入信号 D 有效。使能信号输入为 0 时，Register 停止工作，输入信号 D 无效。</p>
+<p><img src="/posts/e7ebcfa7/Register.png" alt="Register"></p>
+<p>Reset（复位）输入异步地将 Register 的值重置为0（全部为0），也就是说，只要 Reset 为 1，Register 的值就固定为 0，不管时钟和输入是什么。</p>
+<p>关于四种触发方式在周期的位置，请看<a href="#circle">此处</a></p>
 <h3 id="I-O（输入输出）">I/O（输入输出）</h3>
 <p><img src="/posts/e7ebcfa7/io.png" alt="io"></p>
 <h3 id="Base（基本组件）">Base（基本组件）</h3>
@@ -230,6 +246,34 @@ Bit Finder 有一个 <code>Type</code> 参数：</p>
 对于 S 的运算，我们可以作出：<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup><br>
 <img src="/posts/e7ebcfa7/S.png" alt="S">利用已有的运算结果，进一步搭建整个电路：<br>
 <img src="/posts/e7ebcfa7/Full.png" alt="Full"></p>
+<h2 id="Swap-电路">Swap 电路</h2>
+<p>现在需要你使用基础的门电路搭建这样一个电路，当输入 S 为 0（低电平）时，输出 O1 等于输入 I1，输出 O2 等于输入 I2。当输入 S 为 1（高电平）时，则交换两输出，即输出 O2 等于输入 I1，输出 O1 等于输入 I2。我们给它取名叫做 swap 电路。</p>
+<h3 id="提交要求">提交要求</h3>
+<p><strong>用 Logisim 完成 swap 电路</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>文件内模块名：<code>swap</code></p>
+</li>
+<li class="lvl-2">
+<p>输入：<code>I1</code>(1 bit), <code>I2</code>(1 bit), <code>S</code>(1 bit)</p>
+</li>
+<li class="lvl-2">
+<p>输出：<code>O1</code>(1 bit), <code>O2</code>(1 bit)</p>
+</li>
+<li class="lvl-2">
+<p><strong>注意：请从门级电路开始搭建，切勿使用 Plexers 类元件。</strong></p>
+</li>
+<li class="lvl-2">
+<p><strong>测试电路图（我们将使用下方的电路对你搭建的电路进行测试，测试的原理是将下图的 swap 模块替换为你提交文件中的 swap 模块，随后测试机会仿真运行下图中的电路图，记录其输出并与正确的输出进行对比）</strong></p>
+</li>
+</ul>
+<p><img src="/posts/e7ebcfa7/test.png" alt="test"></p>
+<p>模块样式：</p>
+<p><img src="/posts/e7ebcfa7/swap_circuit.png" alt="swap_circuit"></p>
+<h3 id="解">解</h3>
+<p><strong>答案</strong><br>
+<img src="/posts/e7ebcfa7/swap.png" alt="swap"></p>
+<p><strong>分析</strong></p>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
