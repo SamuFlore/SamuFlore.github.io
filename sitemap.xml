@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://samuflore.top/links/index.html</loc>
+    
+    <lastmod>2025-08-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://samuflore.top/posts/9707d4af/</loc>
     
     <lastmod>2025-08-19</lastmod>
@@ -140,15 +149,6 @@
     <loc>https://samuflore.top/categories/index.html</loc>
     
     <lastmod>2025-07-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://samuflore.top/links/index.html</loc>
-    
-    <lastmod>2025-07-17</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -334,13 +334,6 @@
   </url>
   
   <url>
-    <loc>https://samuflore.top/tags/One-Hot-Encoding/</loc>
-    <lastmod>2025-08-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://samuflore.top/tags/NexT/</loc>
     <lastmod>2025-08-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -349,6 +342,13 @@
   
   <url>
     <loc>https://samuflore.top/tags/Font/</loc>
+    <lastmod>2025-08-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://samuflore.top/tags/One-Hot-Encoding/</loc>
     <lastmod>2025-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
