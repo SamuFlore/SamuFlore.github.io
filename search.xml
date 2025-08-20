@@ -200,9 +200,11 @@ Clock 的周期：</p>
 <h4 id="Multiplexer-MUX-（多路选择器）">Multiplexer(MUX)（多路选择器）</h4>
 <p>在组合电路中，多路选择器（Multiplexer，简称 MUX）是非常重要的一类部件，他们在组合电路中扮演着非常重要的角色。下图是一个典型的 Logisim 中的多路选择器，左侧是多个输入，右侧是相应的输出，通过底部（黑色）的选择信号，对输入的信号进行选择后输出。另外一个端口是部件的使能端，当其为高电平（为 1）时，整个部件使能工作。</p>
 <p><img src="/posts/e7ebcfa7/MUX.png" alt="MUX"></p>
+<p>选择信号：当 <code>Select Bits</code> 字段为 n 时，选择信号的位宽为 n，此时输入引脚有 2<sup>n</sup> 个。选择信号的值表示选择<ins>要输出的输入信号的位次</ins>，自上而下，从 0 开始。</p>
 <h4 id="Demultiplexer-DMX-（多路分配器）">Demultiplexer(DMX)（多路分配器）</h4>
 <p>多路分配器和多路选择器功能恰好相反，即能够将 1 个输入数据，根据需要传送到多个输出端的任何一个输出端。</p>
 <p><img src="/posts/e7ebcfa7/DMX.png" alt="DMX"></p>
+<p>选择信号：当 <code>Select Bits</code> 字段为 n 时，选择信号的位宽为 n，此时输出引脚有 2<sup>n</sup> 个。选择信号的值表示选择要<ins>把输入信号复制到第几个输出引脚上</ins>，自上而下，从 0 开始。</p>
 <h4 id="Decoder（译码器）">Decoder（译码器）</h4>
 <p>如下图，右侧是多个输出，底部是黑色的选择信号与使能端。译码器最大的功能在于将二进制编码转换为相应的<a href="https://samuflore.top/posts/9707d4af/">独热码（one-hot）</a>，如 101 的 3 位二进制编码作为输入就会被转换成 00100000 的 8 位独热码作为输出。因而该元件得名译码器。</p>
 <p><img src="/posts/e7ebcfa7/decd.png" alt="decd"></p>
@@ -380,6 +382,30 @@ Bit Finder 有一个 <code>Type</code> 参数：</p>
 <img src="/posts/e7ebcfa7/2swap2.png" alt="2swap2"></p>
 <h2 id="Wire-Bundle（线束）">Wire Bundle（线束）</h2>
 <p><img src="/posts/e7ebcfa7/wires.png" alt="wires">​对于一个完整且正确的电路，是以深绿色，浅绿色，黑色接线构成，绿色接线可以通过深浅直接判断出取值，而黑色接线，并不能直接反映出取值，这里建议大家使用 Wiring 库中的 Probe 元器件，可以对多位数据实时显示监控。</p>
+<h2 id="利用-Logisim-进行组合逻辑分析">利用 Logisim 进行组合逻辑分析</h2>
+<p>​Logisim 中具有逻辑分析的功能，可以实现组合电路，真值表，布尔表达式三者间的两两转换。<br>
+​打开组合逻辑分析模块的方式：</p>
+<ol>
+<li class="lvl-3">
+<p>Window 栏目下的 Combinational Analysis;</p>
+</li>
+<li class="lvl-3">
+<p>Project 栏目下的 Analyze Circuit;</p>
+</li>
+</ol>
+<p>​组合逻辑分析模块，可根据逻辑表达式得到相应的真值表。我们也可以通过输入真值表，再产生相应的表达式，或者产生相应的电路。其中真值表的选值有：0，1，x（浮动）。<br>
+<img src="/posts/e7ebcfa7/analysis.png" alt="analysis"></p>
+<p>并且在生成电路时，我们也可以勾选下列生成电路的附加约束：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>Use Two-Input Gates Only 只使用二输入门电路；<br>
+<img src="/posts/e7ebcfa7/2-input.png" alt="2-input"></p>
+</li>
+<li class="lvl-2">
+<p>Use NAND Gates Only 只使用与非门；<br>
+<img src="/posts/e7ebcfa7/nand.png" alt="nand"></p>
+</li>
+</ul>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
