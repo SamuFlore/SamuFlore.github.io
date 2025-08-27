@@ -22,7 +22,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"samuflore.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#6A5ACD","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"samuflore.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#6A5ACD","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
   <meta name="description" content="序  Logisim 是一款非常优秀的用于数字电路设计与仿真的教育软件。它提供了丰富的电路库与元件的抽象表示，生成的电路图也比较美观，还提供了时序的模拟功能，能够让我们对 CPU 的结构和运行情况有更直观的理解，并且在开发一些小电路时还有一些其他辅助功能。 为什么要学习 Logisim？  这里有什么？   Logisim 门电路   Logisim 组合电路   Logisim 时序电路   L">
@@ -76,8 +76,10 @@
 <meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/analysis.png">
 <meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/2-input.png">
 <meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/nand.png">
+<meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/4bit_swap.png">
+<meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/4bit_sort.png">
 <meta property="article:published_time" content="2025-08-14T14:53:54.000Z">
-<meta property="article:modified_time" content="2025-08-20T14:00:26.928Z">
+<meta property="article:modified_time" content="2025-08-27T11:00:22.238Z">
 <meta property="article:author" content="Samustach Floresein">
 <meta property="article:tag" content="Logisim">
 <meta property="article:tag" content="CO">
@@ -292,7 +294,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-08-20 22:00:26" itemprop="dateModified" datetime="2025-08-20T22:00:26+08:00">2025-08-20</time>
+                <time title="修改时间：2025-08-27 19:00:22" itemprop="dateModified" datetime="2025-08-27T19:00:22+08:00">2025-08-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -331,14 +333,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5.4k</span>
+              <span>6.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
+              <span>6 分钟</span>
             </span>
 
         </div>
@@ -383,6 +385,7 @@ Logisim 提供图形界面，可以通过长按拖动的形式新建部件以及
 <h2 id="元件概览">元件概览</h2>
 <h3 id="Wirings（线路）">Wirings（线路）</h3>
 <p><img src="/posts/e7ebcfa7/wiring.png" alt="wiring"></p>
+<p><a id="tunnel"></a></p>
 <h4 id="Tunnel（隧道）">Tunnel（隧道）</h4>
 <p>​Tunnel 部件是在整个 Logisim 实验中简化电路布线复杂度效果最好的一个部件，可以让你在纷繁复杂的接线中解脱出来，让你能够更加专心的关注于各个部件的设计，而不被复杂的接线所打扰。<br>
 ​Tunnel 名为隧道，即它可以将标签<strong>相同</strong> Tunnel 之间的数据，通过一个不可见的“隧道”进行传输，在使用过程中，可以链接数据的输入端和输出端，使得数据可以方便简单的传输。<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
@@ -392,6 +395,7 @@ Logisim 提供图形界面，可以通过长按拖动的形式新建部件以及
 <p>​Probe 作为一个显示线路数据值的部件，可以对多位宽数据进行实时监控，简而言之，就是可以直接显示接线的数值，并且不影响整个电路的运行。<br>
 Probe 有点类似于输出引脚，可以显示数值，它可以显示<strong>多位宽数据</strong>。</p>
 <p><img src="/posts/e7ebcfa7/Probe.png" alt="Probe"></p>
+<p><a id="splitter"></a></p>
 <h4 id="Splitter（分叉器）">Splitter（分叉器）</h4>
 <p>​Splitter 是一个多路分叉器，可以将一个数据输入端分成多个输出端，可以将数据进行分流，使得数据可以分别处理。每条岔路都会注明数据来源的<strong>位编号</strong>，位编号从 0 开始，对应数据源最靠右的位，例如：</p>
 <p><img src="/posts/e7ebcfa7/Splitter.png" alt="Splitter"></p>
@@ -573,6 +577,7 @@ Bit Finder 有一个 <code>Type</code> 参数：</p>
 对于 S 的运算，我们可以作出：<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup><br>
 <img src="/posts/e7ebcfa7/S.png" alt="S">利用已有的运算结果，进一步搭建整个电路：<br>
 <img src="/posts/e7ebcfa7/Full.png" alt="Full"></p>
+<p><a id="swap"></a></p>
 <h2 id="Swap-电路">Swap 电路</h2>
 <p>现在需要你使用基础的门电路搭建这样一个电路，当输入 S 为 0（低电平）时，输出 O1 等于输入 I1，输出 O2 等于输入 I2。当输入 S 为 1（高电平）时，则交换两输出，即输出 O2 等于输入 I1，输出 O1 等于输入 I2。我们给它取名叫做 swap 电路。</p>
 <h3 id="提交要求">提交要求</h3>
@@ -659,6 +664,51 @@ Bit Finder 有一个 <code>Type</code> 参数：</p>
 <img src="/posts/e7ebcfa7/nand.png" alt="nand"></p>
 </li>
 </ul>
+<h2 id="排序电路（4bit-sort）">排序电路（4bit_sort）</h2>
+<p>在前面的学习过程中，我们搭建了一个 1 位的 swap 电路。现在需要我们使用之前的 1 位 swap 电路来搭建一个 4 位 4 输入的排序电路。</p>
+<h3 id="要求">要求</h3>
+<p>先使用 1 位的 swap 搭建 4 位的 swap，再使用 4 位的 swap 模块和 Logisim 内置的 comparator 元件搭建排序电路（请不要使用 Plexers 类元件）。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>功能描述: 该电路具有 4 个 4 位的二进制数字作为输入和 4 个 4 位的二进制数字作为输出。它的功能是，将 4 个输入的二进制数字进行排序，从上往下数第一个输出端口输出的是 4 个数字中最小的，第二个输出端口输出的是第二小的，以此类推。</p>
+</li>
+<li class="lvl-2">
+<p>输入： A, B, C, D (4 bit)</p>
+</li>
+<li class="lvl-2">
+<p>输出： #1, #2, #3, #4 (4 bit)（#1 对应第一个输出端口，以此类推）</p>
+</li>
+<li class="lvl-2">
+<p>文件内 1 位 swap 模块名：<code>1bit_swap</code></p>
+</li>
+<li class="lvl-2">
+<p>文件内 4 位 swap 模块名：<code>4bit_swap</code></p>
+</li>
+<li class="lvl-2">
+<p>文件内排序电路模块名：<code>4bit_sort</code></p>
+</li>
+<li class="lvl-2">
+<p>Hint: 所有的二进制数字均看做是无符号的。</p>
+</li>
+</ul>
+<h3 id="解-2">解</h3>
+<p>1 位 swap 电路可以参考<a href="#swap">这里</a>。<br>
+要构建 4 位 swap 电路，其实就是把 4 bit 输入拆分成四个 1 bit 输入，然后分别交给 1 位 swap 电路，再将四个 1 bit 输出连接起来即可。拆分，也就是使用 Splitter 元件，交换后再用 Splitter 连接起来。有关 Splitter 您可参考<a href="#splitter">这里</a>。</p>
+<p><img src="/posts/e7ebcfa7/4bit_swap.png" alt="4bit_swap"></p>
+<div class="warning">
+<p><strong>注意</strong><br>
+图中已封装好的模块是 1 位 swap 模块 <code>1bit_swap</code>。</p>
+</div>
+<div class="note info">
+            <p>您可使用 Tunnel 元件简化电路。关于 Tunnel 元件您可参考<a href="#tunnel">这里</a>。</p>
+          </div>
+<p>如何实现排序呢？我们可以使用<a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/bubble-sort.html">冒泡排序（Bubble Sort）</a>来完成。对于 A, B, C, D 四个输入，我们可以先比较 A 和 B 的大小，由于要求从小到大输出，那么如果 A &gt; B，则交换 A 和 B，然后比较 A 和 C，如果 A &gt; C，则交换 A 和 C，以此类推，直到比较完所有四个输入。每个输入都会与另三各完成一次比较，从而得到四者的顺序。此处我们可以充分利用 Tunnel 元件，将一次比较的结果传递给下次比较的输入。</p>
+<p><img src="/posts/e7ebcfa7/4bit_sort.png" alt="4bit_sort"></p>
+<div class="warning">
+<p><strong>注意</strong><br>
+图中已封装好的模块是 4 位 swap 模块 <code>4bit_swap</code>。</p>
+</div>
+<p>每轮比较，若结果为大于，则 Comparator 输出 1，该信号作为使能信号激活 <code>4bit_swap</code> 模块，将输入的二者交换。完成后，其结果用新的 Tunnel 传递给之后的比较轮次。</p>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
@@ -815,7 +865,7 @@ Bit Finder 有一个 <code>Type</code> 参数：</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%99%E9%87%8C%E6%9C%89%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">这里有什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logisim-%E9%97%A8%E7%94%B5%E8%B7%AF"><span class="nav-number">3.</span> <span class="nav-text">Logisim 门电路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%95%8C%E9%9D%A2%E8%AE%A4%E8%AF%86"><span class="nav-number">3.1.</span> <span class="nav-text">界面认识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%83%E4%BB%B6%E6%A6%82%E8%A7%88"><span class="nav-number">3.2.</span> <span class="nav-text">元件概览</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Wirings%EF%BC%88%E7%BA%BF%E8%B7%AF%EF%BC%89"><span class="nav-number">3.2.1.</span> <span class="nav-text">Wirings（线路）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Tunnel%EF%BC%88%E9%9A%A7%E9%81%93%EF%BC%89"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">Tunnel（隧道）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Probe%EF%BC%88%E6%8E%A2%E9%92%88%EF%BC%89"><span class="nav-number">3.2.1.2.</span> <span class="nav-text">Probe（探针）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Splitter%EF%BC%88%E5%88%86%E5%8F%89%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.1.3.</span> <span class="nav-text">Splitter（分叉器）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bit-Extender%EF%BC%88%E4%BD%8D%E6%89%A9%E5%B1%95%EF%BC%89"><span class="nav-number">3.2.1.4.</span> <span class="nav-text">Bit Extender（位扩展）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Clock%EF%BC%88%E6%97%B6%E9%92%9F%EF%BC%89"><span class="nav-number">3.2.1.5.</span> <span class="nav-text">Clock（时钟）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gates%EF%BC%88%E9%97%A8%EF%BC%89"><span class="nav-number">3.2.2.</span> <span class="nav-text">Gates（门）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Odd-Parity%EF%BC%88%E5%A5%87%E6%A0%A1%E9%AA%8C%EF%BC%89"><span class="nav-number">3.2.2.1.</span> <span class="nav-text">Odd Parity（奇校验）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Even-Parity%EF%BC%88%E5%81%B6%E6%A0%A1%E9%AA%8C%EF%BC%89"><span class="nav-number">3.2.2.2.</span> <span class="nav-text">Even Parity（偶校验）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Plexers%EF%BC%88%E5%A4%8D%E7%94%A8%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.3.</span> <span class="nav-text">Plexers（复用器）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Multiplexer-MUX-%EF%BC%88%E5%A4%9A%E8%B7%AF%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.3.1.</span> <span class="nav-text">Multiplexer(MUX)（多路选择器）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Demultiplexer-DMX-%EF%BC%88%E5%A4%9A%E8%B7%AF%E5%88%86%E9%85%8D%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.3.2.</span> <span class="nav-text">Demultiplexer(DMX)（多路分配器）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Decoder%EF%BC%88%E8%AF%91%E7%A0%81%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.3.3.</span> <span class="nav-text">Decoder（译码器）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bit-Selector%EF%BC%88%E4%BD%8D%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.3.4.</span> <span class="nav-text">Bit Selector（位选择器）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arithmetic%EF%BC%88%E8%BF%90%E7%AE%97%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.4.</span> <span class="nav-text">Arithmetic（运算器）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Negator%EF%BC%88%E5%8F%96%E5%8F%8D%EF%BC%89"><span class="nav-number">3.2.4.1.</span> <span class="nav-text">Negator（取反）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Shifter%EF%BC%88%E7%A7%BB%E4%BD%8D%EF%BC%89"><span class="nav-number">3.2.4.2.</span> <span class="nav-text">Shifter（移位）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bit-Finder%EF%BC%88%E4%BD%8D%E6%9F%A5%E6%89%BE%EF%BC%89"><span class="nav-number">3.2.4.3.</span> <span class="nav-text">Bit Finder（位查找）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Adder%EF%BC%88%E5%8A%A0%E6%B3%95%EF%BC%89"><span class="nav-number">3.2.4.4.</span> <span class="nav-text">Adder（加法）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Subtractor%EF%BC%88%E5%87%8F%E6%B3%95%EF%BC%89"><span class="nav-number">3.2.4.5.</span> <span class="nav-text">Subtractor（减法）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bit-Adder%EF%BC%88%E4%BD%8D%E5%8A%A0%E6%B3%95%EF%BC%89"><span class="nav-number">3.2.4.6.</span> <span class="nav-text">Bit Adder（位加法）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Comparator%EF%BC%88%E6%AF%94%E8%BE%83%EF%BC%89"><span class="nav-number">3.2.4.7.</span> <span class="nav-text">Comparator（比较）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Memory%EF%BC%88%E5%AD%98%E5%82%A8%EF%BC%89"><span class="nav-number">3.2.5.</span> <span class="nav-text">Memory（存储）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Register%EF%BC%88%E5%AF%84%E5%AD%98%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.5.1.</span> <span class="nav-text">Register（寄存器）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#I-O%EF%BC%88%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%EF%BC%89"><span class="nav-number">3.2.6.</span> <span class="nav-text">I&#x2F;O（输入输出）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Base%EF%BC%88%E5%9F%BA%E6%9C%AC%E7%BB%84%E4%BB%B6%EF%BC%89"><span class="nav-number">3.2.7.</span> <span class="nav-text">Base（基本组件）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BD%8D%E5%85%A8%E5%8A%A0%E5%99%A8"><span class="nav-number">3.3.</span> <span class="nav-text">一位全加器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Swap-%E7%94%B5%E8%B7%AF"><span class="nav-number">3.4.</span> <span class="nav-text">Swap 电路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E4%BA%A4%E8%A6%81%E6%B1%82"><span class="nav-number">3.4.1.</span> <span class="nav-text">提交要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3"><span class="nav-number">3.4.2.</span> <span class="nav-text">解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logisim-%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF"><span class="nav-number">4.</span> <span class="nav-text">Logisim 组合电路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%90%E7%94%B5%E8%B7%AF"><span class="nav-number">4.1.</span> <span class="nav-text">子电路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E7%94%B5%E8%B7%AF%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B"><span class="nav-number">4.1.1.</span> <span class="nav-text">子电路使用流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Wire-Bundle%EF%BC%88%E7%BA%BF%E6%9D%9F%EF%BC%89"><span class="nav-number">4.2.</span> <span class="nav-text">Wire Bundle（线束）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A9%E7%94%A8-Logisim-%E8%BF%9B%E8%A1%8C%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E5%88%86%E6%9E%90"><span class="nav-number">4.3.</span> <span class="nav-text">利用 Logisim 进行组合逻辑分析</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%99%E9%87%8C%E6%9C%89%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">这里有什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logisim-%E9%97%A8%E7%94%B5%E8%B7%AF"><span class="nav-number">3.</span> <span class="nav-text">Logisim 门电路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%95%8C%E9%9D%A2%E8%AE%A4%E8%AF%86"><span class="nav-number">3.1.</span> <span class="nav-text">界面认识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%83%E4%BB%B6%E6%A6%82%E8%A7%88"><span class="nav-number">3.2.</span> <span class="nav-text">元件概览</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Wirings%EF%BC%88%E7%BA%BF%E8%B7%AF%EF%BC%89"><span class="nav-number">3.2.1.</span> <span class="nav-text">Wirings（线路）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Tunnel%EF%BC%88%E9%9A%A7%E9%81%93%EF%BC%89"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">Tunnel（隧道）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Probe%EF%BC%88%E6%8E%A2%E9%92%88%EF%BC%89"><span class="nav-number">3.2.1.2.</span> <span class="nav-text">Probe（探针）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Splitter%EF%BC%88%E5%88%86%E5%8F%89%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.1.3.</span> <span class="nav-text">Splitter（分叉器）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bit-Extender%EF%BC%88%E4%BD%8D%E6%89%A9%E5%B1%95%EF%BC%89"><span class="nav-number">3.2.1.4.</span> <span class="nav-text">Bit Extender（位扩展）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Clock%EF%BC%88%E6%97%B6%E9%92%9F%EF%BC%89"><span class="nav-number">3.2.1.5.</span> <span class="nav-text">Clock（时钟）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gates%EF%BC%88%E9%97%A8%EF%BC%89"><span class="nav-number">3.2.2.</span> <span class="nav-text">Gates（门）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Odd-Parity%EF%BC%88%E5%A5%87%E6%A0%A1%E9%AA%8C%EF%BC%89"><span class="nav-number">3.2.2.1.</span> <span class="nav-text">Odd Parity（奇校验）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Even-Parity%EF%BC%88%E5%81%B6%E6%A0%A1%E9%AA%8C%EF%BC%89"><span class="nav-number">3.2.2.2.</span> <span class="nav-text">Even Parity（偶校验）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Plexers%EF%BC%88%E5%A4%8D%E7%94%A8%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.3.</span> <span class="nav-text">Plexers（复用器）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Multiplexer-MUX-%EF%BC%88%E5%A4%9A%E8%B7%AF%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.3.1.</span> <span class="nav-text">Multiplexer(MUX)（多路选择器）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Demultiplexer-DMX-%EF%BC%88%E5%A4%9A%E8%B7%AF%E5%88%86%E9%85%8D%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.3.2.</span> <span class="nav-text">Demultiplexer(DMX)（多路分配器）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Decoder%EF%BC%88%E8%AF%91%E7%A0%81%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.3.3.</span> <span class="nav-text">Decoder（译码器）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bit-Selector%EF%BC%88%E4%BD%8D%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.3.4.</span> <span class="nav-text">Bit Selector（位选择器）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arithmetic%EF%BC%88%E8%BF%90%E7%AE%97%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.4.</span> <span class="nav-text">Arithmetic（运算器）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Negator%EF%BC%88%E5%8F%96%E5%8F%8D%EF%BC%89"><span class="nav-number">3.2.4.1.</span> <span class="nav-text">Negator（取反）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Shifter%EF%BC%88%E7%A7%BB%E4%BD%8D%EF%BC%89"><span class="nav-number">3.2.4.2.</span> <span class="nav-text">Shifter（移位）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bit-Finder%EF%BC%88%E4%BD%8D%E6%9F%A5%E6%89%BE%EF%BC%89"><span class="nav-number">3.2.4.3.</span> <span class="nav-text">Bit Finder（位查找）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Adder%EF%BC%88%E5%8A%A0%E6%B3%95%EF%BC%89"><span class="nav-number">3.2.4.4.</span> <span class="nav-text">Adder（加法）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Subtractor%EF%BC%88%E5%87%8F%E6%B3%95%EF%BC%89"><span class="nav-number">3.2.4.5.</span> <span class="nav-text">Subtractor（减法）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bit-Adder%EF%BC%88%E4%BD%8D%E5%8A%A0%E6%B3%95%EF%BC%89"><span class="nav-number">3.2.4.6.</span> <span class="nav-text">Bit Adder（位加法）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Comparator%EF%BC%88%E6%AF%94%E8%BE%83%EF%BC%89"><span class="nav-number">3.2.4.7.</span> <span class="nav-text">Comparator（比较）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Memory%EF%BC%88%E5%AD%98%E5%82%A8%EF%BC%89"><span class="nav-number">3.2.5.</span> <span class="nav-text">Memory（存储）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Register%EF%BC%88%E5%AF%84%E5%AD%98%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.5.1.</span> <span class="nav-text">Register（寄存器）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#I-O%EF%BC%88%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%EF%BC%89"><span class="nav-number">3.2.6.</span> <span class="nav-text">I&#x2F;O（输入输出）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Base%EF%BC%88%E5%9F%BA%E6%9C%AC%E7%BB%84%E4%BB%B6%EF%BC%89"><span class="nav-number">3.2.7.</span> <span class="nav-text">Base（基本组件）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BD%8D%E5%85%A8%E5%8A%A0%E5%99%A8"><span class="nav-number">3.3.</span> <span class="nav-text">一位全加器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Swap-%E7%94%B5%E8%B7%AF"><span class="nav-number">3.4.</span> <span class="nav-text">Swap 电路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E4%BA%A4%E8%A6%81%E6%B1%82"><span class="nav-number">3.4.1.</span> <span class="nav-text">提交要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3"><span class="nav-number">3.4.2.</span> <span class="nav-text">解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logisim-%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF"><span class="nav-number">4.</span> <span class="nav-text">Logisim 组合电路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%90%E7%94%B5%E8%B7%AF"><span class="nav-number">4.1.</span> <span class="nav-text">子电路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E7%94%B5%E8%B7%AF%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B"><span class="nav-number">4.1.1.</span> <span class="nav-text">子电路使用流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Wire-Bundle%EF%BC%88%E7%BA%BF%E6%9D%9F%EF%BC%89"><span class="nav-number">4.2.</span> <span class="nav-text">Wire Bundle（线束）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A9%E7%94%A8-Logisim-%E8%BF%9B%E8%A1%8C%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E5%88%86%E6%9E%90"><span class="nav-number">4.3.</span> <span class="nav-text">利用 Logisim 进行组合逻辑分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F%E7%94%B5%E8%B7%AF%EF%BC%884bit-sort%EF%BC%89"><span class="nav-number">4.4.</span> <span class="nav-text">排序电路（4bit_sort）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A6%81%E6%B1%82"><span class="nav-number">4.4.1.</span> <span class="nav-text">要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3-2"><span class="nav-number">4.4.2.</span> <span class="nav-text">解</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -922,12 +972,12 @@ Bit Finder 有一个 <code>Type</code> 参数：</p>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area" style="color:#6A5ACD"></i>
     </span>
-    <span title="站点总字数">博文总字数 31k</span>
+    <span title="站点总字数">博文总字数 32k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee" style="color:#6A5ACD"></i>
     </span>
-    <span title="站点阅读时长">约 28 分钟 可通读</span>
+    <span title="站点阅读时长">约 29 分钟 可通读</span>
 </div>
   <div class="powered-by" style="color:#6A5ACD">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
