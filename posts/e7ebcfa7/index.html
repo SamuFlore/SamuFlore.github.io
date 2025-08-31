@@ -86,8 +86,17 @@
 <meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/NAND-SR.png">
 <meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/D_latch.png">
 <meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/D_FF.png">
+<meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/FSM.png">
+<meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/mod5_example.png">
+<meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/mod5.png">
+<meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/time_control.png">
+<meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/fib_cal.png">
+<meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/init1.png">
+<meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/init2.png">
+<meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/fib_cal2.png">
+<meta property="og:image" content="https://samuflore.top/posts/e7ebcfa7/fibonacci.png">
 <meta property="article:published_time" content="2025-08-14T14:53:54.000Z">
-<meta property="article:modified_time" content="2025-08-31T05:39:17.916Z">
+<meta property="article:modified_time" content="2025-08-31T13:26:11.957Z">
 <meta property="article:author" content="Samustach Floresein">
 <meta property="article:tag" content="Logisim">
 <meta property="article:tag" content="CO">
@@ -139,8 +148,8 @@
   </style>
 </noscript>
 
-<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--blockquote-bg-color:#555;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style><link rel="alternate" href="/rss2.xml" title="SamuFlore's Dimension" type="application/rss+xml">
-</head>
+<link rel="alternate" href="/rss2.xml" title="SamuFlore's Dimension" type="application/rss+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--blockquote-bg-color:#555;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -302,7 +311,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-08-31 13:39:17" itemprop="dateModified" datetime="2025-08-31T13:39:17+08:00">2025-08-31</time>
+                <time title="修改时间：2025-08-31 21:26:11" itemprop="dateModified" datetime="2025-08-31T21:26:11+08:00">2025-08-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -341,14 +350,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>8.9k</span>
+              <span>12k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>8 分钟</span>
+              <span>11 分钟</span>
             </span>
 
         </div>
@@ -666,6 +675,7 @@ Bit Finder 有一个 <code>Type</code> 参数：</p>
 <img src="/posts/e7ebcfa7/2swap2.png" alt="2swap2"></p>
 <h2 id="Wire-Bundle（线束）">Wire Bundle（线束）</h2>
 <p><img src="/posts/e7ebcfa7/wires.png" alt="wires">​对于一个完整且正确的电路，是以深绿色，浅绿色，黑色接线构成，绿色接线可以通过深浅直接判断出取值，而黑色接线，并不能直接反映出取值，这里建议大家使用 Wiring 库中的 Probe 元器件，可以对多位数据实时显示监控。</p>
+<p><a id="analyze"></a></p>
 <h2 id="利用-Logisim-进行组合逻辑分析">利用 Logisim 进行组合逻辑分析</h2>
 <p>​Logisim 中具有逻辑分析的功能，可以实现组合电路，真值表，布尔表达式三者间的两两转换。<br>
 ​打开组合逻辑分析模块的方式：</p>
@@ -807,6 +817,294 @@ CLK 为 0 时，主锁存器透明，从锁存器不透明，D 流向从锁存�
 </ul>
 <h3 id="Moore-和-Mealy-状态机的区别">Moore 和 Mealy 状态机的区别</h3>
 <p>区分状态机类型时：当<ins>输出函数的结果会随 input 变化而改变时</ins>，该状态机为 <ins>Mealy 机</ins>，<ins>否则为 Moore 机</ins>。</p>
+<p><img src="/posts/e7ebcfa7/FSM.png" alt="FSM"></p>
+<h2 id="2n-mod-5">2<sup>n</sup> mod 5</h2>
+<h3 id="要求-2">要求</h3>
+<p>使用 Logisim 搭建电路，该电路串行输入一个二进制无符号数 B（先从高位输入，每输入一个数字就相当于之前输入的数左移一位再加上当前输入的数字），输出 “2 的 B 次幂” 模 5 的余数的电路并提交。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>输入： In（1bit 串行输入）</p>
+</li>
+<li class="lvl-2">
+<p>输出：S<sub>0</sub>, S<sub>1</sub>, S<sub>2</sub>, S<sub>3</sub>, S<sub>4</sub> （独热编码，S<sub>x</sub> 为 1 时表示 2<sup>In</sup> ≡ x (mod 5)）</p>
+</li>
+<li class="lvl-2">
+<p>文件内模块名: mod5</p>
+</li>
+<li class="lvl-2">
+<p>状态机类型: Mealy 型有限状态机</p>
+</li>
+<li class="lvl-2">
+<p>注意：切勿使用内置算术器件（如加法器、除法器等）！请搭建有限状态机！</p>
+</li>
+<li class="lvl-2">
+<p>样例：输入输出样例中每一行表示相邻上升沿之间的<ins>开区间时间内</ins>的输入和期望输出。<br>
+<img src="/posts/e7ebcfa7/mod5_example.png" alt="mod5_example"></p>
+</li>
+</ul>
+<h3 id="解-3">解</h3>
+<p>题目要求使用有限状态机来搭建，且由于输入和输出有关，是 Mealy 型状态机。<br>
+首先要确定状态集合。2 的幂次方模 5 所产生的余数其实只有 1 到 4，也就是说只有四种状态。我们可以用 2 位的二进制数来表示状态：</p>
+<table>
+<thead>
+<tr>
+<th>状态</th>
+<th>余数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00</td>
+<td>0</td>
+</tr>
+<tr>
+<td>01</td>
+<td>1</td>
+</tr>
+<tr>
+<td>10</td>
+<td>2</td>
+</tr>
+<tr>
+<td>11</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>不难发现，1 % 5 = 1, 2 % 5 = 2, 4 % 5 = 4, 8 % 5 = 3, 16 % 5 = 1……即余数以 4 为周期进行循环。若把被除数写成二进制形式，并观察其末二位，则会发现有这样的规律：</p>
+<table>
+<thead>
+<tr>
+<th>余数</th>
+<th>状态</th>
+<th>末二位</th>
+<th>被除数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>00</td>
+<td>00</td>
+<td>2<sup>0</sup></td>
+</tr>
+<tr>
+<td>2</td>
+<td>01</td>
+<td>01</td>
+<td>2<sup>1</sup></td>
+</tr>
+<tr>
+<td>4</td>
+<td>11</td>
+<td>10</td>
+<td>2<sup>2</sup></td>
+</tr>
+<tr>
+<td>3</td>
+<td>10</td>
+<td>11</td>
+<td>2<sup>3</sup></td>
+</tr>
+</tbody>
+</table>
+<p>现在，要改变状态，我们会进行一次输入，考察这次输入引起的变化：末二位左移一次，输入值填补在低位。输入只有 1 和 0 两种情况，而现在状态有 4 种，因此我们可以枚举出共计 8 种可能的情况：</p>
+<div class="warning">
+<p>接下来，现在状态的第一位称为 ST1，第二位为 ST2；次态的第一位称为 ST1’，第二位为 ST2’；输入称为 IN；余数称为 S0 到 S4。</p>
+</div>
+<p>状态转移表如下：</p>
+<table>
+<thead>
+<tr>
+<th>ST1</th>
+<th>ST2</th>
+<th>IN</th>
+<th>ST1’</th>
+<th>ST2’</th>
+<th>S0</th>
+<th>S1</th>
+<th>S2</th>
+<th>S3</th>
+<th>S4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<div class="tips">
+<p>可以看出 S0 恒为 0。</p>
+</div>
+<p>根据 Mealy 型状态机的结构图，我们需要构建三个部分：状态转移逻辑、输出逻辑和寄存器。其顶层结构如下：<br>
+<img src="/posts/e7ebcfa7/mod5.png" alt="mod5"></p>
+<p>寄存器保存的是<ins>现态</ins>。在上升沿以外的时间段，可以把整个状态机的行为拆分成两步：</p>
+<ol>
+<li class="lvl-3">
+<p>现态从 Q 流向状态转移逻辑 <code>Trans</code>，和 In 一起决定次态的值。但是由于时间在上升沿以外，次态滞留在寄存器外，无法改变其值。</p>
+</li>
+<li class="lvl-3">
+<p>现态从 Q 流向输出逻辑 <code>Out</code>，和 In 一起决定输出的值。</p>
+</li>
+</ol>
+<p>当时间来到上升沿，滞留的次态值进入寄存器，完成状态的转移。然后在下一个上升沿到来前，重复上述的 1 和 2 步。</p>
+<div class="tips">
+<p>这正好满足了样例说的“每一行表示相邻上升沿之间的<ins>开区间时间内</ins>的输入和期望输出”，因为输出这一步骤就是在两个上升沿之间完成的。</p>
+</div>
+<p>状态转移逻辑和输出逻辑的实现，最简单的步骤就是根据状态转移表，使用 Logisim 的 <a href="#analyze">Analyze Circuit</a> 功能来自动生成即可。</p>
+<h2 id="斐波那契数列">斐波那契数列</h2>
+<h3 id="要求-3">要求</h3>
+<p>使用 Logisim 搭建一个根据输入序号 x 计算对应序号斐波那契数 F<sub>x</sub> 的电路并提交。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>F<sub>0</sub> = 0, F<sub>1</sub> = 1, F<sub>n</sub> = F<sub>n-1</sub> + F<sub>n-2</sub> (n ≥ 2)</p>
+</li>
+<li class="lvl-2">
+<p>输入：N (3bit)</p>
+</li>
+<li class="lvl-2">
+<p>输出：Nth(4bit)</p>
+</li>
+<li class="lvl-2">
+<p>文件内模块名: main</p>
+</li>
+<li class="lvl-2">
+<p>测试要求：每次给定一个固定输入保持不变，电路在 64 个周期内计算出结果并稳定输出，在结果未计算出之前输出端口输出 0。</p>
+</li>
+</ul>
+<h3 id="解-4">解</h3>
+<h4 id="计数逻辑">计数逻辑</h4>
+<p>要知道第 x 号斐波那契数的值，我们可以从 0 号和 1 号开始，依次计算斐波那契数，直至第 x 号时停止并输出。那么要算多少次呢？如果我们以 0 号和 1 号开始，每一个时钟周期计算一次的话，那么第一个周期算出 2 号，第二个周期算出 3 号……并且，还需要花掉一个上升沿去<ins>初始化</ins>寄存器的值，计数器达到需求时，又需等下一个上升沿才能输出结果。若要求 2 号斐波那契数，计数逻辑到第 3 个上升沿时就会发出停止运算并输出的信号。而第 1 个上升沿被用来初始化，第 2 个上升沿算出 2 号，到第 3 个上升沿算出 3 号，输出的结果就是 3 号斐波那契数了，并不符合我们的需求。因此我们可以往前推一位，以 -1 号和 0 号开始。</p>
+<div class="tips">
+<p>F<sub>-1</sub> = 1, F<sub>0</sub> = 0。</p>
+</div>
+<p>这样，第 x 号斐波那契数需要 x 个时钟周期才能算出。换言之，当第 x 个时钟周期结束时，已经算出了第 x 号斐波那契数。而下一个时钟周期的上升沿，必须停止计次，然后输出数字，否则会多算一次。<br>
+控制运算次数的逻辑可以使用一个计数器（Counter）和一个比较器（Comparator）来实现。计数器从 0 开始，每到一个上升沿加 1。也就是说 x 个时钟周期结束时，计数器的值为 x，在下一个上升沿到来时，传递一个信号（output_signal）给运算斐波那契数的逻辑，令其做完运算后立刻输出结果，并且将结果锁定在寄存器中。每个上升沿，用比较器比较计数器的值和 N 的值，若计数器的值小于等于 N，则 output_signal 为 0，否则为 1。</p>
+<div class="tips">
+<p>由于输入格式是 3bit，若计数器的位宽也设置成 3bit，则会在边界情况下失效。比如输入为 111，第七个周期时，计数器的值为 111。在下一个上升沿到来时，计数器的值要么回到 000，要么保持 111，始终无法让其大于输入值，output_signal 始终为 0。因此，需要设置计数器的位宽比输入值多 1 位。然后使用 Bit Extender 把输入扩展到 4bit。</p>
+</div>
+<div class="warning">
+<p>比较器的 Numeric Type 参数必须设定为 <code>Unsigned</code> 即无符号数比较。若为 <code>2's Complement</code> 即补码比较，则 output_signal 会逆转。</p>
+</div>
+<p><img src="/posts/e7ebcfa7/time_control.png" alt="time_control"></p>
+<h4 id="运算逻辑">运算逻辑</h4>
+<p>回到运算斐波那契数的逻辑。由于每个斐波那契数的值只与其前两个值（prev, cur）有关，每次算出新值 = prev + cur，可以用 cur 覆盖 prev，然后用新值覆盖 cur，以此类推就可以持续计算下去。这些步骤在上升沿完成。核心逻辑如下：</p>
+<p><img src="/posts/e7ebcfa7/fib_cal.png" alt="fib_cal"></p>
+<p>在上升沿以外的时刻，Cur 值流向 Prev 寄存器，但无法进入，滞留在线路中。同时 Prev 和 Cur 值在 Adder 中相加，得出下一个斐波那契数，流向 Cur 寄存器，也无法进入，滞留在线路中。<br>
+在上升沿，Cur 值进入 Prev 寄存器，并覆盖原有值，同时新的斐波那契数进入 Cur 寄存器，覆盖掉原有值。也就是说，最新的斐波那契数保存在 Cur 寄存器中，并且是每个上升沿到来时更新一次。</p>
+<p>如何初始化两个寄存器呢？由于 F<sub>-1</sub> = 1, F<sub>0</sub> = 0，因此我们要把 Prev 寄存器的值设为 1，而 Cur 寄存器默认为零。我们用一个 Maximum Value 为 <code>1</code> 的<ins>计数器</ins>来实现。利用到计数器有一个 Carry 输出，当计数器达到最大值时，Carry 输出为 1，否则为 0。再搭配一个二选一 MUX，0 号输入为想要的初始值，1 号输入则是 Cur 隧道。这样就实现了如下效果：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>第一个上升沿到来前，MUX 选择初始值，但无法进入 Prev 寄存器，滞留在线路中。</p>
+</li>
+<li class="lvl-2">
+<p>第一个上升沿到来时，初始值进入 Prev 寄存器，实现初始化。MUX 选择 Cur 隧道值。</p>
+</li>
+</ul>
+<p><img src="/posts/e7ebcfa7/init1.png" alt="init1"><br>
+<img src="/posts/e7ebcfa7/init2.png" alt="init2"></p>
+<h4 id="锁定斐波那契数">锁定斐波那契数</h4>
+<p>很简单，传入 output_signal，当其为 1 时表示已经算出了所求的，让其通过非门，然后传给两个寄存器的使能信号端口即可。</p>
+<h4 id="稳定输出">稳定输出</h4>
+<p>在找到要求的斐波那契数前，输出 Nth 要求保持为 0。可以用一个二选一 MUX，0 号输入为 0，1 号输入为 Cur 隧道值。传入 output_signal，当其为 1 时自然就输出了 Cur 寄存器中保存的值。</p>
+<p>整个运算逻辑如下：<br>
+<img src="/posts/e7ebcfa7/fib_cal2.png" alt="fib_cal2"></p>
+<p>顶层电路如下：<br>
+<img src="/posts/e7ebcfa7/fibonacci.png" alt="fibonacci"></p>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
@@ -963,7 +1261,7 @@ CLK 为 0 时，主锁存器透明，从锁存器不透明，D 流向从锁存�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%99%E9%87%8C%E6%9C%89%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">这里有什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logisim-%E9%97%A8%E7%94%B5%E8%B7%AF"><span class="nav-number">3.</span> <span class="nav-text">Logisim 门电路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%95%8C%E9%9D%A2%E8%AE%A4%E8%AF%86"><span class="nav-number">3.1.</span> <span class="nav-text">界面认识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%83%E4%BB%B6%E6%A6%82%E8%A7%88"><span class="nav-number">3.2.</span> <span class="nav-text">元件概览</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Wirings%EF%BC%88%E7%BA%BF%E8%B7%AF%EF%BC%89"><span class="nav-number">3.2.1.</span> <span class="nav-text">Wirings（线路）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Tunnel%EF%BC%88%E9%9A%A7%E9%81%93%EF%BC%89"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">Tunnel（隧道）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Probe%EF%BC%88%E6%8E%A2%E9%92%88%EF%BC%89"><span class="nav-number">3.2.1.2.</span> <span class="nav-text">Probe（探针）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Splitter%EF%BC%88%E5%88%86%E5%8F%89%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.1.3.</span> <span class="nav-text">Splitter（分叉器）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bit-Extender%EF%BC%88%E4%BD%8D%E6%89%A9%E5%B1%95%EF%BC%89"><span class="nav-number">3.2.1.4.</span> <span class="nav-text">Bit Extender（位扩展）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Clock%EF%BC%88%E6%97%B6%E9%92%9F%EF%BC%89"><span class="nav-number">3.2.1.5.</span> <span class="nav-text">Clock（时钟）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gates%EF%BC%88%E9%97%A8%EF%BC%89"><span class="nav-number">3.2.2.</span> <span class="nav-text">Gates（门）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Odd-Parity%EF%BC%88%E5%A5%87%E6%A0%A1%E9%AA%8C%EF%BC%89"><span class="nav-number">3.2.2.1.</span> <span class="nav-text">Odd Parity（奇校验）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Even-Parity%EF%BC%88%E5%81%B6%E6%A0%A1%E9%AA%8C%EF%BC%89"><span class="nav-number">3.2.2.2.</span> <span class="nav-text">Even Parity（偶校验）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Plexers%EF%BC%88%E5%A4%8D%E7%94%A8%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.3.</span> <span class="nav-text">Plexers（复用器）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Multiplexer-MUX-%EF%BC%88%E5%A4%9A%E8%B7%AF%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.3.1.</span> <span class="nav-text">Multiplexer(MUX)（多路选择器）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Demultiplexer-DMX-%EF%BC%88%E5%A4%9A%E8%B7%AF%E5%88%86%E9%85%8D%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.3.2.</span> <span class="nav-text">Demultiplexer(DMX)（多路分配器）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Decoder%EF%BC%88%E8%AF%91%E7%A0%81%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.3.3.</span> <span class="nav-text">Decoder（译码器）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bit-Selector%EF%BC%88%E4%BD%8D%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.3.4.</span> <span class="nav-text">Bit Selector（位选择器）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arithmetic%EF%BC%88%E8%BF%90%E7%AE%97%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.4.</span> <span class="nav-text">Arithmetic（运算器）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Negator%EF%BC%88%E5%8F%96%E5%8F%8D%EF%BC%89"><span class="nav-number">3.2.4.1.</span> <span class="nav-text">Negator（取反）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Shifter%EF%BC%88%E7%A7%BB%E4%BD%8D%EF%BC%89"><span class="nav-number">3.2.4.2.</span> <span class="nav-text">Shifter（移位）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bit-Finder%EF%BC%88%E4%BD%8D%E6%9F%A5%E6%89%BE%EF%BC%89"><span class="nav-number">3.2.4.3.</span> <span class="nav-text">Bit Finder（位查找）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Adder%EF%BC%88%E5%8A%A0%E6%B3%95%EF%BC%89"><span class="nav-number">3.2.4.4.</span> <span class="nav-text">Adder（加法）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Subtractor%EF%BC%88%E5%87%8F%E6%B3%95%EF%BC%89"><span class="nav-number">3.2.4.5.</span> <span class="nav-text">Subtractor（减法）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bit-Adder%EF%BC%88%E4%BD%8D%E5%8A%A0%E6%B3%95%EF%BC%89"><span class="nav-number">3.2.4.6.</span> <span class="nav-text">Bit Adder（位加法）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Comparator%EF%BC%88%E6%AF%94%E8%BE%83%EF%BC%89"><span class="nav-number">3.2.4.7.</span> <span class="nav-text">Comparator（比较）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Memory%EF%BC%88%E5%AD%98%E5%82%A8%EF%BC%89"><span class="nav-number">3.2.5.</span> <span class="nav-text">Memory（存储）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Register%EF%BC%88%E5%AF%84%E5%AD%98%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.5.1.</span> <span class="nav-text">Register（寄存器）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RAM%EF%BC%88%E9%9A%8F%E6%9C%BA%E5%AD%98%E5%8F%96%E5%AD%98%E5%82%A8%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.5.2.</span> <span class="nav-text">RAM（随机存取存储器）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ROM%EF%BC%88%E5%8F%AA%E8%AF%BB%E5%AD%98%E5%82%A8%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.5.3.</span> <span class="nav-text">ROM（只读存储器）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#I-O%EF%BC%88%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%EF%BC%89"><span class="nav-number">3.2.6.</span> <span class="nav-text">I&#x2F;O（输入输出）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Base%EF%BC%88%E5%9F%BA%E6%9C%AC%E7%BB%84%E4%BB%B6%EF%BC%89"><span class="nav-number">3.2.7.</span> <span class="nav-text">Base（基本组件）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BD%8D%E5%85%A8%E5%8A%A0%E5%99%A8"><span class="nav-number">3.3.</span> <span class="nav-text">一位全加器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Swap-%E7%94%B5%E8%B7%AF"><span class="nav-number">3.4.</span> <span class="nav-text">Swap 电路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E4%BA%A4%E8%A6%81%E6%B1%82"><span class="nav-number">3.4.1.</span> <span class="nav-text">提交要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3"><span class="nav-number">3.4.2.</span> <span class="nav-text">解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logisim-%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF"><span class="nav-number">4.</span> <span class="nav-text">Logisim 组合电路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%90%E7%94%B5%E8%B7%AF"><span class="nav-number">4.1.</span> <span class="nav-text">子电路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E7%94%B5%E8%B7%AF%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B"><span class="nav-number">4.1.1.</span> <span class="nav-text">子电路使用流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Wire-Bundle%EF%BC%88%E7%BA%BF%E6%9D%9F%EF%BC%89"><span class="nav-number">4.2.</span> <span class="nav-text">Wire Bundle（线束）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A9%E7%94%A8-Logisim-%E8%BF%9B%E8%A1%8C%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E5%88%86%E6%9E%90"><span class="nav-number">4.3.</span> <span class="nav-text">利用 Logisim 进行组合逻辑分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F%E7%94%B5%E8%B7%AF%EF%BC%884bit-sort%EF%BC%89"><span class="nav-number">4.4.</span> <span class="nav-text">排序电路（4bit_sort）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A6%81%E6%B1%82"><span class="nav-number">4.4.1.</span> <span class="nav-text">要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3-2"><span class="nav-number">4.4.2.</span> <span class="nav-text">解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logisim-%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF"><span class="nav-number">5.</span> <span class="nav-text">Logisim 时序电路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SR-%E9%94%81%E5%AD%98%E5%99%A8%EF%BC%88SR-Latch%EF%BC%89"><span class="nav-number">5.1.</span> <span class="nav-text">SR 锁存器（SR Latch）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D-%E9%94%81%E5%AD%98%E5%99%A8%EF%BC%88D-Latch%EF%BC%89"><span class="nav-number">5.2.</span> <span class="nav-text">D 锁存器（D Latch）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D-%E8%A7%A6%E5%8F%91%E5%99%A8%EF%BC%88D-Flip-Flop%EF%BC%89"><span class="nav-number">5.3.</span> <span class="nav-text">D 触发器（D Flip-Flop）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA%EF%BC%88FSM%EF%BC%89"><span class="nav-number">5.4.</span> <span class="nav-text">有限状态机（FSM）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E8%A1%8C%E4%B8%BA"><span class="nav-number">5.4.1.</span> <span class="nav-text">有限状态机的定义和行为</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA%E7%9A%84%E6%9E%84%E6%88%90%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="nav-number">5.4.1.1.</span> <span class="nav-text">有限状态机的构成和基本性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA%E7%9A%84%E6%97%B6%E5%BA%8F%E8%A1%8C%E4%B8%BA"><span class="nav-number">5.4.1.2.</span> <span class="nav-text">有限状态机的时序行为</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Moore-%E5%92%8C-Mealy-%E7%8A%B6%E6%80%81%E6%9C%BA%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">5.4.2.</span> <span class="nav-text">Moore 和 Mealy 状态机的区别</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%99%E9%87%8C%E6%9C%89%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">这里有什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logisim-%E9%97%A8%E7%94%B5%E8%B7%AF"><span class="nav-number">3.</span> <span class="nav-text">Logisim 门电路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%95%8C%E9%9D%A2%E8%AE%A4%E8%AF%86"><span class="nav-number">3.1.</span> <span class="nav-text">界面认识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%83%E4%BB%B6%E6%A6%82%E8%A7%88"><span class="nav-number">3.2.</span> <span class="nav-text">元件概览</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Wirings%EF%BC%88%E7%BA%BF%E8%B7%AF%EF%BC%89"><span class="nav-number">3.2.1.</span> <span class="nav-text">Wirings（线路）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Tunnel%EF%BC%88%E9%9A%A7%E9%81%93%EF%BC%89"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">Tunnel（隧道）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Probe%EF%BC%88%E6%8E%A2%E9%92%88%EF%BC%89"><span class="nav-number">3.2.1.2.</span> <span class="nav-text">Probe（探针）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Splitter%EF%BC%88%E5%88%86%E5%8F%89%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.1.3.</span> <span class="nav-text">Splitter（分叉器）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bit-Extender%EF%BC%88%E4%BD%8D%E6%89%A9%E5%B1%95%EF%BC%89"><span class="nav-number">3.2.1.4.</span> <span class="nav-text">Bit Extender（位扩展）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Clock%EF%BC%88%E6%97%B6%E9%92%9F%EF%BC%89"><span class="nav-number">3.2.1.5.</span> <span class="nav-text">Clock（时钟）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gates%EF%BC%88%E9%97%A8%EF%BC%89"><span class="nav-number">3.2.2.</span> <span class="nav-text">Gates（门）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Odd-Parity%EF%BC%88%E5%A5%87%E6%A0%A1%E9%AA%8C%EF%BC%89"><span class="nav-number">3.2.2.1.</span> <span class="nav-text">Odd Parity（奇校验）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Even-Parity%EF%BC%88%E5%81%B6%E6%A0%A1%E9%AA%8C%EF%BC%89"><span class="nav-number">3.2.2.2.</span> <span class="nav-text">Even Parity（偶校验）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Plexers%EF%BC%88%E5%A4%8D%E7%94%A8%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.3.</span> <span class="nav-text">Plexers（复用器）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Multiplexer-MUX-%EF%BC%88%E5%A4%9A%E8%B7%AF%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.3.1.</span> <span class="nav-text">Multiplexer(MUX)（多路选择器）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Demultiplexer-DMX-%EF%BC%88%E5%A4%9A%E8%B7%AF%E5%88%86%E9%85%8D%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.3.2.</span> <span class="nav-text">Demultiplexer(DMX)（多路分配器）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Decoder%EF%BC%88%E8%AF%91%E7%A0%81%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.3.3.</span> <span class="nav-text">Decoder（译码器）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bit-Selector%EF%BC%88%E4%BD%8D%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.3.4.</span> <span class="nav-text">Bit Selector（位选择器）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arithmetic%EF%BC%88%E8%BF%90%E7%AE%97%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.4.</span> <span class="nav-text">Arithmetic（运算器）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Negator%EF%BC%88%E5%8F%96%E5%8F%8D%EF%BC%89"><span class="nav-number">3.2.4.1.</span> <span class="nav-text">Negator（取反）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Shifter%EF%BC%88%E7%A7%BB%E4%BD%8D%EF%BC%89"><span class="nav-number">3.2.4.2.</span> <span class="nav-text">Shifter（移位）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bit-Finder%EF%BC%88%E4%BD%8D%E6%9F%A5%E6%89%BE%EF%BC%89"><span class="nav-number">3.2.4.3.</span> <span class="nav-text">Bit Finder（位查找）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Adder%EF%BC%88%E5%8A%A0%E6%B3%95%EF%BC%89"><span class="nav-number">3.2.4.4.</span> <span class="nav-text">Adder（加法）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Subtractor%EF%BC%88%E5%87%8F%E6%B3%95%EF%BC%89"><span class="nav-number">3.2.4.5.</span> <span class="nav-text">Subtractor（减法）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bit-Adder%EF%BC%88%E4%BD%8D%E5%8A%A0%E6%B3%95%EF%BC%89"><span class="nav-number">3.2.4.6.</span> <span class="nav-text">Bit Adder（位加法）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Comparator%EF%BC%88%E6%AF%94%E8%BE%83%EF%BC%89"><span class="nav-number">3.2.4.7.</span> <span class="nav-text">Comparator（比较）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Memory%EF%BC%88%E5%AD%98%E5%82%A8%EF%BC%89"><span class="nav-number">3.2.5.</span> <span class="nav-text">Memory（存储）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Register%EF%BC%88%E5%AF%84%E5%AD%98%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.5.1.</span> <span class="nav-text">Register（寄存器）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RAM%EF%BC%88%E9%9A%8F%E6%9C%BA%E5%AD%98%E5%8F%96%E5%AD%98%E5%82%A8%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.5.2.</span> <span class="nav-text">RAM（随机存取存储器）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ROM%EF%BC%88%E5%8F%AA%E8%AF%BB%E5%AD%98%E5%82%A8%E5%99%A8%EF%BC%89"><span class="nav-number">3.2.5.3.</span> <span class="nav-text">ROM（只读存储器）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#I-O%EF%BC%88%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%EF%BC%89"><span class="nav-number">3.2.6.</span> <span class="nav-text">I&#x2F;O（输入输出）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Base%EF%BC%88%E5%9F%BA%E6%9C%AC%E7%BB%84%E4%BB%B6%EF%BC%89"><span class="nav-number">3.2.7.</span> <span class="nav-text">Base（基本组件）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BD%8D%E5%85%A8%E5%8A%A0%E5%99%A8"><span class="nav-number">3.3.</span> <span class="nav-text">一位全加器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Swap-%E7%94%B5%E8%B7%AF"><span class="nav-number">3.4.</span> <span class="nav-text">Swap 电路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E4%BA%A4%E8%A6%81%E6%B1%82"><span class="nav-number">3.4.1.</span> <span class="nav-text">提交要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3"><span class="nav-number">3.4.2.</span> <span class="nav-text">解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logisim-%E7%BB%84%E5%90%88%E7%94%B5%E8%B7%AF"><span class="nav-number">4.</span> <span class="nav-text">Logisim 组合电路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%90%E7%94%B5%E8%B7%AF"><span class="nav-number">4.1.</span> <span class="nav-text">子电路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E7%94%B5%E8%B7%AF%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B"><span class="nav-number">4.1.1.</span> <span class="nav-text">子电路使用流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Wire-Bundle%EF%BC%88%E7%BA%BF%E6%9D%9F%EF%BC%89"><span class="nav-number">4.2.</span> <span class="nav-text">Wire Bundle（线束）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A9%E7%94%A8-Logisim-%E8%BF%9B%E8%A1%8C%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E5%88%86%E6%9E%90"><span class="nav-number">4.3.</span> <span class="nav-text">利用 Logisim 进行组合逻辑分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F%E7%94%B5%E8%B7%AF%EF%BC%884bit-sort%EF%BC%89"><span class="nav-number">4.4.</span> <span class="nav-text">排序电路（4bit_sort）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A6%81%E6%B1%82"><span class="nav-number">4.4.1.</span> <span class="nav-text">要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3-2"><span class="nav-number">4.4.2.</span> <span class="nav-text">解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logisim-%E6%97%B6%E5%BA%8F%E7%94%B5%E8%B7%AF"><span class="nav-number">5.</span> <span class="nav-text">Logisim 时序电路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SR-%E9%94%81%E5%AD%98%E5%99%A8%EF%BC%88SR-Latch%EF%BC%89"><span class="nav-number">5.1.</span> <span class="nav-text">SR 锁存器（SR Latch）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D-%E9%94%81%E5%AD%98%E5%99%A8%EF%BC%88D-Latch%EF%BC%89"><span class="nav-number">5.2.</span> <span class="nav-text">D 锁存器（D Latch）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D-%E8%A7%A6%E5%8F%91%E5%99%A8%EF%BC%88D-Flip-Flop%EF%BC%89"><span class="nav-number">5.3.</span> <span class="nav-text">D 触发器（D Flip-Flop）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA%EF%BC%88FSM%EF%BC%89"><span class="nav-number">5.4.</span> <span class="nav-text">有限状态机（FSM）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E8%A1%8C%E4%B8%BA"><span class="nav-number">5.4.1.</span> <span class="nav-text">有限状态机的定义和行为</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA%E7%9A%84%E6%9E%84%E6%88%90%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="nav-number">5.4.1.1.</span> <span class="nav-text">有限状态机的构成和基本性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA%E7%9A%84%E6%97%B6%E5%BA%8F%E8%A1%8C%E4%B8%BA"><span class="nav-number">5.4.1.2.</span> <span class="nav-text">有限状态机的时序行为</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Moore-%E5%92%8C-Mealy-%E7%8A%B6%E6%80%81%E6%9C%BA%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">5.4.2.</span> <span class="nav-text">Moore 和 Mealy 状态机的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2n-mod-5"><span class="nav-number">5.5.</span> <span class="nav-text">2n mod 5</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A6%81%E6%B1%82-2"><span class="nav-number">5.5.1.</span> <span class="nav-text">要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3-3"><span class="nav-number">5.5.2.</span> <span class="nav-text">解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97"><span class="nav-number">5.6.</span> <span class="nav-text">斐波那契数列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A6%81%E6%B1%82-3"><span class="nav-number">5.6.1.</span> <span class="nav-text">要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3-4"><span class="nav-number">5.6.2.</span> <span class="nav-text">解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%A1%E6%95%B0%E9%80%BB%E8%BE%91"><span class="nav-number">5.6.2.1.</span> <span class="nav-text">计数逻辑</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E9%80%BB%E8%BE%91"><span class="nav-number">5.6.2.2.</span> <span class="nav-text">运算逻辑</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%94%81%E5%AE%9A%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0"><span class="nav-number">5.6.2.3.</span> <span class="nav-text">锁定斐波那契数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A8%B3%E5%AE%9A%E8%BE%93%E5%87%BA"><span class="nav-number">5.6.2.4.</span> <span class="nav-text">稳定输出</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -1070,12 +1368,12 @@ CLK 为 0 时，主锁存器透明，从锁存器不透明，D 流向从锁存�
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area" style="color:#6A5ACD"></i>
     </span>
-    <span title="站点总字数">博文总字数 35k</span>
+    <span title="站点总字数">博文总字数 38k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee" style="color:#6A5ACD"></i>
     </span>
-    <span title="站点阅读时长">约 31 分钟 可通读</span>
+    <span title="站点阅读时长">约 34 分钟 可通读</span>
 </div>
   <div class="powered-by" style="color:#6A5ACD">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
