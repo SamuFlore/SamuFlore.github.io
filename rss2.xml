@@ -9,8 +9,36 @@
     <atom:link href="https://samuflore.top/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>一人倒、衆人倒。</description>
-    <pubDate>Tue, 19 Aug 2025 14:29:02 GMT</pubDate>
+    <pubDate>Tue, 02 Sep 2025 07:23:19 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[CO Pre]Verilog 入门</title>
+      <link>https://samuflore.top/posts/c9f56abd/</link>
+      <guid>https://samuflore.top/posts/c9f56abd/</guid>
+      <pubDate>Mon, 01 Sep 2025 08:50:18 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;序&quot;&gt;序&lt;/h1&gt;
+&lt;p&gt;这是北京航空航天大学计算机学院 2025 年计算机组成原理预习部分的 Verilog 部分。&lt;/p&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="序">序</h1><p>这是北京航空航天大学计算机学院 2025 年计算机组成原理预习部分的 Verilog 部分。</p><span id="more"></span><h1 id="IDE">IDE</h1><p>本文使用 ISE 开发与仿真。</p><h1 id="Verilog-语法">Verilog 语法</h1><h2 id="模块的定义方法">模块的定义方法</h2><p>模块（module）是 Verilog HDL 的基本功能单元，它实际上代表了具有一定功能的电路实体。通俗来讲，其代表了电路中被导线连接的各个功能模块（子电路）。</p><p>以一个与门为例：<br>方法一：</p><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> AndGate(</span><br><span class="line">    <span class="keyword">input</span> i1;</span><br><span class="line">    <span class="keyword">input</span> i2;</span><br><span class="line">    <span class="keyword">output</span> o;</span><br><span class="line">);<span class="comment">// 模块名定义、端口定义及IO说明</span></span><br><span class="line">    <span class="keyword">assign</span> o = i1 &amp; i2; <span class="comment">// 模块功能定义</span></span><br><span class="line"><span class="keyword">endmodule</span><span class="comment">// 结束模块定义</span></span><br></pre></td></tr></table></figure><p>方法二：</p><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> AndGate(i1,i2,o); <span class="comment">// 模块名定义及端口定义</span></span><br><span class="line">    <span class="keyword">input</span> i1;</span><br><span class="line">    <span class="keyword">input</span> i2; <span class="comment">// 也可合并为一句: input i1,i2;</span></span><br><span class="line">    <span class="keyword">output</span> o;</span><br><span class="line">    <span class="comment">// 上为IO说明</span></span><br><span class="line">    <span class="keyword">assign</span> o = i1 &amp; i2; <span class="comment">// 模块功能定义</span></span><br><span class="line"><span class="keyword">endmodule</span> <span class="comment">// 结束模块定义</span></span><br></pre></td></tr></table></figure><p>两种方法没有实质上的区别，只是形式上有所不同：方法 1 对方法 2 中的端口定义及 IO 说明进行了合并。<br>模块以 <code>module</code> 开始，<code>endmodule</code> 结束，中间包括模块名、端口定义、I/O 说明等部分。<ins>模块中的语句除了顺序执行的语句块以外都是并行的</ins>；输入输出端口若不特别说明类型及位宽，<ins>默认为 1 位 <code>wire</code> 型</ins>。</p><h2 id="常用数据类型">常用数据类型</h2><h3 id="Wire-型">Wire 型</h3><p>wire 型数据属于线网 nets 型数据，通常用于表示组合逻辑信号，可以将它类比为电路中的导线。它本身并不能存储数据，需要有输入才有输出（这里输入的专业术语叫驱动器），且输出随着输入的改变而即时改变。一般使用 assign 语句对 wire 型数据进行驱动（assign 语句将在下一节中进行讲解）。</p><p>wire 型的数据分为标量（1 位）和向量（多位）两种。可以在声明过程中使用范围指示器指明位数，如 wire [31:0] a;。冒号两侧分别代表最高有效位（MSB, Most Significant Bit）和最低有效位（LSB, Least Significant Bit）。在访问时，可以使用形如 a[7:4] 的方式取出 a 的第 7-4 位数据。</p><h3 id="Reg-型">Reg 型</h3><p>reg 型是寄存器数据类型，具有存储功能。它也分为标量和向量，类似 wire 型，可以类比前面的教程。一般在 always 块内使用 reg 型变量（always 块将在本章后面提到），通过赋值语句来改变寄存器中的值。为了确定何时进行赋值，我们经常需要用到各种控制结构，包括 while、for、switch 等，这与 C 语言中的做法十分相似。</p><p>需要注意的是，reg 型变量<ins>不能使用 assign 赋值</ins>。而且，reg 型<ins>并不一定被综合成寄存器</ins>，它也可和 always 关键字配合（下一节会讲到），建模组合逻辑。</p><p>我们可以通过对 reg 型变量建立数组来对存储器建模，例如 reg [31:0] mem [0:1023];，其中前面的中括号内为位宽，后面的中括号内为存储器数量。这种写法在我们开始搭建CPU后会用到。<br>我们可以通过引用操作访问存储器型数据元素，类似于位选择操作，例如 mem[2] 就是访问 mem 中的第 3 个元素。</p><div class="note info">            <p>Verilog HDL 中<ins>没有</ins>多维数组。</p>          </div><h3 id="数字字面量">数字字面量</h3><p>Verilog 中的数字字面量可以按二进制（b 或 B）、八进制（o 或 O）、十六进制（h 或 H）、十进制（d 或 D）表示。</p><p>数字的完整表达为 <code>&lt;位宽&gt;'&lt;进制&gt;&lt;值&gt;</code>，如 <code>10'd100</code>。省略位宽时采用默认位宽（与机器有关，一般为 <ins>32 位</ins>），省略进制时默认为<ins>十进制</ins>，值部分可以用下划线分开提高可读性，如 <code>16'b1010_1011_1111_1010</code>。</p><p>Verilog 中除了普通的数字以外，还有两个特殊的值：<code>x</code> 和 <code>z</code>。<code>x</code> 为不定值，当某一二进制位的值不能确定时出现，变量的默认初始值为 <code>x</code>。<code>z</code> 为高阻态，代表没有连接到有效输入上。对于位宽大于 1 的数据类型，<code>x</code> 与 <code>z</code> 均可只在部分位上出现。</p><div class="warning"><p>注意数字的位宽决定了数字的最大值。比如 <code>3'd101</code> 就是一个非法的数字，因为 3 位宽的数字最大值为 7。</p></div><div class="warning"><p>Verilog 数字本身并不能添加负号，但写作类似于 <code>-8'd5</code> 这样的形式可以看作是对数字的运算，是合法的。</p></div>]]></content:encoded>
+      
+      
+      <category domain="https://samuflore.top/categories/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B5%84%E6%88%90%E5%8E%9F%E7%90%86/">計算機組成原理</category>
+      
+      
+      <category domain="https://samuflore.top/tags/CO/">CO</category>
+      
+      <category domain="https://samuflore.top/tags/Verilog/">Verilog</category>
+      
+      <category domain="https://samuflore.top/tags/ISE/">ISE</category>
+      
+      
+      <comments>https://samuflore.top/posts/c9f56abd/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>[CO Pre]One-Hot 编码</title>
@@ -312,35 +340,6 @@
       
       
       <comments>https://samuflore.top/posts/82cd8a81/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Blog 4：[Hexo教程]Hexo之博文添加图片</title>
-      <link>https://samuflore.top/posts/1bea1421/</link>
-      <guid>https://samuflore.top/posts/1bea1421/</guid>
-      <pubDate>Wed, 16 Jul 2025 03:47:49 GMT</pubDate>
-      
-      <description>&lt;blockquote&gt;
-&lt;p&gt;请注意：本文参考了&lt;a href=&quot;https://blog.csdn.net/m0_43401436/article/details/107191688&quot;&gt;CSDN&lt;/a&gt;的有关教程。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&quot;序&quot;&gt;序&lt;/h1&gt;
-&lt;p&gt;博文美化小妙招（&lt;/p&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<blockquote><p>请注意：本文参考了<a href="https://blog.csdn.net/m0_43401436/article/details/107191688">CSDN</a>的有关教程。</p></blockquote><h1 id="序">序</h1><p>博文美化小妙招（</p><span id="more"></span><hr><h1 id="启用post-asset-folder开关">启用post_asset_folder开关</h1><p>在<strong>站内配置文件</strong><code>_config.yml</code>中，<code>Ctrl + F</code>搜索字段<code>post_asset_folder</code>，将其值设置为<code>true</code>。此操作将允许在<code>hexo new &quot;filename&quot;</code>时，在<code>source/_posts/</code>目录下创建同名文件夹，以管理博文中的各种附件。</p><hr><p><s># 安装hexo-asset-image插件</s><br><s>&gt; 注意<strong>科学上网</strong></s></p><p><s>在Hexo根目录下打开<code>Git Bash</code>，输入：</s><s><code>bash~~ ~~npm install https://github.com/CodeFalling/hexo-asset-image --save~~ ~~</code></s><br><s>等待。</s><br><s>&gt; 本机测试时，<code>npm install hexo-asset-image --save</code>无法实现上述功能，因而换用。读者可以自行尝试之。</s></p><div class="warning"><p><strong>注意</strong><br>本条更新于8/8/25，<code>hexo-asset-image</code> 插件已经失效。换用 <code>hexo-asset-img</code> 插件。</p></div><h1 id="安装hexo-asset-img插件">安装hexo-asset-img插件</h1><p>在 Hexo 根目录下打开 Git Bash，输入：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-asset-img --save</span><br></pre></td></tr></table></figure><p>等待。</p><p>修改站点配置文件 <code>_config.yml</code>。</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">marked:</span></span><br><span class="line">  <span class="attr">prependRoot:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">postAsset:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">relative_link:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure><hr><h1 id="在Markdown中引用图片">在Markdown中引用图片</h1><p>在博文中，引用图片的语法如下：</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">&quot;替换文本&quot;</span>](<span class="link">图片名称.扩展名 &quot;描述文本&quot;</span>)</span><br></pre></td></tr></table></figure><blockquote><ul class="lvl-1"><li class="lvl-2"><p>请注意：<code>&quot;替换文本&quot;</code>和<code>&quot;描述文本&quot;</code>是可选的。</p></li><li class="lvl-2"><p>请将图片预先放在上述创建之同名文件夹下。</p></li><li class="lvl-2"><p><strong>只需</strong>填入图片名而<strong>无需</strong>填写路径。这是因为hexo-asset-image插件在Hexo将Markdown渲染为HTML时，会自动补全路径。</p></li></ul></blockquote><p>例如：</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">title</span>](<span class="link">image.jpg &quot;description&quot;</span>)</span><br></pre></td></tr></table></figure><hr><h1 id="效果">效果</h1><p><a href="http://samuflore.top/posts/85c2880f/"><img src="/posts/1bea1421/%E6%95%88%E6%9E%9C.png" alt="效果" title="可以参考第三篇Blog~"></a></p>]]></content:encoded>
-      
-      
-      <category domain="https://samuflore.top/categories/Hexo%E6%95%99%E7%A8%8B/">Hexo教程</category>
-      
-      
-      <category domain="https://samuflore.top/tags/Hexo/">Hexo</category>
-      
-      <category domain="https://samuflore.top/tags/Tutorial/">Tutorial</category>
-      
-      
-      <comments>https://samuflore.top/posts/1bea1421/#disqus_thread</comments>
       
     </item>
     
