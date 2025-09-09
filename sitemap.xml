@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://samuflore.top/posts/10425c0c/</loc>
+    
+    <lastmod>2025-09-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://samuflore.top/posts/e7ebcfa7/</loc>
     
     <lastmod>2025-09-08</lastmod>
@@ -210,27 +219,6 @@
   </url>
   
   <url>
-    <loc>https://samuflore.top/tags/Poem/</loc>
-    <lastmod>2025-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://samuflore.top/tags/Picture/</loc>
-    <lastmod>2025-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://samuflore.top/tags/Pixiv/</loc>
-    <lastmod>2025-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://samuflore.top/tags/Hexo/</loc>
     <lastmod>2025-09-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -246,6 +234,27 @@
   
   <url>
     <loc>https://samuflore.top/tags/Tutorial/</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://samuflore.top/tags/Poem/</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://samuflore.top/tags/Picture/</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://samuflore.top/tags/Pixiv/</loc>
     <lastmod>2025-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -288,6 +297,13 @@
   
   <url>
     <loc>https://samuflore.top/tags/Introduction/</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://samuflore.top/tags/Markdown/</loc>
     <lastmod>2025-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -343,13 +359,6 @@
   </url>
   
   <url>
-    <loc>https://samuflore.top/tags/Markdown/</loc>
-    <lastmod>2025-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://samuflore.top/tags/NexT/</loc>
     <lastmod>2025-09-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -377,10 +386,31 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://samuflore.top/tags/History/</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://samuflore.top/tags/Repost/</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
     <loc>https://samuflore.top/categories/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B5%84%E6%88%90%E5%8E%9F%E7%90%86/</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://samuflore.top/categories/Hexo%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2025-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -401,14 +431,14 @@
   </url>
   
   <url>
-    <loc>https://samuflore.top/categories/Hexo%E6%95%99%E7%A8%8B/</loc>
+    <loc>https://samuflore.top/categories/%E9%81%8A%E8%A8%98/</loc>
     <lastmod>2025-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://samuflore.top/categories/%E9%81%8A%E8%A8%98/</loc>
+    <loc>https://samuflore.top/categories/%E8%BD%89%E8%BC%89/</loc>
     <lastmod>2025-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
