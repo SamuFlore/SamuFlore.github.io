@@ -33,7 +33,7 @@
 <meta property="og:description" content="序 这是北京航空航天大学计算机学院 2025 年计算机组成原理预习部分的 Verilog 部分。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-09-01T08:50:18.000Z">
-<meta property="article:modified_time" content="2025-09-10T13:37:29.617Z">
+<meta property="article:modified_time" content="2025-09-10T13:46:14.646Z">
 <meta property="article:author" content="Samustach Floresein">
 <meta property="article:tag" content="CO">
 <meta property="article:tag" content="Verilog">
@@ -247,7 +247,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-09-10 21:37:29" itemprop="dateModified" datetime="2025-09-10T21:37:29+08:00">2025-09-10</time>
+                <time title="修改时间：2025-09-10 21:46:14" itemprop="dateModified" datetime="2025-09-10T21:46:14+08:00">2025-09-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -315,7 +315,7 @@
 <p>模块（module）是 Verilog HDL 的基本功能单元，它实际上代表了具有一定功能的电路实体。通俗来讲，其代表了电路中被导线连接的各个功能模块（子电路）。</p>
 <p>以一个与门为例：<br>
 方法一：</p>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> AndGate(</span><br><span class="line">    <span class="keyword">input</span> i1;</span><br><span class="line">    <span class="keyword">input</span> i2;</span><br><span class="line">    <span class="keyword">output</span> o;</span><br><span class="line">);<span class="comment">// 模块名定义、端口定义及IO说明</span></span><br><span class="line">    <span class="keyword">assign</span> o = i1 &amp; i2; <span class="comment">// 模块功能定义</span></span><br><span class="line"><span class="keyword">endmodule</span><span class="comment">// 结束模块定义</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> AndGate(</span><br><span class="line">    <span class="keyword">input</span> i1,</span><br><span class="line">    <span class="keyword">input</span> i2,</span><br><span class="line">    <span class="keyword">output</span> o</span><br><span class="line">);<span class="comment">// 模块名定义、端口定义及IO说明</span></span><br><span class="line">    <span class="keyword">assign</span> o = i1 &amp; i2; <span class="comment">// 模块功能定义</span></span><br><span class="line"><span class="keyword">endmodule</span><span class="comment">// 结束模块定义</span></span><br></pre></td></tr></table></figure>
 <p>方法二：</p>
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> AndGate(i1,i2,o); <span class="comment">// 模块名定义及端口定义</span></span><br><span class="line">    <span class="keyword">input</span> i1;</span><br><span class="line">    <span class="keyword">input</span> i2; <span class="comment">// 也可合并为一句: input i1,i2;</span></span><br><span class="line">    <span class="keyword">output</span> o;</span><br><span class="line">    <span class="comment">// 上为IO说明</span></span><br><span class="line">    <span class="keyword">assign</span> o = i1 &amp; i2; <span class="comment">// 模块功能定义</span></span><br><span class="line"><span class="keyword">endmodule</span> <span class="comment">// 结束模块定义</span></span><br></pre></td></tr></table></figure>
 <p>两种方法没有实质上的区别，只是形式上有所不同：方法 1 对方法 2 中的端口定义及 IO 说明进行了合并。<br>
@@ -512,7 +512,7 @@
 <h2 id="宏定义">宏定义</h2>
 <p>宏定义格式如下：</p>
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">`<span class="keyword">define</span> WORDSIZE 8</span></span><br><span class="line"><span class="comment">// 省略模块定义</span></span><br><span class="line"> <span class="keyword">reg</span>[<span class="number">1</span>:`WORDSIZE] data;</span><br><span class="line"><span class="comment">// 相当于定义 reg[1:8] data;</span></span><br></pre></td></tr></table></figure>
-<p>定义时，需要以反引号（```）开头。使用时，也需要加上反引号。</p>
+<p>定义时，需要以反引号（<code>`</code>）开头。使用时，也需要加上反引号。</p>
 
     </div>
 
