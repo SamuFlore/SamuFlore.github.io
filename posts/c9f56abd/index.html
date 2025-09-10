@@ -33,7 +33,7 @@
 <meta property="og:description" content="序 这是北京航空航天大学计算机学院 2025 年计算机组成原理预习部分的 Verilog 部分。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-09-01T08:50:18.000Z">
-<meta property="article:modified_time" content="2025-09-09T03:39:20.570Z">
+<meta property="article:modified_time" content="2025-09-10T13:37:29.617Z">
 <meta property="article:author" content="Samustach Floresein">
 <meta property="article:tag" content="CO">
 <meta property="article:tag" content="Verilog">
@@ -247,7 +247,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-09-09 11:39:20" itemprop="dateModified" datetime="2025-09-09T11:39:20+08:00">2025-09-09</time>
+                <time title="修改时间：2025-09-10 21:37:29" itemprop="dateModified" datetime="2025-09-10T21:37:29+08:00">2025-09-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -286,14 +286,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>6.9k</span>
+              <span>7.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
+              <span>7 分钟</span>
             </span>
 
         </div>
@@ -482,6 +482,37 @@
 <div class="warning">
 <p>在时序逻辑中的阻塞赋值可能是不可综合的。</p>
 </div>
+<h2 id="有符号数的处理">有符号数的处理</h2>
+<p><code>wire</code>, <code>reg</code> 等类型的数据默认是<ins>无符号</ins>的。</p>
+<p>若要声明该数据是有符号的，需要使用 <code>$signed()</code>，例如 <code>$signed(a)</code>。</p>
+<h3 id="一个简单的例子">一个简单的例子</h3>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> comparator(</span><br><span class="line">    <span class="keyword">input</span> clk,</span><br><span class="line">    <span class="keyword">input</span> reset,</span><br><span class="line">    <span class="keyword">input</span> [<span class="number">3</span>:<span class="number">0</span>] a,</span><br><span class="line">    <span class="keyword">input</span> [<span class="number">3</span>:<span class="number">0</span>] b,</span><br><span class="line">    <span class="keyword">output</span> res</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="keyword">assign</span> res = a &gt;= b;</span><br><span class="line"></span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+<p>我们编写一个 Testbench 来测试，令 <code>a</code> 和 <code>b</code> 的初始值都为 1，100 ns 后令 <code>b</code> 为 -1。<br>
+我们期望看到 <code>res</code> 的值恒为 1，但是实际观测到 100 ns 后 <code>res</code> 的值变为 0。<br>
+这正是因为我们没有声明 <code>b</code> 是有符号数。Verilog 默认其为无符号数，当 <code>b</code> = -1 时，其补码为 4’b1111，会被认为是 15。<br>
+将比较代码修改为 <code>assign res = $signed(a) &gt; $signed(b);</code>，程序即可达到预期结果。</p>
+<p>值得一提的是，假如将比较代码修改为 <code>assign res = a &gt; $signed(b);</code>，得到的结果也达不到预期效果。</p>
+<p>在对无符号数和符号数同时操作时，Verilog 会自动地做数据类型匹配，将符号数向无符号数转化。因为在执行 <code>a &gt; $signed(b)</code> 时，<code>a</code> 是无符号数，<code>$signed(b)</code> 是符号数，Verilog 默认向无符号类型转化，得到的结果仍是无符号数的比较结果。</p>
+<p>关于符号数和无符号数的原理，您可参考<a target="_blank" rel="noopener" href="https://cscore.e1.buaa.edu.cn/tutorial/verilog/verilog-3/verilog-3-7/#_3">这里</a>。简单地概括，<ins>一个表达式，只要其子表达式中有任一表达式是无符号，则该表达式就是无符号的</ins>。</p>
+<h3 id="一些注意事项">一些注意事项</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>对于<ins>移位运算符</ins>，其<ins>右侧的操作数总是被视为无符号数</ins>，并且<ins>不会对运算结果的符号性产生任何影响</ins>。结果的符号由运算符左侧的操作数和表达式的其余部分共同决定。</p>
+</li>
+<li class="lvl-2">
+<p>对于<ins>三目运算符</ins>，其 <code>?</code> 前的布尔表达式是自决定的表达式，不会对最外层表达式的符号造成影响。</p>
+</li>
+<li class="lvl-2">
+<p>算术右移在<ins>左操作数无符号时</ins>高位仍然补 <ins>0</ins>，与逻辑右移效果相同。</p>
+</li>
+<li class="lvl-2">
+<p>未指定位宽和进制的 0 的有无符号性是根据上下文决定的。而指定了位宽和进制的 0（比如 4’b0000）的符号是确定的。</p>
+</li>
+</ul>
+<h2 id="宏定义">宏定义</h2>
+<p>宏定义格式如下：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">`<span class="keyword">define</span> WORDSIZE 8</span></span><br><span class="line"><span class="comment">// 省略模块定义</span></span><br><span class="line"> <span class="keyword">reg</span>[<span class="number">1</span>:`WORDSIZE] data;</span><br><span class="line"><span class="comment">// 相当于定义 reg[1:8] data;</span></span><br></pre></td></tr></table></figure>
+<p>定义时，需要以反引号（```）开头。使用时，也需要加上反引号。</p>
 
     </div>
 
@@ -625,7 +656,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IDE"><span class="nav-number">2.</span> <span class="nav-text">IDE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Verilog-%E8%AF%AD%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">Verilog 语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E7%9A%84%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95"><span class="nav-number">3.1.</span> <span class="nav-text">模块的定义方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.2.</span> <span class="nav-text">常用数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Wire-%E5%9E%8B"><span class="nav-number">3.2.1.</span> <span class="nav-text">Wire 型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reg-%E5%9E%8B"><span class="nav-number">3.2.2.</span> <span class="nav-text">Reg 型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E5%AD%97%E9%9D%A2%E9%87%8F"><span class="nav-number">3.2.3.</span> <span class="nav-text">数字字面量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Integer-%E5%9E%8B"><span class="nav-number">3.2.4.</span> <span class="nav-text">Integer 型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Parameter-%E5%9E%8B"><span class="nav-number">3.2.5.</span> <span class="nav-text">Parameter 型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E5%BB%BA%E6%A8%A1%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95"><span class="nav-number">3.3.</span> <span class="nav-text">组合逻辑建模常用语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Assign-%E8%AF%AD%E5%8F%A5"><span class="nav-number">3.3.1.</span> <span class="nav-text">Assign 语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">3.3.2.</span> <span class="nav-text">运算符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E5%BB%BA%E6%A8%A1%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95"><span class="nav-number">3.4.</span> <span class="nav-text">时序逻辑建模常用语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Always-%E5%9D%97"><span class="nav-number">3.4.1.</span> <span class="nav-text">Always 块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Initial-%E5%9D%97"><span class="nav-number">3.4.2.</span> <span class="nav-text">Initial 块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#If-%E8%AF%AD%E5%8F%A5"><span class="nav-number">3.4.3.</span> <span class="nav-text">If 语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Case-%E8%AF%AD%E5%8F%A5"><span class="nav-number">3.4.4.</span> <span class="nav-text">Case 语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#For-%E8%AF%AD%E5%8F%A5"><span class="nav-number">3.4.5.</span> <span class="nav-text">For 语句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E5%8F%98%E9%87%8F"><span class="nav-number">3.4.5.1.</span> <span class="nav-text">循环变量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#While-%E8%AF%AD%E5%8F%A5"><span class="nav-number">3.4.6.</span> <span class="nav-text">While 语句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E5%AE%9E%E4%BE%8B%E5%8C%96"><span class="nav-number">3.5.</span> <span class="nav-text">模块实例化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E9%98%BB%E5%A1%9E%E8%B5%8B%E5%80%BC%E5%92%8C%E9%98%BB%E5%A1%9E%E8%B5%8B%E5%80%BC"><span class="nav-number">3.6.</span> <span class="nav-text">非阻塞赋值和阻塞赋值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E9%98%BB%E5%A1%9E%E8%B5%8B%E5%80%BC"><span class="nav-number">3.6.1.</span> <span class="nav-text">非阻塞赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%BB%E5%A1%9E%E8%B5%8B%E5%80%BC"><span class="nav-number">3.6.2.</span> <span class="nav-text">阻塞赋值</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IDE"><span class="nav-number">2.</span> <span class="nav-text">IDE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Verilog-%E8%AF%AD%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">Verilog 语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E7%9A%84%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95"><span class="nav-number">3.1.</span> <span class="nav-text">模块的定义方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.2.</span> <span class="nav-text">常用数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Wire-%E5%9E%8B"><span class="nav-number">3.2.1.</span> <span class="nav-text">Wire 型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reg-%E5%9E%8B"><span class="nav-number">3.2.2.</span> <span class="nav-text">Reg 型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E5%AD%97%E9%9D%A2%E9%87%8F"><span class="nav-number">3.2.3.</span> <span class="nav-text">数字字面量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Integer-%E5%9E%8B"><span class="nav-number">3.2.4.</span> <span class="nav-text">Integer 型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Parameter-%E5%9E%8B"><span class="nav-number">3.2.5.</span> <span class="nav-text">Parameter 型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E5%BB%BA%E6%A8%A1%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95"><span class="nav-number">3.3.</span> <span class="nav-text">组合逻辑建模常用语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Assign-%E8%AF%AD%E5%8F%A5"><span class="nav-number">3.3.1.</span> <span class="nav-text">Assign 语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">3.3.2.</span> <span class="nav-text">运算符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E5%BB%BA%E6%A8%A1%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95"><span class="nav-number">3.4.</span> <span class="nav-text">时序逻辑建模常用语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Always-%E5%9D%97"><span class="nav-number">3.4.1.</span> <span class="nav-text">Always 块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Initial-%E5%9D%97"><span class="nav-number">3.4.2.</span> <span class="nav-text">Initial 块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#If-%E8%AF%AD%E5%8F%A5"><span class="nav-number">3.4.3.</span> <span class="nav-text">If 语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Case-%E8%AF%AD%E5%8F%A5"><span class="nav-number">3.4.4.</span> <span class="nav-text">Case 语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#For-%E8%AF%AD%E5%8F%A5"><span class="nav-number">3.4.5.</span> <span class="nav-text">For 语句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E5%8F%98%E9%87%8F"><span class="nav-number">3.4.5.1.</span> <span class="nav-text">循环变量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#While-%E8%AF%AD%E5%8F%A5"><span class="nav-number">3.4.6.</span> <span class="nav-text">While 语句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E5%AE%9E%E4%BE%8B%E5%8C%96"><span class="nav-number">3.5.</span> <span class="nav-text">模块实例化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E9%98%BB%E5%A1%9E%E8%B5%8B%E5%80%BC%E5%92%8C%E9%98%BB%E5%A1%9E%E8%B5%8B%E5%80%BC"><span class="nav-number">3.6.</span> <span class="nav-text">非阻塞赋值和阻塞赋值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E9%98%BB%E5%A1%9E%E8%B5%8B%E5%80%BC"><span class="nav-number">3.6.1.</span> <span class="nav-text">非阻塞赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%BB%E5%A1%9E%E8%B5%8B%E5%80%BC"><span class="nav-number">3.6.2.</span> <span class="nav-text">阻塞赋值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E7%AC%A6%E5%8F%B7%E6%95%B0%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-number">3.7.</span> <span class="nav-text">有符号数的处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="nav-number">3.7.1.</span> <span class="nav-text">一个简单的例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">3.7.2.</span> <span class="nav-text">一些注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8F%E5%AE%9A%E4%B9%89"><span class="nav-number">3.8.</span> <span class="nav-text">宏定义</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -732,12 +763,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area" style="color:#6A5ACD"></i>
     </span>
-    <span title="站点总字数">博文总字数 51k</span>
+    <span title="站点总字数">博文总字数 52k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee" style="color:#6A5ACD"></i>
     </span>
-    <span title="站点阅读时长">约 46 分钟 可通读</span>
+    <span title="站点阅读时长">约 47 分钟 可通读</span>
 </div>
   <div class="powered-by" style="color:#6A5ACD">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
