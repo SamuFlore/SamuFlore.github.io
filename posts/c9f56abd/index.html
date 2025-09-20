@@ -34,9 +34,10 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://samuflore.top/posts/c9f56abd/elevator.png">
 <meta property="article:published_time" content="2025-09-01T08:50:18.000Z">
-<meta property="article:modified_time" content="2025-09-14T15:27:47.840Z">
+<meta property="article:modified_time" content="2025-09-20T08:21:30.699Z">
 <meta property="article:author" content="Samustach Floresein">
 <meta property="article:tag" content="CO">
+<meta property="article:tag" content="CO Pre">
 <meta property="article:tag" content="Verilog">
 <meta property="article:tag" content="ISE">
 <meta name="twitter:card" content="summary">
@@ -249,7 +250,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-09-14 23:27:47" itemprop="dateModified" datetime="2025-09-14T23:27:47+08:00">2025-09-14</time>
+                <time title="修改时间：2025-09-20 16:21:30" itemprop="dateModified" datetime="2025-09-20T16:21:30+08:00">2025-09-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -310,8 +311,10 @@
         <h1 id="序">序</h1>
 <p>这是北京航空航天大学计算机学院 2025 年计算机组成原理预习部分的 Verilog 部分。</p>
 <span id="more"></span>
+<hr>
 <h1 id="IDE">IDE</h1>
 <p>本文使用 ISE 开发与仿真。</p>
+<hr>
 <h1 id="Verilog-语法">Verilog 语法</h1>
 <h2 id="模块的定义方法">模块的定义方法</h2>
 <p>模块（module）是 Verilog HDL 的基本功能单元，它实际上代表了具有一定功能的电路实体。通俗来讲，其代表了电路中被导线连接的各个功能模块（子电路）。</p>
@@ -515,6 +518,7 @@
 <p>宏定义格式如下：</p>
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">`<span class="keyword">define</span> WORDSIZE 8</span></span><br><span class="line"><span class="comment">// 省略模块定义</span></span><br><span class="line"> <span class="keyword">reg</span>[<span class="number">1</span>:`WORDSIZE] data;</span><br><span class="line"><span class="comment">// 相当于定义 reg[1:8] data;</span></span><br></pre></td></tr></table></figure>
 <p>定义时，需要以反引号（<code>`</code>）开头。使用时，也需要加上反引号。</p>
+<hr>
 <h1 id="Verilog-例题">Verilog 例题</h1>
 <h2 id="电梯调度">电梯调度</h2>
 <h3 id="简介">简介</h3>
@@ -588,6 +592,7 @@
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (condition) <span class="keyword">begin</span></span><br><span class="line">    cur_floor &lt;= cur_floor;</span><br><span class="line">    direction &lt;= direction;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 <p>无论怎么说，使用非阻塞赋值就决定了这一逻辑一定会在某个上升沿激活。对于第一种情况，我们可以大胆地让 <code>cur_floor == request</code> 作为条件，根据“乘客请求-其他规则”，<code>request</code> 尚未解决时不会有新的 <code>from</code> 出现。可以预见的是一定会在某个上升沿满足条件，然后下一个上升沿执行上述的等待逻辑。对于第二种情况，则大有不同了，接受 <code>from</code> 信号后将其赋给 <code>request</code> 必定也使用非阻塞赋值，那么 <code>request</code> 的赋值要等到 <code>from</code> 信号来临的下一个上升沿，即二者会出现一定的时间差。这对于 <code>out</code> 的输出，以及电梯的等待，都是不可接受的。具体到样例中，如果接到 <code>from</code> 信号后立刻赋给 <code>request</code>，那么 105ns 时 <code>request</code> 才会被置为 1。如果还用 <code>cur_floor == request</code> 作为条件，5 楼的等待时间将会延长到 115ns - 125ns 周期，这就错了。而且 <code>out</code> 与 <code>from</code> 和 <code>request</code> 挂钩，如果在 <code>request</code> 已经被赋值（105ns），再用条件判断将其归零，也许要等到下一个上升沿（115ns），这样， <code>out</code> 就会从 100ns 一直激活到 115ns。</p>
 <p>总的来说，面对第二种情况，等待逻辑的判定条件必须是 <code>cur_floor == from</code>，而且如果满足该条件，就要立刻发出 <code>request</code> 归零的命令，让 <code>request</code> 赶在下一个上升沿（105ns）就归零，相当于“反悔给 <code>request</code> 赋值”（这样做从波形上来看，<code>request</code> 不会被赋值，因为赋值和归零都是在上升沿以外的地方进行的），避免 <code>out</code> 激活时间过长。</p>
+<hr>
 <h1 id="Verilog-工程的设计开发调试">Verilog 工程的设计开发调试</h1>
 <h2 id="编写可综合代码">编写可综合代码</h2>
 <div class="warning">
@@ -751,6 +756,7 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/CO/" rel="tag"><i class="fa fa-tag"></i> CO</a>
+              <a href="/tags/CO-Pre/" rel="tag"><i class="fa fa-tag"></i> CO Pre</a>
               <a href="/tags/Verilog/" rel="tag"><i class="fa fa-tag"></i> Verilog</a>
               <a href="/tags/ISE/" rel="tag"><i class="fa fa-tag"></i> ISE</a>
           </div>
@@ -858,7 +864,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -871,7 +877,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-count">33</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
