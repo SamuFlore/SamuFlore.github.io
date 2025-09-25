@@ -33,7 +33,7 @@
 <meta property="og:description" content="序 这是北京航空航天大学计算机学院 2025 年计算机组成原理预习部分的 MIPS 汇编部分。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-09-20T08:00:25.000Z">
-<meta property="article:modified_time" content="2025-09-23T16:28:08.511Z">
+<meta property="article:modified_time" content="2025-09-25T16:24:04.438Z">
 <meta property="article:author" content="Samustach Floresein">
 <meta property="article:tag" content="CO">
 <meta property="article:tag" content="CO Pre">
@@ -249,7 +249,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-09-24 00:28:08" itemprop="dateModified" datetime="2025-09-24T00:28:08+08:00">2025-09-24</time>
+                <time title="修改时间：2025-09-26 00:24:04" itemprop="dateModified" datetime="2025-09-26T00:24:04+08:00">2025-09-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -288,14 +288,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.6k</span>
+              <span>5.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -396,6 +396,7 @@ MIPS 体系结构中，CPU 对数据的操作是基于寄存器的。内存中�
 <div class="note info">
             <ul class="lvl-0"><li class="lvl-2"><p><code>%0</code> 一般不能用于赋值。即对其赋值不违反语法，但其始终保持为 0。</p></li><li class="lvl-2"><p><code>%1</code> 保留给汇编器，一般不使用它。</p></li></ul>
           </div>
+<p><a id="specialReg"></a></p>
 <h2 id="三个特殊寄存器">三个特殊寄存器</h2>
 <ul class="lvl-0">
 <li class="lvl-2">
@@ -561,6 +562,116 @@ J 型指令很少，常见的为 <code>j</code> 和 <code>jal</code>。他们需
 <code>.space n</code> 即申请 n 个字节的未初始化的内存空间。</p>
 </li>
 </ul>
+<h2 id="MIPS-指令初步">MIPS 指令初步</h2>
+<div class="note info">
+            <p>该节学习自<a target="_blank" rel="noopener" href="https://kamonto.github.io/Kamonto_blog/2025/09/07/%E4%B8%80%E6%9C%AC%E4%B9%A6%E6%95%99%E4%BD%A0%E9%80%9A%E5%85%B3%E8%AE%A1%E7%BB%84%E5%AE%9E%E9%AA%8C%EF%BC%88%E4%B8%8A%EF%BC%89/">Kamonto’s Blog《一本书教你通关计组实验》</a>。</p>
+          </div>
+<h3 id="位运算">位运算</h3>
+<blockquote>
+<p>四则运算是更复杂程序的基石，而位运算是四则运算的基石。<br>
+<em>——麦瑟尔夫</em></p>
+</blockquote>
+<p>本节介绍 <code>and or xor nor andi ori xori</code> 这几种位运算。</p>
+<p>它们的格式都是 <code>op rs, rt, rd</code>，即把 <code>rt</code> 和 <code>rd</code> 两个寄存器的内容进行运算，运算结果存入 <code>rd</code> 寄存器。<ins>运算结果写前面</ins>。</p>
+<p>首先是与运算、或运算、异或运算。正如其名，非常好懂。<br>
+然后是或非运算，有一个小技巧，就是要对一个寄存器取反，可以利用或非运算来完成（MIPS 指令集没有提供取反指令）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nor $t0, $t0, $0</span><br></pre></td></tr></table></figure>
+<div class="tips">
+<p>别忘了 $0 永远是 0。</p>
+</div>
+<p>如果需要把一个寄存器的值和一个立即数进行运算，则需要用到末尾带“i”的指令（即 immediate），正如与立即数、或立即数、异或立即数。</p>
+<div class="warning">
+<p>注意：使用立即数的指令，立即数必须写在第三位。</p>
+</div>
+<h3 id="几条扩展指令">几条扩展指令</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>li</code>：<code>li rs, immediate</code>，将立即数赋给寄存器。</p>
+</li>
+<li class="lvl-2">
+<p><code>move</code>: <code>move rs, rt</code>, 将后一个寄存器的值赋给前一个寄存器。</p>
+</li>
+<li class="lvl-2">
+<p><code>la</code>：<code>la rd, label</code>，将标签对应的地址（十六进制值）赋给寄存器，后续我们讨论地址和内存的细节内容。</p>
+</li>
+</ul>
+<h3 id="加减法">加减法</h3>
+<p>本节介绍 <code>add sub addu subu addi addiu</code> 几种加减法运算。</p>
+<p>四则运算和位运算相比多了两个棘手的问题，即符号和溢出。</p>
+<blockquote>
+<p>首先来谈正负性的问题，其实这根本就不是个问题。如果你是补码领域大神的话，你就会发现，在不考虑位溢出的情况下（这里“不考虑位溢出”的意思是发生溢出时会将溢出位舍去，相反“考虑溢出”的意思是如果发生溢出直接报错），二进制补码的正负性其实是相同的，这也正是补码的优越之处。不信可以看看下面这些例子：</p>
+<p>在 32 位的条件下，<code>0x3 + 0xffffffff</code> 的结果是多少？你的做法或许是这样的：首先，你发现 <code>0xffffffff</code> 的最高位是 <code>1</code> ，于是断定它是负数，将其一段操作转换成 <code>-1</code> ，再与 <code>0x3</code> 相加，得到结果 <code>0x2</code> 。但实际上，我直接把它们两个相加，结果就是 <code>0x100000002</code> ，舍去溢出的最高位，直接就得到了 <code>0x2</code> 。</p>
+<p>再举一个例子，同样是在 32 位的条件下，<code>0xfffffffd - 0xffffffff</code> 的结果是多少？细心的你可能会将这个式子转换成 <code>(-3) - (-1)</code> ，结果是 <code>-2</code> ，也就是 <code>0xfffffffe</code> 。但是我不管正负，直接进行运算，发现被减数小于减数，我直接在被减数前面补一个溢出位 1 ，于是原式变成 <code>0x1fffffffd - 0xffffffff</code> ，结果等于 <code>0xfffffffe</code> 。</p>
+<p><em>摘自原书</em></p>
+</blockquote>
+<p>这是 <code>addu</code>（无符号加） 和 <code>subu</code>（无符号减）的原理。因为它们把操作数当作无符号数直接运算，然后直接把溢出部分舍去。<ins>但是其运算结果还是有符号的！！！</ins></p>
+<p>而 <code>add</code> 和 <code>sub</code> 则不会简单地舍去溢出位，而是在溢出时抛出异常。如果使用这种运算，需要注意判断是否溢出。</p>
+<p>此外 <code>add</code> 和 <code>addu</code> 也有它们的立即数版本 <code>addi</code> 和 <code>addiu</code>（注意不是 <code>addui</code>），<ins>而 <code>subi</code> 和 <code>subiu</code> 是伪指令</ins>，和上面一样它们也必须把立即数放在第三位。</p>
+<h3 id="乘除法">乘除法</h3>
+<p>本节介绍 <code>mult div mfhi mflo mthi mtlo</code> 几种乘除法运算。</p>
+<p>加减法至多只溢出一位，而乘除法则不然，两个 32 位数字相乘，结果可达 64 位，必须要用新的处理方法。<br>
+于是我们想到了之前提到的<a href="#specialReg">特殊寄存器</a> <code>HI</code> 和 <code>LO</code>，在乘法运算的时候，直接把高 32 位放到 <code>HI</code> 寄存器里面，低 32 位放到 <code>LO</code> 寄存器里面，就万事大吉了。用法 <code>mult rs, rt</code>，即把 <code>rs</code> 和 <code>rt</code> 两个寄存器的内容相乘。</p>
+<div class="tips">
+<p>为什么不要指定结果保存的位置？<br>
+因为结果放到了 <code>HI</code> 和 <code>LO</code> 里面，自然就只需要指定两个操作数的寄存器了。</p>
+</div>
+<p>这两个是特殊寄存器，不能直接调用，要想使用里面的数，必须提前取出来，这就是 <code>mfhi</code> 和 <code>mflo</code> 存在的意义。用 <code>mfxx rs</code> 把 <code>HI</code> 或者 <code>LO</code> 寄存器的值存入 <code>rs</code> 寄存器。<br>
+当然也有反过来的用法，即手动把数字写进 <code>HI</code> 和 <code>LO</code> 寄存器。用 <code>mthi</code> 和 <code>mtlo</code> 指令。用 <code>mthi rs</code> 把 <code>rs</code> 寄存器的值存入 <code>HI</code> 寄存器，用 <code>mtlo rs</code> 把 <code>rs</code> 寄存器的值存入 <code>LO</code> 寄存器。</p>
+<p>除法也利用这两个寄存器，不过是 <code>HI</code> 存<ins>余数</ins>而 <code>LO</code> 存<ins>商</ins>。切勿记反。切勿记反。切勿记反。<br>
+若除数是负数，处理方法与 C 语言中相同：被除数为正数时，余数为 0 或正数；被除数为负数时，余数为 0 或负数。如下表：</p>
+<table>
+<thead>
+<tr>
+<th>被除数</th>
+<th>除数</th>
+<th>商</th>
+<th>余数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr>
+<td>7</td>
+<td>-3</td>
+<td>-2</td>
+<td>1</td>
+</tr>
+<tr>
+<td>-7</td>
+<td>3</td>
+<td>-2</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>-7</td>
+<td>-3</td>
+<td>2</td>
+<td>-1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="几个单位">几个单位</h3>
+<p>自此节开始要进入内存的学习，先通过了解单位来入门。</p>
+<ol>
+<li class="lvl-3">
+<p>位（bit）: 1 位代表 1 个 二进制值（0 或 1）。比如二进制数 <code>0b10110</code> 就是 5 位。<ins>十六进制数 <code>0xabcd</code> 的每一个数字都能转换成 4 位二进制数</ins>，所以这个数是 16 位。</p>
+</li>
+<li class="lvl-3">
+<p>字节（byte）: 8 位组成 1 个字节。一个 32 位的寄存器，其大小就是 4 字节。<ins>字节是地址的基本单位</ins>。</p>
+</li>
+<li class="lvl-3">
+<p>半字（halfword）: 16 位组成 1 个半字。</p>
+</li>
+<li class="lvl-3">
+<p>字（word）: 32 位组成 1 个字。</p>
+</li>
+</ol>
+<h3 id="地址">地址</h3>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
@@ -712,7 +823,7 @@ J 型指令很少，常见的为 <code>j</code> 和 <code>jal</code>。他们需
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IDE"><span class="nav-number">2.</span> <span class="nav-text">IDE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8%E7%AE%80%E4%BB%8B"><span class="nav-number">3.</span> <span class="nav-text">寄存器简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%AF%84%E5%AD%98%E5%99%A8%EF%BC%9F"><span class="nav-number">3.1.</span> <span class="nav-text">什么是寄存器？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MIPS-%E4%B8%AD%E7%9A%84-32-%E4%B8%AA%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-number">3.2.</span> <span class="nav-text">MIPS 中的 32 个通用寄存器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E4%B8%AA%E7%89%B9%E6%AE%8A%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-number">3.3.</span> <span class="nav-text">三个特殊寄存器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MIPS-%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4%E9%9B%86%E6%9E%B6%E6%9E%84"><span class="nav-number">4.</span> <span class="nav-text">MIPS 汇编指令集架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%8C%87%E4%BB%A4%EF%BC%9F"><span class="nav-number">4.1.</span> <span class="nav-text">什么是指令？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E4%B9%8B%E6%A0%BC%E5%BC%8F"><span class="nav-number">4.2.</span> <span class="nav-text">指令之格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E7%A0%81%E6%8C%87%E4%BB%A4"><span class="nav-number">4.3.</span> <span class="nav-text">机器码指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E7%A0%81"><span class="nav-number">4.3.1.</span> <span class="nav-text">机器码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E7%A0%81%E4%B9%8B%E6%8C%87%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="nav-number">4.3.2.</span> <span class="nav-text">机器码之指令格式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E6%8C%87%E4%BB%A4%E5%92%8C%E4%BC%AA%E6%8C%87%E4%BB%A4"><span class="nav-number">4.4.</span> <span class="nav-text">扩展指令和伪指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E6%8C%87%E4%BB%A4%EF%BC%88Pseudo-Instruction%EF%BC%89"><span class="nav-number">4.4.1.</span> <span class="nav-text">扩展指令（Pseudo Instruction）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%AA%E6%8C%87%E4%BB%A4%EF%BC%88Directives%EF%BC%89"><span class="nav-number">4.4.2.</span> <span class="nav-text">伪指令（Directives）</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IDE"><span class="nav-number">2.</span> <span class="nav-text">IDE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8%E7%AE%80%E4%BB%8B"><span class="nav-number">3.</span> <span class="nav-text">寄存器简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%AF%84%E5%AD%98%E5%99%A8%EF%BC%9F"><span class="nav-number">3.1.</span> <span class="nav-text">什么是寄存器？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MIPS-%E4%B8%AD%E7%9A%84-32-%E4%B8%AA%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-number">3.2.</span> <span class="nav-text">MIPS 中的 32 个通用寄存器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E4%B8%AA%E7%89%B9%E6%AE%8A%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-number">3.3.</span> <span class="nav-text">三个特殊寄存器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MIPS-%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4%E9%9B%86%E6%9E%B6%E6%9E%84"><span class="nav-number">4.</span> <span class="nav-text">MIPS 汇编指令集架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%8C%87%E4%BB%A4%EF%BC%9F"><span class="nav-number">4.1.</span> <span class="nav-text">什么是指令？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E4%B9%8B%E6%A0%BC%E5%BC%8F"><span class="nav-number">4.2.</span> <span class="nav-text">指令之格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E7%A0%81%E6%8C%87%E4%BB%A4"><span class="nav-number">4.3.</span> <span class="nav-text">机器码指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E7%A0%81"><span class="nav-number">4.3.1.</span> <span class="nav-text">机器码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E7%A0%81%E4%B9%8B%E6%8C%87%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="nav-number">4.3.2.</span> <span class="nav-text">机器码之指令格式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E6%8C%87%E4%BB%A4%E5%92%8C%E4%BC%AA%E6%8C%87%E4%BB%A4"><span class="nav-number">4.4.</span> <span class="nav-text">扩展指令和伪指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E6%8C%87%E4%BB%A4%EF%BC%88Pseudo-Instruction%EF%BC%89"><span class="nav-number">4.4.1.</span> <span class="nav-text">扩展指令（Pseudo Instruction）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%AA%E6%8C%87%E4%BB%A4%EF%BC%88Directives%EF%BC%89"><span class="nav-number">4.4.2.</span> <span class="nav-text">伪指令（Directives）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MIPS-%E6%8C%87%E4%BB%A4%E5%88%9D%E6%AD%A5"><span class="nav-number">4.5.</span> <span class="nav-text">MIPS 指令初步</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="nav-number">4.5.1.</span> <span class="nav-text">位运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%A0%E6%9D%A1%E6%89%A9%E5%B1%95%E6%8C%87%E4%BB%A4"><span class="nav-number">4.5.2.</span> <span class="nav-text">几条扩展指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E5%87%8F%E6%B3%95"><span class="nav-number">4.5.3.</span> <span class="nav-text">加减法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B9%98%E9%99%A4%E6%B3%95"><span class="nav-number">4.5.4.</span> <span class="nav-text">乘除法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%A0%E4%B8%AA%E5%8D%95%E4%BD%8D"><span class="nav-number">4.5.5.</span> <span class="nav-text">几个单位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%B0%E5%9D%80"><span class="nav-number">4.5.6.</span> <span class="nav-text">地址</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -819,12 +930,12 @@ J 型指令很少，常见的为 <code>j</code> 和 <code>jal</code>。他们需
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area" style="color:#6A5ACD"></i>
     </span>
-    <span title="站点总字数">博文总字数 60k</span>
+    <span title="站点总字数">博文总字数 62k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee" style="color:#6A5ACD"></i>
     </span>
-    <span title="站点阅读时长">约 54 分钟 可通读</span>
+    <span title="站点阅读时长">约 56 分钟 可通读</span>
 </div>
   <div class="powered-by" style="color:#6A5ACD">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
