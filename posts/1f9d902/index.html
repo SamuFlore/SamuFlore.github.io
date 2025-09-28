@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://samuflore.top/posts/1f9d902/address.png">
 <meta property="og:image" content="https://samuflore.top/posts/1f9d902/label.png">
 <meta property="article:published_time" content="2025-09-20T08:00:25.000Z">
-<meta property="article:modified_time" content="2025-09-27T15:28:20.995Z">
+<meta property="article:modified_time" content="2025-09-28T14:28:29.530Z">
 <meta property="article:author" content="Samustach Floresein">
 <meta property="article:tag" content="CO">
 <meta property="article:tag" content="CO Pre">
@@ -252,7 +252,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-09-27 23:28:20" itemprop="dateModified" datetime="2025-09-27T23:28:20+08:00">2025-09-27</time>
+                <time title="修改时间：2025-09-28 22:28:29" itemprop="dateModified" datetime="2025-09-28T22:28:29+08:00">2025-09-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -291,14 +291,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>12k</span>
+              <span>16k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>11 分钟</span>
+              <span>14 分钟</span>
             </span>
 
         </div>
@@ -527,9 +527,9 @@ J 型指令很少，常见的为 <code>j</code> 和 <code>jal</code>。他们需
 </ul>
 </li>
 </ul>
-<div class="tips">
-<p><a target="_blank" rel="noopener" href="https://cscore.e1.buaa.edu.cn/assets/cscore-assets/MIPS-C%E6%8C%87%E4%BB%A4%E9%9B%86_%E6%A0%A1%E5%AF%B9%E5%AE%8C%E6%88%90%E7%89%88_-%E6%8C%87%E4%BB%A4%E6%8E%92%E5%BA%8F.pdf">MIPS-C 指令集由此查看</a>。</p>
-</div>
+<div class="note info">
+            <p><a target="_blank" rel="noopener" href="https://cscore.e1.buaa.edu.cn/assets/cscore-assets/MIPS-C%E6%8C%87%E4%BB%A4%E9%9B%86_%E6%A0%A1%E5%AF%B9%E5%AE%8C%E6%88%90%E7%89%88_-%E6%8C%87%E4%BB%A4%E6%8E%92%E5%BA%8F.pdf">MIPS-C 指令集由此查看</a>。</p>
+          </div>
 <h2 id="扩展指令和伪指令">扩展指令和伪指令</h2>
 <h3 id="扩展指令（Pseudo-Instruction）">扩展指令（Pseudo Instruction）</h3>
 <p>对基本指令的转写（例如用标签代替立即数），或对操作数的略写等，被称作扩展指令。<br>
@@ -823,7 +823,166 @@ J 型指令很少，常见的为 <code>j</code> 和 <code>jal</code>。他们需
 <p>等价于：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (i * i &lt; n)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">if</span> (n % i == <span class="number">0</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  i += <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="数组">数组</h2>
-<hr class="footnotes-sep">
+<h3 id="一维数组">一维数组</h3>
+<p>我们可以在 <code>.data</code> 段中开辟一段连续的内存空间作为数组存储数据。比如：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">.data</span></span><br><span class="line"><span class="symbol">	array1:</span> <span class="meta">.space</span> <span class="number">20</span></span><br><span class="line"><span class="symbol">	array2:</span> <span class="meta">.space</span> <span class="number">40</span></span><br><span class="line"></span><br><span class="line"><span class="meta">.text</span></span><br><span class="line">li $<span class="built_in">s0</span>, <span class="number">1</span>   <span class="comment"># $s0 = 1</span></span><br><span class="line">li $<span class="built_in">s1</span>, <span class="number">2</span>   <span class="comment"># #s1 = 2</span></span><br><span class="line">li $<span class="built_in">t0</span>, <span class="number">0</span></span><br><span class="line">li $<span class="built_in">t1</span>, <span class="number">4</span></span><br><span class="line"><span class="keyword">sw </span>$<span class="built_in">s0</span>, array1($<span class="built_in">t0</span>)   <span class="comment"># array1[0] = $s0</span></span><br><span class="line"><span class="keyword">sw </span>$<span class="built_in">s1</span>, array1($<span class="built_in">t1</span>)   <span class="comment"># array1[1] = $s1</span></span><br><span class="line"><span class="keyword">sw </span>$<span class="built_in">s0</span>, array2($<span class="built_in">t0</span>)   <span class="comment"># array2[0] = $s0</span></span><br><span class="line"><span class="keyword">sw </span>$<span class="built_in">s1</span>, array2($<span class="built_in">t1</span>)   <span class="comment"># array2[1] = $s1</span></span><br></pre></td></tr></table></figure>
+<p>首先要注意 <code>.space</code> 开辟的空间是以<ins>字节</ins>为单位的。因此这里 <code>array1</code> 的大小为 20 字节，如果存储 int 类型的数据只能存储 5 个。</p>
+<div class="note warning">
+            <p>我们要存储的每个数据都要占据 4 个字节的空间（哪怕是只占据 1 字节的 <code>char</code> 型数据也建议直接用 4 字节来存储，我们的内存足够多，不需要担心不够用，使用 4 字节存储和寄存器的位数一致，也可以非常方便地使用 sw 和 lw 指令直接进行存取，也可以降低出错的概率。</p>
+          </div>
+<p><code>array1</code> 和 <code>array2</code> 两个标签在用 <code>lw</code> 或 <code>sw</code> 的时候都会被翻译成立即数，作为地址。实际上，它们代表的正是数组的首地址。在上面的例子中，若 <code>.data</code> 段是从 <code>0x00000000</code> 开始，那么 <code>array1</code> 就是 <code>0x00000000</code>，而 <code>array2</code> 就是 <code>0x00000014</code>（即十进制的 20）。因为 <code>array1</code> 占据了 <code>0x00000000</code> 到 <code>0x00000013</code> 的 20 字节空间，<code>array2</code> 就顺延下来了。</p>
+<div class="warning">
+<p>重申一次，最好保证在申请数组时，申请的字节数永远都能够被 4 整除！</p>
+</div>
+<p>要注意，访问数组中的值时，我们往往需要一个寄存器来保存数组的索引，这时候寄存器的值不应当是数组的下标，而是下标乘以 4 的结果。为简便计算，我们一般用位运算来计算，比如 <code>sll $t1, $t0, 2</code> 就可以将 <code>$t0</code> 中的值乘以 4 放入 <code>$t1</code> 中。</p>
+<h3 id="二维数组">二维数组</h3>
+<p>我们知道二维数组在存储时其实是按照一位数组的格式来存的，即第一行、第二行、第三行……紧密排列。例如在一个 m 行 n 列的二维数组 <code>matrix</code> 中，<code>matrix[i][j]</code> 和 <code>matrix[i * n + j]</code> 并没有什么区别。所以 <code>(i * n + j) * 4</code> 就是访问 <code>matrix[i][j]</code> 的地址，即寄存器中保存的值。</p>
+<h2 id="字符串">字符串</h2>
+<p>字符以 ASCII 码的形式存储。</p>
+<p>在内存中，字符是按照顺序从低地址到高地址排列的。比如 <code>hello</code> 这个字符串，其中 <code>h</code> 最先写入，并写入到这个字（即 4 字节）的最低位，假定为 0x00，那么 <code>h e l l</code> 分别就是 <code>0x00 0x01 0x02 0x03</code>，<code>o</code> 被保存到下一个字去，为 <code>0x04</code>。</p>
+<p>有两条伪指令来写入字符串：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>.asciiz<br>
+在字符数组末尾自动添加 <code>\0</code>。</p>
+</li>
+<li class="lvl-2">
+<p>.ascii<br>
+不会自动添加 <code>\0</code>。</p>
+</li>
+</ul>
+<p>和 C 语言一样，MIPS 字符串也要以 <code>\0</code> 结尾。</p>
+<div class="tips">
+<blockquote>
+<p>在 <code>.data</code> 段要同时声明数组和字符串的情况，请记住一定要先声明数组，再声明字符串！道理其实很简单，因为如果先声明字符串的话，如果字符串的字节数不能被 4 整除，数组的首地址就又跑到不能被 4 整除的地方去了（叹气）。</p>
+</blockquote>
+</div>
+<div class="tips">
+<p>一般地，能用 <code>.asciiz</code> 就别用 <code>.ascii</code>。</p>
+</div>
+<h2 id="宏">宏</h2>
+<h3 id="宏的基本用法">宏的基本用法</h3>
+<p>宏定义用于把重复的代码简化成一条语句，比如：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">.macro</span> exit <span class="comment"># or .macro exit()</span></span><br><span class="line">	li $<span class="built_in">v0</span>, <span class="number">10</span></span><br><span class="line">	<span class="keyword">syscall</span></span><br><span class="line"><span class="keyword"></span>.end_macro</span><br><span class="line"></span><br><span class="line">exit <span class="comment"># or exit()</span></span><br></pre></td></tr></table></figure>
+<p>调用宏的时候只需要使用宏名即可，若无参数，则有无括号都可以，但你也可以为其添加参数：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">.macro</span> getoffset(%ans, %i, %<span class="keyword">j)</span></span><br><span class="line"><span class="keyword"></span>  <span class="keyword">sll </span>%ans, %i, <span class="number">3</span> <span class="comment"># %ans = %i * 8</span></span><br><span class="line">  <span class="keyword">add </span>%ans, %ans, %<span class="keyword">j </span><span class="comment"># %ans += %j</span></span><br><span class="line">  <span class="keyword">sll </span>%ans, %ans, <span class="number">2</span> <span class="comment"># %ans *= 4</span></span><br><span class="line">.end_macro</span><br></pre></td></tr></table></figure>
+<p>这是一个计算每行 8 列的二维数组中第 i 行第 j 列的元素地址的宏。由于关于数组的代码需要大量地获取元素地址，这样的宏就可以大幅节约代码量。</p>
+<p>事实上，宏中带 <code>%</code> 的参量可以表示一条指令的任何一个部分，比如立即数：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">.macro</span> store(%p)</span><br><span class="line">  <span class="keyword">sw </span>$<span class="built_in">s1</span>, %p($<span class="number">0</span>)</span><br><span class="line">.end_macro</span><br><span class="line"></span><br><span class="line">li $<span class="built_in">s1</span>, <span class="number">1</span></span><br><span class="line">store(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<p>或者标签：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">.data</span></span><br><span class="line"><span class="symbol">str:</span> .asciiz <span class="string">&quot;hello world&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">.macro</span> print(%str)</span><br><span class="line">  li $<span class="built_in">v0</span>, <span class="number">4</span></span><br><span class="line">  la $<span class="built_in">a0</span>, %str</span><br><span class="line">  <span class="keyword">syscall</span></span><br><span class="line"><span class="keyword"></span>.end_macro</span><br><span class="line"></span><br><span class="line"><span class="meta">.text</span></span><br><span class="line">print(str)</span><br></pre></td></tr></table></figure>
+<p>甚至指令名：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">.macro</span> <span class="keyword">instr(%i)</span></span><br><span class="line"><span class="keyword"></span>  %i $<span class="built_in">s2</span>, $<span class="built_in">s3</span>, $<span class="built_in">s4</span></span><br><span class="line">.end_macro</span><br><span class="line"></span><br><span class="line"><span class="keyword">instr(add)</span></span><br><span class="line"><span class="keyword"></span><span class="keyword">instr(sub)</span></span><br></pre></td></tr></table></figure>
+<div class="tips">
+<p>当然，指令格式与宏定义的有差别的指令就不能用了，否则会报错。</p>
+</div>
+<p>还有宏内部的跳转：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">.macro</span> <span class="keyword">branch(%d)</span></span><br><span class="line"><span class="keyword"></span>  <span class="keyword">beqz </span>%d, iszero</span><br><span class="line">  <span class="keyword">j </span>end</span><br><span class="line"><span class="symbol">  iszero:</span></span><br><span class="line">    li %d, <span class="number">114514</span></span><br><span class="line"><span class="symbol">  end:</span></span><br><span class="line">.end_macro</span><br><span class="line"></span><br><span class="line">li $<span class="built_in">s0</span>, <span class="number">0</span></span><br><span class="line"><span class="keyword">branch($s0)</span></span><br><span class="line"><span class="keyword"></span><span class="keyword">branch($s1)</span></span><br></pre></td></tr></table></figure>
+<div class="warning">
+<p>不可从宏内跳到宏外，反之亦然。</p>
+</div>
+<p>甚至可以嵌套：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">.macro</span> para(%p)</span><br><span class="line">  <span class="keyword">instr(add)</span></span><br><span class="line"><span class="keyword"></span>  <span class="keyword">sw </span>$<span class="built_in">s1</span>, %p($<span class="built_in">s2</span>)</span><br><span class="line">.end_macro</span><br><span class="line"></span><br><span class="line"><span class="meta">.macro</span> <span class="keyword">instr(%i)</span></span><br><span class="line"><span class="keyword"></span>  %i $<span class="built_in">s2</span>, $<span class="built_in">s3</span>, $<span class="built_in">s4</span></span><br><span class="line">.end_macro</span><br><span class="line"></span><br><span class="line">li $<span class="built_in">s1</span>, <span class="number">1</span></span><br><span class="line">li $<span class="built_in">s3</span>, <span class="number">3</span></span><br><span class="line">para(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<div class="warning">
+<p>宏出现循环调用（比如 <code>para</code> 调用自己，或 <code>para</code> 调用 <code>instr</code>，而 <code>instr</code> 又调用 <code>para</code>），就会报错。</p>
+</div>
+<h3 id="宏实现函数">宏实现函数</h3>
+<p>一般来说，我们约定俗成的参数寄存器是 <code>$a0 $a1 $a2 $a3</code> 这四个寄存器，分别存储函数的第 1、2、3、4 个参数。</p>
+<p>若函数有返回值，我们有两种方法来用宏定义它：</p>
+<ol>
+<li class="lvl-3">
+<p>要求一个参数填入寄存器来保存返回值。</p>
+</li>
+<li class="lvl-3">
+<p>宏定义内写死返回值保存的位置，外部用 <code>move</code> 指令提取之。</p>
+</li>
+</ol>
+<p>第一种比如：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">.macro</span> my_add(%a, %<span class="keyword">b, </span>%c)</span><br><span class="line">  <span class="keyword">add </span>%c, %a, %<span class="keyword">b</span></span><br><span class="line"><span class="keyword"></span>.end_macro</span><br><span class="line"></span><br><span class="line">li $<span class="built_in">s0</span>, <span class="number">1</span></span><br><span class="line">li $<span class="built_in">s1</span>, <span class="number">2</span></span><br><span class="line">my_add($<span class="built_in">s0</span>, $<span class="built_in">s1</span>, $<span class="built_in">s2</span>) <span class="comment"># s2 = s0 + s1</span></span><br><span class="line">my_add($<span class="built_in">s0</span>, $<span class="built_in">s1</span>, $<span class="number">0</span>) <span class="comment"># no return</span></span><br></pre></td></tr></table></figure>
+<div class="tips">
+<p>小技巧：<code>$0</code> 永远是 0，让它保存返回值，相当于没有返回值。</p>
+</div>
+<p>第二种：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">.macro</span> my_add(%a, %<span class="keyword">b)</span></span><br><span class="line"><span class="keyword"></span>  <span class="keyword">add </span>$<span class="built_in">v0</span>, %a, %<span class="keyword">b</span></span><br><span class="line"><span class="keyword"></span>.end_macro</span><br><span class="line"></span><br><span class="line">li $<span class="built_in">s0</span>, <span class="number">1</span></span><br><span class="line">li $<span class="built_in">s1</span>, <span class="number">2</span></span><br><span class="line">my_add($<span class="built_in">s0</span>, $<span class="built_in">s1</span>) <span class="comment"># v0 = s0 + s1</span></span><br><span class="line"><span class="keyword">move </span>$<span class="built_in">s2</span>, $<span class="built_in">v0</span> <span class="comment"># s2 = v0</span></span><br></pre></td></tr></table></figure>
+<h3 id="宏实现递归">宏实现递归</h3>
+<p>首先明确一点，要在不同的函数栈上实现跳转，我们应该使用 <code>jal jr</code> 这对指令。在跳转时使用 <code>jal</code>，执行完后使用 <code>jr</code> 跳转回来。但是 <code>jr</code> 的目的地是 <code>$ra</code> 这个寄存器，专门保存 <code>jal</code> 的下一条指令的地址，让我们设想这样一个场景：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>进入函数 <code>f</code></p>
+</li>
+<li class="lvl-2">
+<p><code>f</code> 中再次调用 <code>f</code></p>
+</li>
+<li class="lvl-2">
+<p>第二层 <code>f</code> 满足结束条件，回到第一层 <code>f</code></p>
+</li>
+<li class="lvl-2">
+<p>第一层 <code>f</code> 满足结束条件，回到主程序</p>
+</li>
+</ul>
+<p><code>f</code> 的结构大致是这样的：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">jal </span>f <span class="comment"># 主程序调用 f</span></span><br><span class="line">下一条指令</span><br><span class="line"></span><br><span class="line">f:</span><br><span class="line">  满足条件则跳转到 f_end</span><br><span class="line">  函数逻辑</span><br><span class="line">  <span class="keyword">jal </span>f</span><br><span class="line">  <span class="keyword">jr </span>$<span class="built_in">ra</span></span><br><span class="line"><span class="symbol"></span></span><br><span class="line"><span class="symbol">f_end:</span></span><br><span class="line">  <span class="keyword">jr </span>$<span class="built_in">ra</span></span><br></pre></td></tr></table></figure>
+<p>乍一看非常之正确：主程序调用 <code>f</code>，<code>f</code> 执行到 jal <code>f</code> 后回到 <code>f</code> 的开头，满足条件跳转到 <code>f_end</code>，<code>f_end</code> 回到 <code>jal</code> 后一句，即 <code>jr $ra</code>，然后回到主程序。</p>
+<p>对……对吗（</p>
+<p>仔细一想，两个 <code>jr</code> 真能如愿跳转吗？实则不然。因为 <code>$ra</code> 只有一个，也就是说 <code>$ra</code> 的值是会被覆写的！！！</p>
+<p>让我们再次分析：<code>f</code> 中第一次执行 <code>jal</code> 时，<code>$ra</code> 保存的是第一层中 <code>jr $ra</code> 这条指令的地址。第二层 <code>f</code> 中满足条件跳转到 <code>f_end</code>，然后回到了通过 <code>jr $ra</code> 回到了第一层的 <code>jr $ra</code>（有点绕），这里的 <code>$ra</code> 保存的仍然是第一层 <code>jr $ra</code> 的地址，也就是说原地 tp。<br>
+倘若递归次数更多，那么最后出现的情况就是 <code>jr $ra</code> 只能返回到最后一次调用 <code>f</code> 的位置，而不能如我们所想层层跳出。</p>
+<p>所以我们需要用到栈来保存每层跳出的位置。</p>
+<p>观察 MARS 界面右下角的寄存器界面，我们能够找到一个名为 <code>$sp</code> 的寄存器，它就是栈寄存器。和大多数寄存器不一样，它的初始值不是 0 ，而是 <code>0x00002ffc</code>。</p>
+<p>操作系统中，栈是一个<ins>自顶向下</ins>的空间，先入栈的数据所在的地址反而大，后入栈的则小。</p>
+<p>入栈实际上做了这么一件事：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">addi </span>$<span class="built_in">sp</span>, $<span class="built_in">sp</span>, -<span class="number">4</span> <span class="comment"># 栈顶指针向下移动 4 字节</span></span><br><span class="line"><span class="keyword">sw </span>$<span class="built_in">s0</span>, <span class="number">0</span>($<span class="built_in">sp</span>) <span class="comment"># 保存 $s0 到栈顶</span></span><br></pre></td></tr></table></figure>
+<p>出栈则是：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">lw </span>$<span class="built_in">s0</span>, <span class="number">0</span>($<span class="built_in">sp</span>) <span class="comment"># 从栈顶取出 $s0</span></span><br><span class="line"><span class="keyword">addi </span>$<span class="built_in">sp</span>, $<span class="built_in">sp</span>, <span class="number">4</span> <span class="comment"># 栈顶指针向上移动 4 字节</span></span><br></pre></td></tr></table></figure>
+<p>在调用函数时，我更喜欢这样的出入栈方式：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">.macro</span> push(%r)</span><br><span class="line">  <span class="keyword">addi </span>$<span class="built_in">sp</span>, $<span class="built_in">sp</span>, -<span class="number">4</span></span><br><span class="line">  <span class="keyword">sw </span>%r, <span class="number">0</span>($<span class="built_in">sp</span>)</span><br><span class="line">.end_macro</span><br><span class="line"></span><br><span class="line"><span class="meta">.macro</span> pop(%r)</span><br><span class="line">  <span class="keyword">lw </span>%r, <span class="number">0</span>($<span class="built_in">sp</span>)</span><br><span class="line">  <span class="keyword">addi </span>$<span class="built_in">sp</span>, $<span class="built_in">sp</span>, <span class="number">4</span></span><br><span class="line">.end_macro</span><br><span class="line"><span class="symbol"></span></span><br><span class="line"><span class="symbol">loop:</span></span><br><span class="line">  push($<span class="built_in">s0</span>)</span><br><span class="line">  ......</span><br><span class="line">  <span class="keyword">jal </span>loop</span><br><span class="line">  ......</span><br><span class="line">  pop($<span class="built_in">s0</span>)</span><br><span class="line">  <span class="keyword">jr </span>$<span class="built_in">ra</span></span><br></pre></td></tr></table></figure>
+<p>即刚进入函数时就入栈，准备跳出函数前出栈。这样就能保证 <code>$ra</code> 始终保存的是正确的地址。</p>
+<h2 id="系统调用">系统调用</h2>
+<p>根据 <code>$v0</code> 的值不同，使用 <code>syscall</code> 命令的效果不同。以下是常用的调用命令：</p>
+<table>
+<thead>
+<tr>
+<th>$v0</th>
+<th>功能</th>
+<th>要求或结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>print integer</td>
+<td><code>$a0</code> = 要打印的数</td>
+</tr>
+<tr>
+<td>4</td>
+<td>print string</td>
+<td><code>$a0</code> = 要打印的字符串（<code>\0</code> 结尾）地址</td>
+</tr>
+<tr>
+<td>5</td>
+<td>read integer</td>
+<td><code>$v0</code> = 读入的数</td>
+</tr>
+<tr>
+<td>10</td>
+<td>exit program</td>
+<td>/</td>
+</tr>
+<tr>
+<td>11</td>
+<td>print character</td>
+<td><code>$a0</code> = 要打印的字符</td>
+</tr>
+<tr>
+<td>12</td>
+<td>read character</td>
+<td><code>$v0</code> = 读入的字符</td>
+</tr>
+</tbody>
+</table>
+<div class="note info">
+            <p>详见<a target="_blank" rel="noopener" href="https://p0ach1l.github.io/2025/03/04/MIPS%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/#MIPS%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E7%A0%81">《MIPS 基础入门》——能打八个攻城狮</a>。</p>
+          </div><hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
 <li id="fn1" class="footnote-item"><p>指令中设定好的常数，可以直接参与运算，一般为 16 位 二进制。 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
@@ -991,7 +1150,7 @@ J 型指令很少，常见的为 <code>j</code> 和 <code>jal</code>。他们需
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IDE"><span class="nav-number">2.</span> <span class="nav-text">IDE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8%E7%AE%80%E4%BB%8B"><span class="nav-number">3.</span> <span class="nav-text">寄存器简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%AF%84%E5%AD%98%E5%99%A8%EF%BC%9F"><span class="nav-number">3.1.</span> <span class="nav-text">什么是寄存器？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MIPS-%E4%B8%AD%E7%9A%84-32-%E4%B8%AA%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-number">3.2.</span> <span class="nav-text">MIPS 中的 32 个通用寄存器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E4%B8%AA%E7%89%B9%E6%AE%8A%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-number">3.3.</span> <span class="nav-text">三个特殊寄存器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MIPS-%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4%E9%9B%86%E6%9E%B6%E6%9E%84"><span class="nav-number">4.</span> <span class="nav-text">MIPS 汇编指令集架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%8C%87%E4%BB%A4%EF%BC%9F"><span class="nav-number">4.1.</span> <span class="nav-text">什么是指令？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E4%B9%8B%E6%A0%BC%E5%BC%8F"><span class="nav-number">4.2.</span> <span class="nav-text">指令之格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E7%A0%81%E6%8C%87%E4%BB%A4"><span class="nav-number">4.3.</span> <span class="nav-text">机器码指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E7%A0%81"><span class="nav-number">4.3.1.</span> <span class="nav-text">机器码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E7%A0%81%E4%B9%8B%E6%8C%87%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="nav-number">4.3.2.</span> <span class="nav-text">机器码之指令格式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E6%8C%87%E4%BB%A4%E5%92%8C%E4%BC%AA%E6%8C%87%E4%BB%A4"><span class="nav-number">4.4.</span> <span class="nav-text">扩展指令和伪指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E6%8C%87%E4%BB%A4%EF%BC%88Pseudo-Instruction%EF%BC%89"><span class="nav-number">4.4.1.</span> <span class="nav-text">扩展指令（Pseudo Instruction）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%AA%E6%8C%87%E4%BB%A4%EF%BC%88Directives%EF%BC%89"><span class="nav-number">4.4.2.</span> <span class="nav-text">伪指令（Directives）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MIPS-%E6%8C%87%E4%BB%A4%E5%88%9D%E6%AD%A5"><span class="nav-number">4.5.</span> <span class="nav-text">MIPS 指令初步</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="nav-number">4.5.1.</span> <span class="nav-text">位运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%A0%E6%9D%A1%E6%89%A9%E5%B1%95%E6%8C%87%E4%BB%A4"><span class="nav-number">4.5.2.</span> <span class="nav-text">几条扩展指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E5%87%8F%E6%B3%95"><span class="nav-number">4.5.3.</span> <span class="nav-text">加减法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B9%98%E9%99%A4%E6%B3%95"><span class="nav-number">4.5.4.</span> <span class="nav-text">乘除法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%A0%E4%B8%AA%E5%8D%95%E4%BD%8D"><span class="nav-number">4.5.5.</span> <span class="nav-text">几个单位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%B0%E5%9D%80"><span class="nav-number">4.5.6.</span> <span class="nav-text">地址</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%8F%E7%AB%AF%E5%AD%98%E5%82%A8"><span class="nav-number">4.5.6.1.</span> <span class="nav-text">小端存储</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%A7%E7%AB%AF%E5%AD%98%E5%82%A8"><span class="nav-number">4.5.6.2.</span> <span class="nav-text">大端存储</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89%E5%AD%97%E8%AE%BF%E5%AD%98"><span class="nav-number">4.5.7.</span> <span class="nav-text">按字访存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8E-move-%E5%92%8C-la-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">4.5.7.1.</span> <span class="nav-text">与 move 和 la 的区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89%E5%8D%8A%E5%AD%97%E3%80%81%E5%AD%97%E8%8A%82%E8%AE%BF%E5%AD%98"><span class="nav-number">4.5.8.</span> <span class="nav-text">按半字、字节访存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%B3%E8%BD%AC%E6%8C%87%E4%BB%A4"><span class="nav-number">4.5.9.</span> <span class="nav-text">跳转指令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%9D%E5%AF%B9%E8%B7%B3%E8%BD%AC"><span class="nav-number">4.5.9.1.</span> <span class="nav-text">绝对跳转</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B8%E5%AF%B9%E8%B7%B3%E8%BD%AC"><span class="nav-number">4.5.9.2.</span> <span class="nav-text">相对跳转</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="nav-number">4.5.10.</span> <span class="nav-text">移位运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E8%B5%8B%E5%80%BC"><span class="nav-number">4.5.11.</span> <span class="nav-text">条件赋值</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MIPS-%E8%AF%AD%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">MIPS 语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5"><span class="nav-number">5.1.</span> <span class="nav-text">条件语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5"><span class="nav-number">5.2.</span> <span class="nav-text">循环语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#While"><span class="nav-number">5.2.1.</span> <span class="nav-text">While</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#For"><span class="nav-number">5.2.2.</span> <span class="nav-text">For</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number">5.3.</span> <span class="nav-text">数组</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IDE"><span class="nav-number">2.</span> <span class="nav-text">IDE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8%E7%AE%80%E4%BB%8B"><span class="nav-number">3.</span> <span class="nav-text">寄存器简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%AF%84%E5%AD%98%E5%99%A8%EF%BC%9F"><span class="nav-number">3.1.</span> <span class="nav-text">什么是寄存器？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MIPS-%E4%B8%AD%E7%9A%84-32-%E4%B8%AA%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-number">3.2.</span> <span class="nav-text">MIPS 中的 32 个通用寄存器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E4%B8%AA%E7%89%B9%E6%AE%8A%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-number">3.3.</span> <span class="nav-text">三个特殊寄存器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MIPS-%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4%E9%9B%86%E6%9E%B6%E6%9E%84"><span class="nav-number">4.</span> <span class="nav-text">MIPS 汇编指令集架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%8C%87%E4%BB%A4%EF%BC%9F"><span class="nav-number">4.1.</span> <span class="nav-text">什么是指令？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E4%B9%8B%E6%A0%BC%E5%BC%8F"><span class="nav-number">4.2.</span> <span class="nav-text">指令之格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E7%A0%81%E6%8C%87%E4%BB%A4"><span class="nav-number">4.3.</span> <span class="nav-text">机器码指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E7%A0%81"><span class="nav-number">4.3.1.</span> <span class="nav-text">机器码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E7%A0%81%E4%B9%8B%E6%8C%87%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="nav-number">4.3.2.</span> <span class="nav-text">机器码之指令格式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E6%8C%87%E4%BB%A4%E5%92%8C%E4%BC%AA%E6%8C%87%E4%BB%A4"><span class="nav-number">4.4.</span> <span class="nav-text">扩展指令和伪指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E6%8C%87%E4%BB%A4%EF%BC%88Pseudo-Instruction%EF%BC%89"><span class="nav-number">4.4.1.</span> <span class="nav-text">扩展指令（Pseudo Instruction）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%AA%E6%8C%87%E4%BB%A4%EF%BC%88Directives%EF%BC%89"><span class="nav-number">4.4.2.</span> <span class="nav-text">伪指令（Directives）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MIPS-%E6%8C%87%E4%BB%A4%E5%88%9D%E6%AD%A5"><span class="nav-number">4.5.</span> <span class="nav-text">MIPS 指令初步</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="nav-number">4.5.1.</span> <span class="nav-text">位运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%A0%E6%9D%A1%E6%89%A9%E5%B1%95%E6%8C%87%E4%BB%A4"><span class="nav-number">4.5.2.</span> <span class="nav-text">几条扩展指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E5%87%8F%E6%B3%95"><span class="nav-number">4.5.3.</span> <span class="nav-text">加减法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B9%98%E9%99%A4%E6%B3%95"><span class="nav-number">4.5.4.</span> <span class="nav-text">乘除法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%A0%E4%B8%AA%E5%8D%95%E4%BD%8D"><span class="nav-number">4.5.5.</span> <span class="nav-text">几个单位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%B0%E5%9D%80"><span class="nav-number">4.5.6.</span> <span class="nav-text">地址</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%8F%E7%AB%AF%E5%AD%98%E5%82%A8"><span class="nav-number">4.5.6.1.</span> <span class="nav-text">小端存储</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%A7%E7%AB%AF%E5%AD%98%E5%82%A8"><span class="nav-number">4.5.6.2.</span> <span class="nav-text">大端存储</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89%E5%AD%97%E8%AE%BF%E5%AD%98"><span class="nav-number">4.5.7.</span> <span class="nav-text">按字访存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8E-move-%E5%92%8C-la-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">4.5.7.1.</span> <span class="nav-text">与 move 和 la 的区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89%E5%8D%8A%E5%AD%97%E3%80%81%E5%AD%97%E8%8A%82%E8%AE%BF%E5%AD%98"><span class="nav-number">4.5.8.</span> <span class="nav-text">按半字、字节访存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%B3%E8%BD%AC%E6%8C%87%E4%BB%A4"><span class="nav-number">4.5.9.</span> <span class="nav-text">跳转指令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%9D%E5%AF%B9%E8%B7%B3%E8%BD%AC"><span class="nav-number">4.5.9.1.</span> <span class="nav-text">绝对跳转</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B8%E5%AF%B9%E8%B7%B3%E8%BD%AC"><span class="nav-number">4.5.9.2.</span> <span class="nav-text">相对跳转</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="nav-number">4.5.10.</span> <span class="nav-text">移位运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E8%B5%8B%E5%80%BC"><span class="nav-number">4.5.11.</span> <span class="nav-text">条件赋值</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MIPS-%E8%AF%AD%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">MIPS 语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5"><span class="nav-number">5.1.</span> <span class="nav-text">条件语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5"><span class="nav-number">5.2.</span> <span class="nav-text">循环语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#While"><span class="nav-number">5.2.1.</span> <span class="nav-text">While</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#For"><span class="nav-number">5.2.2.</span> <span class="nav-text">For</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number">5.3.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="nav-number">5.3.1.</span> <span class="nav-text">一维数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="nav-number">5.3.2.</span> <span class="nav-text">二维数组</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">5.4.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8F"><span class="nav-number">5.5.</span> <span class="nav-text">宏</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%8F%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="nav-number">5.5.1.</span> <span class="nav-text">宏的基本用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%8F%E5%AE%9E%E7%8E%B0%E5%87%BD%E6%95%B0"><span class="nav-number">5.5.2.</span> <span class="nav-text">宏实现函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%8F%E5%AE%9E%E7%8E%B0%E9%80%92%E5%BD%92"><span class="nav-number">5.5.3.</span> <span class="nav-text">宏实现递归</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8"><span class="nav-number">5.6.</span> <span class="nav-text">系统调用</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -1098,12 +1257,12 @@ J 型指令很少，常见的为 <code>j</code> 和 <code>jal</code>。他们需
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area" style="color:#6A5ACD"></i>
     </span>
-    <span title="站点总字数">博文总字数 68k</span>
+    <span title="站点总字数">博文总字数 72k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee" style="color:#6A5ACD"></i>
     </span>
-    <span title="站点阅读时长">约 1:02 可通读</span>
+    <span title="站点阅读时长">约 1:05 可通读</span>
 </div>
   <div class="powered-by" style="color:#6A5ACD">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
