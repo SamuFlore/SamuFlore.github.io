@@ -25,17 +25,28 @@
     var CONFIG = {"hostname":"samuflore.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#6A5ACD","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="一人倒、衆人倒。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="SamuFlore&#39;s Dimension">
-<meta property="og:url" content="https://samuflore.top/tags/Ji-an-City/index.html">
+  <meta name="description" content="序 完成 P0 课下内容后，我对 Logisim 中完成两种有限状态机的方法以及其区别有了一些见解。 前情提要。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[CO P0]关于 Mealy 机和 Moore 机的思考">
+<meta property="og:url" content="https://samuflore.top/posts/11653afb/index.html">
 <meta property="og:site_name" content="SamuFlore&#39;s Dimension">
-<meta property="og:description" content="一人倒、衆人倒。">
+<meta property="og:description" content="序 完成 P0 课下内容后，我对 Logisim 中完成两种有限状态机的方法以及其区别有了一些见解。 前情提要。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://samuflore.top/posts/11653afb/Moore.svg">
+<meta property="og:image" content="https://samuflore.top/posts/11653afb/Mealy.svg">
+<meta property="article:published_time" content="2025-10-05T09:24:33.000Z">
+<meta property="article:modified_time" content="2025-10-05T17:12:29.736Z">
 <meta property="article:author" content="Samustach Floresein">
+<meta property="article:tag" content="Logisim">
+<meta property="article:tag" content="CO">
+<meta property="article:tag" content="Finite State Machine">
+<meta property="article:tag" content="Mealy Machine">
+<meta property="article:tag" content="Moore Machine">
+<meta property="article:tag" content="P0">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://samuflore.top/posts/11653afb/Moore.svg">
 
-<link rel="canonical" href="https://samuflore.top/tags/Ji-an-City/">
+<link rel="canonical" href="https://samuflore.top/posts/11653afb/">
 
 
 <script id="page-configurations">
@@ -43,12 +54,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签: Ji'an City | SamuFlore's Dimension</title>
+  <title>[CO P0]关于 Mealy 机和 Moore 机的思考 | SamuFlore's Dimension</title>
   
 
 
@@ -204,57 +215,290 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://samuflore.top/posts/11653afb/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Samustach Floresein">
+      <meta itemprop="description" content="一人倒、衆人倒。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SamuFlore's Dimension">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [CO P0]关于 Mealy 机和 Moore 机的思考
+        </h1>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-10-05 17:24:33" itemprop="dateCreated datePublished" datetime="2025-10-05T17:24:33+08:00">2025-10-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-10-06 01:12:29" itemprop="dateModified" datetime="2025-10-06T01:12:29+08:00">2025-10-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B5%84%E6%88%90%E5%8E%9F%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">計算機組成原理</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">Ji'an City
-          <small>标签</small>
-        </h2>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/11653afb/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/11653afb/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2025</span>
+        <h1 id="序">序</h1>
+<p>完成 P0 课下内容后，我对 Logisim 中完成两种有限状态机的方法以及其区别有了一些见解。<br>
+<a href="https://samuflore.top/posts/e7ebcfa7/">前情提要</a>。</p>
+<span id="more"></span>
+<p>两种状态机都有“状态转移”、“状态存储”和“输出电路”三部分构成。且“状态转移”和“输出电路”是<ins>组合逻辑</ins>实现，而“状态存储”是<ins>时序逻辑</ins>实现。</p>
+<hr>
+<h1 id="Moore-机">Moore 机</h1>
+<p><img src="/posts/11653afb/Moore.svg" alt="Moore Machine"></p>
+<p>Moore 机的输出不和输入直接挂钩，是根据当前状态来决定是否输出的。换言之，我们应当把状态储存的值提取出来，然后通过一个输出逻辑来生成我们期待的输出值。</p>
+<p>这其实隐含了一个信息：状态存储是时序逻辑（一般来说我们用寄存器存储状态编码），其更新通常来说是在时钟上升沿发生的，这就导致了在时钟上升沿（或题指定的时刻）其输出给输出电路的值发生改变，从而最后得到的结果改变。简单来说，输出结果的更新发生在时钟上升沿（或给定时刻）。</p>
+<hr>
+<h1 id="Mealy-机">Mealy 机</h1>
+<p><img src="/posts/11653afb/Mealy.svg" alt="Mealy Machine"></p>
+<p>Mealy 机的输出与当前输入直接挂钩。输入和当前状态储存的内容共同决定了输出的结果。而且是即时生效，因为组合逻辑不会根据时钟的变化来变化。</p>
+<hr>
+<h1 id="时间差">时间差</h1>
+<p>根据以上的分析，Moore 机和 Mealy 机通常会有时间差。比如下面这个例子：<br>
+当前状态为 S1，若输入为 In，则状态转为 S2，当状态为 S2，输出 Out 置为 1。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>Moore 机中，它是这样的：</p>
+<ul class="lvl-2">
+<li class="lvl-6">当前状态 S1；</li>
+<li class="lvl-6">第一个上升沿，检测到输入为 In，状态转为 S2；</li>
+<li class="lvl-6">因为状态是 S2，所以输出 Out 置为 1；</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>Mealy 机中，它是这样的：</p>
+<ul class="lvl-2">
+<li class="lvl-6">当前状态 S1；</li>
+<li class="lvl-6">不论当前是不是上升沿，检测到输入为 In，输出置为 1；</li>
+<li class="lvl-6">第一个上升沿，若输入还是 In，状态转为 S2；</li>
+</ul>
+</li>
+</ul>
+<p>也就是说 Mealy 机给人的直观感受就是“提前”了一周期，明明还是状态 S1，却将输出置为 1 了？</p>
+<p>其实并不是这样一回事，Mealy 机好比有“预判”的功能，如果当前已经是 S1，且输入是 In，它就知道接下来势必变成 S2，因此“预判”了上升沿到来时状态存储的结果，并将输出置为 1。换言之，S2 对于 Mealy 机都是可有可无的，它根本不关心 S1 会不会变成 S2，因为该输出的时候早已经输出了。<br>
+可以理解成 Mealy 机的输出和时钟是异步的。</p>
+<p>Moore 机则不然。就算知道了当前输入是 In，也得等到下一个周期更新完状态，才能通过输出电路去输出结果。<br>
+可以理解成 Moore 机的输出和时钟是同步的。</p>
+<h1 id="四不像机">四不像机</h1>
+<p>然而我今天画了一个四不像出来。<br>
+在状态转移电路中，我的输出端自作多情的添加了一个 <code>isOut</code> 含义的端口。什么意思呢？就是根据输入和当前状态，我直接指定了 <code>Out</code> 端口要不要置为 1。还是上面的例子，就好比我的状态转移电路是这样：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>如果当前状态是 S1，且输入是 In，则状态转为 S2，并告诉 <code>Out</code> 要输出 1。</p>
+</li>
+</ul>
+<p>然后我把 <code>isOut</code> 和 <code>Out</code> 直接相连了。</p>
+<p>那么这是什么机呢？看似 <code>Out</code> 并没有直接和输入挂钩，可是事实并非如此。我们仍然一步一步分析：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>当前状态是 S1，输入是 In。</p>
+</li>
+<li class="lvl-2">
+<p>状态转移电路是组合逻辑，因此无论现在是什么时刻，它读入了当前状态 S1，以及输入 In，然后它想，“哦，现在我要立刻输出 S2，并把 <code>isOut</code> 置为 1。”</p>
+</li>
+<li class="lvl-2">
+<p>S2 朝着“状态存储”去了，但是不知道现在是不是时钟上升沿，因此其有没有进入寄存器，我们不知道。</p>
+</li>
+<li class="lvl-2">
+<p>但是 <code>isOut</code> 直接连着 <code>Out</code>，于是 <code>Out</code> 被置为 1 了。</p>
+</li>
+</ul>
+<p>仔细一想，这不是 Mealy 机的形式吗？输出和时钟异步。但是 <code>Out</code> 却没有和输入直接相连，而是隐式地通过 <code>isOut</code> 这个端口相连了。正如前面所说，<code>isOut</code> 起到了“预判”的作用，而这正是 Mealy 机的特点。</p>
+<p>如果我希望当前状态更新为 S2 再输出，有办法么？</p>
+<p>自然是有的，我们需要将输出强制与时间同步。也就是说不能让 <code>isOut</code> 直接与 <code>Out</code> 相连了。</p>
+<p>最简单的办法是弄一个寄存器，<code>isOut</code> 做输入，输出给 <code>Out</code>，然后用时钟驱动。这样如果 <code>isOut</code> 被置为 1，这个信号会因为寄存器的原因被强行滞留到下一个上升沿到来时，然后进入寄存器并立即传给 <code>Out</code>。</p>
+<p>再来想想这是否是正确的：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>当前状态是 S1，输入是 In。</p>
+</li>
+<li class="lvl-2">
+<p>状态转移电路是组合逻辑，因此无论现在是什么时刻，它读入了当前状态 S1，以及输入 In，然后它想，“哦，现在我要立刻输出 S2，并把 <code>isOut</code> 置为 1。”</p>
+</li>
+<li class="lvl-2">
+<p>S2 在下一个时钟上升沿到来之前都不会进入寄存器并更新状态，与此同时 <code>isOut</code> 在下一个时钟上升沿到来之前也不会进入寄存器传递给 <code>Out</code>。</p>
+</li>
+<li class="lvl-2">
+<p>时钟上升沿到来了，然后 S2 进入了寄存器完成状态转移，同时 <code>Out</code> 置为 1。</p>
+</li>
+</ul>
+<p>看来确实解决问题了，不过这样真的就把整个电路变成“四不像”机了。最正确的做法是不要搞什么 <code>isOut</code>，直接用“状态存储”的输出值来判断要不要将 <code>Out</code> 置为 1。这样就能正确地完成 Moore 机了。如果要的是 Mealy 机，最好把输入和“状态存储”的输出值直接相连，用一个逻辑来判断，以免混淆。</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2025-07-17T18:07:50+08:00"
-              content="2025-07-17">
-          07-17
-        </time>
+    
+    
+    
+     
+      <div>
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:10px;">-------------本文结束 <i class="fa fa-times"></i> 感谢您的时间-------------</div>
+    
+</div>
       </div>
+    
+      
+  <div class="popular-posts-header">相 關 博 文</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\e7ebcfa7\" rel="bookmark">[CO Pre]Logisim 入门</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\1f9d902\" rel="bookmark">[CO Pre]MIPS 汇编入门</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\c9f56abd\" rel="bookmark">[CO Pre]Verilog 入门</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\9707d4af\" rel="bookmark">[CO Pre]One-Hot 编码</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\908cc5fb\" rel="bookmark">[CO Pre]原码、反码与补码</a></div>
+    </li>
+  </ul>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/82cd8a81/" itemprop="url">
-            <span itemprop="name">Blog 5：[遊記]井冈山</span>
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Samustach Floresein
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://samuflore.top/posts/11653afb/" title="[CO P0]关于 Mealy 机和 Moore 机的思考">https://samuflore.top/posts/11653afb/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/rss2.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
           </a>
-      </div>
-
-    </header>
-  </article>
-
+        </div>
     </div>
   </div>
-  
-  
-  
 
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Logisim/" rel="tag"><i class="fa fa-tag"></i> Logisim</a>
+              <a href="/tags/CO/" rel="tag"><i class="fa fa-tag"></i> CO</a>
+              <a href="/tags/Finite-State-Machine/" rel="tag"><i class="fa fa-tag"></i> Finite State Machine</a>
+              <a href="/tags/Mealy-Machine/" rel="tag"><i class="fa fa-tag"></i> Mealy Machine</a>
+              <a href="/tags/Moore-Machine/" rel="tag"><i class="fa fa-tag"></i> Moore Machine</a>
+              <a href="/tags/P0/" rel="tag"><i class="fa fa-tag"></i> P0</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/b73dbb31/" rel="prev" title="[散文]老狗">
+      <i class="fa fa-chevron-left"></i> [散文]老狗
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -313,6 +557,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Moore-%E6%9C%BA"><span class="nav-number">2.</span> <span class="nav-text">Moore 机</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mealy-%E6%9C%BA"><span class="nav-number">3.</span> <span class="nav-text">Mealy 机</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E5%B7%AE"><span class="nav-number">4.</span> <span class="nav-text">时间差</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E4%B8%8D%E5%83%8F%E6%9C%BA"><span class="nav-number">5.</span> <span class="nav-text">四不像机</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -649,7 +894,7 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
 });
 </script>
 
-</body>
+<!-- hexo injector body_end start --><script src="/js/outdate.js"></script><!-- hexo injector body_end end --></body>
 </html>
 
 <!-- 页面点击小红心 -->
