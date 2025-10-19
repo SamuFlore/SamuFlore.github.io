@@ -25,17 +25,23 @@
     var CONFIG = {"hostname":"samuflore.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#6A5ACD","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="一人倒、衆人倒。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="SamuFlore&#39;s Dimension">
-<meta property="og:url" content="https://samuflore.top/tags/CO-Pre/index.html">
+  <meta name="description" content="序              学习自ROIFE BLOG。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[CO P1]如何优雅地写 Testbench">
+<meta property="og:url" content="https://samuflore.top/posts/2dab591c/index.html">
 <meta property="og:site_name" content="SamuFlore&#39;s Dimension">
-<meta property="og:description" content="一人倒、衆人倒。">
+<meta property="og:description" content="序              学习自ROIFE BLOG。">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-10-19T15:15:17.000Z">
+<meta property="article:modified_time" content="2025-10-19T15:44:14.729Z">
 <meta property="article:author" content="Samustach Floresein">
+<meta property="article:tag" content="CO">
+<meta property="article:tag" content="P1">
+<meta property="article:tag" content="Verilog">
+<meta property="article:tag" content="Testbench">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://samuflore.top/tags/CO-Pre/">
+<link rel="canonical" href="https://samuflore.top/posts/2dab591c/">
 
 
 <script id="page-configurations">
@@ -43,12 +49,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签: CO Pre | SamuFlore's Dimension</title>
+  <title>[CO P1]如何优雅地写 Testbench | SamuFlore's Dimension</title>
   
 
 
@@ -204,137 +210,212 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://samuflore.top/posts/2dab591c/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Samustach Floresein">
+      <meta itemprop="description" content="一人倒、衆人倒。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SamuFlore's Dimension">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [CO P1]如何优雅地写 Testbench
+        </h1>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-10-19 23:15:17 / 修改时间：23:44:14" itemprop="dateCreated datePublished" datetime="2025-10-19T23:15:17+08:00">2025-10-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B5%84%E6%88%90%E5%8E%9F%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">計算機組成原理</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">CO Pre
-          <small>标签</small>
-        </h2>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/2dab591c/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/2dab591c/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>619</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2025</span>
+        <h1 id="序">序</h1>
+<div class="note info">
+            <p>学习自<a target="_blank" rel="noopener" href="https://roife.github.io/posts/buaa-co-lab-p1/">ROIFE BLOG</a>。</p>
+          </div>
+<span id="more"></span>
+<hr>
+<p>倘若我们要串行输入很长一个字符串，你是否还在一行一行写 <code>#10 in = &quot;xxx&quot;;</code>而感到心力交瘁？你是否因为修改输入要一个字符一个字符改而烦闷？如果是的话，你最好学习一下我从大佬那学来的招数：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">reg</span> [<span class="number">0</span>:<span class="number">1023</span>] S = <span class="string">&quot;abcd&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">initial</span> <span class="keyword">begin</span></span><br><span class="line">   <span class="keyword">while</span>(!S[<span class="number">0</span>:<span class="number">7</span>]) S = S &lt;&lt; <span class="number">8</span>;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">for</span>(; S[<span class="number">0</span>:<span class="number">7</span>]; S = S &lt;&lt; <span class="number">8</span>) <span class="keyword">begin</span></span><br><span class="line">      in = S[<span class="number">0</span>:<span class="number">7</span>];</span><br><span class="line">      #<span class="number">5</span>; <span class="comment">//间隔时间</span></span><br><span class="line">   <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>看，大佬就是大佬，位宽声明都选择小数在前大数在后的做法。如果你和我一样是彩笔，这还有等价的常规写法：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">reg</span> [<span class="number">1023</span>:<span class="number">0</span>] S = <span class="string">&quot;abcd&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">initial</span> <span class="keyword">begin</span></span><br><span class="line">   <span class="keyword">while</span>(!S[<span class="number">1023</span>:<span class="number">1016</span>]) S = S &lt;&lt; <span class="number">8</span>;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">for</span>(; S[<span class="number">1023</span>:<span class="number">1016</span>]; S = S &lt;&lt; <span class="number">8</span>) <span class="keyword">begin</span></span><br><span class="line">      in = S[<span class="number">1023</span>:<span class="number">1016</span>];</span><br><span class="line">      #<span class="number">5</span>; <span class="comment">//间隔时间</span></span><br><span class="line">   <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>考察第一种写法。由于位宽声明为 <code>[0:1023]</code>，则 0 是高位，1023是低位。<code>abcd</code> 从低到高存储，<code>d</code> 是 1023-1016 位，<code>c</code> 是 1015-1008 位，以此类推。之后整个 <code>S</code> 是这样的：</p>
+<p><code>0000......abcd</code></p>
+<p>接着左移至不为 0 的位置，<code>S</code> 变成：</p>
+<p><code>abcd......0000</code></p>
+<p>循环取出前 8 位，直至整个 <code>S</code> 为 0，就可以遍历 <code>S</code> 中的字符串了。</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2025-09-20T16:00:25+08:00"
-              content="2025-09-20">
-          09-20
-        </time>
+    
+    
+    
+     
+      <div>
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:10px;">-------------本文结束 <i class="fa fa-times"></i> 感谢您的时间-------------</div>
+    
+</div>
       </div>
+    
+      
+  <div class="popular-posts-header">相 關 博 文</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\c9f56abd\" rel="bookmark">[CO Pre]Verilog 入门</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\18246a69\" rel="bookmark">[CO P0]P0 上机之思考</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\11653afb\" rel="bookmark">[CO P0]关于 Mealy 机和 Moore 机的思考</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\1f9d902\" rel="bookmark">[CO Pre]MIPS 汇编入门</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\9707d4af\" rel="bookmark">[CO Pre]One-Hot 编码</a></div>
+    </li>
+  </ul>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/1f9d902/" itemprop="url">
-            <span itemprop="name">[CO Pre]MIPS 汇编入门</span>
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Samustach Floresein
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://samuflore.top/posts/2dab591c/" title="[CO P1]如何优雅地写 Testbench">https://samuflore.top/posts/2dab591c/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/rss2.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
           </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2025-09-01T16:50:18+08:00"
-              content="2025-09-01">
-          09-01
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/c9f56abd/" itemprop="url">
-            <span itemprop="name">[CO Pre]Verilog 入门</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2025-08-19T22:06:21+08:00"
-              content="2025-08-19">
-          08-19
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/9707d4af/" itemprop="url">
-            <span itemprop="name">[CO Pre]One-Hot 编码</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2025-08-14T22:53:54+08:00"
-              content="2025-08-14">
-          08-14
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/e7ebcfa7/" itemprop="url">
-            <span itemprop="name">[CO Pre]Logisim 入门</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2025-08-14T00:10:54+08:00"
-              content="2025-08-14">
-          08-14
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/908cc5fb/" itemprop="url">
-            <span itemprop="name">[CO Pre]原码、反码与补码</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+        </div>
     </div>
   </div>
-  
-  
-  
 
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CO/" rel="tag"><i class="fa fa-tag"></i> CO</a>
+              <a href="/tags/P1/" rel="tag"><i class="fa fa-tag"></i> P1</a>
+              <a href="/tags/Verilog/" rel="tag"><i class="fa fa-tag"></i> Verilog</a>
+              <a href="/tags/Testbench/" rel="tag"><i class="fa fa-tag"></i> Testbench</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/f4bf9c17/" rel="prev" title="[鶴鳴洲集]“他妈的”，究竟是谁妈的？">
+      <i class="fa fa-chevron-left"></i> [鶴鳴洲集]“他妈的”，究竟是谁妈的？
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -393,6 +474,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -729,7 +811,7 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
 });
 </script>
 
-</body>
+<!-- hexo injector body_end start --><script src="/js/outdate.js"></script><!-- hexo injector body_end end --></body>
 </html>
 
 <!-- 页面点击小红心 -->
