@@ -26,16 +26,16 @@
   //note warning 以及 note danger 是 Next 主题的自定义模板语法，如果使用其他主题，请自行更改样式以达到最佳显示效果
   if (interval > warningDay*3600*24*1000 && interval < errorDay*3600*24*1000){
     posts[0].innerHTML = '<div class="note warning">' +
-      '<h6 style="color: #ff9900;">文章时效性注意</h6><p style = "color: #ff9900;font-size = 14px;">>本文更新于 ' + days + ' 天前，已逾三月。部分信息可能发生改变，敬请留意。</p>' +
+      '<h6 style="color: #ff9900;">文章时效性注意</h6><p style = "color: #ff9900;font-size = 10px;">本文更新于 ' + days + ' 天前，已逾三月。部分信息可能发生改变，敬请留意。</p>' +
       '</div>' + posts[0].innerHTML;
     }else if(interval >= errorDay*3600*24*1000){
       posts[0].innerHTML = '<div class="note danger">' +
-        '<h6 style="color: #ff0000;">>文章时效性警告</h6><p style = "color: #ff0000;font-size = 14px;">本文更新于 ' + days + ' 天前，已逾一年。部分信息可能已发生改变，敬请留意。</p>' +
+        '<h6 style="color: #ff0000;">文章时效性警告</h6><p style = "color: #ff0000;font-size = 10px;">本文更新于 ' + days + ' 天前，已逾一年。部分信息可能已发生改变，敬请留意。</p>' +
         '</div>' + posts[0].innerHTML;
     }
     else{
-      posts[0].innerHTML = '<div class="note info">' + 
-        '<h6 style="color: #006aacff;">文章时效性提示</h6><p style = "color: #006aacff;font-size = 14px;">本文更新于 ' + days + ' 天前。</p>' +
+      posts[0].innerHTML = '<div class="note tips">' + 
+        '<h6 style="color: #006aacff;">文章时效性提示</h6><p style = "color: #006aacff;font-size = 10px;">本文更新于 ' + days + ' 天前。</p>' +
         '</div>' + posts[0].innerHTML;
     }
   })();

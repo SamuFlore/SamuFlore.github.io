@@ -36,8 +36,8 @@
 <meta property="article:modified_time" content="2025-08-09T12:34:56.269Z">
 <meta property="article:author" content="Samustach Floresein">
 <meta property="article:tag" content="Hexo">
-<meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="Tutorial">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://samuflore.top/posts/8a8b0861/">
@@ -84,7 +84,7 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/rss2.xml" title="SamuFlore's Dimension" type="application/rss+xml">
+<!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- hexo injector head_end end --><link rel="alternate" href="/rss2.xml" title="SamuFlore's Dimension" type="application/rss+xml">
 <style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--blockquote-bg-color:#555;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -312,18 +312,18 @@
 <blockquote>
 <p>请注意：本文<strong>转载</strong>自<a target="_blank" rel="noopener" href="https://evannzhongg.github.io/2025/03/26/Add-Copy-Button-to-Code-Blocks-in-Hexo/#Hexo-%E4%B8%BA%E4%BB%A3%E7%A0%81%E5%9D%97%E6%B7%BB%E5%8A%A0%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD%E6%8C%89%E9%92%AE">Evan Zhong’s Blog</a>，根据目前版本之Hexo和NexT进行了微调。</p>
 </blockquote>
-<h1 id="序">序</h1>
+<h1 id="序"><a class="header-anchor" href="#序">#</a>序</h1>
 <p>使用<strong>JavaScript</strong>实现之。</p>
 <span id="more"></span>
 <hr>
-<h1 id="准备">准备</h1>
+<h1 id="准备"><a class="header-anchor" href="#准备">#</a>准备</h1>
 <p>本JS脚本适用于以下结构的代码块：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">figure</span> <span class="attr">class</span>=<span class="string">&quot;highlight&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">&quot;gutter&quot;</span>&gt;</span>...<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">&quot;code&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">pre</span>&gt;</span><span class="tag">&lt;<span class="name">code</span>&gt;</span>...<span class="tag">&lt;/<span class="name">code</span>&gt;</span><span class="tag">&lt;/<span class="name">pre</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">figure</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>请注意：这是Hexo中大多数主题默认的代码块渲染结构。</p>
 </blockquote>
 <hr>
-<h1 id="创建JavaScript脚本">创建JavaScript脚本</h1>
+<h1 id="创建JavaScript脚本"><a class="header-anchor" href="#创建JavaScript脚本">#</a>创建JavaScript脚本</h1>
 <p>在Hexo博客项目的<strong>根目录</strong>下创建<code>code-copy.js</code>文件。参考路径如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/source/js/code-copy.js</span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -332,7 +332,7 @@
 <p>并在<code>code-copy.js</code>文件中写入以下代码：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;DOMContentLoaded&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;figure.highlight&#x27;</span>).<span class="title function_">forEach</span>(<span class="function">(<span class="params">figure</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (figure.<span class="title function_">querySelector</span>(<span class="string">&#x27;.copy-btn&#x27;</span>)) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> copyBtn = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;button&#x27;</span>);</span><br><span class="line">    copyBtn.<span class="property">className</span> = <span class="string">&#x27;copy-btn&#x27;</span>;</span><br><span class="line">    copyBtn.<span class="property">title</span> = <span class="string">&#x27;复制&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 缩小后的复制图标（14*15）</span></span><br><span class="line">    <span class="keyword">const</span> copyIcon = <span class="string">`</span></span><br><span class="line"><span class="string">      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; height=&quot;14&quot; width=&quot;15&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;white&quot;&gt;</span></span><br><span class="line"><span class="string">        &lt;path d=&quot;M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z&quot;/&gt;</span></span><br><span class="line"><span class="string">      &lt;/svg&gt;</span></span><br><span class="line"><span class="string">    `</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 成功后显示的勾（14*15）</span></span><br><span class="line">    <span class="keyword">const</span> checkIcon = <span class="string">`</span></span><br><span class="line"><span class="string">      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; height=&quot;14&quot; width=&quot;15&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;#00cc66&quot;&gt;</span></span><br><span class="line"><span class="string">        &lt;path d=&quot;M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z&quot;/&gt;</span></span><br><span class="line"><span class="string">      &lt;/svg&gt;</span></span><br><span class="line"><span class="string">    `</span>;</span><br><span class="line"></span><br><span class="line">    copyBtn.<span class="property">innerHTML</span> = copyIcon;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 按钮样式（浅灰底、缩小）</span></span><br><span class="line">    <span class="title class_">Object</span>.<span class="title function_">assign</span>(copyBtn.<span class="property">style</span>, &#123;</span><br><span class="line">      <span class="attr">position</span>: <span class="string">&#x27;absolute&#x27;</span>,</span><br><span class="line">      <span class="attr">top</span>: <span class="string">&#x27;8px&#x27;</span>,</span><br><span class="line">      <span class="attr">right</span>: <span class="string">&#x27;8px&#x27;</span>,</span><br><span class="line">      <span class="attr">padding</span>: <span class="string">&#x27;4px&#x27;</span>,</span><br><span class="line">      <span class="attr">background</span>: <span class="string">&#x27;#aaa&#x27;</span>, </span><br><span class="line">      <span class="attr">border</span>: <span class="string">&#x27;none&#x27;</span>,</span><br><span class="line">      <span class="attr">borderRadius</span>: <span class="string">&#x27;4px&#x27;</span>,</span><br><span class="line">      <span class="attr">cursor</span>: <span class="string">&#x27;pointer&#x27;</span>,</span><br><span class="line">      <span class="attr">opacity</span>: <span class="string">&#x27;0.85&#x27;</span>,</span><br><span class="line">      <span class="attr">zIndex</span>: <span class="number">1000</span>,</span><br><span class="line">      <span class="attr">transition</span>: <span class="string">&#x27;opacity 0.2s ease&#x27;</span>,</span><br><span class="line">      <span class="attr">boxShadow</span>: <span class="string">&#x27;0 1px 3px rgba(0, 0, 0, 0.15)&#x27;</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    copyBtn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;mouseover&#x27;</span>, <span class="function">() =&gt;</span> copyBtn.<span class="property">style</span>.<span class="property">opacity</span> = <span class="string">&#x27;1&#x27;</span>);</span><br><span class="line">    copyBtn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;mouseout&#x27;</span>, <span class="function">() =&gt;</span> copyBtn.<span class="property">style</span>.<span class="property">opacity</span> = <span class="string">&#x27;0.85&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    copyBtn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> code = figure.<span class="title function_">querySelector</span>(<span class="string">&#x27;td.code&#x27;</span>);</span><br><span class="line">      <span class="keyword">const</span> text = code ? code.<span class="property">innerText</span> : <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">      navigator.<span class="property">clipboard</span>.<span class="title function_">writeText</span>(text).<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        copyBtn.<span class="property">innerHTML</span> = checkIcon;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">          copyBtn.<span class="property">innerHTML</span> = copyIcon;</span><br><span class="line">        &#125;, <span class="number">1000</span>);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    figure.<span class="property">style</span>.<span class="property">position</span> = <span class="string">&#x27;relative&#x27;</span>;</span><br><span class="line">    figure.<span class="title function_">appendChild</span>(copyBtn);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <hr>
-<h1 id="引用JS脚本">引用JS脚本</h1>
+<h1 id="引用JS脚本"><a class="header-anchor" href="#引用JS脚本">#</a>引用JS脚本</h1>
 <p>打开此文件：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">themes/next/layout/_partial/footer.swig</span><br></pre></td></tr></table></figure>
 <p>在<code>footer.swig</code>文件中，找到<code>&lt;/body&gt;</code>标签之前，添加以下代码：</p>
@@ -341,7 +341,7 @@
 <p>请注意：如果<strong>找不到</strong><code>&lt;/body&gt;</code>标签，则可以尝试在<code>footer.swig</code>文件<strong>末尾</strong>添加之。</p>
 </blockquote>
 <hr>
-<h1 id="更新博客">更新博客</h1>
+<h1 id="更新博客"><a class="header-anchor" href="#更新博客">#</a>更新博客</h1>
 <p>运行Hexo三部曲：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 <p>可以输入<code>hexo s</code>在本地启动服务，访问<code>https://localhost:4000</code>查看效果。或者在<strong>GitHub Pages</strong>上查看效果。</p>
@@ -417,8 +417,8 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
-              <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
               <a href="/tags/Tutorial/" rel="tag"><i class="fa fa-tag"></i> Tutorial</a>
+              <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
           </div>
 
         
@@ -524,7 +524,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -596,6 +596,14 @@
     <!-- 显示5数目的文章 -->
         
           <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
+            <a href="/posts/937d20ea/" title="MD 样式测试" target="_blank">MD 样式测试</a>
+          </li>
+        
+          <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
+            <a href="/posts/7e709353/" title="加密文章测试" target="_blank">加密文章测试</a>
+          </li>
+        
+          <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
             <a href="/posts/f4bf9c17/" title="[鶴鳴洲集]“他妈的”，究竟是谁妈的？" target="_blank">[鶴鳴洲集]“他妈的”，究竟是谁妈的？</a>
           </li>
         
@@ -605,14 +613,6 @@
         
           <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
             <a href="/posts/82cd8a81/" title="Blog 5：[八紘九野集]井冈山" target="_blank">Blog 5：[八紘九野集]井冈山</a>
-          </li>
-        
-          <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
-            <a href="/posts/b73dbb31/" title="[楠竹蓮花集]老狗" target="_blank">[楠竹蓮花集]老狗</a>
-          </li>
-        
-          <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
-            <a href="/posts/95afa136/" title="Blog 1：[長欣集]诗二首" target="_blank">Blog 1：[長欣集]诗二首</a>
           </li>
         
       </ul>
@@ -648,12 +648,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area" style="color:#6A5ACD"></i>
     </span>
-    <span title="站点总字数">博文总字数 81k</span>
+    <span title="站点总字数">博文总字数 83k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee" style="color:#6A5ACD"></i>
     </span>
-    <span title="站点阅读时长">约 2:49 可通读</span>
+    <span title="站点阅读时长">约 2:52 可通读</span>
 </div>
   <div class="powered-by" style="color:#6A5ACD">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

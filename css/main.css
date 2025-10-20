@@ -326,6 +326,12 @@ kbd {
   border-left: 4px solid #e74c3c;
   color: #cf2b1a;
 }
+.center {
+  text-align: center;
+}
+.right {
+  text-align: right;
+}
 .table-container {
   overflow: auto;
 }
@@ -1323,7 +1329,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #f0ffa6;
+  background: #3bff34;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2475,13 +2481,6 @@ ul.breadcrumb li + li:last-child {
   font-weight: normal;
   line-height: 1.8;
   margin: 0;
-}
-mjx-container[jax="CHTML"][display="true"],
-.has-jax {
-  overflow: auto hidden;
-}
-mjx-container + br {
-  display: none;
 }
 .header {
   margin: 0 auto;

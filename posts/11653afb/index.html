@@ -25,12 +25,12 @@
     var CONFIG = {"hostname":"samuflore.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#6A5ACD","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="序 完成 P0 课下内容后，我对 Logisim 中完成两种有限状态机的方法以及其区别有了一些见解。 前情提要。">
+  <meta name="description" content="#序 完成 P0 课下内容后，我对 Logisim 中完成两种有限状态机的方法以及其区别有了一些见解。 前情提要。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[CO P0]关于 Mealy 机和 Moore 机的思考">
 <meta property="og:url" content="https://samuflore.top/posts/11653afb/index.html">
 <meta property="og:site_name" content="SamuFlore&#39;s Dimension">
-<meta property="og:description" content="序 完成 P0 课下内容后，我对 Logisim 中完成两种有限状态机的方法以及其区别有了一些见解。 前情提要。">
+<meta property="og:description" content="#序 完成 P0 课下内容后，我对 Logisim 中完成两种有限状态机的方法以及其区别有了一些见解。 前情提要。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://samuflore.top/posts/11653afb/Moore.svg">
 <meta property="og:image" content="https://samuflore.top/posts/11653afb/Mealy.svg">
@@ -90,7 +90,7 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/rss2.xml" title="SamuFlore's Dimension" type="application/rss+xml">
+<!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- hexo injector head_end end --><link rel="alternate" href="/rss2.xml" title="SamuFlore's Dimension" type="application/rss+xml">
 <style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--blockquote-bg-color:#555;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -309,22 +309,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="序">序</h1>
+        <h1 id="序"><a class="header-anchor" href="#序">#</a>序</h1>
 <p>完成 P0 课下内容后，我对 Logisim 中完成两种有限状态机的方法以及其区别有了一些见解。<br>
 <a href="https://samuflore.top/posts/e7ebcfa7/">前情提要</a>。</p>
 <span id="more"></span>
 <p>两种状态机都有“状态转移”、“状态存储”和“输出电路”三部分构成。且“状态转移”和“输出电路”是<ins>组合逻辑</ins>实现，而“状态存储”是<ins>时序逻辑</ins>实现。</p>
 <hr>
-<h1 id="Moore-机">Moore 机</h1>
+<h1 id="Moore-机"><a class="header-anchor" href="#Moore-机">#</a>Moore 机</h1>
 <p><img src="/posts/11653afb/Moore.svg" alt="Moore Machine"></p>
 <p>Moore 机的输出不和输入直接挂钩，是根据当前状态来决定是否输出的。换言之，我们应当把状态储存的值提取出来，然后通过一个输出逻辑来生成我们期待的输出值。</p>
 <p>这其实隐含了一个信息：状态存储是时序逻辑（一般来说我们用寄存器存储状态编码），其更新通常来说是在时钟上升沿发生的，这就导致了在时钟上升沿（或题指定的时刻）其输出给输出电路的值发生改变，从而最后得到的结果改变。简单来说，输出结果的更新发生在时钟上升沿（或给定时刻）。</p>
 <hr>
-<h1 id="Mealy-机">Mealy 机</h1>
+<h1 id="Mealy-机"><a class="header-anchor" href="#Mealy-机">#</a>Mealy 机</h1>
 <p><img src="/posts/11653afb/Mealy.svg" alt="Mealy Machine"></p>
 <p>Mealy 机的输出与当前输入直接挂钩。输入和当前状态储存的内容共同决定了输出的结果。而且是即时生效，因为组合逻辑不会根据时钟的变化来变化。</p>
 <hr>
-<h1 id="时间差">时间差</h1>
+<h1 id="时间差"><a class="header-anchor" href="#时间差">#</a>时间差</h1>
 <p>根据以上的分析，Moore 机和 Mealy 机通常会有时间差。比如下面这个例子：<br>
 当前状态为 S1，若输入为 In，则状态转为 S2，当状态为 S2，输出 Out 置为 1。</p>
 <ul class="lvl-0">
@@ -350,7 +350,7 @@
 可以理解成 Mealy 机的输出和时钟是异步的。</p>
 <p>Moore 机则不然。就算知道了当前输入是 In，也得等到下一个周期更新完状态，才能通过输出电路去输出结果。<br>
 可以理解成 Moore 机的输出和时钟是同步的。</p>
-<h1 id="四不像机">四不像机</h1>
+<h1 id="四不像机"><a class="header-anchor" href="#四不像机">#</a>四不像机</h1>
 <p>然而我今天画了一个四不像出来。<br>
 在状态转移电路中，我的输出端自作多情的添加了一个 <code>isOut</code> 含义的端口。什么意思呢？就是根据输入和当前状态，我直接指定了 <code>Out</code> 端口要不要置为 1。还是上面的例子，就好比我的状态转移电路是这样：</p>
 <ul class="lvl-0">
@@ -579,7 +579,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -651,6 +651,14 @@
     <!-- 显示5数目的文章 -->
         
           <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
+            <a href="/posts/937d20ea/" title="MD 样式测试" target="_blank">MD 样式测试</a>
+          </li>
+        
+          <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
+            <a href="/posts/7e709353/" title="加密文章测试" target="_blank">加密文章测试</a>
+          </li>
+        
+          <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
             <a href="/posts/f4bf9c17/" title="[鶴鳴洲集]“他妈的”，究竟是谁妈的？" target="_blank">[鶴鳴洲集]“他妈的”，究竟是谁妈的？</a>
           </li>
         
@@ -660,14 +668,6 @@
         
           <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
             <a href="/posts/82cd8a81/" title="Blog 5：[八紘九野集]井冈山" target="_blank">Blog 5：[八紘九野集]井冈山</a>
-          </li>
-        
-          <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
-            <a href="/posts/b73dbb31/" title="[楠竹蓮花集]老狗" target="_blank">[楠竹蓮花集]老狗</a>
-          </li>
-        
-          <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
-            <a href="/posts/95afa136/" title="Blog 1：[長欣集]诗二首" target="_blank">Blog 1：[長欣集]诗二首</a>
           </li>
         
       </ul>
@@ -703,12 +703,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area" style="color:#6A5ACD"></i>
     </span>
-    <span title="站点总字数">博文总字数 81k</span>
+    <span title="站点总字数">博文总字数 83k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee" style="color:#6A5ACD"></i>
     </span>
-    <span title="站点阅读时长">约 2:49 可通读</span>
+    <span title="站点阅读时长">约 2:52 可通读</span>
 </div>
   <div class="powered-by" style="color:#6A5ACD">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

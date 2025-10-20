@@ -25,12 +25,12 @@
     var CONFIG = {"hostname":"samuflore.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#6A5ACD","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="序 这是北京航空航天大学计算机学院 2025 年计算机组成原理预习部分的 Verilog 部分。">
+  <meta name="description" content="#序 这是北京航空航天大学计算机学院 2025 年计算机组成原理预习部分的 Verilog 部分。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[CO Pre]Verilog 入门">
 <meta property="og:url" content="https://samuflore.top/posts/c9f56abd/index.html">
 <meta property="og:site_name" content="SamuFlore&#39;s Dimension">
-<meta property="og:description" content="序 这是北京航空航天大学计算机学院 2025 年计算机组成原理预习部分的 Verilog 部分。">
+<meta property="og:description" content="#序 这是北京航空航天大学计算机学院 2025 年计算机组成原理预习部分的 Verilog 部分。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://samuflore.top/posts/c9f56abd/elevator.png">
 <meta property="article:published_time" content="2025-09-01T08:50:18.000Z">
@@ -87,7 +87,7 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/rss2.xml" title="SamuFlore's Dimension" type="application/rss+xml">
+<!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- hexo injector head_end end --><link rel="alternate" href="/rss2.xml" title="SamuFlore's Dimension" type="application/rss+xml">
 <style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--blockquote-bg-color:#555;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -306,15 +306,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="序">序</h1>
+        <h1 id="序"><a class="header-anchor" href="#序">#</a>序</h1>
 <p>这是北京航空航天大学计算机学院 2025 年计算机组成原理预习部分的 Verilog 部分。</p>
 <span id="more"></span>
 <hr>
-<h1 id="IDE">IDE</h1>
+<h1 id="IDE"><a class="header-anchor" href="#IDE">#</a>IDE</h1>
 <p>本文使用 ISE 开发与仿真。</p>
 <hr>
-<h1 id="Verilog-语法">Verilog 语法</h1>
-<h2 id="模块的定义方法">模块的定义方法</h2>
+<h1 id="Verilog-语法"><a class="header-anchor" href="#Verilog-语法">#</a>Verilog 语法</h1>
+<h2 id="模块的定义方法"><a class="header-anchor" href="#模块的定义方法">#</a>模块的定义方法</h2>
 <p>模块（module）是 Verilog HDL 的基本功能单元，它实际上代表了具有一定功能的电路实体。通俗来讲，其代表了电路中被导线连接的各个功能模块（子电路）。</p>
 <p>以一个与门为例：<br>
 方法一：</p>
@@ -323,8 +323,8 @@
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> AndGate(i1,i2,o); <span class="comment">// 模块名定义及端口定义</span></span><br><span class="line">    <span class="keyword">input</span> i1;</span><br><span class="line">    <span class="keyword">input</span> i2; <span class="comment">// 也可合并为一句: input i1,i2;</span></span><br><span class="line">    <span class="keyword">output</span> o;</span><br><span class="line">    <span class="comment">// 上为IO说明</span></span><br><span class="line">    <span class="keyword">assign</span> o = i1 &amp; i2; <span class="comment">// 模块功能定义</span></span><br><span class="line"><span class="keyword">endmodule</span> <span class="comment">// 结束模块定义</span></span><br></pre></td></tr></table></figure>
 <p>两种方法没有实质上的区别，只是形式上有所不同：方法 1 对方法 2 中的端口定义及 IO 说明进行了合并。<br>
 模块以 <code>module</code> 开始，<code>endmodule</code> 结束，中间包括模块名、端口定义、I/O 说明等部分。<ins>模块中的语句除了顺序执行的语句块以外都是并行的</ins>；输入输出端口若不特别说明类型及位宽，<ins>默认为 1 位 <code>wire</code> 型</ins>。</p>
-<h2 id="常用数据类型">常用数据类型</h2>
-<h3 id="Wire-型">Wire 型</h3>
+<h2 id="常用数据类型"><a class="header-anchor" href="#常用数据类型">#</a>常用数据类型</h2>
+<h3 id="Wire-型"><a class="header-anchor" href="#Wire-型">#</a>Wire 型</h3>
 <p><code>wire</code> 型数据属于线网 <code>nets</code> 型数据，通常用于表示组合逻辑信号，可以将它类比为电路中的导线。它本身并不能存储数据，需要有输入才有输出（这里输入的专业术语叫驱动器），且输出随着输入的改变而即时改变。一般使用 <code>assign</code> 语句对 <code>wire</code> 型数据进行驱动（<code>assign</code> 语句将在下一节中进行讲解）。</p>
 <p><code>wire</code> 型的数据分为标量（1 位）和向量（多位）两种。可以在声明过程中使用范围指示器指明位数，如 <code>wire [31:0] a</code>;。冒号两侧分别代表最高有效位（MSB, Most Significant Bit）和最低有效位（LSB, Least Significant Bit）。在访问时，可以使用形如 <code>a[7:4]</code> 的方式取出 <code>a</code> 的第 7-4 位数据。</p>
 <div class="tips">
@@ -336,7 +336,7 @@
 <div class="note info">
             <p>在 Verilog 里，信号的位宽可以通过 <code>in[a:b]</code> 这样的语法来取一部分:</p><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">assign</span> out = in[<span class="number">7</span>:<span class="number">4</span>];<span class="comment">//取 in 的第 7-4 位</span></span><br></pre></td></tr></table></figure><p>这里的 <code>a</code> 和 <code>b</code> 都必须是<ins>常量</ins>，不能包含变量。比如写成 <code>assign out = in[m * 4 + 3:m * 4]</code> 就会报错，因为 <code>m</code> 是一个变量。<br>但是，Verilog-2001/SystemVerilog 提供了一种叫 part-select with variable index 的写法:</p><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">assign</span> out = in[start +: width];<span class="comment">//从 start 位开始往高位取 width 位</span></span><br><span class="line"><span class="keyword">assign</span> out = in[start -: width];<span class="comment">//从 start 位开始往低位取 width 位</span></span><br></pre></td></tr></table></figure><p>这里的 start 则可以是变量，而 width 必须是常量。</p>
           </div>
-<h3 id="Reg-型">Reg 型</h3>
+<h3 id="Reg-型"><a class="header-anchor" href="#Reg-型">#</a>Reg 型</h3>
 <p><code>reg</code> 型是寄存器数据类型，具有存储功能。它也分为标量和向量，类似 <code>wire</code> 型，可以类比前面的教程。一般在 <code>always</code> 块内使用 <code>reg</code> 型变量（<code>always</code> 块将在本章后面提到），通过赋值语句来改变寄存器中的值。为了确定何时进行赋值，我们经常需要用到各种控制结构，包括 <code>while</code>、<code>for</code>、<code>switch</code> 等，这与 C 语言中的做法十分相似。</p>
 <p>需要注意的是，<code>reg</code> 型变量<ins>不能使用 <code>assign</code> 赋值</ins>。而且，<code>reg</code> 型<ins>并不一定被综合成寄存器</ins>，它也可和 <code>always</code> 关键字配合（下一节会讲到），建模组合逻辑。</p>
 <p>我们可以通过对 <code>reg</code> 型变量建立数组来对存储器建模，例如 <code>reg [31:0] mem [0:1023]</code>;，其中前面的中括号内为位宽，后面的中括号内为存储器数量。这种写法在我们开始搭建CPU后会用到。<br>
@@ -344,7 +344,7 @@
 <div class="tips">
 <p>Verilog HDL 中<ins>没有</ins>多维数组。</p>
 </div>
-<h3 id="数字字面量">数字字面量</h3>
+<h3 id="数字字面量"><a class="header-anchor" href="#数字字面量">#</a>数字字面量</h3>
 <p>Verilog 中的数字字面量可以按二进制（b 或 B）、八进制（o 或 O）、十六进制（h 或 H）、十进制（d 或 D）表示。</p>
 <p>数字的完整表达为 <code>&lt;位宽&gt;'&lt;进制&gt;&lt;值&gt;</code>，如 <code>10'd100</code>。省略位宽时采用默认位宽（与机器有关，一般为 <ins>32 位</ins>），省略进制时默认为<ins>十进制</ins>，值部分可以用下划线分开提高可读性，如 <code>16'b1010_1011_1111_1010</code>。</p>
 <p>Verilog 中除了普通的数字以外，还有两个特殊的值：<code>x</code> 和 <code>z</code>。<code>x</code> 为不定值，当某一二进制位的值不能确定时出现，变量的默认初始值为 <code>x</code>。<code>z</code> 为高阻态，代表没有连接到有效输入上。对于位宽大于 1 的数据类型，<code>x</code> 与 <code>z</code> 均可只在部分位上出现。</p>
@@ -354,20 +354,20 @@
 <div class="warning">
 <p>Verilog 数字本身并不能添加负号，但写作类似于 <code>-8'd5</code> 这样的形式可以看作是对数字的运算，是合法的。</p>
 </div>
-<h3 id="Integer-型">Integer 型</h3>
+<h3 id="Integer-型"><a class="header-anchor" href="#Integer-型">#</a>Integer 型</h3>
 <p><code>integer</code> 数据类型一般为 32 位，与 C 语言中的 <code>int</code> 类似，默认为有符号数，在我们的实验中主要用于 <code>for</code> 循环（将在本章后面提到）。</p>
-<h3 id="Parameter-型">Parameter 型</h3>
+<h3 id="Parameter-型"><a class="header-anchor" href="#Parameter-型">#</a>Parameter 型</h3>
 <p><code>parameter</code> 类型用于在编译时确认值的常量，通过形如 <code>parameter 标识符 = 表达式</code>; 的语句进行定义，如：<code>parameter width = 8</code>;。在实例化模块时，可通过参数传递改变在被引用模块实例中已定义的参数（模块的实例化将在后面的章节进行介绍）。<code>parameter</code> 虽然看起来可变，但它属于常量，在编译时会有一个确定的值。</p>
 <p><code>parameter</code> 可以用于在模块实例化时指定数据位宽等参数，便于在结构相似、位宽不同的模块之间实现代码复用。</p>
-<h2 id="组合逻辑建模常用语法">组合逻辑建模常用语法</h2>
-<h3 id="Assign-语句">Assign 语句</h3>
+<h2 id="组合逻辑建模常用语法"><a class="header-anchor" href="#组合逻辑建模常用语法">#</a>组合逻辑建模常用语法</h2>
+<h3 id="Assign-语句"><a class="header-anchor" href="#Assign-语句">#</a>Assign 语句</h3>
 <p><code>assign</code> 语句是连续赋值语句，是组合逻辑的建模利器，其作用是用一个信号来驱动另一个信号。如 <code>assign a = b</code>;，其中 <code>a</code> 为 <code>wire</code> 型（也可由位拼接得到，见运算符部分），<code>b</code> 是由数据和运算符组成的表达式。</p>
 <p><code>assign</code> 语句与 C 语言的赋值语句有所不同，这里“驱动”的含义类似于电路的连接，也就是说，<code>a</code> 的值<ins>时刻</ins>等于 <code>b</code>。这也解释了 <code>assign a = a + 1</code>; 这样的语句为什么是不合法的。由于这样的特性，<code>assign</code> 语句不能在 <code>always</code> 和 <code>initial</code> 块中使用。</p>
 <p><code>assign</code> 语句经常与三目运算符配合使用建模组合逻辑。一般来说，<code>assign</code> 语句综合出来的电路是右侧表达式化简后所对应的逻辑门组合。</p>
 <div class="note warning">
             <ul class="lvl-0"><li class="lvl-2"><p><code>reg</code> 类型不能被 <code>assign</code> 赋值。</p></li><li class="lvl-2"><p>未被 <code>assign</code> 赋值（驱动）过的 <code>wire</code> 类型数据不能被赋给其他的 <code>wire</code> 类型数据。未被 <code>assign</code> 过的 <code>wire</code> 类型就好比什么都没连接的导线，它和其它导线连接是没有意义的。</p></li><li class="lvl-2"><p>1 位的变量，不可以被两次 <code>assign</code>，多位的变量，每一位只能被一次 <code>assign</code>。比如 <code>wire [3:0] output; assign output[1:0] = 2'b01; assign output[3:2] = 2'b10;</code> 这是合法的。而 <code>assign output = 4'b0; assign output[1:0] = 2'b01;</code> 是不合法的，因为 0 位和 1 位被两次赋值。</p></li></ul>
           </div>
-<h3 id="运算符">运算符</h3>
+<h3 id="运算符"><a class="header-anchor" href="#运算符">#</a>运算符</h3>
 <p>这里只介绍和 C 语言有差异的运算符。</p>
 <ul class="lvl-0">
 <li class="lvl-2">
@@ -407,8 +407,8 @@
 </ul>
 </li>
 </ul>
-<h2 id="时序逻辑建模常用语法">时序逻辑建模常用语法</h2>
-<h3 id="Always-块">Always 块</h3>
+<h2 id="时序逻辑建模常用语法"><a class="header-anchor" href="#时序逻辑建模常用语法">#</a>时序逻辑建模常用语法</h2>
+<h3 id="Always-块"><a class="header-anchor" href="#Always-块">#</a>Always 块</h3>
 <p><code>always</code> 块有如下两种用法：</p>
 <ul class="lvl-0">
 <li class="lvl-2">
@@ -432,7 +432,7 @@
 <div class="warning">
 <p>多个 <code>always</code> 块中对同一个变量进行赋值会导致无法综合。</p>
 </div>
-<h3 id="Initial-块">Initial 块</h3>
+<h3 id="Initial-块"><a class="header-anchor" href="#Initial-块">#</a>Initial 块</h3>
 <p><code>initial</code> 块后面紧跟的语句或顺序语句块在硬件仿真开始时就会运行，且仅会运行一次，一般用于对 <code>reg</code> 型变量的取值进行初始化。<code>initial</code> 块通常仅用于仿真，是<em>不可综合的</em>。下面的代码用于给寄存器 <code>a</code> 赋初始值 0：</p>
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">reg</span> a;</span><br><span class="line"></span><br><span class="line"><span class="keyword">initial</span> <span class="keyword">begin</span></span><br><span class="line">    a = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 <div class="note warning">
@@ -446,49 +446,49 @@
 <li class="lvl-3">如果语句包括延迟，那么延迟总是相对于前面那条语句执行完成的仿真时间的。</li>
 </ol>
 </blockquote>
-<h3 id="If-语句">If 语句</h3>
+<h3 id="If-语句"><a class="header-anchor" href="#If-语句">#</a>If 语句</h3>
 <p>Verilog 中 <code>if</code> 语句的语法和 C 语言基本相同，也有 <code>else if</code>、<code>else</code> 这样的用法。但是，<ins><code>if</code> 语句只能出现在顺序块中</ins>，其后的分支也只能是语句或顺序块。举例如下（下面的例子也使用了 <code>always</code> 建模组合逻辑）：</p>
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">always</span> @ * <span class="keyword">begin</span></span><br><span class="line">    <span class="keyword">if</span> (a &gt; b) <span class="keyword">begin</span></span><br><span class="line">        out = a;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">begin</span></span><br><span class="line">        out = b;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<h3 id="Case-语句">Case 语句</h3>
+<h3 id="Case-语句"><a class="header-anchor" href="#Case-语句">#</a>Case 语句</h3>
 <p>Verilog 中的 <code>case</code> 语句与 C 语言的写法略有区别，详见下方的示例。<code>case</code> 语句同样只能出现在<ins>顺序块</ins>中，其中的分支也只能是语句或顺序块。与 C 语言不同，<ins><code>case</code> 语句在分支执行结束后不会落入下一个分支</ins>，而会<ins>自动退出</ins>。举例如下：</p>
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">always</span> @(<span class="keyword">posedge</span> clk) <span class="keyword">begin</span></span><br><span class="line">  <span class="keyword">case</span>(data)</span><br><span class="line">      <span class="number">0</span>: out &lt;= <span class="number">4</span>;</span><br><span class="line">      <span class="number">1</span>: out &lt;= <span class="number">5</span>;</span><br><span class="line">      <span class="number">2</span>: out &lt;= <span class="number">2</span>;</span><br><span class="line">      <span class="number">3</span>: <span class="keyword">begin</span></span><br><span class="line">          out &lt;= <span class="number">1</span>;</span><br><span class="line">      <span class="keyword">end</span></span><br><span class="line">      <span class="keyword">default</span>: ;</span><br><span class="line">  <span class="keyword">endcase</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 <div class="tips">
 <p>Verilog 中的 <code>case</code> 语句默认做的是全等比较，即所有位都相等（包括 <code>x</code> 和 <code>z</code>）。上例中 <code>data === 0</code> 时 <code>out</code> 才会赋值为 4。</p>
 </div>
-<h3 id="For-语句">For 语句</h3>
+<h3 id="For-语句"><a class="header-anchor" href="#For-语句">#</a>For 语句</h3>
 <p><code>for</code> 语句和 C 语言中的类似。</p>
-<h4 id="循环变量">循环变量</h4>
+<h4 id="循环变量"><a class="header-anchor" href="#循环变量">#</a>循环变量</h4>
 <p><code>integer</code> 类型和 <code>reg</code> 类型的变量均可以作为循环变量，但 <code>reg</code> 型需要注意位宽的设置以免造成<ins>死循环</ins>，譬如：</p>
 <div class="note danger">
             <p>以下代码会造成 Isim 崩溃。</p><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">reg</span> [<span class="number">1</span>:<span class="number">0</span>] tmp;</span><br><span class="line"><span class="keyword">initial</span> <span class="keyword">begin</span></span><br><span class="line">    <span class="keyword">for</span> (tmp = <span class="number">2&#x27;h0</span>; tmp &lt;= <span class="number">2&#x27;h3</span>; tmp = tmp + <span class="number">1</span>) <span class="keyword">begin</span></span><br><span class="line">        <span class="built_in">$display</span>(<span class="string">&quot;tmp = %d&quot;</span>, tmp);</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="built_in">$display</span>(<span class="string">&quot;Finished.&quot;</span>)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
           </div>
 <p>这是因为 <code>tmp</code> 位宽为 2，最大只能到 2’h3，当 <code>tmp</code> 等于 2’h3 时，下一轮循环 <code>tmp</code> 溢出，回到 2’h0，如此往复导致死循环。</p>
-<h3 id="While-语句">While 语句</h3>
+<h3 id="While-语句"><a class="header-anchor" href="#While-语句">#</a>While 语句</h3>
 <p><code>while</code> 语句和 C 语言中的类似。</p>
 <div class="tips">
 <p>在 Verilog 中所有的循环语句只能在 always 或 initial 块中使用。</p>
 </div>
-<h2 id="模块实例化">模块实例化</h2>
+<h2 id="模块实例化"><a class="header-anchor" href="#模块实例化">#</a>模块实例化</h2>
 <p>对于一个已经存在的模块 <code>Sample</code>，以及其定义好的接口 <code>input a</code>, <code>input b</code>, <code>output c</code>，我们可以通过以下方法进行实例化：</p>
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">wire</span> x;</span><br><span class="line"><span class="keyword">wire</span> y;</span><br><span class="line"><span class="keyword">wire</span> z;</span><br><span class="line">Sample sample_instance1 (x, y, z);<span class="comment">//这里，x, y, z 会自动匹配 Sample 模块定义时的形参顺序。</span></span><br><span class="line">Sample sample_instance2 (<span class="variable">.b</span>(x), <span class="variable">.a</span>(y), <span class="variable">.c</span>(z));<span class="comment">//这里，.b, .a, .c 是为形参指定了匹配的实参。</span></span><br></pre></td></tr></table></figure>
 <p><a id="assignment"></a></p>
-<h2 id="非阻塞赋值和阻塞赋值">非阻塞赋值和阻塞赋值</h2>
+<h2 id="非阻塞赋值和阻塞赋值"><a class="header-anchor" href="#非阻塞赋值和阻塞赋值">#</a>非阻塞赋值和阻塞赋值</h2>
 <p>考察以下代码：</p>
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> blocked_and_non_blocked(</span><br><span class="line">    <span class="keyword">input</span> clk,</span><br><span class="line">    <span class="keyword">input</span> a,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> b_blocked,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> c_blocked,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> b_non_blocked,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> c_non_blocked</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 非阻塞赋值</span></span><br><span class="line">    <span class="keyword">always</span> @(<span class="keyword">posedge</span> clk) <span class="keyword">begin</span></span><br><span class="line">        b_non_blocked &lt;= a;</span><br><span class="line">        c_non_blocked &lt;= b_non_blocked;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="comment">// 阻塞赋值</span></span><br><span class="line">    <span class="keyword">always</span> @(<span class="keyword">posedge</span> clk) <span class="keyword">begin</span></span><br><span class="line">        b_blocked = a;</span><br><span class="line">        c_blocked = b_blocked;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
-<h3 id="非阻塞赋值">非阻塞赋值</h3>
+<h3 id="非阻塞赋值"><a class="header-anchor" href="#非阻塞赋值">#</a>非阻塞赋值</h3>
 <p><code>clk</code> 上升沿到来的时候，可以认为仿真器为 <code>&lt;=</code> 右侧的变量做了一次“快照”，即存储了它们的值。然后将“快照”值赋给了 <code>&lt;=</code> 左侧的变量。在上述代码中，<code>b_non_blocked</code> 值变为 <code>a</code> 的值，而 <code>c_non_blocked</code> 值变为原来的 <code>b_non_blocked</code> 值。</p>
 <div class="tips">
 <p>处在一个 <code>always</code> 块中的非阻塞赋值是在块结束时同时并发执行的。</p>
 </div>
-<h3 id="阻塞赋值">阻塞赋值</h3>
+<h3 id="阻塞赋值"><a class="header-anchor" href="#阻塞赋值">#</a>阻塞赋值</h3>
 <p>阻塞赋值是<ins>顺序执行</ins>的。在 <code>begin</code> - <code>end</code> 顺序块中，前一句阻塞赋值完成后，后一句阻塞赋值才会开始。在上述代码中，上升沿到来时，<code>b_blocked</code> 值变为 <code>a</code> 的值，然后 <code>c_blocked</code> 值才变为新的 <code>b_blocked</code> 值，即 <code>a</code> 的值。</p>
 <div class="warning">
 <p>在时序逻辑中的阻塞赋值可能是不可综合的。</p>
 </div>
-<h2 id="有符号数的处理">有符号数的处理</h2>
+<h2 id="有符号数的处理"><a class="header-anchor" href="#有符号数的处理">#</a>有符号数的处理</h2>
 <p><code>wire</code>, <code>reg</code> 等类型的数据默认是<ins>无符号</ins>的。</p>
 <p>若要声明该数据是有符号的，需要使用 <code>$signed()</code>，例如 <code>$signed(a)</code>。</p>
-<h3 id="一个简单的例子">一个简单的例子</h3>
+<h3 id="一个简单的例子"><a class="header-anchor" href="#一个简单的例子">#</a>一个简单的例子</h3>
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> comparator(</span><br><span class="line">    <span class="keyword">input</span> clk,</span><br><span class="line">    <span class="keyword">input</span> reset,</span><br><span class="line">    <span class="keyword">input</span> [<span class="number">3</span>:<span class="number">0</span>] a,</span><br><span class="line">    <span class="keyword">input</span> [<span class="number">3</span>:<span class="number">0</span>] b,</span><br><span class="line">    <span class="keyword">output</span> res</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="keyword">assign</span> res = a &gt;= b;</span><br><span class="line"></span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
 <p>我们编写一个 Testbench 来测试，令 <code>a</code> 和 <code>b</code> 的初始值都为 1，100 ns 后令 <code>b</code> 为 -1。<br>
 我们期望看到 <code>res</code> 的值恒为 1，但是实际观测到 100 ns 后 <code>res</code> 的值变为 0。<br>
@@ -497,7 +497,7 @@
 <p>值得一提的是，假如将比较代码修改为 <code>assign res = a &gt; $signed(b);</code>，得到的结果也达不到预期效果。</p>
 <p>在对无符号数和符号数同时操作时，Verilog 会自动地做数据类型匹配，将符号数向无符号数转化。因为在执行 <code>a &gt; $signed(b)</code> 时，<code>a</code> 是无符号数，<code>$signed(b)</code> 是符号数，Verilog 默认向无符号类型转化，得到的结果仍是无符号数的比较结果。</p>
 <p>关于符号数和无符号数的原理，您可参考<a target="_blank" rel="noopener" href="https://cscore.e1.buaa.edu.cn/tutorial/verilog/verilog-3/verilog-3-7/#_3">这里</a>。简单地概括，<ins>一个表达式，只要其子表达式中有任一表达式是无符号，则该表达式就是无符号的</ins>。</p>
-<h3 id="一些注意事项">一些注意事项</h3>
+<h3 id="一些注意事项"><a class="header-anchor" href="#一些注意事项">#</a>一些注意事项</h3>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p>对于<ins>移位运算符</ins>，其<ins>右侧的操作数总是被视为无符号数</ins>，并且<ins>不会对运算结果的符号性产生任何影响</ins>。结果的符号由运算符左侧的操作数和表达式的其余部分共同决定。</p>
@@ -512,16 +512,16 @@
 <p>未指定位宽和进制的 0 的有无符号性是根据上下文决定的。而指定了位宽和进制的 0（比如 4’b0000）的符号是确定的。</p>
 </li>
 </ul>
-<h2 id="宏定义">宏定义</h2>
+<h2 id="宏定义"><a class="header-anchor" href="#宏定义">#</a>宏定义</h2>
 <p>宏定义格式如下：</p>
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">`<span class="keyword">define</span> WORDSIZE 8</span></span><br><span class="line"><span class="comment">// 省略模块定义</span></span><br><span class="line"> <span class="keyword">reg</span>[<span class="number">1</span>:`WORDSIZE] data;</span><br><span class="line"><span class="comment">// 相当于定义 reg[1:8] data;</span></span><br></pre></td></tr></table></figure>
 <p>定义时，需要以反引号（<code>`</code>）开头。使用时，也需要加上反引号。</p>
 <hr>
-<h1 id="Verilog-例题">Verilog 例题</h1>
-<h2 id="电梯调度">电梯调度</h2>
-<h3 id="简介">简介</h3>
+<h1 id="Verilog-例题"><a class="header-anchor" href="#Verilog-例题">#</a>Verilog 例题</h1>
+<h2 id="电梯调度"><a class="header-anchor" href="#电梯调度">#</a>电梯调度</h2>
+<h3 id="简介"><a class="header-anchor" href="#简介">#</a>简介</h3>
 <p>一栋大楼有一部运行的电梯，你需要根据乘客请求和电梯状态来输出。</p>
-<h3 id="电梯的具体信息">电梯的具体信息</h3>
+<h3 id="电梯的具体信息"><a class="header-anchor" href="#电梯的具体信息">#</a>电梯的具体信息</h3>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p>在最开始或者每次 reset 后，电梯默认初始楼层为一楼。保证在输入到来前先进行 reset。</p>
@@ -541,7 +541,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="乘客请求">乘客请求</h3>
+<h3 id="乘客请求"><a class="header-anchor" href="#乘客请求">#</a>乘客请求</h3>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p>存在乘客请求的条件：</p>
@@ -562,9 +562,9 @@
 <p>其他规则：输入数据保证在上一个乘客请求满足取消条件之前，不会输入下一个乘客请求。 也就是当 from != 0 时，当前一定不存在未完成的乘客请求。</p>
 </li>
 </ul>
-<h3 id="输出要求">输出要求</h3>
+<h3 id="输出要求"><a class="header-anchor" href="#输出要求">#</a>输出要求</h3>
 <p>当乘客请求楼层和电梯的当前所在楼层相同时，输出 1 ；否则输出 0 。</p>
-<h3 id="样例">样例</h3>
+<h3 id="样例"><a class="header-anchor" href="#样例">#</a>样例</h3>
 <p><img src="/posts/c9f56abd/elevator.png" alt="样例"><br>
 如图，在 reset 后电梯默认从一楼向上运行。<br>
 在电梯运行到三楼时，输入了一楼的乘客请求，于是下个周期电梯向乘客请求楼层 (一楼) 方向运行，回到了二楼。然后再下个周期电梯到了一楼，此时电梯楼层和乘客请求楼层相同，因此输出 out 置为 1 ,同时下个周期电梯保留楼层和运行方向。再下个周期输入为 0，电梯掉头向上运行，同时取消上一个乘客请求。</p>
@@ -572,7 +572,7 @@
 <div class="warning">
 <p>请认真阅读波形图，一切逻辑以波形图所示为准！</p>
 </div>
-<h3 id="分析">分析</h3>
+<h3 id="分析"><a class="header-anchor" href="#分析">#</a>分析</h3>
 <p>本题适合用时序逻辑来解决。按照题意，在没有乘客请求的时候，电梯全自动运行，故首先我们需要解决这个问题。我们应当维护两个变量，它们分别是当前的楼层和电梯运行方向，记作 <code>cur_floor</code> 和 <code>direction</code>。简单起见，由于楼层只有七层，可以用一个 3 位二进制数表示（001 至 111），方向则用 0 和 1 表示上与下，简略代码如下：</p>
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">initial</span> <span class="keyword">begin</span><span class="comment">//初始化在一楼，向上</span></span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">always</span>@(<span class="keyword">posedge</span> clk) <span class="keyword">begin</span></span><br><span class="line">    <span class="keyword">if</span> (reset == <span class="number">1</span>) <span class="keyword">begin</span><span class="comment">//reset逻辑</span></span><br><span class="line">        ...</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">if</span> (direction == <span class="number">0</span>) <span class="keyword">begin</span><span class="comment">//上</span></span><br><span class="line">            <span class="keyword">if</span> (cur_floor == <span class="number">3&#x27;b111</span>) <span class="keyword">begin</span><span class="comment">//顶楼</span></span><br><span class="line">                direction &lt;= <span class="number">1</span>;</span><br><span class="line">                cur_floor &lt;= cur_floor - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">end</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">begin</span><span class="comment">//未到顶楼</span></span><br><span class="line">                cur_floor &lt;= cur_floor + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">end</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">begin</span><span class="comment">//下</span></span><br><span class="line">            ...<span class="comment">//类似逻辑</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 <p>如果有乘客请求，其实有两种情况需要考虑：</p>
@@ -591,8 +591,8 @@
 <p>无论怎么说，使用非阻塞赋值就决定了这一逻辑一定会在某个上升沿激活。对于第一种情况，我们可以大胆地让 <code>cur_floor == request</code> 作为条件，根据“乘客请求-其他规则”，<code>request</code> 尚未解决时不会有新的 <code>from</code> 出现。可以预见的是一定会在某个上升沿满足条件，然后下一个上升沿执行上述的等待逻辑。对于第二种情况，则大有不同了，接受 <code>from</code> 信号后将其赋给 <code>request</code> 必定也使用非阻塞赋值，那么 <code>request</code> 的赋值要等到 <code>from</code> 信号来临的下一个上升沿，即二者会出现一定的时间差。这对于 <code>out</code> 的输出，以及电梯的等待，都是不可接受的。具体到样例中，如果接到 <code>from</code> 信号后立刻赋给 <code>request</code>，那么 105ns 时 <code>request</code> 才会被置为 1。如果还用 <code>cur_floor == request</code> 作为条件，5 楼的等待时间将会延长到 115ns - 125ns 周期，这就错了。而且 <code>out</code> 与 <code>from</code> 和 <code>request</code> 挂钩，如果在 <code>request</code> 已经被赋值（105ns），再用条件判断将其归零，也许要等到下一个上升沿（115ns），这样， <code>out</code> 就会从 100ns 一直激活到 115ns。</p>
 <p>总的来说，面对第二种情况，等待逻辑的判定条件必须是 <code>cur_floor == from</code>，而且如果满足该条件，就要立刻发出 <code>request</code> 归零的命令，让 <code>request</code> 赶在下一个上升沿（105ns）就归零，相当于“反悔给 <code>request</code> 赋值”（这样做从波形上来看，<code>request</code> 不会被赋值，因为赋值和归零都是在上升沿以外的地方进行的），避免 <code>out</code> 激活时间过长。</p>
 <hr>
-<h1 id="Verilog-工程的设计开发调试">Verilog 工程的设计开发调试</h1>
-<h2 id="编写可综合代码">编写可综合代码</h2>
+<h1 id="Verilog-工程的设计开发调试"><a class="header-anchor" href="#Verilog-工程的设计开发调试">#</a>Verilog 工程的设计开发调试</h1>
+<h2 id="编写可综合代码"><a class="header-anchor" href="#编写可综合代码">#</a>编写可综合代码</h2>
 <div class="warning">
 <p>以下规则不适用于 Testbench。</p>
 </div>
@@ -620,8 +620,8 @@
 </ol>
 </li>
 </ul>
-<h2 id="Verilog-代码规范">Verilog 代码规范</h2>
-<h3 id="命名">命名</h3>
+<h2 id="Verilog-代码规范"><a class="header-anchor" href="#Verilog-代码规范">#</a>Verilog 代码规范</h2>
+<h3 id="命名"><a class="header-anchor" href="#命名">#</a>命名</h3>
 <ol>
 <li class="lvl-3">
 <p>信号名采用 <code>snake_case</code>，<code>PascalCase</code> 或者 <code>camelCase</code>。全工程采用统一命名方式。</p>
@@ -641,7 +641,7 @@
 <p>对于状态机，各状态一定要命名，避免在代码中出现不知所云的数字。</p>
 </li>
 </ol>
-<h3 id="组合逻辑的编写">组合逻辑的编写</h3>
+<h3 id="组合逻辑的编写"><a class="header-anchor" href="#组合逻辑的编写">#</a>组合逻辑的编写</h3>
 <ol>
 <li class="lvl-3">
 <p>一个信号只在一个 <code>always</code> 块中赋值。</p>
@@ -656,7 +656,7 @@
 <p>确保所有分支都赋值，否则出现锁存器<sup class="footnote-ref"><a href="#fn1" id="fnref1:1">[1:1]</a></sup>。</p>
 </li>
 </ol>
-<h3 id="时序逻辑">时序逻辑</h3>
+<h3 id="时序逻辑"><a class="header-anchor" href="#时序逻辑">#</a>时序逻辑</h3>
 <ol>
 <li class="lvl-3">
 <p>时序逻辑用 <code>always @(posedge clock)</code>。</p>
@@ -674,7 +674,7 @@
 <p>使用<ins>同步复位</ins>而非异步复位<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>。</p>
 </li>
 </ol>
-<h3 id="代码风格">代码风格</h3>
+<h3 id="代码风格"><a class="header-anchor" href="#代码风格">#</a>代码风格</h3>
 <ol>
 <li class="lvl-3">
 <p>单目运算符与变量间<ins>不</ins>添加空格。</p>
@@ -882,7 +882,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -954,6 +954,14 @@
     <!-- 显示5数目的文章 -->
         
           <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
+            <a href="/posts/937d20ea/" title="MD 样式测试" target="_blank">MD 样式测试</a>
+          </li>
+        
+          <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
+            <a href="/posts/7e709353/" title="加密文章测试" target="_blank">加密文章测试</a>
+          </li>
+        
+          <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
             <a href="/posts/f4bf9c17/" title="[鶴鳴洲集]“他妈的”，究竟是谁妈的？" target="_blank">[鶴鳴洲集]“他妈的”，究竟是谁妈的？</a>
           </li>
         
@@ -963,14 +971,6 @@
         
           <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
             <a href="/posts/82cd8a81/" title="Blog 5：[八紘九野集]井冈山" target="_blank">Blog 5：[八紘九野集]井冈山</a>
-          </li>
-        
-          <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
-            <a href="/posts/b73dbb31/" title="[楠竹蓮花集]老狗" target="_blank">[楠竹蓮花集]老狗</a>
-          </li>
-        
-          <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
-            <a href="/posts/95afa136/" title="Blog 1：[長欣集]诗二首" target="_blank">Blog 1：[長欣集]诗二首</a>
           </li>
         
       </ul>
@@ -1006,12 +1006,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area" style="color:#6A5ACD"></i>
     </span>
-    <span title="站点总字数">博文总字数 81k</span>
+    <span title="站点总字数">博文总字数 83k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee" style="color:#6A5ACD"></i>
     </span>
-    <span title="站点阅读时长">约 2:49 可通读</span>
+    <span title="站点阅读时长">约 2:52 可通读</span>
 </div>
   <div class="powered-by" style="color:#6A5ACD">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

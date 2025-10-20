@@ -25,12 +25,12 @@
     var CONFIG = {"hostname":"samuflore.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#6A5ACD","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="序 三种方法为 Hexo NexT 主题自定义字体。  今天我才发现我的 NexT 主题是过时已久的 7.x 版本。尝试更新到 8.x，发现变了许多，便决定继续用旧版本了。">
+  <meta name="description" content="#序 三种方法为 Hexo NexT 主题自定义字体。  今天我才发现我的 NexT 主题是过时已久的 7.x 版本。尝试更新到 8.x，发现变了许多，便决定继续用旧版本了。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Blog 9：[Hexo教程]Hexo NexT 自定义字体">
 <meta property="og:url" content="https://samuflore.top/posts/ec5f1055/index.html">
 <meta property="og:site_name" content="SamuFlore&#39;s Dimension">
-<meta property="og:description" content="序 三种方法为 Hexo NexT 主题自定义字体。  今天我才发现我的 NexT 主题是过时已久的 7.x 版本。尝试更新到 8.x，发现变了许多，便决定继续用旧版本了。">
+<meta property="og:description" content="#序 三种方法为 Hexo NexT 主题自定义字体。  今天我才发现我的 NexT 主题是过时已久的 7.x 版本。尝试更新到 8.x，发现变了许多，便决定继续用旧版本了。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://samuflore.top/posts/ec5f1055/%E5%9B%BE%E4%B8%80.png">
 <meta property="og:image" content="https://samuflore.top/posts/ec5f1055/%E5%9B%BE%E4%BA%8C.png">
@@ -88,7 +88,7 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/rss2.xml" title="SamuFlore's Dimension" type="application/rss+xml">
+<!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- hexo injector head_end end --><link rel="alternate" href="/rss2.xml" title="SamuFlore's Dimension" type="application/rss+xml">
 <style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--blockquote-bg-color:#555;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -289,7 +289,7 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>5.6k</span>
+              <span>5.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -307,14 +307,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="序">序</h1>
+        <h1 id="序"><a class="header-anchor" href="#序">#</a>序</h1>
 <p>三种方法为 Hexo NexT 主题自定义字体。</p>
 <blockquote>
 <p>今天我才发现我的 NexT 主题是过时已久的 7.x 版本。尝试更新到 8.x，发现变了许多，便决定继续用旧版本了。</p>
 </blockquote>
 <span id="more"></span>
 <hr>
-<h1 id="从-Google-Fonts-引用">从 Google Fonts 引用</h1>
+<h1 id="从-Google-Fonts-引用"><a class="header-anchor" href="#从-Google-Fonts-引用">#</a>从 Google Fonts 引用</h1>
 <p>在<strong>站点配置文件</strong> <code>_config.yml</code> 中，搜索 <code>font</code> 字段，您将看到以下内容：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">font:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Uri of fonts host, e.g. https://fonts.googleapis.com (Default).</span></span><br><span class="line">  <span class="attr">host:</span> </span><br><span class="line"></span><br><span class="line">  <span class="comment"># Font options:</span></span><br><span class="line">  <span class="comment"># `external: true` will load this font family from `host` above.</span></span><br><span class="line">  <span class="comment"># `family: Times New Roman`. Without any quotes.</span></span><br><span class="line">  <span class="comment"># `size: x.x`. Use `em` as unit. Default: 1 (16px)</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Global font settings used for all elements inside &lt;body&gt;.</span></span><br><span class="line">  <span class="attr">global:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">family:</span> </span><br><span class="line">    <span class="attr">size:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Font settings for site title (.site-title).</span></span><br><span class="line">  <span class="attr">title:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">family:</span> </span><br><span class="line">    <span class="attr">size:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Font settings for headlines (&lt;h1&gt; to &lt;h6&gt;).</span></span><br><span class="line">  <span class="attr">headings:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">family:</span> </span><br><span class="line">    <span class="attr">size:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Font settings for posts (.post-body).</span></span><br><span class="line">  <span class="attr">posts:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">family:</span> </span><br><span class="line"></span><br><span class="line">  <span class="comment"># Font settings for &lt;code&gt; and code blocks.</span></span><br><span class="line">  <span class="attr">codes:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">family:</span> </span><br></pre></td></tr></table></figure>
 <p><code>host</code> 字段处指定字体的来源，默认使用 Google Fonts。</p>
@@ -328,7 +328,7 @@
 <p><code>family</code> 字段指定字体的名称。譬如 <code>Noto Serif SC</code>（思源宋体简体中文）。<br>
 但是，如果您需要中西文分两种字体，这显然是无法满足要求的。</p>
 <hr>
-<h1 id="修改-Stylus-样式文件">修改 Stylus 样式文件</h1>
+<h1 id="修改-Stylus-样式文件"><a class="header-anchor" href="#修改-Stylus-样式文件">#</a>修改 Stylus 样式文件</h1>
 <div class="warning">
 <p>下文中将出现两个名为 <code>base.styl</code> 的不同文件，敬请注意区分。</p>
 </div>
@@ -351,8 +351,8 @@
 </div>
 <p>如果需要指定的字体在任何设备上都能正常显示，又该如何呢?</p>
 <hr>
-<h1 id="使用-font-face">使用 <code>@font-face</code></h1>
-<h2 id="原始方法">原始方法</h2>
+<h1 id="使用-font-face"><a class="header-anchor" href="#使用-font-face">#</a>使用 <code>@font-face</code></h1>
+<h2 id="原始方法"><a class="header-anchor" href="#原始方法">#</a>原始方法</h2>
 <p>关于 <code>@font-face</code>，您可参考<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@font-face">这里</a>。<br>
 它的格式如下：</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@font-face</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">&quot;Open Sans&quot;</span>;</span><br><span class="line">  <span class="attribute">src</span>:</span><br><span class="line">    <span class="built_in">url</span>(<span class="string">&quot;/fonts/OpenSans-Regular-webfont.woff2&quot;</span>) <span class="built_in">format</span>(<span class="string">&quot;woff2&quot;</span>),</span><br><span class="line">    <span class="built_in">url</span>(<span class="string">&quot;/fonts/OpenSans-Regular-webfont.woff&quot;</span>) <span class="built_in">format</span>(<span class="string">&quot;woff&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -366,7 +366,7 @@
 可是，这是最优解吗？</p>
 <p>2009 年，Web 开放字体格式出现并发展。现在正由万维网联盟的 Web 字体工作小组标准化，以求成为推荐标准。此字体格式不但能够有效利用压缩来减少档案大小，并且不包含加密也不受 DRM（数位著作权管理）限制。WOFF 本质上是包含了基于 sfnt 的字体（如 TrueType、OpenType 或开放字体格式），且这些字体均经过 WOFF 的编码工具压缩，以便嵌入网页中。这个字体格式使用zlib压缩，文件大小一般比 TTF 小 40%<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>。</p>
 <p>如果能用上 WOFF 或 WOFF2 格式，岂不美哉？</p>
-<h2 id="现代方法">现代方法</h2>
+<h2 id="现代方法"><a class="header-anchor" href="#现代方法">#</a>现代方法</h2>
 <p>只要能弄到 WOFF 或 WOFF2 格式的字体文件，按上述方法，就能完成速度优化。这里介绍一种从 Google Fonts 下载 WOFF 或 WOFF2 格式字体的方法。</p>
 <p>首先，在 Google Fonts 上搜索您需要的字体。例如 Mozilla Headline。点击 Get Font，然后点击 Get embed code。</p>
 <p><img src="/posts/ec5f1055/%E5%9B%BE%E4%B8%80.png" alt="Get embed code"></p>
@@ -565,7 +565,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -637,6 +637,14 @@
     <!-- 显示5数目的文章 -->
         
           <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
+            <a href="/posts/937d20ea/" title="MD 样式测试" target="_blank">MD 样式测试</a>
+          </li>
+        
+          <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
+            <a href="/posts/7e709353/" title="加密文章测试" target="_blank">加密文章测试</a>
+          </li>
+        
+          <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
             <a href="/posts/f4bf9c17/" title="[鶴鳴洲集]“他妈的”，究竟是谁妈的？" target="_blank">[鶴鳴洲集]“他妈的”，究竟是谁妈的？</a>
           </li>
         
@@ -646,14 +654,6 @@
         
           <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
             <a href="/posts/82cd8a81/" title="Blog 5：[八紘九野集]井冈山" target="_blank">Blog 5：[八紘九野集]井冈山</a>
-          </li>
-        
-          <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
-            <a href="/posts/b73dbb31/" title="[楠竹蓮花集]老狗" target="_blank">[楠竹蓮花集]老狗</a>
-          </li>
-        
-          <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
-            <a href="/posts/95afa136/" title="Blog 1：[長欣集]诗二首" target="_blank">Blog 1：[長欣集]诗二首</a>
           </li>
         
       </ul>
@@ -689,12 +689,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area" style="color:#6A5ACD"></i>
     </span>
-    <span title="站点总字数">博文总字数 81k</span>
+    <span title="站点总字数">博文总字数 83k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee" style="color:#6A5ACD"></i>
     </span>
-    <span title="站点阅读时长">约 2:49 可通读</span>
+    <span title="站点阅读时长">约 2:52 可通读</span>
 </div>
   <div class="powered-by" style="color:#6A5ACD">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
