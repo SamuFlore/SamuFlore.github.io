@@ -332,6 +332,12 @@ kbd {
 .right {
   text-align: right;
 }
+.left {
+  text-align: left;
+}
+.justify {
+  text-align: justify;
+}
 .table-container {
   overflow: auto;
 }
@@ -1329,7 +1335,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #3eeccd;
+  background: #fbffff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
