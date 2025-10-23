@@ -345,7 +345,8 @@ kbd {
   border-right: 4px solid #db3434;
   color: #2a2a2a;
   writing-mode: vertical-rl;
-  width: fit-content;
+  width: fit-content(20em);
+  height: 25em;
   margin-left: auto;
   margin-right: auto;
 }
@@ -1346,7 +1347,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffcf59;
+  background: #bfcf9f;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
