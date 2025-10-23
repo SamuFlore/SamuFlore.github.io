@@ -25,12 +25,12 @@
     var CONFIG = {"hostname":"samuflore.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#6A5ACD","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="#序 水平太差了。">
+  <meta name="description" content="序 水平太差了。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[CO P1]P1 上机之思考">
 <meta property="og:url" content="https://samuflore.top/posts/fae59a6c/index.html">
 <meta property="og:site_name" content="SamuFlore&#39;s Dimension">
-<meta property="og:description" content="#序 水平太差了。">
+<meta property="og:description" content="序 水平太差了。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-10-20T16:16:11.000Z">
 <meta property="article:modified_time" content="2025-10-21T04:09:30.711Z">
@@ -297,19 +297,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="序"><a class="header-anchor" href="#序">#</a>序</h1>
+        <h1 id="序">序</h1>
 <p>水平太差了。</p>
 <span id="more"></span>
 <hr>
-<h1 id="第一题"><a class="header-anchor" href="#第一题">#</a>第一题</h1>
-<h2 id="题干"><a class="header-anchor" href="#题干">#</a>题干</h2>
+<h1 id="第一题">第一题</h1>
+<h2 id="题干">题干</h2>
 <p>第一题是一个组合逻辑的运用。给出一个位宽为 36 的输入 a ，代表一个 6 x 6 的矩阵。再给出一个位宽为 9 的输入  ，代表一个 3 x 3 的卷积核。要求输出一个位宽为 16 的输出 ans ，代表卷积后的 4 x 4 的矩阵。卷积的具体算法也给出了。由于输入是从低到高依次填入矩阵，所以矩阵元素 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo stretchy="false">]</mo><mo>=</mo><msub><mi>a</mi><mrow><mi>i</mi><mo>×</mo><mi>n</mi><mo>+</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">M[i][j] = {a_{i \times n + j}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mbin mtight">×</span><span class="mord mathnormal mtight">n</span><span class="mbin mtight">+</span><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></span>。</p>
 <p>总的来说，第一题只要照葫芦画瓢即可。</p>
 <hr>
-<h1 id="第二题"><a class="header-anchor" href="#第二题">#</a>第二题</h1>
-<h2 id="题干-2"><a class="header-anchor" href="#题干-2">#</a>题干</h2>
+<h1 id="第二题">第二题</h1>
+<h2 id="题干-2">题干</h2>
 <p>一个应用题类型的题。有一个 op 输入，表示四种操作。分别是往一个长度 128 的数组最低位添加元素（原有元素往高位移动 1 位）、读取指定位的元素、统计某元素的个数、以及保持上一周期输出。</p>
-<h2 id="思考"><a class="header-anchor" href="#思考">#</a>思考</h2>
+<h2 id="思考">思考</h2>
 <p>光看题干其实这题并不难，但是需要掌握很多东西才能做。首先是 Verilog 中数组的定义：</p>
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;类型&gt; &lt;位宽声明&gt; &lt;数组名&gt; &lt;长度声明&gt;;</span><br></pre></td></tr></table></figure>
 <p>其中长度声明和位宽声明一样是 <code>[高位:低位]</code>。访问元素直接用下标即可。</p>
@@ -323,8 +323,8 @@
 <p>有两种解决方案：</p>
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//（换成阻塞赋值）</span></span><br><span class="line"><span class="keyword">integer</span> i;</span><br><span class="line"><span class="keyword">reg</span> [<span class="number">7</span>:<span class="number">0</span>] cnt = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt;= <span class="number">127</span>; i = i + <span class="number">1</span>) <span class="keyword">begin</span></span><br><span class="line">  <span class="keyword">if</span> (array[i] == query) cnt = cnt + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">或</span><br><span class="line"></span><br><span class="line"><span class="comment">//（另开一个组合逻辑块）</span></span><br><span class="line"><span class="keyword">integer</span> i;</span><br><span class="line"><span class="keyword">always</span> @(*) <span class="keyword">begin</span></span><br><span class="line">    cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt;= <span class="number">127</span>; i = i + <span class="number">1</span>) <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">if</span> (array[i] == query)</span><br><span class="line">            cnt = cnt + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 <hr>
-<h1 id="第三题"><a class="header-anchor" href="#第三题">#</a>第三题</h1>
-<h2 id="题干-3"><a class="header-anchor" href="#题干-3">#</a>题干</h2>
+<h1 id="第三题">第三题</h1>
+<h2 id="题干-3">题干</h2>
 <p>设计一个 Moore 机，对一个 json 序列进行有效性检测并统计键值对数量。每个周期内，串行输入 json 序列的一个字符。<br>
 json 的格式已简化如下：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span><span class="attr">&quot;key1&quot;</span><span class="punctuation">:</span><span class="string">&quot;value1&quot;</span><span class="punctuation">,</span><span class="attr">&quot;key2&quot;</span><span class="punctuation">:</span><span class="string">&quot;value2&quot;</span><span class="punctuation">,</span><span class="attr">&quot;key3&quot;</span><span class="punctuation">:</span><span class="string">&quot;value3&quot;</span><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
@@ -365,7 +365,7 @@ json 的格式已简化如下：</p>
 <p>除了上述情况外，不会出现其他非法情况。即输入的 json 序列只有两种：1. 合法 json 序列，所有键值对的字符串均不为空串。 2. 无效 json 序列，至少有一个字符串是空串。</p>
 </li>
 </ul>
-<h2 id="思考-2"><a class="header-anchor" href="#思考-2">#</a>思考</h2>
+<h2 id="思考-2">思考</h2>
 <p>这题要求多，状态也多。在输入 “{” 时，要考虑下一个是 “}” 的情况。这时需输出 <code>cur_num</code> 为 0，<code>max_num</code> 不变。如果输入左引号后接着输入右引号，那么整个 json 都是无效的，在输入 “}” 后同样 <code>cur_num</code> 为 0，<code>max_num</code> 不变。</p>
 <p>在更新 <code>max_num</code> 的时候我遇到了问题。按理说，对于时序逻辑，我们必须避免使用阻塞赋值。但是此处我却不得不用上它：</p>
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!isInvalid) cur_num &lt;= cur_num + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">else</span> cur_num &lt;= <span class="number">0</span>;</span><br><span class="line"><span class="keyword">if</span> (cur_num &gt; max_num) max_num &lt;= cur_num;</span><br></pre></td></tr></table></figure>
@@ -630,6 +630,10 @@ json 的格式已简化如下：</p>
     <!-- 显示5数目的文章 -->
         
           <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
+            <a href="/posts/95afa136/" title="Blog 1：[長欣集]诗二首" target="_blank">Blog 1：[長欣集]诗二首</a>
+          </li>
+        
+          <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
             <a href="/posts/937d20ea/" title="MD 样式测试" target="_blank">MD 样式测试</a>
           </li>
         
@@ -643,10 +647,6 @@ json 的格式已简化如下：</p>
         
           <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
             <a href="/posts/fae59a6c/" title="[CO P1]P1 上机之思考" target="_blank">[CO P1]P1 上机之思考</a>
-          </li>
-        
-          <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
-            <a href="/posts/95afa136/" title="Blog 1：[長欣集]诗二首" target="_blank">Blog 1：[長欣集]诗二首</a>
           </li>
         
       </ul>
