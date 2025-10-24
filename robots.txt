@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# 指定站点地图位置
+Sitemap: https://samuflore.top/sitemap.xml
