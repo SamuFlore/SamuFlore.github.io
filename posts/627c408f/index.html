@@ -25,19 +25,23 @@
     var CONFIG = {"hostname":"samuflore.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#6A5ACD","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="Twinkle, Twinkle, Little Star  ——Jane Taylor  Twinkle, twinkle, little star, How I wonder what you are! Up above the world so high, Like a diamond in the sky. When the blazing sun is gone, When he no">
+  <meta name="description" content="序 麻了，P3 就挂了，出师不利啊 qwq">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MD 样式测试">
-<meta property="og:url" content="https://samuflore.top/posts/937d20ea/index.html">
+<meta property="og:title" content="[CO P3]Logisim 设计单周期 CPU">
+<meta property="og:url" content="https://samuflore.top/posts/627c408f/index.html">
 <meta property="og:site_name" content="SamuFlore&#39;s Dimension">
-<meta property="og:description" content="Twinkle, Twinkle, Little Star  ——Jane Taylor  Twinkle, twinkle, little star, How I wonder what you are! Up above the world so high, Like a diamond in the sky. When the blazing sun is gone, When he no">
+<meta property="og:description" content="序 麻了，P3 就挂了，出师不利啊 qwq">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-10-20T06:02:30.000Z">
-<meta property="article:modified_time" content="2025-10-23T13:36:42.709Z">
+<meta property="article:published_time" content="2025-11-04T08:26:12.000Z">
+<meta property="article:modified_time" content="2025-11-04T09:07:38.560Z">
 <meta property="article:author" content="Samustach Floresein">
+<meta property="article:tag" content="Logisim">
+<meta property="article:tag" content="CO">
+<meta property="article:tag" content="MIPS">
+<meta property="article:tag" content="P3">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://samuflore.top/posts/937d20ea/">
+<link rel="canonical" href="https://samuflore.top/posts/627c408f/">
 
 
 <script id="page-configurations">
@@ -50,7 +54,7 @@
   };
 </script>
 
-  <title>MD 样式测试 | SamuFlore's Dimension</title>
+  <title>[CO P3]Logisim 设计单周期 CPU | SamuFlore's Dimension</title>
   
 
 
@@ -213,7 +217,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://samuflore.top/posts/937d20ea/">
+    <link itemprop="mainEntityOfPage" href="https://samuflore.top/posts/627c408f/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -226,7 +230,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          MD 样式测试
+          [CO P3]Logisim 设计单周期 CPU
         </h1>
 
         <div class="post-meta">
@@ -236,16 +240,19 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2025-10-20 14:02:30" itemprop="dateCreated datePublished" datetime="2025-10-20T14:02:30+08:00">2025-10-20</time>
+              <time title="创建时间：2025-11-04 16:26:12 / 修改时间：17:07:38" itemprop="dateCreated datePublished" datetime="2025-11-04T16:26:12+08:00">2025-11-04</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-10-23 21:36:42" itemprop="dateModified" datetime="2025-10-23T21:36:42+08:00">2025-10-23</time>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
               </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B5%84%E6%88%90%E5%8E%9F%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">計算機組成原理</span></a>
+                </span>
+            </span>
 
           
             <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
@@ -263,8 +270,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/posts/937d20ea/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/937d20ea/" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/627c408f/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/627c408f/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -273,13 +280,13 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>2.7k</span>
+              <span>5.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-              <span>6 分钟</span>
+              <span>12 分钟</span>
             </span>
 
         </div>
@@ -291,101 +298,539 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <div class="center">
-<h1 id="Twinkle-Twinkle-Little-Star">Twinkle, Twinkle, Little Star</h1>
-<div class="right">
-<p>——Jane Taylor</p>
-</div>
-<p>Twinkle, twinkle, little star,</p>
-<p>How I wonder what you are!</p>
-<p>Up above the world so high,</p>
-<p>Like a diamond in the sky.</p>
-<p>When the blazing sun is gone,</p>
-<p>When he nothing shines upon,</p>
-<p>Then you show your little light,</p>
-<p>Twinkle, twinkle, all the night.</p>
-<p>Then the traveller in the dark,</p>
-<p>Thanks you for your tiny spark,</p>
-<p>He could not see which way to go,</p>
-<p>If you did not twinkle so.</p>
-<p>In the dark blue sky you keep,</p>
-<p>And often thro’ my curtains peep,</p>
-<p>For you never shut your eye,</p>
-<p>Till the sun is in the sky.</p>
-<p>'Tis your bright and tiny spark,</p>
-<p>Lights the trav’ller in the dark,</p>
-<p>Tho’ I know not what you are,</p>
-<p>Twinkle, twinkle, little star.</p>
-</div>
+        <h1 id="序">序</h1>
+<p>麻了，P3 就挂了，出师不利啊 qwq</p>
 <span id="more"></span>
-<p><ruby>中国<rt>zhōng guó</rt></ruby></p>
-<p><ruby>你好世界<rt>HelloWorldNihaoShijie这是中文</rt></ruby></p>
-<p>VuePress Theme Hope <span class="spoiler">十分强大</span>。</p>
-<p>Euler’s identity <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>e</mi><mrow><mi>i</mi><mi>π</mi></mrow></msup><mo>+</mo><mn>1</mn><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">e^{i\pi}+1=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.908em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8247em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">iπ</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> is a beautiful formula in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi mathvariant="double-struck">R</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\mathbb{R}^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathbb">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>.</p>
-<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mfrac><msup><mi mathvariant="normal">∂</mi><mi>r</mi></msup><mrow><mi mathvariant="normal">∂</mi><msup><mi>ω</mi><mi>r</mi></msup></mrow></mfrac><mrow><mo fence="true">(</mo><mfrac><msup><mi>y</mi><mi>ω</mi></msup><mi>ω</mi></mfrac><mo fence="true">)</mo></mrow><mo>=</mo><mrow><mo fence="true">(</mo><mfrac><msup><mi>y</mi><mi>ω</mi></msup><mi>ω</mi></mfrac><mo fence="true">)</mo></mrow><mrow><mo fence="true">{</mo><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mi>y</mi><msup><mo stretchy="false">)</mo><mi>r</mi></msup><mo>+</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>r</mi></munderover><mfrac><mrow><mo stretchy="false">(</mo><mo>−</mo><mn>1</mn><msup><mo stretchy="false">)</mo><mi>I</mi></msup><mi>r</mi><mo>⋯</mo><mo stretchy="false">(</mo><mi>r</mi><mo>−</mo><mi>i</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mi>y</mi><msup><mo stretchy="false">)</mo><mrow><mi>r</mi><mi>i</mi></mrow></msup></mrow><msup><mi>ω</mi><mi>i</mi></msup></mfrac><mo fence="true">}</mo></mrow></mrow><annotation encoding="application/x-tex">
-\frac {\partial^r} {\partial \omega^r} \left(\frac {y^{\omega}} {\omega}\right)
-= \left(\frac {y^{\omega}} {\omega}\right) \left\{(\log y)^r + \sum_{i=1}^r \frac {(-1)^ Ir \cdots (r-i+1) (\log y)^{ri}} {\omega^i} \right\}
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.4em;vertical-align:-0.95em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord" style="margin-right:0.05556em;">∂</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">ω</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5904em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord" style="margin-right:0.05556em;">∂</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">(</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3414em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">ω</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">ω</span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">)</span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:3.0277em;vertical-align:-1.2777em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">(</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3414em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">ω</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">ω</span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">)</span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">{</span></span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7144em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6514em;"><span style="top:-1.8723em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2777em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.5183em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">ω</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7507em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mopen">(</span><span class="mord">−</span><span class="mord">1</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.07847em;">I</span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">⋯</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8247em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mathnormal mtight">i</span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size4">}</span></span></span></span></span></span></span>
-<p>NH<sub>4</sub><sup>+</sup></p>
+<h1 id="CPU-设计草稿">CPU 设计草稿</h1>
+<p>已实现：<code>add sub ori sw sh sb lw lh lb and or j jal jalr beq bne addi lui sll</code> （不考虑溢出）</p>
+<h2 id="IFU">IFU</h2>
+<p>IFU 由三部分构成，分别是存储当前 PC 的值，计算下一个 PC 的值，用 PC 值从 IM 中提取指令。整体是一个 Moore 型有限状态机。</p>
+<h3 id="PC">PC</h3>
+<p>PC 用一个 32 位寄存器存储。由于指令段地址从 <code>0x00003000</code> 开始，因此需要初始化为该值。</p>
+<table>
+<thead>
+<tr>
+<th>端口名</th>
+<th>位宽</th>
+<th>方向</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clk</td>
+<td>1</td>
+<td>I</td>
+<td>时钟信号</td>
+</tr>
+<tr>
+<td>reset</td>
+<td>1</td>
+<td>I</td>
+<td>异步复位信号</td>
+</tr>
+<tr>
+<td>NPC</td>
+<td>[31:0]</td>
+<td>I</td>
+<td>下一个 PC 值</td>
+</tr>
+<tr>
+<td>PC</td>
+<td>[31:0]</td>
+<td>O</td>
+<td>当前 PC 值</td>
+</tr>
+</tbody>
+</table>
+<h3 id="NPC">NPC</h3>
+<p>NPC 用组合逻辑来计算下一个 PC 的值，回传给 PC。</p>
 <ul class="lvl-0">
 <li class="lvl-2">
-<p><input type="checkbox" id="checkbox2"><label for="checkbox2">这个任务还没做</label></p>
+<p>对于一般的算数指令 <code>addi</code>，<code>ori</code> 等，PC = PC + 4。</p>
 </li>
 <li class="lvl-2">
-<p><input type="checkbox" id="checkbox3" checked="true"><label for="checkbox3">这个任务做完了</label></p>
+<p>对于 <code>j</code>，<code>jal</code>，PC 直接变为外部输入的 26 位立即数 <code>instr_index</code>。<code>instr_index</code> 尾部补两个 0（Splitter 实现）后位扩展至 32 位。</p>
+</li>
+<li class="lvl-2">
+<p>对于 <code>bne</code>，<code>beq</code> 等，一方面要接受外界输入的寄存器值，一方面要接受外界输入的 16 位 <code>offset</code>，<code>offset</code> 尾部补两个 0 实现后位扩展至 32 位，加上寄存器值赋给 PC。</p>
+</li>
+<li class="lvl-2">
+<p>对于 <code>jr</code>，<code>jalr</code>，PC 直接变为外部输入的寄存器值。</p>
 </li>
 </ul>
-<p><mark>我是高亮文本</mark></p>
-<p>Here is a simple footnote<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>.</p>
-<p>A footnote can also have multiple lines<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>.</p>
-<div class="wenyan">
-<div class="center">
-<h1 id="滕Teng王Wang閣Ge序Xu"><ruby>滕<rt>Teng</rt></ruby><ruby>王<rt>Wang</rt></ruby><ruby>閣<rt>Ge</rt></ruby><ruby>序<rt>Xu</rt></ruby></h1>
-<h2 id="一">一</h2>
-</div>
-<p>豫章故郡，洪都新府。星分翼轸(zhěn)，地接衡庐。襟三江而带五湖，控蛮荆而引瓯（ōu）越。物华天宝，龙光射牛斗之墟；人杰地灵，徐孺下陈蕃(fān)之榻。雄州雾列，俊采星驰，台隍(huáng)枕夷夏之交，宾主尽东南之美。都督阎公之雅望，棨(qǐ)戟遥临；宇文新州之懿(yì)范，襜(chān )帷(wéi)暂驻。十旬休假，胜友如云；千里逢迎，高朋满座。腾蛟起凤，孟学士之词宗；紫电清霜，王将军之武库。家君作宰，路出名区；童子何知，躬逢胜饯。<br>
-时维九月，序属三秋。潦（lǎo）水尽而寒潭清，烟光凝而暮山紫。俨(yǎn)骖騑(cān fēi)于上路，访风景于崇阿(ē)。临帝子之长洲，得天人之旧馆。层峦耸翠，上出重霄；飞阁流（一作 翔）丹，下临无地。鹤汀（tīng）凫(fú )渚（zhǔ），穷岛屿之萦(yíng)回；桂殿兰宫，即（一作 列）冈峦之体势。</p>
-</div>
-<div class="wenyan">
-<div class="center">
-<h2 id="二">二</h2>
-<div class="center">
-<p>披绣闼（tà），俯雕甍(méng )。山原旷其盈视，川泽纡(yū)其骇瞩。闾(lǘ)阎(yán) 扑地，钟鸣鼎食之家；舸（gě)舰弥津，青雀黄龙之舳（zhú）。云销雨霁(jì)，彩彻区明（或作 虹销雨霁，彩彻云衢 qú）。落霞与孤鹜(wù)齐飞，秋水共长天一色。渔舟唱晚，响穷彭蠡（l ǐ）之滨；雁阵惊寒，声断衡阳之浦。<br>
-遥襟甫畅，逸兴遄(chuán)飞。爽籁发而清风生，纤歌凝而白云遏(è)。睢(suī)园绿竹，气凌彭泽之樽；邺(yè)水朱华，光照临川之笔。四美具，二难并。穷睇眄(dì miǎn)于中天，极娱游于暇日。天高地迥(jiǒng)，觉宇宙之无穷；兴尽悲来，识盈虚之有数。望长安于日下，目吴会（kuài）于云间。地势极而南溟(míng)深，天柱高而北辰远。关山难越，谁悲失路之人；萍水相逢，尽是他乡之客。怀帝阍(hūn)而不见，奉宣室以何年。</p>
-</div>
-</div>
-</div>
-<div class="wenyan">
-<div class="center">
-<h2 id="三">三</h2>
-</div>
-<p>嗟(jiē)乎！时运不齐，命途多舛(chuǎn)；冯唐易老，李广难封。屈贾谊（yì）于长沙，非无圣主；窜梁鸿于海曲，岂乏明时？所赖君子见机，达人知命。老当益壮，宁移白首之心？穷且益坚，不坠青云之志。酌贪泉而觉爽，处涸辙（hé zhé）以犹欢。北海虽赊（shē），扶摇可接；东隅(yú)已逝，桑榆非晚。孟尝高洁，空余报国之情；阮籍猖狂，岂效穷途之哭！<br>
-勃，三尺微命，一介书生。无路请缨，等终军之弱冠（guàn）；有怀投笔，慕宗悫（què）之长风。舍簪（zān）笏（hù）于百龄，奉晨昏于万里。非谢家之宝树，接孟氏之芳邻。他日趋庭，叨(tāo)陪鲤对；今兹捧袂(mèi)，喜托龙门。杨意不逢，抚凌云而自惜；钟期既遇，奏流水以何惭？<br>
-呜呼！胜地不常，盛筵(yán)难再；兰亭已矣，梓(zǐ) 泽丘墟。临别赠言，幸承恩于伟饯；登高作赋，是所望于群公。敢竭鄙怀，恭疏短引；一言均赋，四韵俱成。请洒潘江，各倾陆海云尔。</p>
-</div>
-<div class="wenyan">
-<div class="center">
-<h1 id="蜀道難SHU-DAO-NAN"><ruby>蜀道難<rt>SHU DAO NAN</rt></ruby></h1>
-</div>
-<div class="right">
-<p>唐 李白</p>
-</div>
-<p>噫吁嚱，危乎高哉！蜀道之難，難於上青天！蠶叢及魚鳧，開國何茫然！爾來四萬八千歲，不與秦塞通人煙。西當太白有鳥道，可以橫絕峨眉巔。地崩山摧壯士死，然後天梯石棧相鈎連。上有六龍回日之高標，下有沖波逆折之回川。黃鶴之飛尚不得過，猿猱欲度愁攀援。青泥何盤盤，百步九折縈巖巒。捫參歷井仰脅息，以手撫膺坐長歎。<br>
-問君西遊何時還？畏途巉巖不可攀。但見悲鳥號古木，雄飛雌從繞林間。又聞子規啼夜月，愁空山。蜀道之難，難於上青天，使人聽此凋朱顔！連峯去天不盈尺，枯松倒掛倚絕壁。飛湍瀑流爭喧豗，砯崖轉石萬壑雷。其險也如此，嗟爾遠道之人胡為乎來哉！<br>
-劍閣崢嶸而崔嵬，一夫當關，萬夫莫開。所守或匪親，化為狼與豺。朝避猛虎，夕避長蛇；磨牙吮血，殺人如麻。錦城雖云樂，不如早還家。蜀道之難，難於上青天，側身西望長谘嗟！</p>
-</div>
-<h1 id="1">1</h1>
-<hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>My reference. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+<p>由于有四种可能的 NPC 求取方式，必须根据读到的指令来判断 NPC 使用上面哪一条来计算。因此引入一个 <code>NPCSel[1:0]</code> 来选择。另外，对于 <code>beq</code> 等指令，若条件判断不成功，NPC 仍然是 PC + 4，引入一个 <code>zero</code> 输入来判断。</p>
+<table>
+<thead>
+<tr>
+<th>端口名</th>
+<th>位宽</th>
+<th>方向</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PC</td>
+<td>[31:0]</td>
+<td>I</td>
+<td>当前 PC 值</td>
+</tr>
+<tr>
+<td>imm26</td>
+<td>[25:0]</td>
+<td>I</td>
+<td>机器码低 26 位</td>
+</tr>
+<tr>
+<td>GRF</td>
+<td>[31:0]</td>
+<td>I</td>
+<td>寄存器值</td>
+</tr>
+<tr>
+<td>imm16</td>
+<td>[15:0]</td>
+<td>I</td>
+<td>机器码低 16 位</td>
+</tr>
+<tr>
+<td>NPCSel</td>
+<td>[1:0]</td>
+<td>I</td>
+<td>NPC 计算方法选择信号</td>
+</tr>
+<tr>
+<td>zero</td>
+<td>1</td>
+<td>I</td>
+<td>条件判断成功信号</td>
+</tr>
+<tr>
+<td>PC+4</td>
+<td>[31:0]</td>
+<td>O</td>
+<td>PC + 4 值</td>
+</tr>
+<tr>
+<td>NPC</td>
+<td>[31:0]</td>
+<td>O</td>
+<td>下一个 PC 值</td>
+</tr>
+</tbody>
+</table>
+<h3 id="IM">IM</h3>
+<p>程序运行时为保证安全性，不可篡改指令数据，按要求用一个 4096*32 bits 的 ROM 来存储。至多可存储 4096（2^12）条，因此 ROM 的地址输入位宽为 12，即 <code>Addr[11:0]</code>。先给 PC 减去 <code>0x00003000</code>，又因为 ROM 两行的地址差为 1 而非 4，故再除以 4（逻辑右移 2 位实现），取低 12 位，从而建立了 PC 到 ROM 的映射关系。<br>
+IM 输出端为指令机器码。分为 <code>Opcode</code>，<code>rs</code>，<code>rt</code>，<code>rd</code>，<code>shamt</code>，<code>Funct</code>，同时提取低 26 位和低 16 位。</p>
+<table>
+<thead>
+<tr>
+<th>端口名</th>
+<th>位宽</th>
+<th>方向</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Addr</td>
+<td>[31:0]</td>
+<td>I</td>
+<td>待取指令之地址</td>
+</tr>
+<tr>
+<td>Instr</td>
+<td>[31:0]</td>
+<td>O</td>
+<td>指令内容</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Controller">Controller</h2>
+<p>Controller 接受 Opcode 和 Funct，判断收到的具体是什么指令，然后发出信号决定 NPC 如何计算，决定 GRF，ALU，DM 做的事。按照指令手册先比较 Opcode，再比较 Funct，用 Priority Encoder 把指令种类的独热编码换成对应的序号<code>type[4:0]</code>。对于未知的指令，序号统一为 0。根据对应的序号：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>输出 <code>NewPCSel[1:0]</code> 给 NPC 决定 NPC 如何计算。</p>
 </li>
-<li id="fn2" class="footnote-item"><p>To add line breaks within a footnote, prefix new lines with 2 spaces.<br>
-This is a second line <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+<li class="lvl-2">
+<p>输出 <code>GRFEnable</code> 给 GRF 作为写使能信号。</p>
+</li>
+<li class="lvl-2">
+<p>输出 <code>EXTType</code> 给 EXT 决定输入的立即数是符号扩展或非符号扩展。</p>
+</li>
+<li class="lvl-2">
+<p><code>type[4:0]</code> 可以作为选择信号给 ALU 选择相应的运算结果，</p>
+</li>
+<li class="lvl-2">
+<p><code>addi</code> 等涉及立即数的指令，需要让 ALU 的 inputB 为位扩展后的立即数，而 <code>add</code> 等的 ALU 的 inputB 是寄存器值，因此输出 <code>ALUIBSel</code> 供 inputB 选择输入是立即数或寄存器值。</p>
+</li>
+<li class="lvl-2">
+<p><code>addi</code> 等涉及立即数的指令，最终结果存储在 rt 寄存器中，而 <code>add</code> 等存储在 rd 中，因此输出 <code>GRF A3Sel</code> 供 GRF 的 A3 端口（写入位置）选择 rt 或 rd。<strong>注意 <code>jalr</code> 的目的寄存器是 rd</strong>。</p>
+</li>
+<li class="lvl-2">
+<p>输出 <code>DMEnable</code> 给 DM 作为写使能信号。</p>
+</li>
+<li class="lvl-2">
+<p><code>lw</code> 等指令需要从 DM 中提取数据到 GRF 中，而 <code>add</code> 等指令是 ALU 算出的结果回传给 GRF，因此输出 <code>DMtoGRFSel</code> 供 GRF 的 WD 选择输入是 ALU 结果还是 DM 数据。</p>
+</li>
+<li class="lvl-2">
+<p><code>jalr</code>，<code>jal</code> 涉及将 PC + 4 保存到 GRF 中，因此输出 <code>PC+4toGRFSel</code> 选择 WD 是否是 PC + 4。<strong>注意，应当在 <code>DMtoGRFSel</code> 后选择</strong>。</p>
+</li>
+<li class="lvl-2">
+<p><code>jal</code> 把 PC + 4 保存到 <code>$ra</code>（31 号寄存器）中，这是不需要输入的。因此输出 <code>$raSel</code> 选择 A3 是 31 号。<strong>注意，应当在 <code>GRF A3Sel</code> 后选择</strong>。</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>端口名</th>
+<th>位宽</th>
+<th>方向</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Opcode</td>
+<td>[5:0]</td>
+<td>I</td>
+<td>机器码高 6 位</td>
+</tr>
+<tr>
+<td>funct</td>
+<td>[5:0]</td>
+<td>I</td>
+<td>机器码低 6 位</td>
+</tr>
+<tr>
+<td>ALUSel</td>
+<td>[4:0]</td>
+<td>O</td>
+<td>ALU 计算方法选择信号</td>
+</tr>
+<tr>
+<td>NPCSel</td>
+<td>[1:0]</td>
+<td>O</td>
+<td>NPC 计算方法选择信号</td>
+</tr>
+<tr>
+<td>GRFEnable</td>
+<td>1</td>
+<td>O</td>
+<td>GRF 写使能信号</td>
+</tr>
+<tr>
+<td>EXTType</td>
+<td>1</td>
+<td>O</td>
+<td>EXT 方法选择信号</td>
+</tr>
+<tr>
+<td>ALUIBSel</td>
+<td>1</td>
+<td>O</td>
+<td>ALU InputB 选择信号</td>
+</tr>
+<tr>
+<td>GRF A3Sel</td>
+<td>1</td>
+<td>O</td>
+<td>GRF A3 选择信号</td>
+</tr>
+<tr>
+<td>DMEnable</td>
+<td>1</td>
+<td>O</td>
+<td>DM 写使能信号</td>
+</tr>
+<tr>
+<td>DMtoGRFSel</td>
+<td>1</td>
+<td>O</td>
+<td>允许将 DM 数据写入 GRF</td>
+</tr>
+<tr>
+<td>PC+4toGRFSel</td>
+<td>1</td>
+<td>O</td>
+<td>允许将 PC+4 写入 GRF</td>
+</tr>
+<tr>
+<td>$raSel</td>
+<td>1</td>
+<td>O</td>
+<td>选择 31 号寄存器为写入目标</td>
+</tr>
+<tr>
+<td>StoreType</td>
+<td>[1:0]</td>
+<td>O</td>
+<td>向 DM 存入数据方法选择信号</td>
+</tr>
+<tr>
+<td>LoadType</td>
+<td>[1:0]</td>
+<td>O</td>
+<td>从 DM 读取数据方法选择信号</td>
+</tr>
+</tbody>
+</table>
+<h2 id="GRF">GRF</h2>
+<p>GRF 根据 <code>A1[4:0]</code> 从 32 个寄存器中读取数据到 <code>RD1[31:0]</code>，根据 <code>A2[4:0]</code> 从 32 个寄存器中读取数据到 <code>RD2[31:0]</code>，若 <code>WE</code> 为 1，则将 <code>WD[31:0]</code> 写入对应的寄存器。其中 0 号寄存器永远为 0。</p>
+<table>
+<thead>
+<tr>
+<th>端口名</th>
+<th>位宽</th>
+<th>方向</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clk</td>
+<td>1</td>
+<td>I</td>
+<td>时钟信号</td>
+</tr>
+<tr>
+<td>reset</td>
+<td>1</td>
+<td>I</td>
+<td>异步复位信号</td>
+</tr>
+<tr>
+<td>WriteEnable</td>
+<td>1</td>
+<td>I</td>
+<td>GRF 写使能信号</td>
+</tr>
+<tr>
+<td>A1</td>
+<td>[4:0]</td>
+<td>I</td>
+<td>待读取的寄存器编号 1</td>
+</tr>
+<tr>
+<td>A2</td>
+<td>[4:0]</td>
+<td>I</td>
+<td>待读取的寄存器编号 2</td>
+</tr>
+<tr>
+<td>A3</td>
+<td>[4:0]</td>
+<td>I</td>
+<td>待写入的寄存器编号</td>
+</tr>
+<tr>
+<td>WriteData</td>
+<td>[31:0]</td>
+<td>I</td>
+<td>待写入的内容</td>
+</tr>
+<tr>
+<td>ReadData1</td>
+<td>[31:0]</td>
+<td>O</td>
+<td>读取的寄存器内容 1</td>
+</tr>
+<tr>
+<td>ReadData2</td>
+<td>[31:0]</td>
+<td>O</td>
+<td>读取的寄存器内容 2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ALU">ALU</h2>
+<p>根据 Controller 传来的 <code>type[4:0]</code> 决定如何对 inputA 和 inputB 进行运算。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>A + B （<code>add</code> 等）</p>
+</li>
+<li class="lvl-2">
+<p>A - B （<code>sub</code> 等）</p>
+</li>
+<li class="lvl-2">
+<p>A and B（<code>and</code> 等）</p>
+</li>
+<li class="lvl-2">
+<p>A or B（<code>or</code> 等）</p>
+</li>
+<li class="lvl-2">
+<p>A xor B（<code>xor</code> 等）</p>
+</li>
+<li class="lvl-2">
+<p>B 左移 16 位（<code>lui</code>）</p>
+</li>
+<li class="lvl-2">
+<p>if (A == B) （<code>beq</code> 等）</p>
+</li>
+<li class="lvl-2">
+<p>B 左移 <code>sll</code> 指定位数（来自 <code>shamt</code>）</p>
+</li>
+</ul>
+<p><code>if (A == B)</code> 作为上述的 <code>zero</code> 传给 NewPC。</p>
+<table>
+<thead>
+<tr>
+<th>端口名</th>
+<th>位宽</th>
+<th>方向</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>InputA</td>
+<td>[31:0]</td>
+<td>I</td>
+<td>输入 A</td>
+</tr>
+<tr>
+<td>InputB</td>
+<td>[31:0]</td>
+<td>I</td>
+<td>输入 B</td>
+</tr>
+<tr>
+<td>ALUSel</td>
+<td>[4:0]</td>
+<td>I</td>
+<td>ALU 计算方法选择信号</td>
+</tr>
+<tr>
+<td>sll</td>
+<td>[4:0]</td>
+<td>I</td>
+<td>SLL 命令移动位数</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>[31:0]</td>
+<td>O</td>
+<td>计算结果</td>
+</tr>
+<tr>
+<td>zero</td>
+<td>1</td>
+<td>O</td>
+<td>条件判断成功信号</td>
+</tr>
+</tbody>
+</table>
+<h2 id="EXT">EXT</h2>
+<p>给 imm16 符号扩展和无符号扩展至 imm32。用 Controller 传来的 <code>EXTType</code> 判断如何扩展。</p>
+<table>
+<thead>
+<tr>
+<th>端口名</th>
+<th>位宽</th>
+<th>方向</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>imm16</td>
+<td>[15:0]</td>
+<td>I</td>
+<td>16 位立即数</td>
+</tr>
+<tr>
+<td>EXTType</td>
+<td>1</td>
+<td>I</td>
+<td>位扩展方法选择信号</td>
+</tr>
+<tr>
+<td>imm32</td>
+<td>[31:0]</td>
+<td>O</td>
+<td>32 位立即数</td>
+</tr>
+</tbody>
+</table>
+<h2 id="DM">DM</h2>
+<p>DM 需要频繁进行读写操作，故用 3072*32 bits 的 RAM 存储。仍用 <code>Addr[11:0]</code> 覆盖所有范围。</p>
+<table>
+<thead>
+<tr>
+<th>端口名</th>
+<th>位宽</th>
+<th>方向</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clk</td>
+<td>1</td>
+<td>I</td>
+<td>时钟信号</td>
+</tr>
+<tr>
+<td>reset</td>
+<td>1</td>
+<td>I</td>
+<td>异步复位信号</td>
+</tr>
+<tr>
+<td>WriteEnable</td>
+<td>1</td>
+<td>I</td>
+<td>DM 写使能信号</td>
+</tr>
+<tr>
+<td>Addr</td>
+<td>[31:0]</td>
+<td>I</td>
+<td>地址</td>
+</tr>
+<tr>
+<td>WriteData</td>
+<td>[31:0]</td>
+<td>I</td>
+<td>待写入数据</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>[31:0]</td>
+<td>O</td>
+<td>读取的数据</td>
+</tr>
+</tbody>
+</table>
+<h1 id="思考题">思考题</h1>
+<ol>
+<li class="lvl-3">
+<p>状态存储：PC，GRF。状态转移：NPC，ALU。</p>
+</li>
+<li class="lvl-3">
+<p>合理。IM 中保存的是设定好的指令，其内容和顺序都是固定好的，如果在运行过程中遭到篡改则会导致程序运行失败，为安全起见使用 ROM。DM 中数据需要频繁读写，如果用寄存器，管理过于麻烦，且寄存器无法存储大量数据，用 RAM 最合适。GRF 同样需要频繁读写，但数据量不大，可以用寄存器。</p>
+</li>
+<li class="lvl-3">
+<ol>
+<li class="lvl-7">StoreType：用以实现 <code>sb sh</code>。首先用 ALU 算出的地址从 DM 中取出整个字，接受来自 GRF 的待存储数据，接受地址值并按照 <code>sb</code> 和 <code>sh</code> 的要求取出 byte。给原有数据按照 sb 和 sh 的要求拆分成多种，把待存储数据与这些拆分的所有可能性一一融合成新数据。从 Controller 引一个 2 位的选择信号选出最终的结果（默认为不对 DM 原数据做任何操作），传给 DM 重新存储。</li>
+<li class="lvl-7">LoadType：用以实现 <code>lb lh</code>。首先从 DM 中取出整个字，接受地址值并按照 <code>lb</code> 和 <code>lh</code> 的要求取出 byte。给原有数据按照 <code>lb</code> 和 <code>lh</code> 的要求拆分成多种，用不同的 byte 选出不同的部分，符号扩展至 32 位。从 Controller 引一个 2 位的选择信号选出最终的结果（默认为不对 DM 原数据做任何操作），传给 GRF 存储。</li>
+</ol>
+</li>
+<li class="lvl-3">
+<p><code>nop</code> 不激活任何信号，使得 GRF 和 DM 没有改变，ALU 不计算，不会改变状态，故不用考虑。</p>
+</li>
+<li class="lvl-3">
+<ol>
+<li class="lvl-7">没有测到 32 位边界处的数在寄存器中的表现。</li>
+<li class="lvl-7">没有测 16 位边界处的立即数在立即数相关指令中的表现。</li>
+<li class="lvl-7">没有测对 0 号寄存器读写的表现。</li>
+</ol>
 </li>
 </ol>
-</section>
-
+<h1 id="测试">测试</h1>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">.text</span></span><br><span class="line"><span class="symbol">main:</span></span><br><span class="line">    <span class="comment"># ------------------------------------------------</span></span><br><span class="line">    <span class="comment"># 常量构造测试</span></span><br><span class="line">    <span class="comment"># ------------------------------------------------</span></span><br><span class="line">    <span class="keyword">lui </span>  $<span class="built_in">t0</span>, <span class="number">0x1234</span>          <span class="comment"># $t0 = 0x12340000</span></span><br><span class="line">    <span class="keyword">ori </span>  $<span class="built_in">t0</span>, $<span class="built_in">t0</span>, <span class="number">0x5678</span>     <span class="comment"># $t0 = 0x12345678</span></span><br><span class="line">    <span class="keyword">addi </span> $<span class="built_in">t1</span>, $<span class="built_in">zero</span>, -<span class="number">1</span>       <span class="comment"># $t1 = 0xFFFFFFFF</span></span><br><span class="line">    <span class="keyword">addi </span> $<span class="built_in">t2</span>, $<span class="built_in">zero</span>, <span class="number">1</span>        <span class="comment"># $t2 = 0x00000001</span></span><br><span class="line">    <span class="keyword">addi </span> $<span class="built_in">t3</span>, $<span class="built_in">t2</span>, -<span class="number">2</span>         <span class="comment"># $t3 = 0xFFFFFFFF (-1)</span></span><br><span class="line">    <span class="keyword">lui </span>  $<span class="built_in">t4</span>, <span class="number">0x7FFF</span>          <span class="comment"># $t4 = 0x7FFF0000</span></span><br><span class="line">    <span class="keyword">ori </span>  $<span class="built_in">t4</span>, $<span class="built_in">t4</span>, <span class="number">0xFFFF</span>     <span class="comment"># $t4 = 0x7FFFFFFF</span></span><br><span class="line">    <span class="keyword">lui </span>  $<span class="built_in">t5</span>, <span class="number">0x8000</span>          <span class="comment"># $t5 = 0x80000000</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># ------------------------------------------------</span></span><br><span class="line">    <span class="comment"># 算术逻辑运算测试</span></span><br><span class="line">    <span class="comment"># ------------------------------------------------</span></span><br><span class="line">    <span class="keyword">add </span>  $<span class="built_in">s0</span>, $<span class="built_in">t0</span>, $<span class="built_in">t2</span>        <span class="comment"># = 0x12345679</span></span><br><span class="line">    <span class="keyword">sub </span>  $<span class="built_in">s1</span>, $<span class="built_in">t0</span>, $<span class="built_in">t2</span>        <span class="comment"># = 0x12345677</span></span><br><span class="line">    <span class="keyword">and </span>  $<span class="built_in">s2</span>, $<span class="built_in">t0</span>, $<span class="built_in">t1</span>        <span class="comment"># = 自身</span></span><br><span class="line">    <span class="keyword">or </span>   $<span class="built_in">s3</span>, $<span class="built_in">t0</span>, $<span class="built_in">t3</span>        <span class="comment"># = 全1</span></span><br><span class="line">    <span class="keyword">addi </span> $<span class="built_in">s4</span>, $<span class="built_in">t2</span>, -<span class="number">1</span>         <span class="comment"># = 0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># ------------------------------------------------</span></span><br><span class="line">    <span class="comment"># sll 测试</span></span><br><span class="line">    <span class="comment"># ------------------------------------------------</span></span><br><span class="line">    <span class="keyword">addi </span> $<span class="built_in">s5</span>, $<span class="built_in">zero</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">sll </span>  $<span class="built_in">s6</span>, $<span class="built_in">s5</span>, <span class="number">0</span>          <span class="comment"># 不移位 =&gt; 1</span></span><br><span class="line">    <span class="keyword">sll </span>  $<span class="built_in">s7</span>, $<span class="built_in">s5</span>, <span class="number">31</span>         <span class="comment"># 移31位 =&gt; 0x80000000</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># ------------------------------------------------</span></span><br><span class="line">    <span class="comment"># sw / lw 测试（以 $zero 为基址）</span></span><br><span class="line">    <span class="comment"># 内存布局：</span></span><br><span class="line">    <span class="comment">#   0($zero)  存 $t0</span></span><br><span class="line">    <span class="comment">#   4($zero)  存 $t1</span></span><br><span class="line">    <span class="comment">#   8($zero)  存 $t2</span></span><br><span class="line">    <span class="comment">#   12($zero) 存 $t3</span></span><br><span class="line">    <span class="comment"># ------------------------------------------------</span></span><br><span class="line">    <span class="keyword">sw </span>   $<span class="built_in">t0</span>, <span class="number">0</span>($<span class="built_in">zero</span>)</span><br><span class="line">    <span class="keyword">sw </span>   $<span class="built_in">t1</span>, <span class="number">4</span>($<span class="built_in">zero</span>)</span><br><span class="line">    <span class="keyword">sw </span>   $<span class="built_in">t2</span>, <span class="number">8</span>($<span class="built_in">zero</span>)</span><br><span class="line">    <span class="keyword">sw </span>   $<span class="built_in">t3</span>, <span class="number">12</span>($<span class="built_in">zero</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">lw </span>   $<span class="built_in">a0</span>, <span class="number">0</span>($<span class="built_in">zero</span>)        <span class="comment"># = $t0</span></span><br><span class="line">    <span class="keyword">lw </span>   $<span class="built_in">a1</span>, <span class="number">4</span>($<span class="built_in">zero</span>)        <span class="comment"># = $t1</span></span><br><span class="line">    <span class="keyword">lw </span>   $<span class="built_in">a2</span>, <span class="number">8</span>($<span class="built_in">zero</span>)        <span class="comment"># = $t2</span></span><br><span class="line">    <span class="keyword">lw </span>   $<span class="built_in">a3</span>, <span class="number">12</span>($<span class="built_in">zero</span>)       <span class="comment"># = $t3</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">add </span>  $<span class="built_in">v0</span>, $<span class="built_in">a0</span>, $<span class="built_in">a1</span>        <span class="comment"># 测试加载后运算</span></span><br><span class="line">    <span class="keyword">sub </span>  $<span class="built_in">v1</span>, $<span class="built_in">a0</span>, $<span class="built_in">a1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># ------------------------------------------------</span></span><br><span class="line">    <span class="comment"># beq / bne 测试</span></span><br><span class="line">    <span class="comment"># ------------------------------------------------</span></span><br><span class="line">    <span class="keyword">addi </span> $<span class="built_in">s0</span>, $<span class="built_in">zero</span>, <span class="number">0</span></span><br><span class="line">    <span class="keyword">beq </span>  $<span class="built_in">s4</span>, $<span class="built_in">zero</span>, label_beq_true   <span class="comment"># s4 == 0，应跳转</span></span><br><span class="line">    <span class="keyword">addi </span> $<span class="built_in">s0</span>, $<span class="built_in">s0</span>, <span class="number">1</span>                  <span class="comment"># 不执行</span></span><br><span class="line">    <span class="keyword">j </span>    label_beq_end</span><br><span class="line"><span class="symbol"></span></span><br><span class="line"><span class="symbol">label_beq_true:</span></span><br><span class="line">    <span class="keyword">addi </span> $<span class="built_in">s0</span>, $<span class="built_in">s0</span>, <span class="number">10</span></span><br><span class="line"><span class="symbol"></span></span><br><span class="line"><span class="symbol">label_beq_end:</span></span><br><span class="line">    <span class="keyword">bne </span>  $<span class="built_in">t1</span>, $<span class="built_in">t2</span>, label_bne_true     <span class="comment"># 不相等，应跳转</span></span><br><span class="line">    <span class="keyword">addi </span> $<span class="built_in">s0</span>, $<span class="built_in">s0</span>, <span class="number">1</span>                  <span class="comment"># 不执行</span></span><br><span class="line">    <span class="keyword">j </span>    label_bne_end</span><br><span class="line"><span class="symbol"></span></span><br><span class="line"><span class="symbol">label_bne_true:</span></span><br><span class="line">    <span class="keyword">addi </span> $<span class="built_in">s0</span>, $<span class="built_in">s0</span>, <span class="number">5</span></span><br><span class="line"><span class="symbol"></span></span><br><span class="line"><span class="symbol">label_bne_end:</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># ------------------------------------------------</span></span><br><span class="line">    <span class="comment"># j / jal / jalr / jr 测试</span></span><br><span class="line">    <span class="comment"># ------------------------------------------------</span></span><br><span class="line">    <span class="keyword">jal </span>  func1</span><br><span class="line">    <span class="keyword">j </span>    after_func1</span><br><span class="line"><span class="symbol"></span></span><br><span class="line"><span class="symbol">func1:</span></span><br><span class="line">    <span class="keyword">addi </span> $<span class="built_in">a0</span>, $<span class="built_in">zero</span>, <span class="number">111</span></span><br><span class="line">    <span class="keyword">jalr </span> $<span class="built_in">t6</span>, $<span class="built_in">ra</span>       <span class="comment"># 保存 $ra -&gt; $t6</span></span><br><span class="line">    <span class="keyword">jr </span>   $<span class="built_in">t6</span>             <span class="comment"># 跳回</span></span><br><span class="line"><span class="symbol"></span></span><br><span class="line"><span class="symbol">after_func1:</span></span><br><span class="line">    <span class="keyword">addi </span> $<span class="built_in">a1</span>, $<span class="built_in">zero</span>, <span class="number">222</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># ------------------------------------------------</span></span><br><span class="line">    <span class="comment"># 简单循环测试 (存取 + 条件跳转)</span></span><br><span class="line">    <span class="comment"># ------------------------------------------------</span></span><br><span class="line">    <span class="keyword">addi </span> $<span class="built_in">s1</span>, $<span class="built_in">zero</span>, <span class="number">0</span>         <span class="comment"># i = 0</span></span><br><span class="line">    <span class="keyword">addi </span> $<span class="built_in">s2</span>, $<span class="built_in">zero</span>, <span class="number">5</span>         <span class="comment"># 循环 5 次</span></span><br><span class="line">    <span class="keyword">addi </span> $<span class="built_in">s3</span>, $<span class="built_in">zero</span>, <span class="number">0</span>         <span class="comment"># 累加和 = 0</span></span><br><span class="line"><span class="symbol"></span></span><br><span class="line"><span class="symbol">loop_start:</span></span><br><span class="line">    <span class="keyword">sw </span>   $<span class="built_in">s1</span>, <span class="number">100</span>($<span class="built_in">zero</span>)       <span class="comment"># 用固定地址存 i</span></span><br><span class="line">    <span class="keyword">lw </span>   $<span class="built_in">t7</span>, <span class="number">100</span>($<span class="built_in">zero</span>)</span><br><span class="line">    <span class="keyword">add </span>  $<span class="built_in">s3</span>, $<span class="built_in">s3</span>, $<span class="built_in">t7</span>         <span class="comment"># 累加</span></span><br><span class="line">    <span class="keyword">addi </span> $<span class="built_in">s1</span>, $<span class="built_in">s1</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">bne </span>  $<span class="built_in">s1</span>, $<span class="built_in">s2</span>, loop_start</span><br><span class="line"></span><br><span class="line">    <span class="comment"># ------------------------------------------------</span></span><br><span class="line">    <span class="comment"># 程序结束</span></span><br><span class="line">    <span class="comment"># ------------------------------------------------</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -401,6 +846,24 @@ This is a second line <a href="#fnref2" class="footnote-backref">↩︎</a></p>
       </div>
     
       
+  <div class="popular-posts-header">相 關 博 文</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\18246a69\" rel="bookmark">[CO P0]P0 上机之思考</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\11653afb\" rel="bookmark">[CO P0]关于 Mealy 机和 Moore 机的思考</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\e7ebcfa7\" rel="bookmark">[CO Pre]Logisim 入门</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\6d68c22\" rel="bookmark">[CO P2]P2 上机之思考</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\2d82ddc6\" rel="bookmark">[CO P2]宏、函数与栈</a></div>
+    </li>
+  </ul>
 
         
 
@@ -411,7 +874,7 @@ This is a second line <a href="#fnref2" class="footnote-backref">↩︎</a></p>
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://samuflore.top/posts/937d20ea/" title="MD 样式测试">https://samuflore.top/posts/937d20ea/</a>
+    <a href="https://samuflore.top/posts/627c408f/" title="[CO P3]Logisim 设计单周期 CPU">https://samuflore.top/posts/627c408f/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -440,6 +903,12 @@ This is a second line <a href="#fnref2" class="footnote-backref">↩︎</a></p>
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Logisim/" rel="tag"><i class="fa fa-tag"></i> Logisim</a>
+              <a href="/tags/CO/" rel="tag"><i class="fa fa-tag"></i> CO</a>
+              <a href="/tags/MIPS/" rel="tag"><i class="fa fa-tag"></i> MIPS</a>
+              <a href="/tags/P3/" rel="tag"><i class="fa fa-tag"></i> P3</a>
+          </div>
 
         
 
@@ -447,13 +916,10 @@ This is a second line <a href="#fnref2" class="footnote-backref">↩︎</a></p>
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/2dab591c/" rel="prev" title="[CO P1]如何优雅地写 Testbench">
-      <i class="fa fa-chevron-left"></i> [CO P1]如何优雅地写 Testbench
+    <a href="/posts/9978a341/" rel="prev" title="[神綺日報]神绮轨道一期线路公示">
+      <i class="fa fa-chevron-left"></i> [神綺日報]神绮轨道一期线路公示
     </a></div>
-      <div class="post-nav-item">
-    <a href="/posts/fae59a6c/" rel="next" title="[CO P1]P1 上机之思考">
-      [CO P1]P1 上机之思考 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -525,7 +991,7 @@ This is a second line <a href="#fnref2" class="footnote-backref">↩︎</a></p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Twinkle-Twinkle-Little-Star"><span class="nav-number">1.</span> <span class="nav-text">Twinkle, Twinkle, Little Star</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%BB%95Teng%E7%8E%8BWang%E9%96%A3Ge%E5%BA%8FXu"><span class="nav-number">2.</span> <span class="nav-text">滕Teng王Wang閣Ge序Xu</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80"><span class="nav-number">2.1.</span> <span class="nav-text">一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C"><span class="nav-number">2.2.</span> <span class="nav-text">二</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89"><span class="nav-number">2.3.</span> <span class="nav-text">三</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%9C%80%E9%81%93%E9%9B%A3SHU-DAO-NAN"><span class="nav-number">3.</span> <span class="nav-text">蜀道難SHU DAO NAN</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1"><span class="nav-number">4.</span> <span class="nav-text">1</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CPU-%E8%AE%BE%E8%AE%A1%E8%8D%89%E7%A8%BF"><span class="nav-number">2.</span> <span class="nav-text">CPU 设计草稿</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#IFU"><span class="nav-number">2.1.</span> <span class="nav-text">IFU</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PC"><span class="nav-number">2.1.1.</span> <span class="nav-text">PC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NPC"><span class="nav-number">2.1.2.</span> <span class="nav-text">NPC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IM"><span class="nav-number">2.1.3.</span> <span class="nav-text">IM</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Controller"><span class="nav-number">2.2.</span> <span class="nav-text">Controller</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GRF"><span class="nav-number">2.3.</span> <span class="nav-text">GRF</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ALU"><span class="nav-number">2.4.</span> <span class="nav-text">ALU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EXT"><span class="nav-number">2.5.</span> <span class="nav-text">EXT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DM"><span class="nav-number">2.6.</span> <span class="nav-text">DM</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%9D%E8%80%83%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">思考题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95"><span class="nav-number">4.</span> <span class="nav-text">测试</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
