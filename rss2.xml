@@ -9,8 +9,37 @@
     <atom:link href="https://samuflore.top/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>一人倒、衆人倒。</description>
-    <pubDate>Tue, 04 Nov 2025 09:07:38 GMT</pubDate>
+    <pubDate>Wed, 05 Nov 2025 03:52:15 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[OO Pre]2025 面向对象程序设计先导课程总结</title>
+      <link>https://samuflore.top/posts/deef238d/</link>
+      <guid>https://samuflore.top/posts/deef238d/</guid>
+      <pubDate>Wed, 05 Nov 2025 03:42:43 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;最终架构设计&quot;&gt;最终架构设计&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&quot;/posts/deef238d/%E6%9E%B6%E6%9E%84.png&quot; alt=&quot;最终架构&quot;&gt;&lt;br&gt;
+（IDEA 自动生成）&lt;/p&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="最终架构设计">最终架构设计</h1><p><img src="/posts/deef238d/%E6%9E%B6%E6%9E%84.png" alt="最终架构"><br>（IDEA 自动生成）</p><span id="more"></span><h2 id="架构设计描述">架构设计描述</h2><ul class="lvl-0"><li class="lvl-2"><p><code>Main</code>: 程序的入口。受到 C 语言编程习惯（？）的影响，将解析输入逻辑、全体冒险者容器放在了这里。随即调用一个静态方法执行接下来的逻辑。</p></li><li class="lvl-2"><p><code>Factory</code>: 这是整个项目设计最失败的一个部分。本意是根据输入为两种 <code>Spell</code> 和四种 <code>Bottle</code> 生成对应的实例，但进入迭代的中后期，我把一些具有特定功能，但不属于工厂模式思想的静态方法也放到了这个类中，造成这个名为 <code>Factory</code> 的类实质上成为了一个定义了很多“函数”的“头文件”，其中就包括 <code>Main</code> 调用的执行整个游戏逻辑的 <code>execute</code> 方法。这个问题应当在后续的课程作业中避免。</p></li><li class="lvl-2"><p><code>Master</code>, <code>Servant</code> 接口: 学习了观察者模式，在 <code>Adventurer</code> 类里实现了上级呼救、下级尝试治疗上级等方法。</p><ul class="lvl-2"><li class="lvl-6"><code>Adventurer</code>: 冒险者类。管理已有药水瓶、已携带药水瓶、已装备的武器/防具等，并实现相关方法。</li></ul></li><li class="lvl-2"><p><code>Usable</code> 接口: <code>Spell</code> 和 <code>Bottle</code> 同属“可用的物品”，故提供“使用物品”“检查可用性”等几个接口供其实现。</p><ul class="lvl-2"><li class="lvl-4"><code>Spell</code>: 按功能实现 <code>AttackSpell</code> 和 <code>HealSpell</code> 两个子类。管理法术效果、蓝耗、<code>id</code> 等并实现相关方法。</li><li class="lvl-4"><code>Bottle</code>: 按功能实现 <code>HpBottle</code>, <code>AtkBottle</code>, <code>ManaBottle</code>, <code>DefBottle</code> 四个子类。管理药水瓶效果，id 等并实现相关方法。</li></ul></li><li class="lvl-2"><p><code>Equipment</code>: 管理装备 <code>CE</code> 值，<code>id</code> 等并实现相关方法。</p><ul class="lvl-2"><li class="lvl-6"><code>Weapon</code><ul class="lvl-4"><li class="lvl-10"><code>Sword</code></li><li class="lvl-10"><code>Magicbook</code></li></ul></li><li class="lvl-6"><code>Armour</code></li></ul></li><li class="lvl-2"><p><code>Lexer</code> 与 <code>Parser</code>: 词法分析和语法分析。<code>Lexer</code> 将分析结果传递给 <code>Parser</code>，后者用递归下降法添加雇佣关系。</p></li></ul><h1 id="架构的调整与思考">架构的调整与思考</h1><h2 id="迭代思路">迭代思路</h2><h3 id="第一次迭代">第一次迭代</h3><p>实现冒险者类 <code>Adventurer</code> 、药水瓶类 <code>Bottle</code> 、装备类 <code>Equipment</code>。为冒险者构建容器管理拥有的 <code>Bottle</code> 和 <code>Equipment</code>。实现：</p><ul class="lvl-0"><li class="lvl-2"><p>增加冒险者；</p></li><li class="lvl-2"><p>给某个冒险者增加一个药水瓶；</p></li><li class="lvl-2"><p>给某个冒险者增加一个装备；</p></li><li class="lvl-2"><p>删除某个冒险者的某个药水瓶；</p></li><li class="lvl-2"><p>删除某个冒险者的某个装备。</p></li></ul><p>并给出对应输出。</p><h3 id="第二次迭代">第二次迭代</h3><p>实现并细化法术类 <code>Spell</code> 等，细化药水瓶类 <code>Bottle</code>，添加 <code>Usable</code> 接口，实现：</p><ul class="lvl-0"><li class="lvl-2"><p>给某个冒险者学习一个法术；</p></li><li class="lvl-2"><p>冒险者尝试携带他拥有的某个物品；</p></li><li class="lvl-2"><p>冒险者对一个目标使用某个可用物品；</p></li></ul><p>并给出对应输出。</p><h3 id="第三次迭代">第三次迭代</h3><p>为冒险者类增加已装备的药水瓶，已装备的武器，已装备的防具属性，控制其数目。构建战斗机制，金钱系统，实现：</p><ul class="lvl-0"><li class="lvl-2"><p>冒险者去商店进行一次购买操作；</p></li><li class="lvl-2"><p>冒险者进行一次战斗；</p></li></ul><p>并给出对应输出。</p><h3 id="第四次迭代">第四次迭代</h3><p>为冒险者类增加所有上级、所有下级属性，添加 <code>Master</code> <code>Servant</code> 接口，构建雇佣关系添加、援助上级机制，实现：</p><ul class="lvl-0"><li class="lvl-2"><p>增加一条雇佣关系；</p></li><li class="lvl-2"><p>删除一条雇佣关系；</p></li></ul><p>并给出对应输出。</p><h3 id="第五次迭代">第五次迭代</h3><p>利用词法和语法分析（还不是很熟练）解析 load relation 指令，实现：</p><ul class="lvl-0"><li class="lvl-2"><p>导入一组雇佣关系；</p></li></ul><p>并给出对应输出。</p><h2 id="工厂模式与接口的运用">工厂模式与接口的运用</h2><ul class="lvl-0"><li class="lvl-2"><p>在迭代到为冒险者添加使用物品的方法时，由于 <code>Bottle</code> 类和 <code>Spell</code> 类细化，因此学习了工厂模式，建立了 <code>Factory</code> 类生成对应的物品。</p></li><li class="lvl-2"><p>学着提炼了可用物品的共同点，建立了 <code>Usable</code> 接口，并让 <code>Bottle</code> 类和 <code>Spell</code> 类实现。</p></li><li class="lvl-2"><p>为 <code>Adventurer</code> 设计 <code>Master</code> 和 <code>Servant</code> 接口，应用观察者模式来实现雇佣关系功能。</p></li></ul><h2 id="数据结构的调整">数据结构的调整</h2><p>开发早期采用给每一个 <code>Bottle</code> 提供一个 <code>isEquipped</code> 属性来区分已装备和未装备的药水瓶。后来添加了 10 个携带药水瓶的限制，并且要求溢出时移除最早加入的，于是换用了 <code>ArrayDeque</code> 双端队列这个数据结构保存已携带的药水瓶，非常方便地实现了上述功能。<br>其余的主要使用 <code>ArrayList</code>。</p><h2 id="未选用递归">未选用递归</h2><p>关于雇佣和上下级关系：由于援助需要得知每个人的直接和间接上级、下级。本来计划给 <code>Adventurer</code> 一个唯一的直接上级 <code>master</code> 和一个列表的直接下级 <code>servants</code>。通过递归的方式找出所有盟友。然而我最终选择给每个 <code>Adventurer</code> 两个数组 <code>masters</code> 和 <code>servants</code> 用来保存所有上级和下级（直接以及间接），添加关系时将直接和间接关系全部归位，方便援助时查询。</p><h1 id="JUnit-使用心得">JUnit 使用心得</h1><p>JUnit 非常好用！</p><p>JUnit 的主旨是自动化测试，需要摒弃人来判断结果正确与否的过程。我花了一些时间才领悟到这一点，在此之前仍然是键盘输入观察输出的方式 debug。但有了 JUnit，测试各种极端情况变得很容易，不再需要键盘输入一堆前置命令做铺垫，而是可以用 Java 的方法构建出待测的环境，让计算机评判输出是否符合预期，而不是瞪眼法。</p><p>不过由于架构问题，我还是通过模拟键盘输入的方式测试了一部分代码，我觉得这应该不太正常，有待改正。</p><p>覆盖率测试结果也很具参考意义。编写单元测试时需要尽量测到所有的可能性，以免在代码中遗留 bug。</p><p>另外，JUnit 覆盖率测试中的方法覆盖率测试包括了各个类的构造方法，即便隐式声明的也包含在其中。</p><h1 id="学习-OOPre-的心得体会">学习 OOPre 的心得体会</h1><p>在 OOPre 之前我没有接触过 Java，面向对象编程思想也是浅尝辄止。整个 OOPre 下来我花费了大约 31 小时写代码作业（其中大约 6 小时写单元测试），项目代码行数在 1400 行左右，可以算是初步体会了面向对象程序设计的过程和一些方法，了解了如何运用单元测试 debug。由于熟练度问题，我的编写过程仍然受到典型的面向过程思维影响，但是正是这种对程序设计思维方式进行转变的尝试让我能够更深入地理解二者之间的差异。</p><p>Java 相比 C 更加便捷，提供了很多现成的数据结构，这让应对迭代作业中不同的要求更加得心应手，接近的语法让上手变得很快，并且很多封装好的方法节约了大量的重复逻辑编写。此外 Java 这样纯粹的面向对象语言更适合我学习如何提炼不同事物的共性，构造不同的类实现功能，学习继承、封装、多态的方法和思想，实现尽可能的代码和逻辑复用。这样分门别类让整体架构非常清晰，确实适合开发大型的项目。</p><p>在 OOPre 中我感到最有收获的时刻是学习并应用设计模式的时候。当我为不知道 <code>Bottle</code> 类细分的若干子类如何方便地实例化而头疼的时候，我接触了工厂模式。在那之前我对类还停留在“都需要实例化才能发挥作用”的阶段，全然没有想过构造一个只提供静态方法，而不提供实际个体的类，这的确打开了我的思路（导致我把所有静态方法都放在这里了）。而学习了观察者模式，让我对如何构建一对多的关系有了更好的理解。</p><h1 id="对-OOPre-课程的建议">对 OOPre 课程的建议</h1><p>可以增设一些对 Java 语法、常用包、数据结构的介绍，方便在编写过程中查询和使用。</p>]]></content:encoded>
+      
+      
+      <category domain="https://samuflore.top/categories/%E9%9D%A2%E5%90%91%E5%B0%8D%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%A8%AD%E8%A8%88/">面向對象程序設計</category>
+      
+      
+      <category domain="https://samuflore.top/tags/Pre/">Pre</category>
+      
+      <category domain="https://samuflore.top/tags/OO/">OO</category>
+      
+      <category domain="https://samuflore.top/tags/Java/">Java</category>
+      
+      
+      <comments>https://samuflore.top/posts/deef238d/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>[CO P3]Logisim 设计单周期 CPU</title>
@@ -289,35 +318,6 @@
       
       
       <comments>https://samuflore.top/posts/2dab591c/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>[鶴鳴洲集]“他妈的”，究竟是谁妈的？</title>
-      <link>https://samuflore.top/posts/f4bf9c17/</link>
-      <guid>https://samuflore.top/posts/f4bf9c17/</guid>
-      <pubDate>Sun, 19 Oct 2025 06:15:12 GMT</pubDate>
-      
-      <description>&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;530&quot; height=&quot;86&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=22658523&amp;auto=1&amp;height=66&quot;&gt;&lt;/iframe&gt;
-&lt;hr&gt;
-&lt;h1 id=&quot;序&quot;&gt;序&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;這“他媽的”的由來以及始於何代，我也不明白。經史上所見罵人的話，無非是“役夫”，“奴”，“死公”；較厲害的，有“老狗”，“貉子”；更厲害，涉及先代的，也不外乎“而母婢也”，“贅閹遺醜”罷了！還沒見過什麼“媽的”怎樣，雖然也許是士大夫諱而不錄。&lt;br&gt;
-&lt;strong&gt;《論“他媽的”》 魯迅&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="530" height="86" src="//music.163.com/outchain/player?type=2&id=22658523&auto=1&height=66"></iframe><hr><h1 id="序">序</h1><blockquote><p>這“他媽的”的由來以及始於何代，我也不明白。經史上所見罵人的話，無非是“役夫”，“奴”，“死公”；較厲害的，有“老狗”，“貉子”；更厲害，涉及先代的，也不外乎“而母婢也”，“贅閹遺醜”罷了！還沒見過什麼“媽的”怎樣，雖然也許是士大夫諱而不錄。<br><strong>《論“他媽的”》 魯迅</strong></p></blockquote><span id="more"></span><hr><h1 id="早有的疑惑">早有的疑惑</h1><p>我们都知道，时至今日，在普通话全国推行的大背景下，“ɲit”系（如湘语、西南官话等）和“ʦʰɑk”系（如赣语、南京官话等）这指代同一动作的两个最古老、最广泛的发音及其演变出的各变种仍因为地区的不同而出现在不同的方言中，尚未见一统的趋势。而与此截然不同的是这句“他妈的”竟然早已传遍九州，成为放之四海而皆准的一句国骂了，实在是让人啧啧称奇。不仅如此，这没头没尾的一个词（甚至不算一个词，仿佛是它原来是一个偏正短语，而“偏”把“正”都给掩盖了）也让人疑惑它为什么具有如此的攻击性和认可度。我曾和<ins>秀之兄</ins>探讨过这个神秘的问题——“他妈的”，究竟是谁妈的？可惜并没有实质性的结果。</p><p>现在我正打算好好重新思考这个问题。</p><hr><h1 id="虚空索敌">虚空索敌</h1><p>在二人对话的时候，这句“他妈的”貌似没有攻击任何人，可还是会让对方觉得自己受到了侮辱，说话人甚至不用在“他”前面再冠以一个“你”来强制指向听话人。这很奇怪，就像英语中的：</p><blockquote><p>Damn it!</p></blockquote><p>这里的“it”同样不是表示说话人真的诅咒了什么东西，可见“it”的语义在“damn”的对比下已经退化至几乎没有了。那么，既然“他妈的”能够对听话人造成直接的伤害，重点显然也不在“他”，而在“妈的”。</p><p>可这一词的出现也甚是奇怪。倘若叫一个外国人来看，一定无法理解它的意思——一个残缺的定语，仿佛话没有说完一样。纵观别国的国骂，是较少出现这样的现象的，像俄语的“Сука блядь”是由两个名词构成，日语的“馬鹿野郎（ばかやろう）”也是如此，英语的“Fuck”虽是动词，单独出现却并不像一个定语单独出现那么奇怪，而且后面还通常有一个“U”来锁定对面呢。相比之下，汉语仿佛一贯的“婉转”起来，不仅话不说完，还顾左右而言“他”，却仍然保持攻击力，该说不愧是保持了詈语中的“优良传统”——攻击人不如攻击其家人。</p><p>由此可见，其实这句“他妈的”并非虚空索敌。在“他”的意思弱化的前提下，如果一定要探讨其意义，那么首先：</p><p><mark>无论“他”是谁，它一定包含了“你”的意思。</mark></p><p>然而，语言并不在真空中产生。为什么终究是“他”而不是“你”，并不能简单地由此得到答案。</p><hr><h1 id="家与世家">家与世家</h1><p>按照鲁迅先生的说法，攻击血缘血统，“在戰略上，真可謂奇譎的了。最先發明這一句“他媽的”的人物，確要算一個天才，——然而是一個卑劣的天才。”<ins>魏</ins>、<ins>晋</ins>以来，世家、门阀兴起，几乎垄断了一切上升的道路。普通人想要为官从仕，难如登天。而世家子弟借助祖上积累的名望之荫蔽，即便平庸无能也能得到一个闲职。对此不满的人可以分为两类：有文化而寒门出身的，以及庶民。《广弘明记·卷七》中记载：</p><div class="wenyan"><p>邢子才、河間人、仕魏著作郎遷中書黄門郎、以為婦人不可保、謂元景曰、卿何必姓王、元景變色、子才曰、我亦何必姓邢、能保五世耶。</p></div><p>大概是说<ins>邢子才</ins>认为<ins>王元景</ins>并不一定姓<ins>王</ins>（即血统不纯之意），而自己也不一定姓<ins>邢</ins>。血统即使再高贵，五世之后继承它的人，仍然就高贵么？<ins>王</ins>自<ins>魏</ins>、<ins>晋</ins>时已是大姓，到<ins>北魏</ins>，旁支一定众多，其中想必就有与宗家相隔甚远，只是沾了<ins>王</ins>姓的光的存在。<ins>邢子才</ins>用这种方式讽刺这些承蒙祖辈威名的无能之人，轻而易举使其“变色”。毕竟他们既没有能力，也没有功绩，唯一值得骄傲的祖辈一旦被毁，就与庶民无异了。</p><p>而“同一的意思，但沒有邢子才的文才，而直出於“下等人”之口的，就是：‘他媽的！’”</p><p>我认为这段分析实在是精彩。一是即便是再卑微的分家，仍然不是彻底的庶民能高攀的；二是在教育不普及的古代，一般人的确很难以<ins>邢子才</ins>那样的方式去讽刺豪绅们。倘若穷苦老百姓受到这些末流的欺负了，便能够当着这些人的面狠狠骂一句“他妈的”——“你妈的”是不能骂的，而“他妈的”的“他”却可以任由自己发挥。比方说心里想骂的是这豪绅的兄弟姐妹，那也算是拐弯抹角的骂到他本人了。又或者是两个人闲谈，聊到乡里的这些“暴发户”们又订了什么苛捐杂税，又打人了抢劫了，于是啐一口，骂一句“他妈的”，这肯定是直指那些人本人了。</p><p>这样来看，<mark>人们把对欺压者、苦闷事化做一个假想敌（“他”），然后用最狠的方式去攻击来发泄怨气。</mark> 虽然这只是象征性的复仇，但是对于一个隐忍的民族来说，已经足够了。</p><hr><h1 id="语义通胀">语义通胀</h1><p>今天已经没人在乎“他妈的”究竟是谁妈的了。</p><p>以前，“冷”和“很冷”可能一个在零上，多穿点衣服还能正常活动；一个在零下，冻得你出不了门。而今天“冷”和“冷的要死”可能并没有什么区别。同样，“哈哈哈哈哈哈哈哈哈哈”并不比“哈哈哈”更高兴一些，叫“宝子”、“亲”未必就比叫“您”更亲昵，“食堂里”也未必（？）就装得下“全中国的人”……事物的发展之迅速超乎人的想象，语言不能及时更新，原有词汇的语义就必然会通胀以适应新的用途。</p><p>“他妈的”也是如此。现在“他”就算直接换成“你”，我想真正会感到被冒犯的人也不会占多数。这句话已经彻底成为了一个语气词：它早已失去语法功能，现在其辱骂的意义也已被稀释。究其原因其实很多，汉语的詈语随着时间的变化也在不断变多，更具攻击性的话也层出不穷。社会风气的转变和民众思想的开悟也是重要的原因，人们很多时候不再需要拐弯抹角地去攻击来获得内心的安慰。</p><p>另外：</p><blockquote><p>中國人至今還有無數“等”，還是依賴門第，還是倚仗祖宗。倘不改造，即永遠有無聲的或有聲的“國罵”。就是“他媽的”，圍繞在上下和四旁，而且這還須在太平的時候。</p></blockquote><p>现在来看，确实已经彻底改造了。</p><h1 id="最后的最后">最后的最后</h1><p>“ɲit”系和“ʦʰɑk”系仍因为地区的不同而出现在不同的方言中，尚未见一统的趋势。而与此截然不同的是这句“他妈的”竟然早已传遍九州，成为放之四海而皆准的一句国骂了。再次考虑开头这个问题，其实并不难回答。因为“他妈的”所蕴含的用法、深层的社会基础和跨越地域和方言的朴素情感，让它举国通用。方言仍然会影响这三个字的具体读音，但是“他”永远是“他妈的”的“他”，“妈”永远是“他妈的”的“妈”，“的”永远是“他妈的”的“的”。</p>]]></content:encoded>
-      
-      
-      <category domain="https://samuflore.top/categories/%E9%B6%B4%E9%B3%B4%E6%B4%B2%E9%9B%86/">鶴鳴洲集</category>
-      
-      
-      <category domain="https://samuflore.top/tags/Linguistics/">Linguistics</category>
-      
-      
-      <comments>https://samuflore.top/posts/f4bf9c17/#disqus_thread</comments>
       
     </item>
     
