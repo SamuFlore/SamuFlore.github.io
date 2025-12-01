@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=LXGW WenKai TC:300,300italic,400,400italic,700,700italic|Pinyon Script:300,300italic,400,400italic,700,700italic|Cactus Classical Serif:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"samuflore.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#6A5ACD","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="序 我去，这才是我最接近 AK 的一次呃呃……">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[CO P6]Verilog 设计五级流水线 CPU-2">
+<meta property="og:url" content="https://samuflore.top/posts/905092e9/index.html">
+<meta property="og:site_name" content="SamuFlore&#39;s Dimension">
+<meta property="og:description" content="序 我去，这才是我最接近 AK 的一次呃呃……">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://samuflore.top/posts/905092e9/%E6%9E%B6%E6%9E%84.png">
+<meta property="article:published_time" content="2025-12-01T13:15:56.000Z">
+<meta property="article:modified_time" content="2025-12-01T14:37:59.552Z">
+<meta property="article:author" content="Samustach Floresein">
+<meta property="article:tag" content="CO">
+<meta property="article:tag" content="MIPS">
+<meta property="article:tag" content="Verilog">
+<meta property="article:tag" content="P6">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://samuflore.top/posts/905092e9/%E6%9E%B6%E6%9E%84.png">
+
+<link rel="canonical" href="https://samuflore.top/posts/905092e9/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>[CO P6]Verilog 设计五级流水线 CPU-2 | SamuFlore's Dimension</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- hexo injector head_end end --><link rel="alternate" href="/rss2.xml" title="SamuFlore's Dimension" type="application/rss+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--blockquote-bg-color:#555;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+    <a target="_blank" rel="noopener" href="https://github.com/SamuFlore/SamuFlore.github.io" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">SamuFlore's Dimension</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">德才兼備、知行合一</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a>
+
+  </li>
+        <li class="menu-item menu-item-guestbook">
+
+    <a href="/guestbook/" rel="section"><i class="fa fa-book fa-fw"></i>留言</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://samuflore.top/posts/905092e9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Samustach Floresein">
+      <meta itemprop="description" content="一人倒、衆人倒。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SamuFlore's Dimension">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [CO P6]Verilog 设计五级流水线 CPU-2
+        </h1>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-12-01 21:15:56 / 修改时间：22:37:59" itemprop="dateCreated datePublished" datetime="2025-12-01T21:15:56+08:00">2025-12-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B5%84%E6%88%90%E5%8E%9F%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">計算機組成原理</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/905092e9/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/905092e9/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>8.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>17 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="530" height="86" src="//music.163.com/outchain/player?type=2&id=2085117641&auto=0&height=66"></iframe>
+<h1 id="序">序</h1>
+<p>我去，这才是我最接近 AK 的一次呃呃……</p>
+<span id="more"></span>
+<h1 id="内存外置">内存外置</h1>
+<p>负责存储数据的 DM 和指令的 IM 并不是 CPU 的一部分，因此我们需要将其从 CPU 架构中移除。<br>
+<img src="/posts/905092e9/%E6%9E%B6%E6%9E%84.png" alt="新的架构"></p>
+<h1 id="新增的设计草稿">新增的设计草稿</h1>
+<p>已实现指令:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">add, sub, and, or, slt, sltu, lui</span><br><span class="line">addi, andi, ori</span><br><span class="line">lb, lh, lw, sb, sh, sw</span><br><span class="line">mult, multu, div, divu, mfhi, mflo, mthi, mtlo</span><br><span class="line">beq, bne, jal, jr</span><br></pre></td></tr></table></figure>
+<h2 id="设计-MDU">设计 MDU</h2>
+<p>MDU 与 ALU 并列存在于 E 级，负责计算和乘除法相关指令，以及读写 HI 和 LO 两个寄存器。端口定义如下：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>种类</th>
+<th>位宽</th>
+<th>方向</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clk</td>
+<td>wire</td>
+<td>1</td>
+<td>I</td>
+<td>时钟信号</td>
+</tr>
+<tr>
+<td>reset</td>
+<td>wire</td>
+<td>1</td>
+<td>I</td>
+<td>同步复位信号</td>
+</tr>
+<tr>
+<td>inputA</td>
+<td>wire</td>
+<td>31:0</td>
+<td>I</td>
+<td>第一个操作数</td>
+</tr>
+<tr>
+<td>inputB</td>
+<td>wire</td>
+<td>31:0</td>
+<td>I</td>
+<td>第二个操作数</td>
+</tr>
+<tr>
+<td>instr_type</td>
+<td>wire</td>
+<td>5:0</td>
+<td>I</td>
+<td>指令种类</td>
+</tr>
+<tr>
+<td>start</td>
+<td>wire</td>
+<td>1</td>
+<td>I</td>
+<td>start 为 1 时，MDU 开始运算，并将 busy 置为 1 若干周期</td>
+</tr>
+<tr>
+<td>outputB</td>
+<td>wire</td>
+<td>31:0</td>
+<td>O</td>
+<td>MDU 输出结果，视情况与 ALU 输出的 outputA 进行选择</td>
+</tr>
+<tr>
+<td>busy</td>
+<td>wire</td>
+<td>1</td>
+<td>O</td>
+<td>MDU 使用中信号。当其为 1 时，阻塞所有需要用到 MDU 的指令</td>
+</tr>
+</tbody>
+</table>
+<h2 id="修改-ST">修改 ST</h2>
+<p>ST 是我原来的为 DM 设计的预处理模块。因为 DM 外置，因此需要进行修改。将写入 DM 的使能信号改为 4 位宽，分别对应 4 个字节的写入使能，这样就能实现 <code>sb st</code> 等功能。</p>
+<h1 id="思考题">思考题</h1>
+<ol>
+<li class="lvl-3">
+<p>为什么需要有单独的乘除法部件而不是整合进 ALU？为何需要有独立的 HI、LO 寄存器？<br>
+<strong>答</strong>：乘除法运算时间长，且计算结果不需要立刻写入 GRF 或 DM 中。如果整合进 ALU，效率低下。HI 和 LO 独立保存乘除法结果，不会立即使用，即在计算中不影响 ALU 的正常流水。</p>
+</li>
+<li class="lvl-3">
+<p>真实的流水线 CPU 是如何使用实现乘除法的？请查阅相关资料进行简单说明。<br>
+<strong>答</strong>：首先CPU会初始化三个通用寄存器用来存放被乘数，乘数，部分积的二进制数，部分积寄存器初始化为 0。然后在判断乘数寄存器的低位是低电平还是高电平：如果为低（0）则将乘数寄存器右移一位，同时将部分积寄存器也右移一位，乘数寄存器低位溢出的一位丢弃，部分积寄存器低位溢出的一位填充到乘数寄存器的高位，同时部分积寄存器高位补 0。如果为 1 则将部分积寄存器加上被乘数寄存器，在进移位操作。<br>
+当所有乘数位处理完成后部分积寄存器做高位乘数寄存器做低位就是最终乘法结果。</p>
+</li>
+<li class="lvl-3">
+<p>请结合自己的实现分析，你是如何处理 Busy 信号带来的周期阻塞的？<br>
+<strong>答</strong>：首先 <code>busy</code> 信号只影响进入 MDU 的指令。故需要在 Controller 输出一个判断当前指令是否为进入 MDU 指令的信号 <code>D_is_mult</code>。MDU 负责根据正在起作用的指令进行倒计时，计时结束前 busy 均为 1，用<code>(D_ismult &amp;&amp; (E_start || E_busy))</code> 这个条件来判断是否进行阻塞。</p>
+</li>
+<li class="lvl-3">
+<p>请问采用字节使能信号的方式处理写指令有什么好处？（提示：从清晰性、统一性等角度考虑）<br>
+<strong>答</strong>：首先第 n 位使能信号为 1 就表明第 n 字节需要写入，形成一一映射关系，很清晰。其次对于所有关于按字节/半字写入的指令，都有统一的提供使能信号的方式，提高了扩展性。</p>
+</li>
+<li class="lvl-3">
+<p>请思考，我们在按字节读和按字节写时，实际从 DM 获得的数据和向 DM 写入的数据是否是一字节？在什么情况下我们按字节读和按字节写的效率会高于按字读和按字写呢？<br>
+<strong>答</strong>：不是。需要高频进行按字节读写时效率更高。</p>
+</li>
+<li class="lvl-3">
+<p>为了对抗复杂性你采取了哪些抽象和规范手段？这些手段在译码和处理数据冲突的时候有什么样的特点与帮助？<br>
+<strong>答</strong>：严格按照流水级进行信号的命名，这样方便在信号多的时候分清楚级次。为易混淆的信号增加特殊的命名，比如写入 DM 的数据和 写入 GRF 的数据都能用 <code>data</code> 表示，就分别用 <code>DM_data GRF_data</code> 表示。</p>
+</li>
+<li class="lvl-3">
+<p>在本实验中你遇到了哪些不同指令类型组合产生的冲突？你又是如何解决的？相应的测试样例是什么样的？<br>
+<strong>答</strong>：<br>
+两条计算指令紧邻时的情况，转发：</p>
+</li>
+</ol>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">addi </span>$<span class="built_in">t0</span>, $<span class="built_in">t0</span>, <span class="number">0x00000001</span></span><br><span class="line"><span class="keyword">ori </span>$<span class="built_in">t0</span>, $<span class="built_in">t0</span>, <span class="number">0x00000000</span></span><br></pre></td></tr></table></figure>
+<p>一条访存类指令紧跟一条计算类指令的情况，阻塞：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">lw </span>$<span class="built_in">t0</span>, <span class="number">0</span>($<span class="number">0</span>)</span><br><span class="line"><span class="keyword">addi </span>$<span class="built_in">t0</span>, $<span class="built_in">t0</span>, <span class="number">0x00000001</span></span><br></pre></td></tr></table></figure>
+<ol start="8">
+<li class="lvl-3">
+<p>如果你是手动构造的样例，请说明构造策略，说明你的测试程序如何保证<strong>覆盖</strong>了所有需要测试的情况；如果你是<strong>完全随机</strong>生成的测试样例，请思考完全随机的测试程序有何不足之处；如果你在生成测试样例时采用了<strong>特殊的策略</strong>，比如构造连续数据冒险序列，请你描述一下你使用的策略如何<strong>结合了随机性</strong>达到强测的效果。<br>
+<strong>答</strong>：使用随机生成的测试数据，可能出现阻塞，转发的触发情况测试不足等问题，需要自行增加一些相关的测试。</p>
+</li>
+</ol>
+<h1 id="测试">测试</h1>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment"># ==========================================</span></span><br><span class="line">    <span class="comment"># 1. 初始化与基础运算</span></span><br><span class="line">    <span class="comment"># ==========================================</span></span><br><span class="line">    <span class="keyword">addi </span>$<span class="built_in">s0</span>, $<span class="built_in">zero</span>, <span class="number">0</span>      <span class="comment"># $s0 用于累积校验和 (Checksum)</span></span><br><span class="line">    <span class="keyword">lui </span> $<span class="built_in">t0</span>, <span class="number">0x0000</span>        <span class="comment"># $t0 = 0 (Data Base Address)</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">addi </span>$<span class="built_in">t1</span>, $<span class="built_in">zero</span>, <span class="number">10</span>     <span class="comment"># $t1 = 10</span></span><br><span class="line">    <span class="keyword">addi </span>$<span class="built_in">t2</span>, $<span class="built_in">zero</span>, <span class="number">20</span>     <span class="comment"># $t2 = 20</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 测试 add/sub/or/and</span></span><br><span class="line">    <span class="keyword">add </span> $<span class="built_in">t3</span>, $<span class="built_in">t1</span>, $<span class="built_in">t2</span>      <span class="comment"># $t3 = 30</span></span><br><span class="line">    <span class="keyword">sub </span> $<span class="built_in">t4</span>, $<span class="built_in">t3</span>, $<span class="built_in">t1</span>      <span class="comment"># [Hazard: EX-EX] $t4 = 30 - 10 = 20</span></span><br><span class="line">    <span class="keyword">or </span>  $<span class="built_in">t5</span>, $<span class="built_in">t1</span>, $<span class="built_in">t2</span>      <span class="comment"># $t5 = 10 | 20 = 30</span></span><br><span class="line">    <span class="keyword">and </span> $<span class="built_in">t6</span>, $<span class="built_in">t1</span>, $<span class="built_in">t2</span>      <span class="comment"># $t6 = 10 &amp; 20 = 0 (1010 &amp; 10100) -&gt; wait, 10=0xA, 20=0x14. 01010 &amp; 10100 = 0.</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">add </span> $<span class="built_in">s0</span>, $<span class="built_in">s0</span>, $<span class="built_in">t3</span>      <span class="comment"># Checksum += 30</span></span><br><span class="line">    <span class="keyword">add </span> $<span class="built_in">s0</span>, $<span class="built_in">s0</span>, $<span class="built_in">t4</span>      <span class="comment"># Checksum += 20</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># ==========================================</span></span><br><span class="line">    <span class="comment"># 2. 乘除法与 HI/LO (MD Extension)</span></span><br><span class="line">    <span class="comment"># ==========================================</span></span><br><span class="line">    <span class="comment"># 测试 mult (有符号)</span></span><br><span class="line">    <span class="keyword">addi </span>$<span class="built_in">t7</span>, $<span class="built_in">zero</span>, -<span class="number">2</span>     <span class="comment"># $t7 = -2</span></span><br><span class="line">    <span class="keyword">mult </span>$<span class="built_in">t1</span>, $<span class="built_in">t7</span>           <span class="comment"># 10 * (-2) = -20. Hi=FFFFFFFF, Lo=FFFFFFEC</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 测试 mflo 在 mult 后立即读取 (应该 Stall 或正确读取)</span></span><br><span class="line">    <span class="keyword">mflo </span>$<span class="built_in">t8</span>                <span class="comment"># $t8 = -20</span></span><br><span class="line">    <span class="keyword">mfhi </span>$<span class="built_in">t9</span>                <span class="comment"># $t9 = -1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">add </span> $<span class="built_in">s0</span>, $<span class="built_in">s0</span>, $<span class="built_in">t8</span>      <span class="comment"># Checksum += -20</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 测试 divu (无符号)</span></span><br><span class="line">    <span class="comment"># $t2 = 20, $t1 = 10</span></span><br><span class="line">    <span class="keyword">addi </span>$<span class="built_in">k0</span>, $<span class="built_in">zero</span>, <span class="number">3</span></span><br><span class="line">    <span class="keyword">divu </span>$<span class="built_in">t2</span>, $<span class="built_in">k0</span>           <span class="comment"># 20 / 3 = 6 ... 2</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">mflo </span>$<span class="built_in">s1</span>                <span class="comment"># $s1 = 6 (Quotient)</span></span><br><span class="line">    <span class="keyword">mfhi </span>$<span class="built_in">s2</span>                <span class="comment"># $s2 = 2 (Remainder)</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">add </span> $<span class="built_in">s0</span>, $<span class="built_in">s0</span>, $<span class="built_in">s1</span>      <span class="comment"># Checksum += 6</span></span><br><span class="line">    <span class="keyword">add </span> $<span class="built_in">s0</span>, $<span class="built_in">s0</span>, $<span class="built_in">s2</span>      <span class="comment"># Checksum += 2</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 测试 mtlo/mthi/mflo/mfhi 数据传递</span></span><br><span class="line">    <span class="keyword">addi </span>$<span class="built_in">k1</span>, $<span class="built_in">zero</span>, <span class="number">100</span></span><br><span class="line">    <span class="keyword">mtlo </span>$<span class="built_in">k1</span></span><br><span class="line">    <span class="keyword">mflo </span>$<span class="built_in">k1</span>                <span class="comment"># $k1 应该读回 100</span></span><br><span class="line">    <span class="keyword">add </span> $<span class="built_in">s0</span>, $<span class="built_in">s0</span>, $<span class="built_in">k1</span>      <span class="comment"># Checksum += 100</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># ==========================================</span></span><br><span class="line">    <span class="comment"># 3. 内存访问与 Load-Use 冒险</span></span><br><span class="line">    <span class="comment"># ==========================================</span></span><br><span class="line">    <span class="comment"># 准备数据</span></span><br><span class="line">    <span class="keyword">addi </span>$<span class="built_in">a0</span>, $<span class="built_in">zero</span>, <span class="number">0x1234</span></span><br><span class="line">    <span class="keyword">sll </span> $<span class="built_in">a0</span>, $<span class="built_in">a0</span>, <span class="number">16</span>       <span class="comment"># $a0 = 0x12340000</span></span><br><span class="line">    <span class="keyword">ori </span> $<span class="built_in">a0</span>, $<span class="built_in">a0</span>, <span class="number">0x5678</span>   <span class="comment"># $a0 = 0x12345678</span></span><br><span class="line">    <span class="keyword">sw </span>  $<span class="built_in">a0</span>, <span class="number">0</span>($<span class="built_in">t0</span>)        <span class="comment"># Mem[0] = 0x12345678</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 测试 SB (Store Byte)</span></span><br><span class="line">    <span class="keyword">addi </span>$<span class="built_in">a1</span>, $<span class="built_in">zero</span>, <span class="number">0xFF</span></span><br><span class="line">    <span class="keyword">sb </span>  $<span class="built_in">a1</span>, <span class="number">4</span>($<span class="built_in">t0</span>)        <span class="comment"># Mem[4] 低字节 = FF</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 测试 Load-Use Stall</span></span><br><span class="line">    <span class="keyword">lw </span>  $<span class="built_in">a2</span>, <span class="number">0</span>($<span class="built_in">t0</span>)        <span class="comment"># $a2 = 0x12345678</span></span><br><span class="line">    <span class="keyword">add </span> $<span class="built_in">a3</span>, $<span class="built_in">a2</span>, $<span class="built_in">a2</span>      <span class="comment"># [Load-Use Hazard] 必须 Stall. $a3 = ...F0</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 测试 LB (Load Byte Signed)</span></span><br><span class="line">    <span class="keyword">lb </span>  $<span class="built_in">a3</span>, <span class="number">4</span>($<span class="built_in">t0</span>)        <span class="comment"># Mem[4] 是 0xFF, lb 扩展为 0xFFFFFFFF (-1)</span></span><br><span class="line">    <span class="keyword">add </span> $<span class="built_in">s0</span>, $<span class="built_in">s0</span>, $<span class="built_in">a3</span>      <span class="comment"># Checksum += -1</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># ==========================================</span></span><br><span class="line">    <span class="comment"># 4. 控制流与延迟槽</span></span><br><span class="line">    <span class="comment"># ==========================================</span></span><br><span class="line">    <span class="comment"># 测试 BEQ (Not Taken)</span></span><br><span class="line">    <span class="keyword">beq </span> $<span class="built_in">t1</span>, $<span class="built_in">t2</span>, fail_jump</span><br><span class="line">    <span class="keyword">addi </span>$<span class="built_in">s0</span>, $<span class="built_in">s0</span>, <span class="number">1</span>        <span class="comment"># [Delay Slot] 必须执行 Checksum += 1</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 测试 JAL</span></span><br><span class="line">    <span class="keyword">jal </span> my_func</span><br><span class="line">    <span class="keyword">addi </span>$<span class="built_in">s0</span>, $<span class="built_in">s0</span>, <span class="number">2</span>        <span class="comment"># [Delay Slot] 必须执行 Checksum += 2</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 返回后继续</span></span><br><span class="line">    <span class="keyword">j </span>   finish</span><br><span class="line">    <span class="keyword">nop</span></span><br><span class="line"><span class="keyword"></span><span class="symbol"></span></span><br><span class="line"><span class="symbol">fail_jump:</span></span><br><span class="line">    <span class="keyword">addi </span>$<span class="built_in">s0</span>, $<span class="built_in">zero</span>, <span class="number">0xBAD</span>  <span class="comment"># 错误标记</span></span><br><span class="line">    <span class="keyword">j </span>   finish</span><br><span class="line">    <span class="keyword">nop</span></span><br><span class="line"><span class="keyword"></span><span class="symbol"></span></span><br><span class="line"><span class="symbol">my_func:</span></span><br><span class="line">    <span class="comment"># 测试 JALR</span></span><br><span class="line">    <span class="keyword">addi </span>$<span class="built_in">s0</span>, $<span class="built_in">s0</span>, <span class="number">10</span>       <span class="comment"># Checksum += 10</span></span><br><span class="line">    <span class="keyword">jalr </span>$<span class="built_in">ra</span></span><br><span class="line">    <span class="keyword">addi </span>$<span class="built_in">s0</span>, $<span class="built_in">s0</span>, <span class="number">5</span>        <span class="comment"># [Delay Slot] 必须执行 Checksum += 5 (在跳转动作发生前执行)</span></span><br><span class="line"><span class="symbol"></span></span><br><span class="line"><span class="symbol">finish:</span></span><br><span class="line">    <span class="comment"># 最终结果写回 Mem[0x50] (80)</span></span><br><span class="line">    <span class="comment"># 预期 Checksum 计算:</span></span><br><span class="line">    <span class="comment"># Init: 0</span></span><br><span class="line">    <span class="comment"># ALU: +30, +20 = 50</span></span><br><span class="line">    <span class="comment"># MD: -20, +6, +2, +100 = 88 (Accum: 138)</span></span><br><span class="line">    <span class="comment"># MEM: -1 = 137</span></span><br><span class="line">    <span class="comment"># Branch Slot: +1 = 138</span></span><br><span class="line">    <span class="comment"># JAL Slot: +2 = 140</span></span><br><span class="line">    <span class="comment"># Func: +10 = 150</span></span><br><span class="line">    <span class="comment"># JALR Slot: +5 = 155 (0x9B)</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">addi </span>$<span class="built_in">t9</span>, $<span class="built_in">zero</span>, <span class="number">0x50</span></span><br><span class="line">    <span class="keyword">sw </span>  $<span class="built_in">s0</span>, <span class="number">0</span>($<span class="built_in">t9</span>)        <span class="comment"># 将校验和写入地址 0x50</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 结束，不再进行任何操作，等待 Testbench 捕获</span></span><br><span class="line">    <span class="keyword">nop</span></span><br><span class="line"><span class="keyword"></span>    <span class="keyword">nop</span></span><br><span class="line"><span class="keyword"></span>    <span class="keyword">nop</span></span><br><span class="line"><span class="keyword"></span>    <span class="keyword">nop</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="第一题-MUJICA">第一题 MUJICA</h1>
+<p>MUJICA，全称 Mask Update Joint Immediate Conditional Add</p>
+<div class="note info">
+            <p>细节 Mask，细节 Update，细节 Joint，细节 Immediate，细节 Conditional，细节 Add。</p>
+          </div>
+<table>
+<thead>
+<tr>
+<th>31:26</th>
+<th>25:21</th>
+<th>20:16</th>
+<th>15:0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>opcode</td>
+<td>rs</td>
+<td>rt</td>
+<td>immediate</td>
+</tr>
+<tr>
+<td>110100</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>mujica rs rt immediate</code></p>
+<p>RTL 如下：</p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mi>d</mi><mi>e</mi><mi>f</mi><mtext>  </mtext><mi>c</mi><mi>o</mi><mi>u</mi><mi>n</mi><mi>t</mi><mi mathvariant="normal">_</mi><mi>o</mi><mi>n</mi><mi>e</mi><mi>s</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>:</mo><mtext>计算</mtext><mtext>  </mtext><mi>x</mi><mtext>  </mtext><mtext>中</mtext><mtext>  </mtext><mn>1</mn><mtext>  </mtext><mtext>的个数</mtext></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mtext>imm_extend</mtext><mo>←</mo><mi>s</mi><mi>i</mi><mi>g</mi><mi>n</mi><mi mathvariant="normal">_</mi><mi>e</mi><mi>x</mi><mi>t</mi><mi>e</mi><mi>n</mi><mi>d</mi><mo stretchy="false">(</mo><mtext>immediate</mtext><mo stretchy="false">)</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mtext>ones_count</mtext><mo>←</mo><mi>c</mi><mi>o</mi><mi>u</mi><mi>n</mi><mi>t</mi><mi mathvariant="normal">_</mi><mi>o</mi><mi>n</mi><mi>e</mi><mi>s</mi><mo stretchy="false">(</mo><mtext>immediate</mtext><mo stretchy="false">)</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mi>i</mi><mi>f</mi><mtext>  </mtext><mtext>ones_count</mtext><mspace></mspace><mspace width="1em"><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">d</mi></mrow><mtext> </mtext><mtext> </mtext><mn>2</mn><mo>=</mo><mn>0</mn><mtext>  </mtext><mi>t</mi><mi>h</mi><mi>e</mi><mi>n</mi></mspace></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mspace width="1em"><mtext>temp</mtext><mo>←</mo><mtext>GPR[rs]</mtext><mtext>  </mtext><mi mathvariant="normal">&amp;</mi><mtext>  </mtext><mtext>imm_extend</mtext></mspace></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mspace width="1em"><mtext>GPR[rt]</mtext><mo>←</mo><mtext>temp</mtext><mtext>  </mtext><mo>+</mo><mtext>  </mtext><mtext>GPR[rt]</mtext></mspace></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mi>e</mi><mi>l</mi><mi>s</mi><mi>e</mi><mtext>  </mtext><mi>t</mi><mi>h</mi><mi>e</mi><mi>n</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mspace width="1em"><mtext>temp</mtext><mo>←</mo><mtext>GPR[rs]</mtext><mtext>  </mtext><mi mathvariant="normal">∣</mi><mtext>  </mtext><mtext>imm_extend</mtext></mspace></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mspace width="1em"><mtext>GPR[rt]</mtext><mo>←</mo><mtext>temp</mtext><mtext>  </mtext><mo>∧</mo><mtext>  </mtext><mtext>GPR[rt]</mtext></mspace></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mi>e</mi><mi>n</mi><mi>d</mi><mi>i</mi><mi>f</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+&amp; def\;count\_ones(x):计算\;x\;中\;1\;的个数 \\
+&amp; \text{imm\_extend} \leftarrow sign\_extend(\text{immediate}) \\
+&amp; \text{ones\_count} \leftarrow count\_ones(\text{immediate}) \\
+&amp; if \; \text{ones\_count} \mod 2 = 0 \;then \\
+&amp; \quad  \text{temp} \leftarrow \text{GPR[rs]} \; \&amp; \; \text{imm\_extend} \\
+&amp; \quad \text{GPR[rt]} \leftarrow \text{temp} \; + \; \text{GPR[rt]} \\
+&amp; else \; then \\
+&amp; \quad  \text{temp} \leftarrow \text{GPR[rs]} \; | \; \text{imm\_extend} \\
+&amp; \quad \text{GPR[rt]} \leftarrow \text{temp} \; \wedge \; \text{GPR[rt]} \\
+&amp; endif
+\end{aligned}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:15em;vertical-align:-7.25em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:7.75em;"><span style="top:-9.75em;"><span class="pstrut" style="height:2.84em;"></span><span class="mord"></span></span><span style="top:-8.25em;"><span class="pstrut" style="height:2.84em;"></span><span class="mord"></span></span><span style="top:-6.75em;"><span class="pstrut" style="height:2.84em;"></span><span class="mord"></span></span><span style="top:-5.25em;"><span class="pstrut" style="height:2.84em;"></span><span class="mord"></span></span><span style="top:-3.75em;"><span class="pstrut" style="height:2.84em;"></span><span class="mord"></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:2.84em;"></span><span class="mord"></span></span><span style="top:-0.75em;"><span class="pstrut" style="height:2.84em;"></span><span class="mord"></span></span><span style="top:0.75em;"><span class="pstrut" style="height:2.84em;"></span><span class="mord"></span></span><span style="top:2.25em;"><span class="pstrut" style="height:2.84em;"></span><span class="mord"></span></span><span style="top:3.75em;"><span class="pstrut" style="height:2.84em;"></span><span class="mord"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:7.25em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:7.75em;"><span style="top:-9.91em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">co</span><span class="mord mathnormal">u</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span><span class="mord" style="margin-right:0.02778em;">_</span><span class="mord mathnormal">o</span><span class="mord mathnormal">n</span><span class="mord mathnormal">es</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord cjk_fallback">计算</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord cjk_fallback">中</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord cjk_fallback">的个数</span></span></span><span style="top:-8.41em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mord text"><span class="mord">imm_extend</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">←</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">s</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">n</span><span class="mord" style="margin-right:0.02778em;">_</span><span class="mord mathnormal">e</span><span class="mord mathnormal">x</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord mathnormal">d</span><span class="mopen">(</span><span class="mord text"><span class="mord">immediate</span></span><span class="mclose">)</span></span></span><span style="top:-6.91em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mord text"><span class="mord">ones_count</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">←</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">co</span><span class="mord mathnormal">u</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span><span class="mord" style="margin-right:0.02778em;">_</span><span class="mord mathnormal">o</span><span class="mord mathnormal">n</span><span class="mord mathnormal">es</span><span class="mopen">(</span><span class="mord text"><span class="mord">immediate</span></span><span class="mclose">)</span></span></span><span style="top:-5.41em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">ones_count</span></span><span class="mspace allowbreak"></span><span class="mspace" style="margin-right:1em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">mod</span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span></span></span><span style="top:-3.91em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:1em;"></span><span class="mord text"><span class="mord">temp</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">←</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">GPR[rs]</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord">&amp;</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">imm_extend</span></span></span></span><span style="top:-2.41em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:1em;"></span><span class="mord text"><span class="mord">GPR[rt]</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">←</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">temp</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord text"><span class="mord">GPR[rt]</span></span></span></span><span style="top:-0.91em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">se</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span></span></span><span style="top:0.59em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:1em;"></span><span class="mord text"><span class="mord">temp</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">←</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">GPR[rs]</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">imm_extend</span></span></span></span><span style="top:2.09em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:1em;"></span><span class="mord text"><span class="mord">GPR[rt]</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">←</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">temp</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord text"><span class="mord">GPR[rt]</span></span></span></span><span style="top:3.59em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord mathnormal">d</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:7.25em;"><span></span></span></span></span></span></span></span></span></span></span></span>
+<p>不说了，期待第三季。<br>
+（ps: P6 第一次上机有一题叫 <code>MYGO</code>）</p>
+<h1 id="第二题-BOTTO">第二题 BOTTO</h1>
+<table>
+<thead>
+<tr>
+<th>31:26</th>
+<th>25:21</th>
+<th>20:16</th>
+<th>15:0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>opcode</td>
+<td>rs</td>
+<td>rt</td>
+<td>offset</td>
+</tr>
+<tr>
+<td>011011</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>botto rs rt offset</code></p>
+<p>RTL 如下：</p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mi>d</mi><mi>e</mi><mi>f</mi><mtext>  </mtext><mi>h</mi><mi>a</mi><mi>m</mi><mi>m</mi><mi>i</mi><mi>n</mi><mi>g</mi><mi mathvariant="normal">_</mi><mi>d</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>a</mi><mi>n</mi><mi>c</mi><mi>e</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">)</mo><mo>:</mo><mtext>计算</mtext><mtext>  </mtext><mi>x</mi><mtext>  </mtext><mtext>和</mtext><mtext>  </mtext><mi>y</mi><mtext>  </mtext><mtext>的汉明距离</mtext></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mtext>hd</mtext><mo>←</mo><mi>h</mi><mi>a</mi><mi>m</mi><mi>m</mi><mi>i</mi><mi>n</mi><mi>g</mi><mi mathvariant="normal">_</mi><mi>d</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>a</mi><mi>n</mi><mi>c</mi><mi>e</mi><mo stretchy="false">(</mo><mtext>GPR[rs], GPR[rt]</mtext><mo stretchy="false">)</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mi>i</mi><mi>f</mi><mtext>  </mtext><mi>h</mi><mi>d</mi><mo>&lt;</mo><mn>8</mn><mtext>  </mtext><mi>t</mi><mi>h</mi><mi>e</mi><mi>n</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mspace width="1em"><mtext>PC</mtext><mo>←</mo><mtext>PC</mtext><mtext>  </mtext><mo>+</mo><mtext>  </mtext><mn>4</mn><mtext>  </mtext><mo>+</mo><mtext>  </mtext><mi>s</mi><mi>i</mi><mi>g</mi><mi>n</mi><mi mathvariant="normal">_</mi><mi>e</mi><mi>x</mi><mi>t</mi><mi>e</mi><mi>n</mi><mi>d</mi><mo stretchy="false">(</mo><mtext>offset</mtext><mi mathvariant="normal">∥</mi><msup><mn>0</mn><mn>2</mn></msup><mo stretchy="false">)</mo></mspace></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mspace width="1em"><mtext>GPR[rt]</mtext><mo>←</mo><mtext>hd</mtext></mspace></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mi>e</mi><mi>l</mi><mi>s</mi><mi>e</mi><mtext>  </mtext><mi>i</mi><mi>f</mi><mtext>  </mtext><mi>h</mi><mi>d</mi><mo>≤</mo><mn>24</mn><mtext>  </mtext><mi>t</mi><mi>h</mi><mi>e</mi><mi>n</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mspace width="1em"><mtext>PC</mtext><mo>←</mo><mtext>PC</mtext><mtext>  </mtext><mo>+</mo><mtext>  </mtext><mn>4</mn></mspace></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mspace width="1em"><mtext>GPR[rs]</mtext><mo>←</mo><mtext>GPR[rt]</mtext><mo>&gt;</mo><mo>&gt;</mo><mo>&gt;</mo><mtext>hd</mtext></mspace></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mi>e</mi><mi>l</mi><mi>s</mi><mi>e</mi><mtext>  </mtext><mi>t</mi><mi>h</mi><mi>e</mi><mi>n</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mspace width="1em"><mtext>PC</mtext><mo>←</mo><mtext>PC</mtext><mtext>  </mtext><mo>+</mo><mtext>  </mtext><mn>4</mn></mspace></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mspace width="1em"><mtext>GPR[rs]</mtext><mo>←</mo><mtext>GPR[rs]</mtext><mtext>  </mtext><mi mathvariant="normal">∣</mi><mtext>  </mtext><mtext>GPR[rt]</mtext></mspace></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mi>e</mi><mi>n</mi><mi>d</mi><mi>i</mi><mi>f</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+&amp; def \; hamming\_distance(x, y):计算\;x\;和\;y\;的汉明距离 \\
+&amp; \text{hd} \leftarrow hamming\_distance(\text{GPR[rs], \text{GPR[rt]}}) \\
+&amp; if \; hd&lt;8\;then \\
+&amp; \quad \text{PC} \leftarrow \text{PC}\;+\;4\;+\;sign\_extend(\text{offset}\|0^2) \\
+&amp; \quad \text{GPR[rt]} \leftarrow \text{hd} \\
+&amp; else \; if \; hd \le24 \; then \\
+&amp; \quad \text{PC} \leftarrow \text{PC}\;+\;4 \\
+&amp; \quad \text{GPR[rs]} \leftarrow \text{GPR[rt]} &gt;&gt;&gt; \text{hd} \\
+&amp; else \; then \\
+&amp; \quad \text{PC} \leftarrow \text{PC}\;+\;4 \\
+&amp; \quad \text{GPR[rs]} \leftarrow \text{GPR[rs]} \; | \; \text{GPR[rt]} \\
+&amp; endif\\
+\end{aligned}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:18.0241em;vertical-align:-8.7621em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:9.2621em;"><span style="top:-11.2862em;"><span class="pstrut" style="height:2.8641em;"></span><span class="mord"></span></span><span style="top:-9.7862em;"><span class="pstrut" style="height:2.8641em;"></span><span class="mord"></span></span><span style="top:-8.2862em;"><span class="pstrut" style="height:2.8641em;"></span><span class="mord"></span></span><span style="top:-6.7621em;"><span class="pstrut" style="height:2.8641em;"></span><span class="mord"></span></span><span style="top:-5.2621em;"><span class="pstrut" style="height:2.8641em;"></span><span class="mord"></span></span><span style="top:-3.7621em;"><span class="pstrut" style="height:2.8641em;"></span><span class="mord"></span></span><span style="top:-2.2621em;"><span class="pstrut" style="height:2.8641em;"></span><span class="mord"></span></span><span style="top:-0.7621em;"><span class="pstrut" style="height:2.8641em;"></span><span class="mord"></span></span><span style="top:0.7379em;"><span class="pstrut" style="height:2.8641em;"></span><span class="mord"></span></span><span style="top:2.2379em;"><span class="pstrut" style="height:2.8641em;"></span><span class="mord"></span></span><span style="top:3.7379em;"><span class="pstrut" style="height:2.8641em;"></span><span class="mord"></span></span><span style="top:5.2379em;"><span class="pstrut" style="height:2.8641em;"></span><span class="mord"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:8.7621em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:9.2621em;"><span style="top:-11.4221em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">hammin</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord" style="margin-right:0.02778em;">_</span><span class="mord mathnormal">d</span><span class="mord mathnormal">i</span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal">an</span><span class="mord mathnormal">ce</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord cjk_fallback">计算</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord cjk_fallback">和</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord cjk_fallback">的汉明距离</span></span></span><span style="top:-9.9221em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mord text"><span class="mord">hd</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">←</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">hammin</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord" style="margin-right:0.02778em;">_</span><span class="mord mathnormal">d</span><span class="mord mathnormal">i</span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal">an</span><span class="mord mathnormal">ce</span><span class="mopen">(</span><span class="mord text"><span class="mord">GPR[rs], </span><span class="mord text"><span class="mord">GPR[rt]</span></span></span><span class="mclose">)</span></span></span><span style="top:-8.4221em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">h</span><span class="mord mathnormal">d</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord">8</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span></span></span><span style="top:-6.8979em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:1em;"></span><span class="mord text"><span class="mord">PC</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">←</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">PC</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">4</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">s</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">n</span><span class="mord" style="margin-right:0.02778em;">_</span><span class="mord mathnormal">e</span><span class="mord mathnormal">x</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord mathnormal">d</span><span class="mopen">(</span><span class="mord text"><span class="mord">offset</span></span><span class="mord">∥</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span><span style="top:-5.3979em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:1em;"></span><span class="mord text"><span class="mord">GPR[rt]</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">←</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">hd</span></span></span></span><span style="top:-3.8979em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">se</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">h</span><span class="mord mathnormal">d</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord">24</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span></span></span><span style="top:-2.3979em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:1em;"></span><span class="mord text"><span class="mord">PC</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">←</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">PC</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">4</span></span></span><span style="top:-0.8979em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:1em;"></span><span class="mord text"><span class="mord">GPR[rs]</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">←</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">GPR[rt]</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;&gt;&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">hd</span></span></span></span><span style="top:0.6021em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">se</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span></span></span><span style="top:2.1021em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:1em;"></span><span class="mord text"><span class="mord">PC</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">←</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">PC</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">4</span></span></span><span style="top:3.6021em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:1em;"></span><span class="mord text"><span class="mord">GPR[rs]</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">←</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">GPR[rs]</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">GPR[rt]</span></span></span></span><span style="top:5.1021em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord mathnormal">d</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:8.7621em;"><span></span></span></span></span></span></span></span></span></span></span></span>
+<p>汉明距离的定义是：</p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>h</mi><mi>a</mi><mi>m</mi><mi>m</mi><mi>i</mi><mi>n</mi><mi>g</mi><mi mathvariant="normal">_</mi><mi>d</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>a</mi><mi>n</mi><mi>c</mi><mi>e</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">)</mo><mo>=</mo><mi>c</mi><mi>o</mi><mi>u</mi><mi>n</mi><mi>t</mi><mi mathvariant="normal">_</mi><mi>o</mi><mi>n</mi><mi>e</mi><mi>s</mi><mo stretchy="false">(</mo><mi>x</mi><mo>∧</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">
+hamming\_distance(x,y) = count\_ones(x \wedge y)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.06em;vertical-align:-0.31em;"></span><span class="mord mathnormal">hammin</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord" style="margin-right:0.02778em;">_</span><span class="mord mathnormal">d</span><span class="mord mathnormal">i</span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal">an</span><span class="mord mathnormal">ce</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.06em;vertical-align:-0.31em;"></span><span class="mord mathnormal">co</span><span class="mord mathnormal">u</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span><span class="mord" style="margin-right:0.02778em;">_</span><span class="mord mathnormal">o</span><span class="mord mathnormal">n</span><span class="mord mathnormal">es</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span></span>
+<p>其中 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mi>o</mi><mi>u</mi><mi>n</mi><mi>t</mi><mi mathvariant="normal">_</mi><mi>o</mi><mi>n</mi><mi>e</mi><mi>s</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex"> count\_ones(x) </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.06em;vertical-align:-0.31em;"></span><span class="mord mathnormal">co</span><span class="mord mathnormal">u</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span><span class="mord" style="margin-right:0.02778em;">_</span><span class="mord mathnormal">o</span><span class="mord mathnormal">n</span><span class="mord mathnormal">es</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span> 的定义同第一题，即两数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> 值不同的位的个数。</p>
+<p>这题是条件跳转 + 写入寄存器地址悬空。<br>
+我的做法是在 D 级计算 <code>hd</code>，以及决定是否跳转（输出相应的 <code>zero</code> 给 NPC）。由于写入寄存器的可能性有两种，要写入的数据也不同，于是添加了一个 <code>wire [1:0] botto_sel</code>，与 <code>hd</code> 一起流水到 E 级进入 ALU。在 ALU 中进行判断要写入的是哪一种结果。然后声明一个 <code>E_exact_A3</code>，在 E 级指令是 <code>botto</code> 的情况下根据 <code>botto_sel</code> 来决定写入 <code>GPR[rs]</code> 或 <code>GPR[rt]</code>，将 <code>E_exact_A3</code> 替换原来的 <code>E_A3</code> 进入流水级寄存器，一直给到 W 级。</p>
+<p>仍旧注意算术右移的实现，记得加 <code>$signed()</code>。</p>
+<h1 id="第三题-LWCM">第三题 LWCM</h1>
+<table>
+<thead>
+<tr>
+<th>31:26</th>
+<th>25:21</th>
+<th>20:16</th>
+<th>15:0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>opcode</td>
+<td>base</td>
+<td>rt</td>
+<td>offset</td>
+</tr>
+<tr>
+<td>111001</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>lwcm rt offset(base)</code></p>
+<div class="note info">
+            <p>本题要求在 M 级加入一个新的 32 位寄存器 WD。WD 在初始化和复位后变成 <code>32'h0</code>，只有 <code>lwcm</code> 可以对其进行读写。</p>
+          </div>
+<p>RTL 如下：</p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mtext>vaddr</mtext><mo>←</mo><mrow><mtext>GPR[base</mtext><mtext>  </mtext><mtext>+</mtext><mtext>  </mtext><mtext>sign_extend(offset)]</mtext></mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mtext>paddr</mtext><mo>←</mo><mi>v</mi><mi>a</mi><mi>d</mi><mi>d</mi><msub><mi>r</mi><mn>31..2</mn></msub><mi mathvariant="normal">∥</mi><msup><mn>0</mn><mn>2</mn></msup></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mtext>memWord</mtext><mo>←</mo><mtext>memory[paddr]</mtext></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mi>i</mi><mi>f</mi><mtext>  </mtext><mtext>memWord</mtext><mo>=</mo><mtext>WD</mtext><mtext>  </mtext><mi>t</mi><mi>h</mi><mi>e</mi><mi>n</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mspace width="1em"><mtext>GPR[rt]</mtext><mo>←</mo><mtext>memWord</mtext></mspace></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mi>e</mi><mi>l</mi><mi>s</mi><mi>e</mi><mtext>  </mtext><mi>t</mi><mi>h</mi><mi>e</mi><mi>n</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mspace width="1em"><mtext>GPR[26]</mtext><mo>←</mo><mtext>memWord</mtext></mspace></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mi>e</mi><mi>n</mi><mi>d</mi><mi>i</mi><mi>f</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mtext>WD</mtext><mo>←</mo><mtext>memWord</mtext></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+&amp; \text{vaddr} \leftarrow \text{GPR[base\;+\;sign\_extend(offset)]} \\
+&amp; \text{paddr} \leftarrow vaddr_{31..2}\|0^2 \\
+&amp; \text{memWord} \leftarrow \text{memory[paddr]} \\
+&amp; if\;\text{memWord} = \text{WD}\;then \\
+&amp; \quad \text{GPR[rt]} \leftarrow \text{memWord} \\
+&amp; else \; then \\
+&amp; \quad \text{GPR[26]} \leftarrow \text{memWord} \\
+&amp; endif \\
+&amp; \text{WD} \leftarrow \text{memWord}
+\end{aligned}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:13.5241em;vertical-align:-6.5121em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:7.0121em;"><span style="top:-9.0362em;"><span class="pstrut" style="height:2.8641em;"></span><span class="mord"></span></span><span style="top:-7.5121em;"><span class="pstrut" style="height:2.8641em;"></span><span class="mord"></span></span><span style="top:-6.0121em;"><span class="pstrut" style="height:2.8641em;"></span><span class="mord"></span></span><span style="top:-4.5121em;"><span class="pstrut" style="height:2.8641em;"></span><span class="mord"></span></span><span style="top:-3.0121em;"><span class="pstrut" style="height:2.8641em;"></span><span class="mord"></span></span><span style="top:-1.5121em;"><span class="pstrut" style="height:2.8641em;"></span><span class="mord"></span></span><span style="top:-0.0121em;"><span class="pstrut" style="height:2.8641em;"></span><span class="mord"></span></span><span style="top:1.4879em;"><span class="pstrut" style="height:2.8641em;"></span><span class="mord"></span></span><span style="top:2.9879em;"><span class="pstrut" style="height:2.8641em;"></span><span class="mord"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:6.5121em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:7.0121em;"><span style="top:-9.1721em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mord text"><span class="mord">vaddr</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">←</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">GPR[base</span><span class="mspace" style="margin-right:0.2777em;"></span><span class="mord">+</span><span class="mspace" style="margin-right:0.2777em;"></span><span class="mord">sign_extend(offset)]</span></span></span></span><span style="top:-7.6479em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mord text"><span class="mord">paddr</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">←</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">a</span><span class="mord mathnormal">dd</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">31..2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">∥</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-6.1479em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mord text"><span class="mord">memWord</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">←</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">memory[paddr]</span></span></span></span><span style="top:-4.6479em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">memWord</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">WD</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span></span></span><span style="top:-3.1479em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:1em;"></span><span class="mord text"><span class="mord">GPR[rt]</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">←</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">memWord</span></span></span></span><span style="top:-1.6479em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">se</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span></span></span><span style="top:-0.1479em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:1em;"></span><span class="mord text"><span class="mord">GPR[26]</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">←</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">memWord</span></span></span></span><span style="top:1.3521em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord mathnormal">d</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span><span style="top:2.8521em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mord text"><span class="mord">WD</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">←</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">memWord</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:6.5121em;"><span></span></span></span></span></span></span></span></span></span></span></span>
+<p>WD 可以像流水级寄存器那样做一个模块来实现，需要有 <code>clk reset input output</code>，具体逻辑和流水级寄存器一样。<br>
+然后是执行 <code>lwcm</code> 指令的时候无条件写入 <code>memWord</code>，因此 <code>input</code> 当 M 级指令为 <code>lwcm</code> 的时候为 <code>memWord</code>，否则为 WD 本身的 <code>output</code>，保持其不变。<br>
+<code>memWord</code> 和 <code>WD</code> 的比较结果作为一个信号来改变 <code>M_exact_A3</code>，流给 W 级。实现方法如同第二题。<br>
+阻塞的时候需要特判，否则会 TLE。</p>
+<p>唉唉，这题我最后一个点出 bug，也不是 TLE，最后也没 de 出来，伤心。看群里说的可能跟 <code>==</code> 比较的两个数中混入了 <code>x</code> 值有关，现在也无从考证了，这题用的 MARS 是课程组魔改中的魔改版，也不可能拿得到。</p>
+<p>P7 加油吧，计组实验终于要结束了~</p>
+
+    </div>
+
+    
+    
+    
+     
+      <div>
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:10px;">-------------本文结束 <i class="fa fa-times"></i> 感谢您的时间-------------</div>
+    
+</div>
+      </div>
+    
+      
+  <div class="popular-posts-header">相 關 博 文</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\65cd5a9\" rel="bookmark">[CO P5]Verilog 设计五级流水线 CPU</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\53039668\" rel="bookmark">[CO P4]Verilog 设计单周期 CPU</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\627c408f\" rel="bookmark">[CO P3]Logisim 设计单周期 CPU</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\6d68c22\" rel="bookmark">[CO P2]P2 上机之思考</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\2d82ddc6\" rel="bookmark">[CO P2]宏、函数与栈</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Samustach Floresein
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://samuflore.top/posts/905092e9/" title="[CO P6]Verilog 设计五级流水线 CPU-2">https://samuflore.top/posts/905092e9/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/rss2.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CO/" rel="tag"><i class="fa fa-tag"></i> CO</a>
+              <a href="/tags/MIPS/" rel="tag"><i class="fa fa-tag"></i> MIPS</a>
+              <a href="/tags/Verilog/" rel="tag"><i class="fa fa-tag"></i> Verilog</a>
+              <a href="/tags/P6/" rel="tag"><i class="fa fa-tag"></i> P6</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/65cd5a9/" rel="prev" title="[CO P5]Verilog 设计五级流水线 CPU">
+      <i class="fa fa-chevron-left"></i> [CO P5]Verilog 设计五级流水线 CPU
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  
+  <aside class="sidebar">
+  
+    <div class="sidebar-inner">
+      <!-- 这里是你的公告内容 -->
+      <div class="sidebar-announcement">
+        <div class="announcement-header">
+          <i class="fa fa-bullhorn"></i>
+          <h3 class="announcement-title">公告</h3>
+        </div>
+        <div class="announcement-content">
+        <p>===正在与 CO 作战！===</p>
+        </div>
+      </div>
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E5%A4%96%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">内存外置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E%E7%9A%84%E8%AE%BE%E8%AE%A1%E8%8D%89%E7%A8%BF"><span class="nav-number">3.</span> <span class="nav-text">新增的设计草稿</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1-MDU"><span class="nav-number">3.1.</span> <span class="nav-text">设计 MDU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9-ST"><span class="nav-number">3.2.</span> <span class="nav-text">修改 ST</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%9D%E8%80%83%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">思考题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95"><span class="nav-number">5.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E9%A2%98-MUJICA"><span class="nav-number">6.</span> <span class="nav-text">第一题 MUJICA</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E9%A2%98-BOTTO"><span class="nav-number">7.</span> <span class="nav-text">第二题 BOTTO</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E9%A2%98-LWCM"><span class="nav-number">8.</span> <span class="nav-text">第三题 LWCM</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      
+
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Samustach Floresein"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Samustach Floresein</p>
+  <div class="site-description" itemprop="description">一人倒、衆人倒。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/SamuFlore" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;SamuFlore" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:samu.flore@outlook.com" title="E-Mail → mailto:samu.flore@outlook.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://steamcommunity.com/id/SamuFlore/" title="Steam → https:&#x2F;&#x2F;steamcommunity.com&#x2F;id&#x2F;SamuFlore&#x2F;" rel="noopener" target="_blank"><i class="fab fa-steam fa-fw"></i>Steam</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://scse.buaa.edu.cn/index.htm" title="北航六系 → https:&#x2F;&#x2F;scse.buaa.edu.cn&#x2F;index.htm" rel="noopener" target="_blank"><i class="fa fa-university fa-fw"></i>北航六系</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      推薦
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://thysrael.github.io/" title="https:&#x2F;&#x2F;thysrael.github.io&#x2F;" rel="noopener" target="_blank">鐘鼓樓</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://hyggge.github.io/#!" title="https:&#x2F;&#x2F;hyggge.github.io&#x2F;#!" rel="noopener" target="_blank">Hyggge's Blog</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+      <div>
+        <p style="text-align:center;margin-top:10px;margin-bottom:5px;font-size:12px;color:#999;">-- 調製人生 <i class="fa fa-beer"></i> 改變飲料 --</p>
+      </div>
+      <div id = "music163player">
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1349927611&auto=0&height=66"></iframe>
+      </div>
+
+      
+    <div class="links-of-blogroll" style="margin-top:20px; border-style:dotted none none none; padding-top:5px; text-align:left;padding-left: 20px; padding-right: 10px; padding-bottom: 5px;">
+      <div class="links-of-blogroll-title" style="padding-bottom: 5px; padding-top: 5px; padding-left: 0px; padding-right: 20px; font-size: 1.6em; argin-right: 5px;">
+    <!-- 选择合适的icon --><i class="fa fa-clock" aria-hidden="true"></i>
+        <b style="font-size: 0.65em; padding-left: 8px; position: relative; top: -2px;">最 近 更 新</b>
+      </div>
+      <ul class="links-of-blogroll-list">
+    <!-- 文章排序规格,-updated 按照文章更新时间倒排 -->
+        
+    <!-- 显示5数目的文章 -->
+        
+          <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
+            <a href="/posts/905092e9/" title="[CO P6]Verilog 设计五级流水线 CPU-2" target="_blank">[CO P6]Verilog 设计五级流水线 CPU-2</a>
+          </li>
+        
+          <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
+            <a href="/posts/65cd5a9/" title="[CO P5]Verilog 设计五级流水线 CPU" target="_blank">[CO P5]Verilog 设计五级流水线 CPU</a>
+          </li>
+        
+          <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
+            <a href="/posts/53039668/" title="[CO P4]Verilog 设计单周期 CPU" target="_blank">[CO P4]Verilog 设计单周期 CPU</a>
+          </li>
+        
+          <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
+            <a href="/posts/cb2f1325/" title="[Repost]How To Ask Questions The Smart Way" target="_blank">[Repost]How To Ask Questions The Smart Way</a>
+          </li>
+        
+          <li class="postsSidebarNumb" style="text-indent: -1em; padding: 0 0.5em 0.5em 1em; ">
+            <a href="/posts/9eefdea9/" title="序" target="_blank">序</a>
+          </li>
+        
+      </ul>
+    </div>
+
+
+    </div>
+    
+  </aside>
+  
+  
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        <div class="footer-container">
+
+<div class="copyright" style="color:#6A5ACD">
+  
+  &copy; 2025-07 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Samustach Floresein</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area" style="color:#6A5ACD"></i>
+    </span>
+    <span title="站点总字数">博文总字数 150k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee" style="color:#6A5ACD"></i>
+    </span>
+    <span title="站点阅读时长">约 5:13 可通读</span>
+</div>
+  <div class="powered-by" style="color:#6A5ACD">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_pv" style="color:#6A5ACD"><i class="fa fa-eye" aria-hidden="true"></i> 总访问量 <span id="busuanzi_value_site_pv" style="color:#6A5ACD; font-weight:bold"></span> 次</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+
+<div style="font-size:15px; color:#6A5ACD; font-weight:bold">
+<i class="fa fa-clock" style="color:#6A5ACD"></i>
+	<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+	<script>
+		var now = new Date();
+		function createtime() {
+			var grt= new Date("07/15/2025 08:00:00");
+			now.setTime(now.getTime()+250);
+			days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+			hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+			if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+			mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+			seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+			snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+			document.getElementById("timeDate").innerHTML = "在互联网边缘存活了 "+dnum+" 天 ";
+			document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+		}
+	setInterval("createtime()",250);
+	</script>
+  <br>
+  <div style="display:inline-block; ">
+  <a title="萌ICP备" href="https://icp.gov.moe/?keyword=20250745" target="_blank">
+<img src="https://img.shields.io/badge/20250745%E5%8F%B7-fa2484?style=flat-square&amp;logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARzQklUCAgICHwIZIgAABHOSURBVHic7ZtpmFTF1cd%2FdXuf6VmYnhlAdiQsGkEWAQEVNb4KGsW8btGAxo1FFAIuBAyLa1BQUFGRqCB5RY3mSWIUI0beyCaLgKjI4gayjszWPT3T6618OLfn9gzTyMCgXzzP00%2FfW1Vd95z%2FPVudqoaf6Cf6iX4M0lo79P%2Fvv09vLL1fa%2B34sfhw%2FtAP1Fo7uHf1dJo9kk9F6U2goUXLfP3g2kom952mlEr%2BkPyoH%2BIhWmtlzv9slvHEyuZs%2FdLA5R5GtseHw5ABCRPC0RoS8b%2BZvbuYxvhBB%2FlN5zuVUvpE83bCANBaK5bufdR8%2FINWxrJPweBi%2FJ4cXA5QKjXI4iLtPpaAUDQEjre4rCdMHLSPs4pPGBhNDoD%2BtPI%2Bc87KLsaijyBecxHZ7ly8LutpSoQ0NVTHIJqQdq8LfC4wlD1GA5E4VEeD%2BHLe4Za%2BmOPP2u3o6L2rKfltMgCS01fPMOatPoXvDg7G6ys8XCANkQRUR9HZOaiRA9B3D0JVJ9AzP0C9sBbi1ZDtITNgkUratllmjh2w1XF3n2lNwfdxAaBf%2BHwqT67qwaYd4HSdhd9ThMM4XKWrYqANuKIPjD8TPbAYhbzkdAb0u3tRc1fD25vBQMBw1zOZRBKqYt%2BRTKzQA09F3T7wY3XNyfcdqwyNBkC%2Ft28cc1cP5s2PQDEAv6cYt%2FNwJqvjEI9D%2F1Pg9n5wbRdb4J1hmLsG5q0Evxs9eiBq3JnQyi1TAOpPW%2BHJ1bBlJ7jdkOXmMHCjCaiKlIBztb66L%2BqO%2Fh%2BpgcUPNDkA%2BovqsfrxlReoBWshFu5JlqcNXpf8Ol1Na2IQiUKrVujb%2B6PG9wWPNUkUmLse5q6CfQfAcECXIthZKqYSi8HJbWD8IPTYHrXM6QoNj61GzVsNZYfA5xV%2FoeqZV00camIHycldy%2BgB%2F1aPDH7iuAHQL24dw6R3hnLwwGl4PW3xuTM5KvBmw0390BPOgo5eW8Vf3oF%2BfBVqwzZwWW9SKaioAv1HGPZ%2FsHQH5LghnoRwDJIJOOc09PgBqGEdhBeAT4Lw2ErU4vWQjEK2uwF%2FYUJ17FuisS20bQNP%2FHKpGtZ%2B3rEBkDvzGczqUXhch9t1OAamQl%2FaEzV%2BAJzb0mZ05UHUnDXwxkZQSfC7wW3lXKVhwICnfwmj%2B0FlBNo8AqFqyMsGlyNNvaNguOG6vjC%2BP%2FQqqDUj%2Fc%2FdqLmr4L0t4HAIGPVDbHUU2rWer7aNHHVsADD5GQJZo2rRDUUgFkP37Iy6YyD6hq61E%2BhdNai5a2HBGqgKQpYHvE5bVQEOheG7yVCY3fADT5kL%2B4IiSEqIWvWOQkEARg9EjzsDVeSyAX96C%2BrJNbDtK%2FB6BQylRBvCzFfRPzQeAP1F9V10um8iAX9zAEIR9F1DUJMGoP21CMGcjahp70HoIHiyRcWNNKHTKZqAkwtg09jD%2B55dB6P%2FAQFfw7%2FVGpKmhMNYHN2tPWrcIPTIn9svoSSBmr4cFq4UPgBKQ%2FMVMzMCYGTqYHtJezCa1779uAP1wADwg3r9S9SgxSjjHtSEl2DDjXBZLzAzzibkccLm%2FTBlWd32kjCMfiWz8CDtTgfkeMHnRX2%2BG8YsQanfw4WvwNI9UOxEP32BaEvqN3C53lw2qfEAfFMOTosZU0OLPAD0W7vgyqdgw07pCxRB50J449fQKhdiSYibdppbnxwGdGxWt604G3BlZAWQ9UJ5DZSGYEhnKJkifAX8sGobDH0UtlSINrj9aWm2o9j8urxtowEwvw2CYXUnTWhdIPPtqQS80LcNfD0JDk2xBfv6TqiaJgIlMwCgEB%2Fw0iZwT4URr4tpeLxHFr6FH16%2BCuZcCm9cC0XZQAwqo1Yk8Fu8AYU5Ak6Kr92VGafOuBw29lWBI00Dii3HdaAKnE74aF%2FD6jr5XfiqHAp8DU%2Bc74MrXpZrvwde%2FxQWb4RAdmb1dyjYfgiuOq1uu54Fs1bAve%2BBQ6H3BiVCtMhGfWEJbSiM76oyiXkEEyivEmcGYGp0sQikS6rAaYDHAe0byEAfXg55nsPb0ynfJx%2BnIR670J9ZeJA%2BtwOufe3wvlyvvCBDoUrCMrwwRyIAiAyHqjNOnRmAYMRmytSoPAFAVVRLu8Ogjt2W1cj30G7iA5qa4kkY1q1u221vwsjXIc8rglZEpD3HYztkBQQTGafNXBGqTthBUgM%2BK6xUJW3YDDes%2FAb%2BdwmUlMKlp8PBKtt5NiVpoFMAHlslWjPyDPj0APgt01Sqdnmt%2FU5UWq3BrM5sApkBqF%2BYSgkVT3NuBT4453lJYwPN4P2vZJzzBJT4AlnQ52nxB4k4rP0WdlWAK02JLd5UepsCzMyKnhmAw16ibrg93dl5T3CJMZBlseKFVz8RP%2BSoJyygta7HZuYyY2aOnfUmjlvXblWLxY9GSkFWvbxBa3CltDS9HXBlzjEyA%2BB32YIqhQ7XCKq5bjvJCEUlR8hvIOTFkhCsgYJsO5rUp0hC6gam9YZSixp3AyYUikI0mkEKl5iGT6KPCkbtZ2qN4c%2FKKGZmAPJ8djKhQJXJw3WBH2VqYejus%2BC05nD1q7Z6poTvWADv3witZtr1vhSZGspCMOhkGNsferWEhIb1e2DmCth6oG5eEIrCXWfB%2Fb9omNclH8O1f4YCAUBX1KBqIxiQm9knZQTALM7CSM%2BmSsSTqpZZIkA8Ab%2FtDR2awfDXRRNS9hiKwtRzoZkPep8EHx%2BQdQBIfC4Lw39Gwtkd6j60WxGM6AmLN8GIVyCQa3n3JAxuL2O%2BrbQSNEvALJcV%2FjScJOk6B9NzGBMKcxsPAK2biVAgk%2B0JAqBb5aGSGjChtfXAG3vDix9JZqc16CRcfor0dSyQrNGD9JWFYOtE6FYMH%2B%2BH6%2F4Cn%2B0Vgfq1h79eB8N7SoIzbBEEcmSeqGUmbe9D8o80jXK5ADe0E0HVgZCdxSY1tPOTiTLHh%2Fb5dj7vMGB3qVx3LbZs1mGHoFF9IRKT60gCLk5LWH4WkFwepDg64RwR%2Fp0dcPos2F0hbzqQA58ehFYzYMchuKwbDD1F5ksntx8KciTfT31yPfJCfhYQt1VeKesYDZhmjPZFkUYDYHQtimAmRSpDQVg0QHUvAJKy8gMIRqF7C8jxicaEYzCmnz1R5yJbk6IRmD1Uroc8DwUFYhqpoonPBXl50PMpGfPoRRCu5%2FjiSfExsYT9SZqAC1q4Ufvj2GFAA%2BafOaf57xsNAL0LJoNejNa2M9pcJtrnzJGsDODOpfJ9Ux8IxwEThnYRO%2F6qDLoWih0mTGhhLYOf3wDK1XB0cDmklLXiGzilWMBOj7udC6WocnJAPp0Lpb2d1G30xn2grNKYBnDFlVIZwscRAFBKRcnKj9dGAqcTvXq3XPdoDe0s%2B3%2F1E6nd3d4fYlVwRXdpX7BBlqFdCgUUU0NLy54%2F%2F84uezXIlRO%2BsEwuL6cuANvGw%2BaxsPE2%2BawfA%2BV%2FEDAAtXqXPXcyCe1bZH4O37c73LsVbPpKfIDbgVr%2BNYw5HQZ3AI9l88EgPL1OQiJuuOUMaV%2BxFXb1kbEgPqva%2Bk0gyw6xDZFpygIHoLKGOg5vzmrxPSmtdDvg7e1w%2Balyv%2FwbyRBBTOXMtvDNMQJgnt8RY%2B1OKTh4HPCuVQUa2hl2fGuN0rBgvQBwaz%2F4n07w1nbAYb%2FFolxZIW4%2FKPfX9oDJ%2FwTtOXwZrDUQg1%2BdKkkSybps%2Fu7vYKSZjwaSYXjuGqkYr9kJBRZ40USUc9tXsySzjJl9AGBc3LWSWCyM1uJVg4dgfwLOOwkGdIIDIcAFXxyEsmqYP0x%2B%2BOw6UF7Y9p3cnxwQR2U44bVPoF0%2BXNVbSuTppTOtoTQIM4bI%2FawVsiuUTm6vXU%2FI90nJvWUbKHSg1pYCCQFHazBjL3PLafccUcYjddInMAXcS2odocsjpSyA7gEJWxjS%2Fsw6%2B3f%2F%2FEwY23FI7js2EyeY54Ub3pC2V6%2BBEb2gtELK5YfCcn3vBTD1PAl%2F05ZJbpFOsRqpPZRVy6cyCMP7SN%2BfN4HXAixpQl5hQikV5wh0RBNQSiX1kNdMPvhM6gFZLpi%2FFu6x7HxHqSyaslxiBlMGw5vbZFqXIf0gjjCVKRoKOj8GOybAoitEa5bukPGXdLUfftIfITfLVvVUYrPwGmsDxBoXScBl3UX9F66XUJpqH94PFhxJwqM5InNz73KWbqrC5%2FbjdMDXe%2BDrKHTwwKZ9AoDTgL0hmPQvWLIF8r2iMRGrFNU6z3bkPhfsC0HWdHj%2Bcvh1DztrBJj3IYx9UzLB1KLIoSSJAri%2BV4NsqhUlsiETsCrCkUiYm3uVfx8A31u60VobqKkLKHDfiGFIYnJlP1g0FP3UFtTtr0hNT2txWh6nvZROmlIjqIiIlqQ7vKQpFV0zBs1yxElWhcHpFuHTcwStJeFqnQuxtHJbSQj%2BfisMaYM%2Bfwlq7XbR1EQStPtFKu65WSl1xPrckX0AoJQyuWngIcLRECAPeGmV9I3tLpuiyaQIl%2B2uW0dwGKKK9YVP9RX4JA0GMYFArji2%2BgmSUpLultdIphmOQUW1ZJJD2kBJAvX%2Bx%2FZGaVWsigmDD32f8EcFAAB%2FunAS0egbEg2UhMSx70vfC1dDeT1vXl%2FQ76v4OoyjG%2Bd0CMAOBeFqeP066bvlTdmLTO1iJZJvMLXfEb1%2Fio4KAKWU5tyeJURiogV%2BD8x7F0LArztBtw72eZ8fgqpjcF5PGFQshy3%2BsSataBsJMWJQydEeqjrq8q3WWqHuXkggb4Q4uBi6WzvUut%2BigxqVNwUKsuzdpBNFSRMqEmhzujDf%2FkkoL5ftd62hNLwY%2FdD1RwvAUXOrlNLmVYN2EYqWAeBxodZvR7%2BwDZWr0K%2FeBGXBzKbQFKQ1lAdh1VgRfvoa2L3fPntQURM0J160qzFH6hpdwNfc%2BxIFnuEYhlXaCqMPzIDmLtTED%2BCxt2VtfyR7PhbSGkor0HOHo%2B7oDlsqocdDdtUokYSo8ZaqufeSxkzbeH39y43fUBasrHWIeV5Up1nSN%2Fts9PWDZAe3KTXBEp7JvxLhI0CP2RI%2BU46vIlhpLh%2F1RWOnbjQA6sqOU7m0%2F4tU1lQA4HKCjqJazZH%2BhZfAhKFQWmnvzx0PJU0R%2FrHfwINnyo5X8cOQ65TIIXZfwdghCx39C8c3Wp5j5Uu3fHwOoYrr8brzASli5DeDvRYPr30JVz8vESNV9WnUA6yjMdVJWD4WBjeHKOjih1FmzI75oWgFXVovUltubbTwcLwHJZ0z5pDFDbidUh2piQFu2HkXtHRBhQl958POXdDMX3cXJ%2BOk1lGYiio4oxt8eIPo6WchOG0W5DhspxeJVuLOXqTK7hl3rDIcV8xSiWnjCSYWEUvIZrzPDc4EnDQVFmyFfAN2jEYvvAFCVjk8kWzYP6QOWJaG0QkH%2Bm9jYN0NaAN4aD38%2FAHId9YVPul56XiEhyY6K6y99z2II3krXlehnM6S8rfu3Rm1%2FEawKmHM2QxT34FQpRyD9bgAbZ81LCpCz7wYfmudPtsThfNegJ27ZZGTcnjhSCnZOc%2Bp0nsmHy%2FvTRardIcnHmTX%2FpE0yw7UMhpNQFUNjLoAnjlfxgEs24uauwbe2gw40Ff2gt8NgDOLhKkw6JvfRL2yEnKyLKCwHF5VKb1%2BNl9tvGlKU%2FDdpME6OfztB4zFy0fRLCeAI%2B2sX1VUNjZGDETffz6qbcMnSPTnIbj336i%2Ffij7fKlTpSDmUREMMvHSp9Tss5tEeGhiAAD0vw88wJD5XUnGLiDfl1v35GYMaqLoTm1RY%2Fqhb%2BkNNUnUcxvg2Q9hz37ISjsLDBJKy2uC5OYs4z9jdqvT8yY0Jb8n4CiH9ReZce%2FPNp5Y1hqP60L8nrpAxK3T5AlrAeVyytt2GnUPQIeiQeLmv5j%2Byz1M6z%2FxRPxr5IQAkCKttWLE27NZvOIknI6h%2BD05hx15h7r3SROCkRCmepvbBu%2FnqV9MOJH%2FHTqhAKRIa63MGR%2FONh7%2FoAWVpZfg9ebgc9Y9h1gTh2ikhubN%2F85d5%2B5nYq8T8sbr0w8CQIq01op1h2abz28oMl752CBYdjGYb1HY0uTa0zFv7VNpnJo77of%2B69yPQlprh%2F6yatKP%2BafJn%2Bgn%2Bon4L4cd%2F2hQhc%2BBAAAAAElFTkSuQmCC&amp;logoSize=auto&amp;label=%E8%90%8CICP%E5%A4%87&amp;labelColor=282726" alt="Static Badge" />
+  </a>
+  </div>
+  <div style="display:inline-block;">
+  <a href="https://travel.moe/go.html?travel=on" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
+<img alt="Static Badge" src="https://img.shields.io/badge/%E5%BC%82%E6%AC%A1%E5%85%83%E4%B9%8B%E6%97%85-1772b4?style=flat-square&logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAABGdBTUEAALGPC%2FxhBQAACklpQ0NQc1JHQiBJRUM2MTk2Ni0yLjEAAEiJnVN3WJP3Fj7f92UPVkLY8LGXbIEAIiOsCMgQWaIQkgBhhBASQMWFiApWFBURnEhVxILVCkidiOKgKLhnQYqIWotVXDjuH9yntX167%2B3t%2B9f7vOec5%2FzOec8PgBESJpHmomoAOVKFPDrYH49PSMTJvYACFUjgBCAQ5svCZwXFAADwA3l4fnSwP%2FwBr28AAgBw1S4kEsfh%2F4O6UCZXACCRAOAiEucLAZBSAMguVMgUAMgYALBTs2QKAJQAAGx5fEIiAKoNAOz0ST4FANipk9wXANiiHKkIAI0BAJkoRyQCQLsAYFWBUiwCwMIAoKxAIi4EwK4BgFm2MkcCgL0FAHaOWJAPQGAAgJlCLMwAIDgCAEMeE80DIEwDoDDSv%2BCpX3CFuEgBAMDLlc2XS9IzFLiV0Bp38vDg4iHiwmyxQmEXKRBmCeQinJebIxNI5wNMzgwAABr50cH%2BOD%2BQ5%2Bbk4eZm52zv9MWi%2FmvwbyI%2BIfHf%2FryMAgQAEE7P79pf5eXWA3DHAbB1v2upWwDaVgBo3%2FldM9sJoFoK0Hr5i3k4%2FEAenqFQyDwdHAoLC%2B0lYqG9MOOLPv8z4W%2Fgi372%2FEAe%2Ftt68ABxmkCZrcCjg%2F1xYW52rlKO58sEQjFu9%2Bcj%2FseFf%2F2OKdHiNLFcLBWK8ViJuFAiTcd5uVKRRCHJleIS6X8y8R%2BW%2FQmTdw0ArIZPwE62B7XLbMB%2B7gECiw5Y0nYAQH7zLYwaC5EAEGc0Mnn3AACTv%2FmPQCsBAM2XpOMAALzoGFyolBdMxggAAESggSqwQQcMwRSswA6cwR28wBcCYQZEQAwkwDwQQgbkgBwKoRiWQRlUwDrYBLWwAxqgEZrhELTBMTgN5%2BASXIHrcBcGYBiewhi8hgkEQcgIE2EhOogRYo7YIs4IF5mOBCJhSDSSgKQg6YgUUSLFyHKkAqlCapFdSCPyLXIUOY1cQPqQ28ggMor8irxHMZSBslED1AJ1QLmoHxqKxqBz0XQ0D12AlqJr0Rq0Hj2AtqKn0UvodXQAfYqOY4DRMQ5mjNlhXIyHRWCJWBomxxZj5Vg1Vo81Yx1YN3YVG8CeYe8IJAKLgBPsCF6EEMJsgpCQR1hMWEOoJewjtBK6CFcJg4Qxwicik6hPtCV6EvnEeGI6sZBYRqwm7iEeIZ4lXicOE1%2BTSCQOyZLkTgohJZAySQtJa0jbSC2kU6Q%2B0hBpnEwm65Btyd7kCLKArCCXkbeQD5BPkvvJw%2BS3FDrFiOJMCaIkUqSUEko1ZT%2FlBKWfMkKZoKpRzame1AiqiDqfWkltoHZQL1OHqRM0dZolzZsWQ8ukLaPV0JppZ2n3aC%2FpdLoJ3YMeRZfQl9Jr6Afp5%2BmD9HcMDYYNg8dIYigZaxl7GacYtxkvmUymBdOXmchUMNcyG5lnmA%2BYb1VYKvYqfBWRyhKVOpVWlX6V56pUVXNVP9V5qgtUq1UPq15WfaZGVbNQ46kJ1Bar1akdVbupNq7OUndSj1DPUV%2Bjvl%2F9gvpjDbKGhUaghkijVGO3xhmNIRbGMmXxWELWclYD6yxrmE1iW7L57Ex2Bfsbdi97TFNDc6pmrGaRZp3mcc0BDsax4PA52ZxKziHODc57LQMtPy2x1mqtZq1%2BrTfaetq%2B2mLtcu0W7eva73VwnUCdLJ31Om0693UJuja6UbqFutt1z%2Bo%2B02PreekJ9cr1Dund0Uf1bfSj9Rfq79bv0R83MDQINpAZbDE4Y%2FDMkGPoa5hpuNHwhOGoEctoupHEaKPRSaMnuCbuh2fjNXgXPmasbxxirDTeZdxrPGFiaTLbpMSkxeS%2BKc2Ua5pmutG003TMzMgs3KzYrMnsjjnVnGueYb7ZvNv8jYWlRZzFSos2i8eW2pZ8ywWWTZb3rJhWPlZ5VvVW16xJ1lzrLOtt1ldsUBtXmwybOpvLtqitm63Edptt3xTiFI8p0in1U27aMez87ArsmuwG7Tn2YfYl9m32zx3MHBId1jt0O3xydHXMdmxwvOuk4TTDqcSpw%2BlXZxtnoXOd8zUXpkuQyxKXdpcXU22niqdun3rLleUa7rrStdP1o5u7m9yt2W3U3cw9xX2r%2B00umxvJXcM970H08PdY4nHM452nm6fC85DnL152Xlle%2B70eT7OcJp7WMG3I28Rb4L3Le2A6Pj1l%2Bs7pAz7GPgKfep%2BHvqa%2BIt89viN%2B1n6Zfgf8nvs7%2Bsv9j%2Fi%2F4XnyFvFOBWABwQHlAb2BGoGzA2sDHwSZBKUHNQWNBbsGLww%2BFUIMCQ1ZH3KTb8AX8hv5YzPcZyya0RXKCJ0VWhv6MMwmTB7WEY6GzwjfEH5vpvlM6cy2CIjgR2yIuB9pGZkX%2BX0UKSoyqi7qUbRTdHF09yzWrORZ%2B2e9jvGPqYy5O9tqtnJ2Z6xqbFJsY%2BybuIC4qriBeIf4RfGXEnQTJAntieTE2MQ9ieNzAudsmjOc5JpUlnRjruXcorkX5unOy553PFk1WZB8OIWYEpeyP%2BWDIEJQLxhP5aduTR0T8oSbhU9FvqKNolGxt7hKPJLmnVaV9jjdO31D%2BmiGT0Z1xjMJT1IreZEZkrkj801WRNberM%2FZcdktOZSclJyjUg1plrQr1zC3KLdPZisrkw3keeZtyhuTh8r35CP5c%2FPbFWyFTNGjtFKuUA4WTC%2BoK3hbGFt4uEi9SFrUM99m%2Fur5IwuCFny9kLBQuLCz2Lh4WfHgIr9FuxYji1MXdy4xXVK6ZHhp8NJ9y2jLspb9UOJYUlXyannc8o5Sg9KlpUMrglc0lamUycturvRauWMVYZVkVe9ql9VbVn8qF5VfrHCsqK74sEa45uJXTl%2FVfPV5bdra3kq3yu3rSOuk626s91m%2Fr0q9akHV0IbwDa0b8Y3lG19tSt50oXpq9Y7NtM3KzQM1YTXtW8y2rNvyoTaj9nqdf13LVv2tq7e%2B2Sba1r%2Fdd3vzDoMdFTve75TsvLUreFdrvUV99W7S7oLdjxpiG7q%2F5n7duEd3T8Wej3ulewf2Re%2FranRvbNyvv7%2ByCW1SNo0eSDpw5ZuAb9qb7Zp3tXBaKg7CQeXBJ9%2BmfHvjUOihzsPcw83fmX%2B39QjrSHkr0jq%2Fdawto22gPaG97%2BiMo50dXh1Hvrf%2Ffu8x42N1xzWPV56gnSg98fnkgpPjp2Snnp1OPz3Umdx590z8mWtdUV29Z0PPnj8XdO5Mt1%2F3yfPe549d8Lxw9CL3Ytslt0utPa49R35w%2FeFIr1tv62X3y%2B1XPK509E3rO9Hv03%2F6asDVc9f41y5dn3m978bsG7duJt0cuCW69fh29u0XdwruTNxdeo94r%2Fy%2B2v3qB%2FoP6n%2B0%2FrFlwG3g%2BGDAYM%2FDWQ%2FvDgmHnv6U%2F9OH4dJHzEfVI0YjjY%2BdHx8bDRq98mTOk%2BGnsqcTz8p%2BVv9563Or59%2F94vtLz1j82PAL%2BYvPv655qfNy76uprzrHI8cfvM55PfGm%2FK3O233vuO%2B638e9H5ko%2FED%2BUPPR%2BmPHp9BP9z7nfP78L%2FeE8%2FstRzjPAAAAIGNIUk0AAHomAACAhAAA%2BgAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAMAUExURUxpcUYBg0cJhkEKgE4AfEkAgEwAf1ALaWYKbUsAfUYAgkgFg0UAg10Lc04AfEoAeEYAdk4AeWUNbkwAf0sAeEkHg1AAfHALYUoAgUwAgWkQaUwAfU0AfEUNiEsAgUoGgoIQVUETj5UXO2kKZ0kAeUIIhWEHbF0GcEcJiUQMiUcAdoYSTo0RSlABeVUBeYoUSVsFbUQQkDoPn3UPXWkIUW0LZV0Eb0gIhFUDdmwJJ0wAfVsHdB8AM0xpcT8Ej3oPWXMMXl4GaqsKODQAUocWVkxpcf%2BREP%2FPpf%2BhPiZGv%2F%2BTDSRKw%2F%2BXCv%2BVCyZIwUEAhk0Be0wAfv%2BhQP%2BgPP%2FSqP%2BRDf%2BZCv%2BkO%2F%2BqOkYAg0kAff%2FSrFEDekgAgUQAhf%2BfOv%2BgOMwOAFAAd%2F%2FSpf%2BZCP2PD00BgP%2FWqEMAg%2F%2BcCP%2BPDv%2BYJEMAf0EVkkkFhP%2FZp1IEfT8AgjgkoOm3oDgAhtpuJTgAiyo%2BufOIFYUqWW8ZZ%2F%2B9eFUCdf%2BYG7pXOUcAhJ1ATDQtqel7HPqdP5Y6UP%2BpTjkAef%2BeMWgVbChDvI0xVmEOcP%2BnPO1%2FGVcJdu%2BCGD0AiqpEQfCRQv%2Fdqy44s%2F%2FChXwlX1YIef%2BkPvmLEUUGitFqK%2F%2BlMEQPjctuTqJASP%2BSEf6kRv%2FOncJeNaJJW10Mc%2F%2BmP%2F%2BnN5U1UOFzH2YObIg1Z9AOAGMcg9VrKHUbYstiLqdIRngxhv%2FMlYsGP%2F%2BeGXQcaf%2BUFjAzrv%2BTCv6aLvCLOdV8T9minMUMCadnlGUUc1ADg%2BWHQ69PQP%2B0Zv%2BzWP%2FaqFsNd%2F6cOP%2BcETsenIEqXT0Ah7ZUPZVRh%2FzNptMOAD0cmKRQX%2BGGSNNzR3cEU7hOOHkpbfG%2FomwKY%2F%2FPp%2F%2BtOLpeUYgrY%2BN6H10SgtUOAKwKH%2FiMFJ4%2FWlsCb8RmTLFTUvvJoP22cbh7l8OImP%2FFjoZAi300dbZXUtcOAKAIK2kbdN2Xd8lbLJlEYt15Q8mSm%2Bu7obUMFrUKGKFgkfGHIL%2BFl3Ash9eLbLFgXFMQzG8AAABGdFJOUwD3RjVr5p0DELXwu%2F0I%2BXtSJx2miX9Yst3sC47OkPs7hVYzxrLL3OvVcqZudestJ7ClKJZsXunk2Uq%2F60oA5Z262WponQDN26R8AAAACXBIWXMAAAsTAAALEwEAmpwYAAALgklEQVRYhcVXe3RTVbr%2F5TySkEeThvRJ26RQWqAPitVCSXlVQJiCRWVBYXC4zqD4uIKOXp9LZ5xZ41Vn1Fk6M%2BoMKIyjAyJ3Lo%2BK2IKItJQ%2BpEBLX2naJM2rSZOcNM9zck7uH2m1MDPr%2Bp97n7XP2ut8v9%2F%2Bfft859vnA37oJkreJPFCacSv5qMU4%2F1%2BQN2YcgwAqORM01%2BkCIrSZJ7z6RmM%2FfsQyNadBwCQACSFodqKZXfa9CmseH6qqrvM8b0k9MYnFUjS13hLRz0vASRPrq3cTCtI%2Fv%2BFkxTUyrGkgsL3Tz9%2F7rIZAEFwQxdqi1b16R0AJKp0SUyZIqN5bUSduJGTzFp85p6LKVGARL4t8vwLLpDrNIr6doHC6JL%2BohFntgaC3Fefpc%2FN0xeWDMiLI1FJfEo8lMrFLtPV%2B65ppWKRUrifz2nml6%2FbuFzPGGkONF95%2BYtUv%2BjuxMxZ8mCeMU6JFYFuUfyEOpp9FQCU4uWPfXSI8KdKqoB2Mp4p23YkUZJ7pHyxufYbkIJAWe6aUZz1dLQ%2Brebs6AWb3VI5RIh3RVaevvNLqtgFsJLrF6%2F8z5G5oU0nQh0Totx7eCPNvXIkMLOVBgcAIIpMoort%2FS1L0IqleFOFaEIW3rzcd6nr45gslogBqDYeXp3lD8cBMlud4k3s%2BXRw2z%2BoSTydqIwrd315KtBzlnEPLKsY3XohR%2Bq1nOi7P7FCfQuRYABYyv9x6INwHAA5J3dDG%2BljtE0EONACaEGgxMXOsgLuOls5RLPNHcHBB709BQ6eOe25v6zQPBilecAibP0rCwCkpmdjW0KVJnjBAQIgAGSRbHwR3WbirKg0cRyX6Ig%2BONejZHjm9Jf1pWEnQbIALRgjAED0wQhSm78WHEBPXeCAZsgnh%2FAi17upIuiAGPtMRua69SnZwMRnTDIibqumbHzB6HEBtJAUIJCKUWrRr6KGIRi8XK3jVqsVdHNIZVNkMoiedtS7tIM8L46IeAAgvGEGaO6lAS65PA0%2BN%2BophbxLLu8C3CXNkBvC4YRjjzpBATHsuycalWbHorGkgozsyjQbR3KgheQWCBCR2BHUWPY2AykL81evbpuwQr50Y45nsStCijjq%2FN3ULday9DQXAJDyzlx6NCEAQvIdAEQJm0jr9Nzd8JuNG%2F07it6663gM4GazH5Jtj0zkLr2WE%2F7PcXuhRBYuIH0AYS7yjJcQAA1wAAeaJrd7wvf4ytJHHnvsoZYjKp43qGCQK2yrbtMeGVGM7LPFHt68INp9vSgvqxggke2XUbPc1GQQgERBY%2Bruzq6Lt688GmbDxNlH%2B9fn13zI9VltGUvkkqENTWaev1pq%2F8rDWcqWUHYSDnHHquCSIVAgSUC07IHGBVWZomPsqVMAoBBTrXSgNVbu5aLzLKpdCesVLxB92K7tceawcItIwJ%2FTtOPV6u3BIisMC0j9e%2BlVa4b3B5Jfbk7Z7jdXncXOeKcPhkZXe1tvpxcA31Uw6wThVI2UjZCAZII1lnH2BQNP1vivjw1Lf19w%2BaUpfPmCAfK%2B93c%2Fy9s1IathaNMdsqBXx%2BiYUF%2F2RUXEpU%2BzkQDPJ4RRu4whmpoZrvK%2FYh34dn3sHeh%2F%2Bhnq7%2BSDt1a2cVZYWqgAw4CBkFOl6aWjkjwHCQCIZFje8ZTtkd7xU%2BaaNe2AZzL1aJ7o6C%2Bx9xrB1rV8tMgq57hKN6FkdIyOibA1zm5BrXETSdOJOy%2BsX%2Fynvpe3dZ1e0fz8VOaLRzRPrpkRBPBc3i1rUA5cruPMMMMMtpuDCgUpTFKBtCQrRfPLVZpL0axe1dDxKYJAk6fx5LEAgNf3bzKbdbNNdI0swOgYHaMTSodsZaLL2UkCpe3no%2Fo2xUmDldu4afGp77KvR2oBAH2hYf789EzvGKXIMnoZMGAS1F37lLMTbhIAJGHuNtbhN8GKJ8fn%2Fpydlr8DAKD%2FZWGncne34l7Ji171SV7H6BhdUKByZot8XSQA8OSO%2BgvsmEzMGb7IH%2B8L48b2i6EVz0Q%2BeXgX%2BULgQOU4afeBAbM1z%2FWHWUabL%2BmCZqH7%2Bhx%2FuNJqRd9D010AAP3Qa289oHzcerpIur74zfBSwpXD6JjevszMtHY7nyRIXZ7YbPHQJsjLTZZjYX2mVqvVSpPRkEPcd7Co%2FI%2Bq0Xjv16T9xeuRu095wSAnN3VsoC%2BWPN4lia2bpULqa6IQkHE%2FgXx1y4qvcdI%2FCgA5zHOpGfv13rMuQ%2FOmoHoCqR8DyEuley67I8nTGdSCqqw%2F6q%2FZF1nltSUe2Tyqad9Jtu25Sx4ACKSvfPdA0NvMchU5rOJK9WEfowvlpM78RjlzmJskmF9jyTYPbugwYdvEemfTQOfnb9xXfOevAkkfAn2ssCoyUeGV3%2Bpr3%2FVqthlRoj42nrms2xgHCABVnAo2gBfJVKVrnr3kKan66A9j1oeSHgAYeSK2drB04d%2B3dxb82lHnhHrDaoe7auFcpUwCiABNau0B4dFO6Ga3i9fGcG%2FrpVzGGI1jCo%2B3X9J37oyMuehs2EfLSePKLt%2BuozMcGf3nbQABpNzeGRWW7RM7wvDb5lZv3jc4R%2B95YvRbvPI5feHOiGm1e2dBwc%2BomuXzRHywOWGJ19IuCUBKVMp5wxpv8Tx5Rd242yQbMkUXFrTOndP%2B6o9OAXj7QkrtowcdqryKzE2%2F2GKJF%2B5vnmjZWHzUHaocfCMlBJD87PmthGdmZu%2Fsr3u4aEL7lZyznvvp38rE7lffviB5%2FdEHgpHDktjuDxu2%2BBV%2FGcw99tTnomrfUYEjyyoPSqIACaJ2vMsfTN%2F2Hl%2FZlB40gTNY5c1PEX%2BT%2FyRrSLu8zBZa3RCq9nufGhhqAAb3qk4%2Fznd6BMxafYcILEAqU5VDDoiC3oYXDsjonVdo8RC4yg%2FPaba81xQIzCU%2BcDZi0zdSNQ4NAoA2Gmp8%2FH0e1G9jE8YAAFJL59ndUOPqHnYkjU5Z1bHIKuesMJgbwS7obW%2FkVsz2Dv%2BH4dzKOVcB4EeLzvsll3mk9Ec%2BkDMAyAmxThhnI%2BzO7R9svuCNnNzTQIcNVlg5cFyFk5Q863xgpTLyhoeuq%2FgKwBLFoeKAmUc8X9Vu5wGIULzouMaBTPcZx2cWQAdxaAmCANBR5%2F7Z4XUR6z611HYL2fW0S2MsQOpftKrPQnH1K5aBw2cAQIRsvqZhhtwurzac040jBc5HTmaqUK7R8K3ynqsZvCt9bSmxP26aeC1D6rpW%2FqnOdC6milaYjN9EkwRY6Fza%2BNvfKY2bdtvp8bSJwZk%2BWYms9wuF9se%2FJvbmimP22P%2F%2B5PXESx9rL0VEwgvWll4W6vqsz98ZwyQBsuclOuuzTEi88m63cu8nwJYDXuntPeq0tT5v1JLV2h%2FUY4ScV0Hkwmlx9EgZSXEe9Xt%2F8p%2BcBDAxzObbHc6irANzl0UUVWNU5K4ftyM0ehvH%2FXfuofEI7fN6BX5HA2N1cQUNsRhF1LWf8E2Gumgq4rPT6Os7agbkhKxJBScg4rc0pAEczAB0ZgAUCSAGQLz1aF7PGdxEAEB7VGxssc5gbsqpSbjOPDVVrylZw4pikzNimmFs%2B0F3GqKA7oYO89Sggw5U3hrZQV47hb9BgUQkX7u85K3I9HPhZgUSbCl458iM7%2BoicpohH0%2FtlPcVFbEhQcd818FgctAh47Xs450t8Wl11XQFAJSScfkn7J%2BJGzbiWwVi0bwtb1CHiei0h%2BSNBGy4eqZTrV3VSYoETElIKqAo6i33xpePXSNi0xE3KYBETIW4ex86k3HHIxkuKTOlQJJAllq%2BcgMyh2%2Bqp24mACCZseDivVWJUvdwX8IJAMi0rLfXC1%2B%2FCDVL3VwT%2FgsCQEmS4rqwRpaQr5AdQ134TEyUeyX8aUIZiP6T7b8kAJT5ZlYVvB2yqA5maRhnirtlMi8b%2B2fLf0MAQCJjCHUiTECQSV2KvOGJf2v5A7f%2FA6jbWSPNMZPkAAAAAElFTkSuQmCC19ELfiBQ8Sz0uBR87DGBqBVSRP6m3NiEboVsVtyHK4Y%2BVAK%2Bo13ZwaeaY2tYr0iKyEY8YEWPY8GDP7zzIze5meBgkVM2u4L1805su6Brh%2FtTyd7sySjcBGElEl4Xem7pn77gszwJRO7UlEUo2%2F9jk1cSqzY%2ByPUUtHu9cogabxX9aupTsN03nk2c1haix%2FMIBKKD0F%2BxRKGi%2FjgvFJ9iK2Q%2BY1b3PNbzwpP0eEsGnASNwyl4FF85MYFdYlY4OJNN8NL0xSt9%2FVhV7pIickpXy%2BKRKDSijbF%2FTiBytxSR%2FxNCSieAk65PYCP8p%2FeEHmRJQAkm2NPqmO840fmT3snf8bH3UkSWYbLx8WRd3cY%2FbYlABQ7RiPSTouK5BCLX4cNZsW%2BPjypuP0GdfKHjAO%2Ft%2BBj79vELHYaPQsa9ravf%2F0l5Up6UJwX9ucr%2FAZELYVrv2Uh3AAAAAElFTkSuQmCC&logoSize=auto&labelColor=282726">
+  </a>
+  </div>
+</div>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: '32px',
+  left: 'unset',
+  time: '1s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'GIGKYJ9gdqKzP2IpK2OBS9VZ-gzGzoHsz',
+      appKey     : '3LLUg5MrbkfyzWPAIYMllm4o',
+      placeholder: "昵称、邮箱、网址均可留空，支持 Markdown 语法~",
+      avatar     : 'retro',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<!-- hexo injector body_end start --><script src="/js/outdate.js"></script><!-- hexo injector body_end end --></body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
