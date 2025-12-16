@@ -9,8 +9,32 @@
     <atom:link href="https://samuflore.top/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>一人倒、衆人倒。</description>
-    <pubDate>Mon, 15 Dec 2025 16:33:46 GMT</pubDate>
+    <pubDate>Tue, 16 Dec 2025 14:58:13 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[CO]CO 理论概要</title>
+      <link>https://samuflore.top/posts/52a88c87/</link>
+      <guid>https://samuflore.top/posts/52a88c87/</guid>
+      <pubDate>Tue, 16 Dec 2025 12:50:27 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;序&quot;&gt;序&lt;/h1&gt;
+&lt;p&gt;这是计组理论复习概要。&lt;/p&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="序">序</h1><p>这是计组理论复习概要。</p><span id="more"></span><h1 id="概述">概述</h1><h2 id="计算机基本组成与结构">计算机基本组成与结构</h2><h3 id="计算机基本组成">计算机基本组成</h3><ul class="lvl-0"><li class="lvl-2"><p>硬件</p><ul class="lvl-2"><li class="lvl-6">运算器</li><li class="lvl-6">存储器</li><li class="lvl-6">I/O</li><li class="lvl-6">控制器</li></ul></li><li class="lvl-2"><p>软件</p><ul class="lvl-2"><li class="lvl-6">系统软件（操作系统）</li><li class="lvl-6">应用程序</li></ul></li></ul><h3 id="计算机总线结构">计算机总线结构</h3><p><ruby>总线<rt>Bus</rt></ruby>：符合一定标准的一组公用信息通道。</p><h2 id="计算机层次结构">计算机层次结构</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">高级语言 -&gt; 虚拟机 M3</span><br><span class="line">  |           |</span><br><span class="line">  |           |</span><br><span class="line">汇编语言 -&gt; 虚拟机 M2</span><br><span class="line">  |           |</span><br><span class="line">  |           |</span><br><span class="line">机器语言 -&gt; 实机 M1</span><br></pre></td></tr></table></figure><ul class="lvl-0"><li class="lvl-2"><p>指令集系统</p></li></ul><h2 id="计算机中数的表示">计算机中数的表示</h2><p>关于数制，参考<a href="https://samuflore.top/posts/908cc5fb/">这里</a>。</p><ul class="lvl-0"><li class="lvl-2"><p>无符号数</p></li><li class="lvl-2"><p>有符号数</p></li><li class="lvl-2"><p>浮点数</p><ul class="lvl-2"><li class="lvl-6">IEEE 754：<ruby>符号<rt>Sign</rt></ruby>，<ruby>阶码<rt>Exponent</rt></ruby>，<ruby>尾数<rt>Mantissa</rt></ruby>。</li></ul></li><li class="lvl-2"><p>布尔值</p><ul class="lvl-2"><li class="lvl-6"><ruby>真<rt>1</rt></ruby>，<ruby>假<rt>0</rt></ruby></li></ul></li><li class="lvl-2"><p>西文字符</p><ul class="lvl-2"><li class="lvl-6">ASCII</li></ul></li><li class="lvl-2"><p>汉字字符</p><ul class="lvl-2"><li class="lvl-6">GB2312</li><li class="lvl-6">CJK</li><li class="lvl-6">Unicode</li></ul></li></ul><h2 id="计算机基本工作原理">计算机基本工作原理</h2><ul class="lvl-0"><li class="lvl-2"><p>机器指令</p><ul class="lvl-2"><li class="lvl-6">操作码</li><li class="lvl-6">操作数地址</li></ul></li><li class="lvl-2"><p>程序</p><ul class="lvl-2"><li class="lvl-6"><ruby>程序计数器<rt>Programme Counter</rt></ruby></li></ul></li><li class="lvl-2"><p>冯·诺伊曼计算机的特点</p><ul class="lvl-2"><li class="lvl-6">由运算器，存储器，控制器和 I/O 组成</li><li class="lvl-6">指令和数据的储存没有区别，放在存储器中按地址访问</li><li class="lvl-6">指令由操作码和地址组成</li></ul></li><li class="lvl-2"><p>摩尔定律</p></li></ul><h1 id="组合逻辑电路">组合逻辑电路</h1><h2 id="逻辑代数">逻辑代数</h2><h3 id="基本概念">基本概念</h3><ul class="lvl-0"><li class="lvl-2"><p>逻辑代数 L = { K, ∨, ∧, ￢, 0, 1}，其中 K 为逻辑变量集。</p><ul class="lvl-2"><li class="lvl-6">与 <code>·</code></li><li class="lvl-6">或 <code>+</code></li><li class="lvl-6">非</li><li class="lvl-6">异或、同或等</li><li class="lvl-6">运算优先级：<code>() -&gt; ￢ -&gt; ∧ -&gt; ⊕ -&gt; ∨</code></li></ul></li><li class="lvl-2"><p>逻辑门符号表示</p></li><li class="lvl-2"><p>公理系统</p><ul class="lvl-2"><li class="lvl-6"><code>A != 0 -&gt; A = 1; A != 1 -&gt; A = 0;</code></li><li class="lvl-6"><code>0 · 0 = 0; 1 + 1 = 1;</code></li><li class="lvl-6"><code>1 · 1 = 1; 0 + 0 = 0;</code></li><li class="lvl-6"><code>0 · 1 = 0; 1 + 0 = 1; 1 · 0 = 0; 0 + 1 = 1</code></li><li class="lvl-6"><code>￢0 = 1; ￢1 = 0;</code></li></ul></li></ul><h3 id="定律、定理和规则">定律、定理和规则</h3><ul class="lvl-0"><li class="lvl-2"><p>基本定律</p><ul class="lvl-2"><li class="lvl-6">交换律</li><li class="lvl-6">结合律</li><li class="lvl-6">分配律</li><li class="lvl-6">0-1 律</li><li class="lvl-6">互补律</li></ul></li><li class="lvl-2"><p>基本定理</p><ul class="lvl-2"><li class="lvl-6">重叠律 <code>A + A = A; A · A = A;</code></li><li class="lvl-6">吸收律：两个乘积项中，若有一个乘积项的部分因子，恰好是另一个乘积项的全部，则这个乘积项是多余的</li><li class="lvl-6">还原律：负负得正</li><li class="lvl-6">德摩根律</li><li class="lvl-6">更多……</li></ul></li><li class="lvl-2"><p>规则</p><ul class="lvl-2"><li class="lvl-6">代入规则</li><li class="lvl-6">反演规则：<code>+ ·</code> 互换，<code>0 1</code> 互换，变量变为反变量，得到反函数</li><li class="lvl-6">对偶规则：<code>+ ·</code> 互换，<code>0 1</code> 互换，变量保持不变，得到对偶式</li></ul></li></ul><h3 id="逻辑函数">逻辑函数</h3><ul class="lvl-0"><li class="lvl-2"><p>与或式 <code>AB + CD</code></p></li><li class="lvl-2"><p>或与式 <code>(A + B)(C + D)</code></p></li><li class="lvl-2"><p>与或非式 <code>￢(AB + CD)</code></p></li><li class="lvl-2"><p>最小项表达式：最小项构成的与或式（积之和式）（标准与或式）</p><ul class="lvl-2"><li class="lvl-6">把输出为 1 的输入组合写成乘积项的形式，其中取值为 1 的输入用原变量表示，取值为 0 的输入用反变量表示，然后把这些乘积项加起来</li><li class="lvl-6">最小项：n 个变量构成的与式中，每个变量或其反变量有且仅有一次出现</li><li class="lvl-6">n 个变量有 2<sup>n</sup> 个最小项</li></ul></li><li class="lvl-2"><p>最大项表达式：最大项构成的或与式（和之积式）（标准或与式）</p><ul class="lvl-2"><li class="lvl-6">把使输出为 0 的输入组合写成和项的形式，其中取值为 0 的输入用原变量表示，取值为 1 的输入用反变量表示，然后把这些和项乘起来</li><li class="lvl-6">最大项：n 个变量构成的或式中，每个变量或其反变量有且仅有一次出现</li><li class="lvl-6">n 个变量有 2<sup>n</sup> 个最大项</li></ul></li><li class="lvl-2"><p>逻辑函数化简</p><ul class="lvl-2"><li class="lvl-6">最简与或表达式：乘积项最少，同时乘积项中的变量尽可能少</li><li class="lvl-6">最简或与表达式：和项最少，同时和项中的变量尽可能少<ul class="lvl-4"><li class="lvl-10">利用对偶规则化为与或表达式，得到最简与或表达式，利用对偶规则化为最简或与表达式</li></ul></li><li class="lvl-6">卡诺图</li></ul></li></ul><h2 id="逻辑门电路">逻辑门电路</h2><h3 id="晶体管和-MOS-管">晶体管和 MOS 管</h3><ul class="lvl-0"><li class="lvl-2"><p>P 型半导体：带正电的空穴导电</p></li><li class="lvl-2"><p>N 型半导体：带负电的自由电子导电</p></li><li class="lvl-2"><p>PN 结：P 型和 N 型制作在一起</p><ul class="lvl-2"><li class="lvl-6">正向偏置：正极接 P 区，负极接 N 区，PN 结导通</li><li class="lvl-6">反向偏置：正极接 N 区，负极接 P 区，PN 结截止</li></ul></li><li class="lvl-2"><p>晶体二极管</p><ul class="lvl-2"><li class="lvl-6">正向导通：外加电压大于开启电压</li><li class="lvl-6">反向截止：外加反向电压或电压小于开启电压</li><li class="lvl-6">击穿：反向电压大于阈值（0.7V），二极管被击穿，失去单向导电性</li></ul></li><li class="lvl-2"><p>晶体三极管</p><ul class="lvl-2"><li class="lvl-6">导通：U<sub>BC</sub> &gt; 0, U<sub>BE</sub> &gt; 0.7V</li><li class="lvl-6">截止：U<sub>BC</sub> &lt; 0, U<sub>BE</sub> &lt; 0.7V</li></ul></li><li class="lvl-2"><p>MOS 管</p><ul class="lvl-2"><li class="lvl-6">导通：V<sub>GS</sub> &gt; 开启电压</li><li class="lvl-6">截止：V<sub>GS</sub> = 0</li></ul></li></ul><h3 id="门电路">门电路</h3><ul class="lvl-0"><li class="lvl-2"><p>与或非门的实现方式</p></li><li class="lvl-2"><p>CMOS 和 TTL 的对比</p><ul class="lvl-2"><li class="lvl-6">CMOS 功耗相对低，抗干扰能力相对强，带载能力强</li><li class="lvl-6">TTL 功耗相对高，速度相对快，抗干扰能力相对弱</li></ul></li></ul><h2 id="基本组合逻辑部件设计">基本组合逻辑部件设计</h2><h3 id="加法">加法</h3><ul class="lvl-0"><li class="lvl-2"><p>半加器：两个 1 位二进制数相加求和，并向高位进位，不考虑低位进位</p></li><li class="lvl-2"><p>全加器：两个 1 位二进制数相加求和，并向高位进位，考虑低位进位</p></li><li class="lvl-2"><p>多位加法器</p><ul class="lvl-2"><li class="lvl-6">并行加法器——串行进位</li><li class="lvl-6">并行加法器——并行进位</li></ul></li><li class="lvl-2"><p>溢出判断</p></li><li class="lvl-2"><p>乘法器</p></li><li class="lvl-2"><p>数值比较器</p></li><li class="lvl-2"><p>ALU（运算逻辑单元电路）</p></li><li class="lvl-2"><p>编码器</p><ul class="lvl-2"><li class="lvl-6">2<sup>n</sup> 线 — n 线编码器（<a href="https://samuflore.top/posts/9707d4af/">独热编码</a>）</li><li class="lvl-6">优先编码器（输出优先级最高的输入信号对应编号的反码）</li></ul></li><li class="lvl-2"><p>译码器</p><ul class="lvl-2"><li class="lvl-6">n 线 — 2<sup>n</sup> 线译码器</li><li class="lvl-6">显示译码器（七段码等）</li></ul></li></ul>]]></content:encoded>
+      
+      
+      <category domain="https://samuflore.top/categories/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B5%84%E6%88%90%E5%8E%9F%E7%90%86/">計算機組成原理</category>
+      
+      
+      <category domain="https://samuflore.top/tags/CO/">CO</category>
+      
+      
+      <comments>https://samuflore.top/posts/52a88c87/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>[C Primer Minus]Vol. 2: DS</title>
@@ -19,15 +43,17 @@
       <pubDate>Mon, 15 Dec 2025 16:25:53 GMT</pubDate>
       
       <description>&lt;h1 id=&quot;序&quot;&gt;序&lt;/h1&gt;
-&lt;p&gt;这是名为《C Primer Minus》的 C 语言简易教程第二册：数据结构篇。&lt;/p&gt;</description>
+&lt;p&gt;这是名为《C Primer Minus》的 C 语言简易教程第二册：&lt;ruby&gt;数据结构&lt;rt&gt;Data Structure&lt;/rt&gt;&lt;/ruby&gt;篇。&lt;/p&gt;</description>
       
       
       
-      <content:encoded><![CDATA[<h1 id="序">序</h1><p>这是名为《C Primer Minus》的 C 语言简易教程第二册：数据结构篇。</p><span id="more"></span>]]></content:encoded>
+      <content:encoded><![CDATA[<h1 id="序">序</h1><p>这是名为《C Primer Minus》的 C 语言简易教程第二册：<ruby>数据结构<rt>Data Structure</rt></ruby>篇。</p><span id="more"></span>]]></content:encoded>
       
       
       <category domain="https://samuflore.top/categories/C-Primer-Minus/">C Primer Minus</category>
       
+      
+      <category domain="https://samuflore.top/tags/Tutorial/">Tutorial</category>
       
       <category domain="https://samuflore.top/tags/C/">C</category>
       
@@ -47,15 +73,17 @@
       <pubDate>Mon, 15 Dec 2025 16:24:37 GMT</pubDate>
       
       <description>&lt;h1 id=&quot;序&quot;&gt;序&lt;/h1&gt;
-&lt;p&gt;这是名为《C Primer Minus》的 C 语言简易教程第一册：程序设计基础篇。&lt;/p&gt;</description>
+&lt;p&gt;这是名为《C Primer Minus》的 C 语言简易教程第一册：&lt;ruby&gt;程序设计基础&lt;rt&gt;Fundamentals of Programming&lt;/rt&gt;&lt;/ruby&gt;篇。&lt;/p&gt;</description>
       
       
       
-      <content:encoded><![CDATA[<h1 id="序">序</h1><p>这是名为《C Primer Minus》的 C 语言简易教程第一册：程序设计基础篇。</p><span id="more"></span>]]></content:encoded>
+      <content:encoded><![CDATA[<h1 id="序">序</h1><p>这是名为《C Primer Minus》的 C 语言简易教程第一册：<ruby>程序设计基础<rt>Fundamentals of Programming</rt></ruby>篇。</p><span id="more"></span>]]></content:encoded>
       
       
       <category domain="https://samuflore.top/categories/C-Primer-Minus/">C Primer Minus</category>
       
+      
+      <category domain="https://samuflore.top/tags/Tutorial/">Tutorial</category>
       
       <category domain="https://samuflore.top/tags/C/">C</category>
       
@@ -133,9 +161,9 @@
       
       <category domain="https://samuflore.top/tags/CO/">CO</category>
       
-      <category domain="https://samuflore.top/tags/MIPS/">MIPS</category>
-      
       <category domain="https://samuflore.top/tags/Verilog/">Verilog</category>
+      
+      <category domain="https://samuflore.top/tags/MIPS/">MIPS</category>
       
       <category domain="https://samuflore.top/tags/P7/">P7</category>
       
@@ -164,9 +192,9 @@
       
       <category domain="https://samuflore.top/tags/CO/">CO</category>
       
-      <category domain="https://samuflore.top/tags/MIPS/">MIPS</category>
-      
       <category domain="https://samuflore.top/tags/Verilog/">Verilog</category>
+      
+      <category domain="https://samuflore.top/tags/MIPS/">MIPS</category>
       
       <category domain="https://samuflore.top/tags/P6/">P6</category>
       
@@ -197,9 +225,9 @@
       
       <category domain="https://samuflore.top/tags/CO/">CO</category>
       
-      <category domain="https://samuflore.top/tags/MIPS/">MIPS</category>
-      
       <category domain="https://samuflore.top/tags/Verilog/">Verilog</category>
+      
+      <category domain="https://samuflore.top/tags/MIPS/">MIPS</category>
       
       <category domain="https://samuflore.top/tags/P5/">P5</category>
       
@@ -257,42 +285,14 @@
       
       <category domain="https://samuflore.top/tags/CO/">CO</category>
       
-      <category domain="https://samuflore.top/tags/MIPS/">MIPS</category>
-      
       <category domain="https://samuflore.top/tags/P4/">P4</category>
       
       <category domain="https://samuflore.top/tags/Verilog/">Verilog</category>
       
+      <category domain="https://samuflore.top/tags/MIPS/">MIPS</category>
+      
       
       <comments>https://samuflore.top/posts/53039668/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>[孤獨星球]林信之江传</title>
-      <link>https://samuflore.top/posts/be27c6b/</link>
-      <guid>https://samuflore.top/posts/be27c6b/</guid>
-      <pubDate>Sun, 09 Nov 2025 15:27:08 GMT</pubDate>
-      
-      <description>&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;530&quot; height=&quot;86&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=2038191895&amp;auto=0&amp;height=66&quot;&gt;&lt;/iframe&gt;
-&lt;h1 id=&quot;序&quot;&gt;序&lt;/h1&gt;
-&lt;div class=&quot;note info&quot;&gt;
-            &lt;p&gt;&lt;ins&gt;林信之江&lt;/ins&gt;是网名，故不需要缀以“君”的称呼。&lt;/p&gt;
-          &lt;/div&gt; 
-&lt;p&gt;我猜&lt;ins&gt;林信之江&lt;/ins&gt;是一个生活不如意的可怜人。&lt;/p&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="530" height="86" src="//music.163.com/outchain/player?type=2&id=2038191895&auto=0&height=66"></iframe><h1 id="序">序</h1><div class="note info">            <p><ins>林信之江</ins>是网名，故不需要缀以“君”的称呼。</p>          </div> <p>我猜<ins>林信之江</ins>是一个生活不如意的可怜人。</p><span id="more"></span><h1 id="沉默的呼喊">沉默的呼喊</h1><p>25 年 4 月某日，高考将要过去一年了。<br>我对我母校的感情是很深的，这一年来想法设法回去了若干次。有的是以监考英语名义，有的是以代守晚自习名义（和<ins>张卿</ins>、<ins>曹卿</ins>一起，外加两杯豆汁），有的则是以大学招生宣讲及社会实践名义……大概是高中给我留下的记忆很多吧，毕竟在对数的人生<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>里，高中三年占据了前半生校园生活中最多的时间。不过毕竟已经大学了，不能始终停留在回忆之中。</p><p>然而有一声来自沉默的呼喊把我拽了回来，那是来自一个定居美国的成功人士“不算抗议的抗议”，与我一样是关于这所学校的回忆。</p><p>今天，<ins>林信之江</ins>一共在多少平台发表了这回忆录，已不可考，不过在互联网中仍然残存了原文的截图。</p><p><img src="/posts/be27c6b/%E5%9B%BE%E4%B8%80.jpg" alt="上"></p><p><img src="/posts/be27c6b/%E5%9B%BE%E4%BA%8C.jpg" alt="下"></p><p>这倒新鲜了。此文一出迅速获得了很多阅读和评论，有惊讶于学校发生这种事情的，有立刻开始共情的，有“悲報：我們的教育確有問題”的。尤其是说到：</p><blockquote><p>“俱往矣，如今我已赴美定居，国内的事与我无关……若是有人不服气，攻击我不该写这帖子……那么将有北京不错的律师团队替我发函。”</p></blockquote><p>我的老天，这谁看了不感到热血沸腾，时刻准备找到我们学校的校园墙、公关账号，在评论区里质问质问？</p><p>不过我们作为毕业生，自然不会被带节奏。诚然我们中也不乏认为学校、老师做的有不好之处的同学，但所谓“扇巴掌”“搜身”以及看人下菜碟一事，未经考证是不能乱说的，否则以造谣论是要担责的。</p><h1 id="“复旦大学”毕业生">“复旦大学”毕业生</h1><p>一位<ins>魏君</ins>接触到他，与之讲理不成，吵了起来，随后<ins>林信之江</ins>发表了第二篇文章，以及把<ins>魏君</ins>挂出来了。</p><blockquote><p>“……我预判了她们（笔者注：为什么是她？）的出现，这个世界从来不缺这种人（笔者注：指反对者）……”</p></blockquote><p><ins>林信之江</ins>拒绝了我们的理性交流邀请，并且<strong>决定不顾中美两地的时差</strong>与我们进行高强度对线。<br>从他的主页、表述中，我们得知他是 2009 至 2011 年间毕业，被复旦大学录取的学生，后又进入清华大学学习（曾发表过英语专八证书并附上清华大学 tag）。据此我们联系了我们的<ins>宋校长</ins>核查此事，同时也从某论坛找到了这几年的毕业生录取情况表。种种证据的确表明在这个时间段没有符合上述条件的人物。而他真实身份是被湖南涉外经济学院录取，高考分数 274。以上两点由<ins>宋校长</ins>亲自确认。</p><p>自然，校长也与之通了电话，具体谈论的内容今天也不得而知了，大概要求他不要在互联网上挂人，以及谈论当时的真实情况。后来<ins>林信之江</ins>的确把这条文章删除了。</p><p>但我们把这分数，学校发给他看时，等来的只有：</p><blockquote><p>“你错了，宋校说，无人泄露。”<br>“你怎么知道？”<br>“还有，涉外？学校表示没有这回事。”<br>“……”<br>“我已经拿到学校授权。”</p></blockquote><h1 id="神与神人">神与神人</h1><p>然而<ins>林信之江</ins>是神，尽管是人造的，造神的神人哪能见得他认输呢？于是名为“大手发力了”的大手发力了。</p><p>关于所有不分青红皂白，未经考察事实，仅凭<ins>林信之江</ins>一面之词笃定所有责任在学校的神人，他们与我们的骂战基本不与<ins>林信之江</ins>有关（的确不是他的小号一类的，而他应该也没必要请水军），此处就不具体展开。</p><p>总之，战火已经烧到完全无关的评论区了，于是我们和神人以及<strong>颠倒昼夜</strong>也要和我们骂架的神开始了殊死搏斗。</p><p>我并不想使用春秋笔法，所以就直说了：这些人确实都是人头猪脑<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>，听风就是雨，综合评价给到拉完了。</p><p>我们史官就应该干这种事。</p><h1 id="很贵的房子！">很贵的房子！</h1><p><ins>林信之江</ins>作为一个已经定居美国的成功人士，哪能让我们一帮乡里别占尽风头？于是他又作了一篇文章发了出来。这篇现在已经消失于互联网之中了。</p><p>然而他却太不会演戏了。学历的作假，已经让他丧失了一部分可信度。可他甚至不愿意装一装自己“美爷”的身份。</p><p><ins>林信之江</ins>曾发表某视频，展现自己的美国生活（事后证明其图片均为盗取他人），其中有一张展现自己居所的图片，评论区自然有很多人想问问他的生活。</p><blockquote><p>路人：“房子很漂亮！多少平？花了多少钱？”<br>林信之江：“很贵！”</p></blockquote><p>我的老天，那的确很贵了。</p><p>如果他给看他文章的人每人发一百块钱，那我还是很愿意尊重他“美爷”人设，转而寻找别的突破口的。</p><h1 id="替我发函！">替我发函！</h1><p><ins>林信之江</ins>所有言论中我最喜欢的是这句：</p><blockquote><p>“将有北京不错的律师团队替我发函。”</p></blockquote><p>他把<ins>魏君</ins>挂出来时，明确表达了让<ins>魏君</ins>等着收传票的态度。<ins>魏君</ins>就读于北京交通大学，如果法院真的发传票给他，是能很快收到的。而我同样在北京，于是有点眼红，就问<ins>林信之江</ins>：</p><blockquote><p>“学长，我就在北京，请问你那个北京不错的律师团队的函可以发同城快送吗，如果不行的话我自取也可以的 😭”</p></blockquote><p>毕竟同城快送或者坐个地铁过去还是很便宜的，要是给我发顺丰我就亏麻了。</p><h1 id="林信之江">林信之江</h1><p><ins>林信之江</ins>的最后一篇文章，是向一直以来支持他的粉丝们告别，说自己已经看淡了这些往事，决定回归到正常生活之中了。然后他注销了自己的账号。</p><p>有人保存了<ins>林信之江</ins>盗取图片伪造身份的证据，找到了正主。正主表示信他的人智商有问题，自己也懒得管这种人，如果要走司法程序，他是十分欢迎的。那么我想<ins>林信之江</ins>的正常生活恐怕也不会太平。关于销号一事，普遍认为他因为事情败露，加上真的有人有能力起诉他，只能选择跑路了。</p><p>总而言之，<ins>林信之江</ins>逃了，永远消失了。他究竟是什么身份，为什么要使用拙劣的演技伪造自己的学历和地位，以及发表所谓“俱往矣”的回忆录出于什么目的，今天已经不得而知。从引发舆论这一层来看，<ins>林信之江</ins>确实是成功的。时至今日，当时别人因读了他的文章有感而发的文字仍然可以找到，这多是控诉自己经历或所见的在学校受到的不公平对待。这些事的真与假我无权探讨，不过它起码不是出自于一个“复旦大学毕业的居美华人”。然而这些学校的学生们老师们想必也为考证这些往事付出了自己的努力。<br><ins>林信之江</ins>并没有引发更大的风波了。</p><h1 id="后日谈">后日谈</h1><p>与<ins>贺卿</ins>一样，我认为<ins>林信之江</ins>是有资格进入我《孤獨星球》选集的，这是因为他们具有同样的特质——活在自己的世界里。</p><hr class="footnotes-sep"><section class="footnotes"><ol class="footnotes-list"><li id="fn1" class="footnote-item"><p><a href="https://www.bilibili.com/video/BV1VrVSz1Eme/?spm_id_from=333.337.search-card.all.click&amp;vd_source=01d46a67d8b24551291e48937afde394">《这个定律，预言了你的人生进度条》</a> 毕导，2025-05-10 <a href="#fnref1" class="footnote-backref">↩︎</a></p></li><li id="fn2" class="footnote-item"><p>《龚语》 龚 sir，2021-2024 <a href="#fnref2" class="footnote-backref">↩︎</a></p></li></ol></section>]]></content:encoded>
-      
-      
-      <category domain="https://samuflore.top/categories/%E5%AD%A4%E7%8D%A8%E6%98%9F%E7%90%83/">孤獨星球</category>
-      
-      
-      <category domain="https://samuflore.top/tags/Biography/">Biography</category>
-      
-      
-      <comments>https://samuflore.top/posts/be27c6b/#disqus_thread</comments>
       
     </item>
     
