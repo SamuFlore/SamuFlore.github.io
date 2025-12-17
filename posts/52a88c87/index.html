@@ -33,7 +33,7 @@
 <meta property="og:description" content="序 这是计组理论复习概要。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-16T12:50:27.000Z">
-<meta property="article:modified_time" content="2025-12-16T14:58:13.201Z">
+<meta property="article:modified_time" content="2025-12-17T01:22:38.159Z">
 <meta property="article:author" content="Samustach Floresein">
 <meta property="article:tag" content="CO">
 <meta name="twitter:card" content="summary">
@@ -237,10 +237,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2025-12-16 20:50:27 / 修改时间：22:58:13" itemprop="dateCreated datePublished" datetime="2025-12-16T20:50:27+08:00">2025-12-16</time>
+              <time title="创建时间：2025-12-16 20:50:27" itemprop="dateCreated datePublished" datetime="2025-12-16T20:50:27+08:00">2025-12-16</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-17 09:22:38" itemprop="dateModified" datetime="2025-12-17T09:22:38+08:00">2025-12-17</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -277,13 +283,13 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>1.6k</span>
+              <span>3.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-              <span>3 分钟</span>
+              <span>7 分钟</span>
             </span>
 
         </div>
@@ -543,7 +549,6 @@
 </li>
 </ul>
 <h2 id="基本组合逻辑部件设计">基本组合逻辑部件设计</h2>
-<h3 id="加法">加法</h3>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p>半加器：两个 1 位二进制数相加求和，并向高位进位，不考虑低位进位</p>
@@ -582,6 +587,206 @@
 <ul class="lvl-2">
 <li class="lvl-6">n 线 — 2<sup>n</sup> 线译码器</li>
 <li class="lvl-6">显示译码器（七段码等）</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><ruby>多路选择器<rt>多路复用器，MUX</rt></ruby></p>
+<ul class="lvl-2">
+<li class="lvl-6">8 选 1 MUX</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>竞争与冒险</p>
+<ul class="lvl-2">
+<li class="lvl-6">竞争：某个输入变量通过两条或两条以上的路径传输到输出端，由于每条路径的延迟不同，导致不同路径的数据到达输出端的时间又先后</li>
+<li class="lvl-6">冒险：门电路由于输入端的竞争，在输出端出现<ruby>尖峰干扰信号<rt>毛刺</rt></ruby>的现象</li>
+<li class="lvl-6">核心原因：门电路的延迟</li>
+<li class="lvl-6">代数法判断：逻辑函数 F 可以简化为 <code>F = A + ~A</code> 或 <code>F = A · ~A</code></li>
+<li class="lvl-6">卡诺图法</li>
+<li class="lvl-6">消除竞争冒险</li>
+</ul>
+</li>
+</ul>
+<h1 id="时序逻辑电路">时序逻辑电路</h1>
+<h2 id="锁存器和触发器">锁存器和触发器</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><ruby>触发器<rt>Flip-Flop, FF</rt></ruby>是实现电路记忆功能的基本单元电路</p>
+<ul class="lvl-2">
+<li class="lvl-6">两个互非的输出 Q 和 ~Q，Q 称为状态变量</li>
+<li class="lvl-6"><code>Q = 0</code> 称为 0 态，<code>Q = 1</code> 称为 1 态</li>
+<li class="lvl-6">Q<sup>n</sup> 称为原态，Q<sup>n+1</sup> 称为次态</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><ruby>R<rt>Reset</rt></ruby><ruby>S<rt>Set</rt></ruby> 锁存器</p>
+<ul class="lvl-2">
+<li class="lvl-6">与非门 RS 锁存器</li>
+<li class="lvl-6">或非门 RS 锁存器</li>
+<li class="lvl-6">输入：~R，~S</li>
+<li class="lvl-6">保持：<code>~R = 1</code>，<code>~S = 1</code></li>
+<li class="lvl-6">置 0：<code>~R = 0</code>， <code>~S = 1</code> （低电平有效）</li>
+<li class="lvl-6">置 1：<code>~R = 1</code>，<code>~S = 0</code> （低电平有效）</li>
+<li class="lvl-6">非法：<code>~R = ~S = 0</code> （产生竞争）</li>
+<li class="lvl-6">约束条件：<code>~R + ~S = 1</code></li>
+<li class="lvl-6">特性方程：反映次态、原态和输入之间关系的函数表达式：</li>
+</ul>
+  <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msup><mi>Q</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msup><mo>=</mo><msub><mi>S</mi><mi>D</mi></msub><msub><mover accent="true"><mi>R</mi><mo>ˉ</mo></mover><mi>D</mi></msub><mo>+</mo><msub><mover accent="true"><mi>S</mi><mo>ˉ</mo></mover><mi>D</mi></msub><msub><mover accent="true"><mi>R</mi><mo>ˉ</mo></mover><mi>D</mi></msub><msup><mi>Q</mi><mi>n</mi></msup><mspace linebreak="newline"></mspace><mo>=</mo><msub><mi>S</mi><mi>D</mi></msub><mo>+</mo><msub><mover accent="true"><mi>R</mi><mo>ˉ</mo></mover><mi>D</mi></msub><msup><mi>Q</mi><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">
+    Q^{n+1}=S_D\bar{R}_D+\bar{S}_D\bar{R}_DQ^{n}\\
+    = S_D+\bar{R}_DQ^n
+    </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0585em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">Q</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.9701em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">D</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8201em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1667em;"><span class="mord">ˉ</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">D</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0145em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8201em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1667em;"><span class="mord">ˉ</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">D</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8201em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1667em;"><span class="mord">ˉ</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">D</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">Q</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7144em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">D</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0145em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8201em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1667em;"><span class="mord">ˉ</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">D</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">Q</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7144em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span></span></span></span>
+<ul class="lvl-2">
+<li class="lvl-6">状态转移图</li>
+<li class="lvl-6">时序图</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>钟控 RS 锁存器</p>
+<ul class="lvl-2">
+<li class="lvl-6">加入<ruby>时钟信号<rt>CP</rt></ruby>，高电位（或低电位）时改变锁存器状态，因此为电位触发方式的锁存器</li>
+<li class="lvl-6">亦称同步锁存器</li>
+<li class="lvl-6"><code>CP = 0</code> 时，~S 和 ~R 恒为 1，保持；<code>clk = 1</code> 时，由 ~S 和 ~R 决定</li>
+<li class="lvl-6">仍有约束条件</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>钟控 D 锁存器</p>
+<ul class="lvl-2">
+<li class="lvl-6">将 R，S 两个输入端换为一个输入端 D，<code>S = D</code>，<code>R = ~D</code>，保证二者恒为互非</li>
+<li class="lvl-6">特性方程：</li>
+</ul>
+ <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msup><mi>Q</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msup><mo>=</mo><mi>D</mi><mspace width="1em"><mo stretchy="false">(</mo><mi>C</mi><mi>P</mi><mo>=</mo><mn>1</mn><mo stretchy="false">)</mo><mspace linebreak="newline"></mspace><msup><mi>Q</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msup><mo>=</mo><msup><mi>Q</mi><mi>n</mi></msup><mspace width="1em"><mo stretchy="false">(</mo><mi>C</mi><mi>P</mi><mo>=</mo><mn>0</mn><mo stretchy="false">)</mo></mspace></mspace></mrow><annotation encoding="application/x-tex">
+    Q^{n+1} = D\quad(CP=1) \\
+    Q^{n+1} = Q^n\quad(CP=0)
+    </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0585em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">Q</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mspace" style="margin-right:1em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">CP</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:1.0585em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">Q</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">Q</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7144em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:1em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">CP</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span></span></span>
+</li>
+<li class="lvl-2">
+<p>D 触发器</p>
+<ul class="lvl-2">
+<li class="lvl-6">由两个反相的 D 锁存器构成</li>
+<li class="lvl-6">锁存器 L1 称为<ruby>主<rt>Master</rt></ruby>锁存器，L2 称为<ruby>从<rt>Slave</rt></ruby>锁存器</li>
+<li class="lvl-6">触发器是时钟有效沿触发，锁存器是电位触发</li>
+<li class="lvl-6">增加使能端</li>
+<li class="lvl-6">在时钟信号上一般不要设置逻辑，否则可能因延迟导致时序错误</li>
+<li class="lvl-6">增加复位端
+<ul class="lvl-4">
+<li class="lvl-10">同步复位：复位信号有效和时钟沿有效才复位</li>
+<li class="lvl-10">异步复位：复位信号有效则复位</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>JK 触发器</p>
+<ul class="lvl-2">
+<li class="lvl-6">在钟控 RS 锁存器基础上，把 <code>~R = 1; ~S = 1</code> 的情况变为翻转功能</li>
+<li class="lvl-6">翻转：Q<sup>n+1</sup> = ~Q<sup>n</sup></li>
+<li class="lvl-6">特性方程</li>
+</ul>
+  <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msup><mi>Q</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msup><mo>=</mo><mi>J</mi><msup><mover accent="true"><mi>Q</mi><mo>ˉ</mo></mover><mi>n</mi></msup><mo>+</mo><mover accent="true"><mi>K</mi><mo>ˉ</mo></mover><msup><mi>Q</mi><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">
+    Q^{n+1}=J\bar{Q}^n+\bar{K}Q^n
+    </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0585em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">Q</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0145em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.09618em;">J</span><span class="mord"><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8201em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">Q</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1667em;"><span class="mord">ˉ</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1944em;"><span></span></span></span></span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7144em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0145em;vertical-align:-0.1944em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8201em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1944em;"><span class="mord">ˉ</span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">Q</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7144em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span></span></span></span>
+<ul class="lvl-2">
+<li class="lvl-6">状态转换图</li>
+</ul>
+</li>
+</ul>
+<h2 id="有限状态机">有限状态机</h2>
+<p>关于有限状态机，参考<a href="https://samuflore.top/posts/11653afb/">这里</a>。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>同步时序电路</p>
+<ul class="lvl-2">
+<li class="lvl-6">每个电路元件都是组合逻辑或寄存器，且至少有一个寄存器</li>
+<li class="lvl-6">每一个环路至少有一个寄存器</li>
+<li class="lvl-6">所有寄存器接受同一个时钟信号</li>
+<li class="lvl-6">可以描绘成有限状态机</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>有限状态机</p>
+<ul class="lvl-2">
+<li class="lvl-6">次态逻辑</li>
+<li class="lvl-6">状态存储</li>
+<li class="lvl-6">输出逻辑</li>
+<li class="lvl-6">Moore 机
+<ul class="lvl-4">
+<li class="lvl-10">输出信号与当前状态有关</li>
+</ul>
+</li>
+<li class="lvl-6">Mealy 机
+<ul class="lvl-4">
+<li class="lvl-10">输出信号与当前状态及当前输入信号有关</li>
+</ul>
+</li>
+<li class="lvl-6">必须有时钟信号和复位信号</li>
+<li class="lvl-6">状态编码方式
+<ul class="lvl-4">
+<li class="lvl-10">二进制编码</li>
+<li class="lvl-10">格雷编码</li>
+<li class="lvl-10"><a href="https://samuflore.top/posts/9707d4af/">独热编码</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="时序逻辑电路设计分析">时序逻辑电路设计分析</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>寄存器</p>
+<ul class="lvl-2">
+<li class="lvl-6">触发器和控制门电路组成
+<ul class="lvl-4">
+<li class="lvl-10">一个触发器存储一位</li>
+<li class="lvl-10">控制门电路保证各触发器同时接收数据</li>
+</ul>
+</li>
+<li class="lvl-6">写/读/<ruby>复位<rt>清零</rt></ruby></li>
+<li class="lvl-6">边沿或电位触发</li>
+<li class="lvl-6">数据寄存器
+<ul class="lvl-4">
+<li class="lvl-10">边沿触发器组成</li>
+</ul>
+</li>
+<li class="lvl-6">数据锁存器
+<ul class="lvl-4">
+<li class="lvl-10">电位触发器组成</li>
+</ul>
+</li>
+<li class="lvl-6">移位寄存器
+<ul class="lvl-4">
+<li class="lvl-10">具有移位功能的寄存器。每来一个时钟脉冲，寄存器中数据就依次向左或向右移一位</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>计数器</p>
+<ul class="lvl-2">
+<li class="lvl-6">统计输入的脉冲个数</li>
+<li class="lvl-6">同步计数
+<ul class="lvl-4">
+<li class="lvl-10">各触发器同时翻转，工作频率高</li>
+</ul>
+</li>
+<li class="lvl-6">异步计数
+<ul class="lvl-4">
+<li class="lvl-10">脉冲信号只作用于最低位触发器，高位触发器待低位触发器翻转后才能翻转，工作频率低</li>
+</ul>
+</li>
+<li class="lvl-6">进制</li>
+<li class="lvl-6">加法/减法</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>时序电路的时序</p>
+<ul class="lvl-2">
+<li class="lvl-6"><ruby>建立<rt>Setup</rt></ruby>时间：触发时钟沿之前，输入必须稳定的时间</li>
+<li class="lvl-6"><ruby>保持<rt>Hold</rt></ruby>时间：触发时钟沿之后，输入必须稳定的时间</li>
+<li class="lvl-6">孔径时间：T<sub>Setup</sub> + T<sub>Hold</sub></li>
+<li class="lvl-6">Clock-to-Q 时间：从触发时钟边沿开始到输入稳定的时间</li>
+<li class="lvl-6">时钟周期 &gt;= T<sub>CTQ</sub> + <ruby>T<sub>CDL</sub><rt>最长路径延迟</rt></ruby> + T<sub>Setup</sub> + 时钟偏移（一般忽略）</li>
+<li class="lvl-6">T<sub>CTQ</sub> + <ruby>T<sub>CDS</sub><rt>最短路径延迟</rt></ruby> &gt;= T<sub>Hold</sub>，否则无法锁存输入，因为在上一个输入的保持时间内，输入发生了变化</li>
 </ul>
 </li>
 </ul>
@@ -743,7 +948,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">2.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90%E4%B8%8E%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.</span> <span class="nav-text">计算机基本组成与结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90"><span class="nav-number">2.1.1.</span> <span class="nav-text">计算机基本组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%80%BB%E7%BA%BF%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.2.</span> <span class="nav-text">计算机总线结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="nav-number">2.2.</span> <span class="nav-text">计算机层次结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E6%95%B0%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-number">2.3.</span> <span class="nav-text">计算机中数的表示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">2.4.</span> <span class="nav-text">计算机基本工作原理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF"><span class="nav-number">3.</span> <span class="nav-text">组合逻辑电路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0"><span class="nav-number">3.1.</span> <span class="nav-text">逻辑代数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">3.1.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E5%BE%8B%E3%80%81%E5%AE%9A%E7%90%86%E5%92%8C%E8%A7%84%E5%88%99"><span class="nav-number">3.1.2.</span> <span class="nav-text">定律、定理和规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E5%87%BD%E6%95%B0"><span class="nav-number">3.1.3.</span> <span class="nav-text">逻辑函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E9%97%A8%E7%94%B5%E8%B7%AF"><span class="nav-number">3.2.</span> <span class="nav-text">逻辑门电路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%99%B6%E4%BD%93%E7%AE%A1%E5%92%8C-MOS-%E7%AE%A1"><span class="nav-number">3.2.1.</span> <span class="nav-text">晶体管和 MOS 管</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%A8%E7%94%B5%E8%B7%AF"><span class="nav-number">3.2.2.</span> <span class="nav-text">门电路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E9%83%A8%E4%BB%B6%E8%AE%BE%E8%AE%A1"><span class="nav-number">3.3.</span> <span class="nav-text">基本组合逻辑部件设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E6%B3%95"><span class="nav-number">3.3.1.</span> <span class="nav-text">加法</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">2.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90%E4%B8%8E%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.</span> <span class="nav-text">计算机基本组成与结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90"><span class="nav-number">2.1.1.</span> <span class="nav-text">计算机基本组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%80%BB%E7%BA%BF%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.2.</span> <span class="nav-text">计算机总线结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="nav-number">2.2.</span> <span class="nav-text">计算机层次结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E6%95%B0%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-number">2.3.</span> <span class="nav-text">计算机中数的表示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">2.4.</span> <span class="nav-text">计算机基本工作原理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF"><span class="nav-number">3.</span> <span class="nav-text">组合逻辑电路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0"><span class="nav-number">3.1.</span> <span class="nav-text">逻辑代数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">3.1.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E5%BE%8B%E3%80%81%E5%AE%9A%E7%90%86%E5%92%8C%E8%A7%84%E5%88%99"><span class="nav-number">3.1.2.</span> <span class="nav-text">定律、定理和规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E5%87%BD%E6%95%B0"><span class="nav-number">3.1.3.</span> <span class="nav-text">逻辑函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E9%97%A8%E7%94%B5%E8%B7%AF"><span class="nav-number">3.2.</span> <span class="nav-text">逻辑门电路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%99%B6%E4%BD%93%E7%AE%A1%E5%92%8C-MOS-%E7%AE%A1"><span class="nav-number">3.2.1.</span> <span class="nav-text">晶体管和 MOS 管</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%A8%E7%94%B5%E8%B7%AF"><span class="nav-number">3.2.2.</span> <span class="nav-text">门电路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E9%83%A8%E4%BB%B6%E8%AE%BE%E8%AE%A1"><span class="nav-number">3.3.</span> <span class="nav-text">基本组合逻辑部件设计</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF"><span class="nav-number">4.</span> <span class="nav-text">时序逻辑电路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%81%E5%AD%98%E5%99%A8%E5%92%8C%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="nav-number">4.1.</span> <span class="nav-text">锁存器和触发器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA"><span class="nav-number">4.2.</span> <span class="nav-text">有限状态机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1%E5%88%86%E6%9E%90"><span class="nav-number">4.3.</span> <span class="nav-text">时序逻辑电路设计分析</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -886,12 +1091,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area" style="color:#6A5ACD"></i>
     </span>
-    <span title="站点总字数">博文总字数 158k</span>
+    <span title="站点总字数">博文总字数 160k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee" style="color:#6A5ACD"></i>
     </span>
-    <span title="站点阅读时长">约 5:29 可通读</span>
+    <span title="站点阅读时长">约 5:33 可通读</span>
 </div>
   <div class="powered-by" style="color:#6A5ACD">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
