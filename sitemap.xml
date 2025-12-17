@@ -450,14 +450,7 @@
   </url>
   
   <url>
-    <loc>https://samuflore.top/tags/P3/</loc>
-    <lastmod>2025-12-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://samuflore.top/tags/Logisim/</loc>
+    <loc>https://samuflore.top/tags/P2/</loc>
     <lastmod>2025-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -471,7 +464,14 @@
   </url>
   
   <url>
-    <loc>https://samuflore.top/tags/P2/</loc>
+    <loc>https://samuflore.top/tags/P3/</loc>
+    <lastmod>2025-12-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://samuflore.top/tags/Logisim/</loc>
     <lastmod>2025-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -534,6 +534,13 @@
   </url>
   
   <url>
+    <loc>https://samuflore.top/tags/Repost/</loc>
+    <lastmod>2025-12-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://samuflore.top/tags/Biography/</loc>
     <lastmod>2025-12-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -542,13 +549,6 @@
   
   <url>
     <loc>https://samuflore.top/tags/History/</loc>
-    <lastmod>2025-12-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://samuflore.top/tags/Repost/</loc>
     <lastmod>2025-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -611,13 +611,6 @@
   </url>
   
   <url>
-    <loc>https://samuflore.top/tags/P0/</loc>
-    <lastmod>2025-12-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://samuflore.top/tags/Finite-State-Machine/</loc>
     <lastmod>2025-12-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -633,6 +626,13 @@
   
   <url>
     <loc>https://samuflore.top/tags/Moore-Machine/</loc>
+    <lastmod>2025-12-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://samuflore.top/tags/P0/</loc>
     <lastmod>2025-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -758,27 +758,6 @@
   </url>
   
   <url>
-    <loc>https://samuflore.top/tags/Markdown/</loc>
-    <lastmod>2025-12-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://samuflore.top/tags/MARS/</loc>
-    <lastmod>2025-12-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://samuflore.top/tags/Assembly-Language/</loc>
-    <lastmod>2025-12-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://samuflore.top/tags/SEO/</loc>
     <lastmod>2025-12-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -801,6 +780,13 @@
   
   <url>
     <loc>https://samuflore.top/tags/Bing/</loc>
+    <lastmod>2025-12-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://samuflore.top/tags/Markdown/</loc>
     <lastmod>2025-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -835,14 +821,28 @@
   </url>
   
   <url>
-    <loc>https://samuflore.top/tags/Data-Structure/</loc>
+    <loc>https://samuflore.top/tags/Fundamentals-of-Programming/</loc>
     <lastmod>2025-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://samuflore.top/tags/Fundamentals-of-Programming/</loc>
+    <loc>https://samuflore.top/tags/MARS/</loc>
+    <lastmod>2025-12-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://samuflore.top/tags/Assembly-Language/</loc>
+    <lastmod>2025-12-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://samuflore.top/tags/Data-Structure/</loc>
     <lastmod>2025-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

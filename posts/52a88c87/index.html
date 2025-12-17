@@ -33,7 +33,7 @@
 <meta property="og:description" content="序 这是计组理论复习概要。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-16T12:50:27.000Z">
-<meta property="article:modified_time" content="2025-12-17T04:08:31.933Z">
+<meta property="article:modified_time" content="2025-12-17T09:18:49.633Z">
 <meta property="article:author" content="Samustach Floresein">
 <meta property="article:tag" content="CO">
 <meta name="twitter:card" content="summary">
@@ -82,8 +82,8 @@
   </style>
 </noscript>
 
-<!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- hexo injector head_end end --><style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--blockquote-bg-color:#555;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style><link rel="alternate" href="/rss2.xml" title="SamuFlore's Dimension" type="application/rss+xml">
-</head>
+<!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- hexo injector head_end end --><link rel="alternate" href="/rss2.xml" title="SamuFlore's Dimension" type="application/rss+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--blockquote-bg-color:#555;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -245,7 +245,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-17 12:08:31" itemprop="dateModified" datetime="2025-12-17T12:08:31+08:00">2025-12-17</time>
+                <time title="修改时间：2025-12-17 17:18:49" itemprop="dateModified" datetime="2025-12-17T17:18:49+08:00">2025-12-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -283,13 +283,13 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>4.3k</span>
+              <span>6.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-              <span>9 分钟</span>
+              <span>13 分钟</span>
             </span>
 
         </div>
@@ -922,19 +922,312 @@
 <h2 id="存储器扩展">存储器扩展</h2>
 <ul class="lvl-0">
 <li class="lvl-2">
-<p>位扩展：多个存储器芯片的数据位空间拼在一起例如 2 个 1024 * 4 的 SRAM 芯片构造 1024 * 8 的存储器</p>
+<p>位扩展：多个同样的存储器芯片的数据位空间拼在一起例如 2 个 1024 * 4 的 SRAM 芯片构造 1024 * 8 的存储器</p>
 </li>
 <li class="lvl-2">
-<p>字扩展：多个存储器芯片的字空间拼在一起例如 4 个 1024 * 8 的 SRAM 芯片构造 4096 * 8 的存储器。地址线需要增加 2 条以选择是哪一片 SRAM 芯片中的数据</p>
+<p>字扩展：多个同样的存储器芯片的字空间拼在一起例如 4 个 1024 * 8 的 SRAM 芯片构造 4096 * 8 的存储器。地址线需要增加 2 条以选择是哪一片 SRAM 芯片中的数据</p>
 </li>
 <li class="lvl-2">
 <p>混合扩展：综合运用位扩展和字扩展例如 8 个 4096 * 4 的 SRAM 芯片构造 16384 * 8 的存储器（两个一组进行位扩展，四组进行字扩展）</p>
+</li>
+<li class="lvl-2">
+<p>异种扩展：多个不同的存储器芯片进行扩展</p>
 </li>
 <li class="lvl-2">
 <p>同一字空间的存储芯片选择信号连在一起</p>
 </li>
 <li class="lvl-2">
 <p>同一位空间的数据线连在一起</p>
+</li>
+</ul>
+<h1 id="指令系统与-MIPS-汇编">指令系统与 MIPS 汇编</h1>
+<h2 id="概述-3">概述</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>机器指令的要素</p>
+<ul class="lvl-2">
+<li class="lvl-6">操作码</li>
+<li class="lvl-6">源操作数地址</li>
+<li class="lvl-6">目的操作数地址</li>
+<li class="lvl-6">下条指令的地址（少数指令用）</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>指令类型</p>
+<ul class="lvl-2">
+<li class="lvl-6">数据传输指令：寄存器与存储器之间、寄存器之间</li>
+<li class="lvl-6">算数/逻辑运算指令</li>
+<li class="lvl-6">程序控制指令：控制程序执行顺序，条件转移或跳转，返回等</li>
+<li class="lvl-6">浮点数运算指令</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>操作数</p>
+<ul class="lvl-2">
+<li class="lvl-6">类型：数值，布尔值，地址</li>
+<li class="lvl-6">位置：存储器，寄存器，输入输出端口</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>存储方式</p>
+<ul class="lvl-2">
+<li class="lvl-6"><ruby>大端<rt>Big-Endian</rt></ruby>存储：最高有效字节存储在地址最小位置</li>
+<li class="lvl-6"><ruby>小端<rt>Little-Endian</rt></ruby>存储：最低有效字节存储在地址最小位置</li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">例如存储 0x12345678</span><br><span class="line">// 大端存储 //</span><br><span class="line">Addr    Value</span><br><span class="line">0x00    0x12</span><br><span class="line">0x01    0x34</span><br><span class="line">0x02    0x56</span><br><span class="line">0x03    0x78</span><br><span class="line"></span><br><span class="line">// 小端存储 //</span><br><span class="line">Addr    Value</span><br><span class="line">0x00    0x78</span><br><span class="line">0x01    0x56</span><br><span class="line">0x02    0x34</span><br><span class="line">0x03    0x12</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-2">
+<p>指令集系统架构种类</p>
+<ul class="lvl-2">
+<li class="lvl-6">Register-Memory 式（如 X86）：多种指令可以访问内存；存在寄存器操作数和内存操作数直接运行的指令</li>
+<li class="lvl-6">Load-Store 式（如 MIPS）：只有 Load 和 Store 类型可以访问内存；运算指令操作数全为寄存器操作数</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>操作数地址的数目</p>
+<ul class="lvl-2">
+<li class="lvl-6">三地址：<code>Opcode DesAddr Sur1Addr Sur2Addr</code></li>
+<li class="lvl-6">二地址：<code>Opcode DesAddr SurAddr</code></li>
+<li class="lvl-6">单地址：<code>Opcode Addr</code></li>
+<li class="lvl-6">无地址：<code>Opcode</code></li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>操作码结构</p>
+<ul class="lvl-2">
+<li class="lvl-6">定长：如 MIPS</li>
+<li class="lvl-6">变长：如 X86</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>形式地址：指令中给出的地址编码</p>
+</li>
+<li class="lvl-2">
+<p>有效地址：根据形式地址和寻址方式计算出来的操作数在内存单元中的地址</p>
+</li>
+<li class="lvl-2">
+<p>寻址方式：根据形式地址计算到操作数的有效地址的方式</p>
+<ul class="lvl-2">
+<li class="lvl-6">立即寻址：操作数直接在指令代码中给出</li>
+<li class="lvl-6">寄存器直接寻址</li>
+<li class="lvl-6">寄存器间接寻址</li>
+<li class="lvl-6">相对寻址</li>
+<li class="lvl-6">基址寻址</li>
+<li class="lvl-6">更多……</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>确定寻址方式</p>
+</li>
+</ul>
+<h2 id="典型指令系统">典型指令系统</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>8086/8088 指令系统</p>
+</li>
+<li class="lvl-2">
+<p>MIPS 指令系统</p>
+<ul class="lvl-2">
+<li class="lvl-6">32 个 32 位<ruby>通用寄存器<rt>GPRs</rt></ruby></li>
+<li class="lvl-6">32 个 32 位<ruby>浮点数寄存器<rt>FGPRs</rt></ruby></li>
+<li class="lvl-6">HI，LO，PC</li>
+<li class="lvl-6">指令类型
+<ul class="lvl-4">
+<li class="lvl-10"><ruby>R<rt>Register</rt></ruby> 型：两个寄存器操作数计算，结果送第三个寄存器</li>
+<li class="lvl-10"><ruby>I<rt>Immediate</rt></ruby> 型：使用一个 16 位立即数做运算</li>
+<li class="lvl-10"><ruby>J<rt>Jump</rt></ruby> 型：跳转 26 位立即数表示的地址</li>
+</ul>
+</li>
+<li class="lvl-6">最多三地址</li>
+<li class="lvl-6">对于 Load/Store 类型，寻址均为 <code>Base + Offset</code></li>
+<li class="lvl-6">没有间接寻址</li>
+<li class="lvl-6">更多……</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>R 型</p>
+<ul class="lvl-2">
+<li class="lvl-6">Opcode (6)：操作码</li>
+<li class="lvl-6">Rs (5)：第一寄存器源操作数</li>
+<li class="lvl-6">Rt (5)：第二寄存器源操作数</li>
+<li class="lvl-6">Rd (5)：目的寄存器操作数</li>
+<li class="lvl-6">Shamt (5)：偏移量（SLL 等用）</li>
+<li class="lvl-6">Func (6)：功能码</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>I 型</p>
+<ul class="lvl-2">
+<li class="lvl-6">Opcode (6)：操作码</li>
+<li class="lvl-6">Rs (5)：第一寄存器源操作数</li>
+<li class="lvl-6">Rt (5)：第二寄存器源操作数</li>
+<li class="lvl-6">Imm16 (16)：16 位立即数</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>J 型</p>
+<ul class="lvl-2">
+<li class="lvl-6">Opcode (6)：操作码</li>
+<li class="lvl-6">Imm26 (26)：26 位立即数</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><ruby>Complex Instruction Set Computer<rt>增强指令功能，CISC</rt></ruby> 和 <ruby>Reduced Instruction Set Computer<rt>简化指令功能，RISC</rt></ruby></p>
+<ul class="lvl-2">
+<li class="lvl-6">CISC：X86 等</li>
+<li class="lvl-6">RISC：MIPS 等</li>
+</ul>
+</li>
+</ul>
+<h1 id="MIPS-处理器设计">MIPS 处理器设计</h1>
+<h2 id="概述-4">概述</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>CPU 功能：控制指令执行</p>
+</li>
+<li class="lvl-2">
+<p>四种基本操作</p>
+<ul class="lvl-2">
+<li class="lvl-6">取数</li>
+<li class="lvl-6">存数</li>
+<li class="lvl-6">传送</li>
+<li class="lvl-6">运算</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>指令周期：CPU 从指令存储器中读出并执行指令全部功能的全部时间</p>
+<ul class="lvl-2">
+<li class="lvl-6">取指周期：完成取指令和分析指令的时间</li>
+<li class="lvl-6">取数周期：从数据存储器中取出操作数所需时间，包括计算操作数有效地址</li>
+<li class="lvl-6">执行周期：完成指令规定动作的时间</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>功能部件</p>
+<ul class="lvl-2">
+<li class="lvl-6">取指相关</li>
+<li class="lvl-6">执行相关</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>CPU 内部结构</p>
+<ul class="lvl-2">
+<li class="lvl-6"><ruby>数据通路<rt>Datapath</rt></ruby>
+<ul class="lvl-4">
+<li class="lvl-10">运算，ALU 等</li>
+<li class="lvl-10">寄存器，GRF 等</li>
+</ul>
+</li>
+<li class="lvl-6"><ruby>控制器<rt>CU</rt></ruby>
+<ul class="lvl-4">
+<li class="lvl-10"><ruby>指令译码器<rt>Instruction Decoder, ID</rt></ruby></li>
+<li class="lvl-10"><ruby>指令寄存器<rt>Instruction Register, IR</rt></ruby></li>
+<li class="lvl-10">程序计数器</li>
+</ul>
+</li>
+<li class="lvl-6">总线</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><ruby>寄存器传送语言<rt>Register Transfer Language, RTL</rt></ruby></p>
+</li>
+<li class="lvl-2">
+<p><ruby>字对齐<rt>Alignment</rt></ruby>：对象的起始地址一定要是字长的整数倍</p>
+</li>
+</ul>
+<h2 id="MIPS-模型机">MIPS 模型机</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>指令集</p>
+</li>
+<li class="lvl-2">
+<p>数据通路</p>
+<ul class="lvl-2">
+<li class="lvl-6"><ruby>加法器<rt>Adder</rt></ruby>：处理 PC 值的增长</li>
+<li class="lvl-6"><ruby>算数逻辑运算单元<rt>ALU</rt></ruby></li>
+<li class="lvl-6">多路选择器</li>
+<li class="lvl-6"><ruby>符号扩展器<rt>SignExt</rt></ruby></li>
+<li class="lvl-6"><ruby>寄存器堆<rt>GRF</rt></ruby></li>
+<li class="lvl-6"><ruby>数据存储器<rt>DM</rt></ruby></li>
+<li class="lvl-6"><ruby>指令存储器<rt>IM</rt></ruby></li>
+</ul>
+</li>
+</ul>
+<h2 id="MIPS-单周期处理器">MIPS 单周期处理器</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>哈佛体系：用 IM 和 DM 区分指令和数据的保存</p>
+</li>
+<li class="lvl-2">
+<p>设计数据通路</p>
+</li>
+<li class="lvl-2">
+<p>控制器设计</p>
+<ul class="lvl-2">
+<li class="lvl-6">PC 改变方式选择</li>
+<li class="lvl-6">ALU 控制</li>
+<li class="lvl-6">GRF 写入目标选择</li>
+<li class="lvl-6">GRF 写使能</li>
+<li class="lvl-6">ALU 输入选择</li>
+<li class="lvl-6">更多……</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>单周期</p>
+<ul class="lvl-2">
+<li class="lvl-6">每条指令执行需要一个时钟周期（CPI = 1）</li>
+<li class="lvl-6">所有状态的更新在指令执行结束的时刻完成</li>
+<li class="lvl-6">最慢指令决定时钟周期的长度</li>
+<li class="lvl-6">数据信号操作的同时产生控制信号</li>
+<li class="lvl-6">指令处理周期的所有阶段都在<ins>一个机器时钟周期</ins>中完成</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>多周期</p>
+<ul class="lvl-2">
+<li class="lvl-6">指令处理分布到多个周期中（CPI 浮动）</li>
+<li class="lvl-6">指令执行过程中可以更新状态</li>
+<li class="lvl-6">整体状态的更新在指令执行结束后更新</li>
+<li class="lvl-6">最慢“阶段”决定时钟周期长度</li>
+<li class="lvl-6">下一周期所需的控制信号可以在上一周期产生</li>
+<li class="lvl-6">指令处理周期的所有阶段可以在<ins>多个机器时钟周期</ins>中完成</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>初步性能分析</p>
+<ul class="lvl-2">
+<li class="lvl-6">一条指令的执行时间：CPI * 机器时钟周期长度</li>
+<li class="lvl-6">程序执行时间：<code>所有指令的（CPI * 机器时钟周期长度）和</code>；等于 <code>指令数 * 平均 CPI * 机器时钟周期长度</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="MIPS-多周期处理器">MIPS 多周期处理器</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>普林斯顿体系：指令和数据共用一个存储器</p>
+</li>
+<li class="lvl-2">
+<p>设计数据通路</p>
+</li>
+<li class="lvl-2">
+<p>控制器设计</p>
+</li>
+<li class="lvl-2">
+<p>性能分析</p>
+<ul class="lvl-2">
+<li class="lvl-6">时钟周期取时间最长的步骤</li>
+<li class="lvl-6">按比例计算平均 CPI（CPI 等于<code>指令所用时间 / 时钟周期</code>）</li>
+<li class="lvl-6">按比例计算一条指令平均执行时间</li>
+</ul>
+</li>
+</ul>
+<h2 id="MIPS-流水线处理器设计">MIPS 流水线处理器设计</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>响应时间：从提交作业到完成作业花费的时间</p>
+</li>
+<li class="lvl-2">
+<p>吞吐量：一定时间间隔内完成的作业数</p>
 </li>
 </ul>
 
@@ -1095,7 +1388,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">2.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90%E4%B8%8E%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.</span> <span class="nav-text">计算机基本组成与结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90"><span class="nav-number">2.1.1.</span> <span class="nav-text">计算机基本组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%80%BB%E7%BA%BF%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.2.</span> <span class="nav-text">计算机总线结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="nav-number">2.2.</span> <span class="nav-text">计算机层次结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E6%95%B0%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-number">2.3.</span> <span class="nav-text">计算机中数的表示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">2.4.</span> <span class="nav-text">计算机基本工作原理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF"><span class="nav-number">3.</span> <span class="nav-text">组合逻辑电路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0"><span class="nav-number">3.1.</span> <span class="nav-text">逻辑代数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">3.1.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E5%BE%8B%E3%80%81%E5%AE%9A%E7%90%86%E5%92%8C%E8%A7%84%E5%88%99"><span class="nav-number">3.1.2.</span> <span class="nav-text">定律、定理和规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E5%87%BD%E6%95%B0"><span class="nav-number">3.1.3.</span> <span class="nav-text">逻辑函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E9%97%A8%E7%94%B5%E8%B7%AF"><span class="nav-number">3.2.</span> <span class="nav-text">逻辑门电路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%99%B6%E4%BD%93%E7%AE%A1%E5%92%8C-MOS-%E7%AE%A1"><span class="nav-number">3.2.1.</span> <span class="nav-text">晶体管和 MOS 管</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%A8%E7%94%B5%E8%B7%AF"><span class="nav-number">3.2.2.</span> <span class="nav-text">门电路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E9%83%A8%E4%BB%B6%E8%AE%BE%E8%AE%A1"><span class="nav-number">3.3.</span> <span class="nav-text">基本组合逻辑部件设计</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF"><span class="nav-number">4.</span> <span class="nav-text">时序逻辑电路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%81%E5%AD%98%E5%99%A8%E5%92%8C%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="nav-number">4.1.</span> <span class="nav-text">锁存器和触发器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA"><span class="nav-number">4.2.</span> <span class="nav-text">有限状态机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1%E5%88%86%E6%9E%90"><span class="nav-number">4.3.</span> <span class="nav-text">时序逻辑电路设计分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BB%E5%AD%98%E5%82%A8%E5%99%A8"><span class="nav-number">5.</span> <span class="nav-text">主存储器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0-2"><span class="nav-number">5.1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%B1%BB"><span class="nav-number">5.1.1.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="nav-number">5.1.2.</span> <span class="nav-text">性能指标</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83%E7%94%B5%E8%B7%AF"><span class="nav-number">5.2.</span> <span class="nav-text">存储单元电路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E6%98%93%E5%A4%B1%E5%AD%98%E5%82%A8%E5%99%A8"><span class="nav-number">5.2.1.</span> <span class="nav-text">非易失存储器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E8%8A%AF%E7%89%87%E7%BB%93%E6%9E%84"><span class="nav-number">5.3.</span> <span class="nav-text">存储器芯片结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E6%89%A9%E5%B1%95"><span class="nav-number">5.4.</span> <span class="nav-text">存储器扩展</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">2.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90%E4%B8%8E%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.</span> <span class="nav-text">计算机基本组成与结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90"><span class="nav-number">2.1.1.</span> <span class="nav-text">计算机基本组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%80%BB%E7%BA%BF%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.2.</span> <span class="nav-text">计算机总线结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="nav-number">2.2.</span> <span class="nav-text">计算机层次结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E6%95%B0%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-number">2.3.</span> <span class="nav-text">计算机中数的表示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">2.4.</span> <span class="nav-text">计算机基本工作原理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF"><span class="nav-number">3.</span> <span class="nav-text">组合逻辑电路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0"><span class="nav-number">3.1.</span> <span class="nav-text">逻辑代数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">3.1.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E5%BE%8B%E3%80%81%E5%AE%9A%E7%90%86%E5%92%8C%E8%A7%84%E5%88%99"><span class="nav-number">3.1.2.</span> <span class="nav-text">定律、定理和规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E5%87%BD%E6%95%B0"><span class="nav-number">3.1.3.</span> <span class="nav-text">逻辑函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E9%97%A8%E7%94%B5%E8%B7%AF"><span class="nav-number">3.2.</span> <span class="nav-text">逻辑门电路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%99%B6%E4%BD%93%E7%AE%A1%E5%92%8C-MOS-%E7%AE%A1"><span class="nav-number">3.2.1.</span> <span class="nav-text">晶体管和 MOS 管</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%A8%E7%94%B5%E8%B7%AF"><span class="nav-number">3.2.2.</span> <span class="nav-text">门电路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E9%83%A8%E4%BB%B6%E8%AE%BE%E8%AE%A1"><span class="nav-number">3.3.</span> <span class="nav-text">基本组合逻辑部件设计</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF"><span class="nav-number">4.</span> <span class="nav-text">时序逻辑电路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%81%E5%AD%98%E5%99%A8%E5%92%8C%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="nav-number">4.1.</span> <span class="nav-text">锁存器和触发器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA"><span class="nav-number">4.2.</span> <span class="nav-text">有限状态机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1%E5%88%86%E6%9E%90"><span class="nav-number">4.3.</span> <span class="nav-text">时序逻辑电路设计分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BB%E5%AD%98%E5%82%A8%E5%99%A8"><span class="nav-number">5.</span> <span class="nav-text">主存储器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0-2"><span class="nav-number">5.1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%B1%BB"><span class="nav-number">5.1.1.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="nav-number">5.1.2.</span> <span class="nav-text">性能指标</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83%E7%94%B5%E8%B7%AF"><span class="nav-number">5.2.</span> <span class="nav-text">存储单元电路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E6%98%93%E5%A4%B1%E5%AD%98%E5%82%A8%E5%99%A8"><span class="nav-number">5.2.1.</span> <span class="nav-text">非易失存储器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E8%8A%AF%E7%89%87%E7%BB%93%E6%9E%84"><span class="nav-number">5.3.</span> <span class="nav-text">存储器芯片结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E6%89%A9%E5%B1%95"><span class="nav-number">5.4.</span> <span class="nav-text">存储器扩展</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F%E4%B8%8E-MIPS-%E6%B1%87%E7%BC%96"><span class="nav-number">6.</span> <span class="nav-text">指令系统与 MIPS 汇编</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0-3"><span class="nav-number">6.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B8%E5%9E%8B%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F"><span class="nav-number">6.2.</span> <span class="nav-text">典型指令系统</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MIPS-%E5%A4%84%E7%90%86%E5%99%A8%E8%AE%BE%E8%AE%A1"><span class="nav-number">7.</span> <span class="nav-text">MIPS 处理器设计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0-4"><span class="nav-number">7.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MIPS-%E6%A8%A1%E5%9E%8B%E6%9C%BA"><span class="nav-number">7.2.</span> <span class="nav-text">MIPS 模型机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MIPS-%E5%8D%95%E5%91%A8%E6%9C%9F%E5%A4%84%E7%90%86%E5%99%A8"><span class="nav-number">7.3.</span> <span class="nav-text">MIPS 单周期处理器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MIPS-%E5%A4%9A%E5%91%A8%E6%9C%9F%E5%A4%84%E7%90%86%E5%99%A8"><span class="nav-number">7.4.</span> <span class="nav-text">MIPS 多周期处理器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MIPS-%E6%B5%81%E6%B0%B4%E7%BA%BF%E5%A4%84%E7%90%86%E5%99%A8%E8%AE%BE%E8%AE%A1"><span class="nav-number">7.5.</span> <span class="nav-text">MIPS 流水线处理器设计</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -1238,12 +1531,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area" style="color:#6A5ACD"></i>
     </span>
-    <span title="站点总字数">博文总字数 161k</span>
+    <span title="站点总字数">博文总字数 163k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee" style="color:#6A5ACD"></i>
     </span>
-    <span title="站点阅读时长">约 5:35 可通读</span>
+    <span title="站点阅读时长">约 5:39 可通读</span>
 </div>
   <div class="powered-by" style="color:#6A5ACD">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
