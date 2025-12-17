@@ -9,11 +9,11 @@
     <atom:link href="https://samuflore.top/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>一人倒、衆人倒。</description>
-    <pubDate>Wed, 17 Dec 2025 04:07:14 GMT</pubDate>
+    <pubDate>Wed, 17 Dec 2025 04:08:31 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>[CO]CO 理论概要</title>
+      <title>[CO]CO 理论概要(Updating)</title>
       <link>https://samuflore.top/posts/52a88c87/</link>
       <guid>https://samuflore.top/posts/52a88c87/</guid>
       <pubDate>Tue, 16 Dec 2025 12:50:27 GMT</pubDate>
@@ -161,9 +161,9 @@
       
       <category domain="https://samuflore.top/tags/CO/">CO</category>
       
-      <category domain="https://samuflore.top/tags/Verilog/">Verilog</category>
-      
       <category domain="https://samuflore.top/tags/MIPS/">MIPS</category>
+      
+      <category domain="https://samuflore.top/tags/Verilog/">Verilog</category>
       
       <category domain="https://samuflore.top/tags/P7/">P7</category>
       
@@ -192,9 +192,9 @@
       
       <category domain="https://samuflore.top/tags/CO/">CO</category>
       
-      <category domain="https://samuflore.top/tags/Verilog/">Verilog</category>
-      
       <category domain="https://samuflore.top/tags/MIPS/">MIPS</category>
+      
+      <category domain="https://samuflore.top/tags/Verilog/">Verilog</category>
       
       <category domain="https://samuflore.top/tags/P6/">P6</category>
       
@@ -225,9 +225,9 @@
       
       <category domain="https://samuflore.top/tags/CO/">CO</category>
       
-      <category domain="https://samuflore.top/tags/Verilog/">Verilog</category>
-      
       <category domain="https://samuflore.top/tags/MIPS/">MIPS</category>
+      
+      <category domain="https://samuflore.top/tags/Verilog/">Verilog</category>
       
       <category domain="https://samuflore.top/tags/P5/">P5</category>
       
@@ -285,11 +285,11 @@
       
       <category domain="https://samuflore.top/tags/CO/">CO</category>
       
+      <category domain="https://samuflore.top/tags/MIPS/">MIPS</category>
+      
       <category domain="https://samuflore.top/tags/P4/">P4</category>
       
       <category domain="https://samuflore.top/tags/Verilog/">Verilog</category>
-      
-      <category domain="https://samuflore.top/tags/MIPS/">MIPS</category>
       
       
       <comments>https://samuflore.top/posts/53039668/#disqus_thread</comments>
