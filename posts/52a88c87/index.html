@@ -33,7 +33,7 @@
 <meta property="og:description" content="序 这是北航计算机组成理论概要。 目录  概述 组合逻辑电路 时序逻辑电路 主储存器 指令系统与 MIPS 汇编 MIPS 处理器设计 高速缓冲存储器 外部存储，总线与 I&#x2F;O 虚拟存储器">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-16T12:50:27.000Z">
-<meta property="article:modified_time" content="2026-01-01T12:09:06.081Z">
+<meta property="article:modified_time" content="2026-01-02T03:25:17.850Z">
 <meta property="article:author" content="Samustach Floresein">
 <meta property="article:tag" content="CO">
 <meta property="article:tag" content="嚴月">
@@ -246,7 +246,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-01-01 20:09:06" itemprop="dateModified" datetime="2026-01-01T20:09:06+08:00">2026-01-01</time>
+                <time title="修改时间：2026-01-02 11:25:17" itemprop="dateModified" datetime="2026-01-02T11:25:17+08:00">2026-01-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -928,9 +928,9 @@
 <li class="lvl-10">数据线数：4</li>
 </ul>
 </li>
-<li class="lvl-6">DRAM 的情况：例如 2<sup>12</sup> 个字单元，划为 2<sup>6</sup> * 2<sup>6</sup> 的存储矩阵。
+<li class="lvl-6">DRAM 的情况：例如 1M * 4 的 DRAM 芯片，有 1M (2<sup>20</sup>) 个字单元（乘号后前的数就是字单元个数），划分为 2<sup>10</sup> * 2<sup>10</sup> 的存储矩阵。
 <ul class="lvl-4">
-<li class="lvl-10">行地址线数 = 列地址线数 = 6</li>
+<li class="lvl-10">行地址线数 = 列地址线数 = 10</li>
 <li class="lvl-10">数据线数：4</li>
 </ul>
 </li>
@@ -1574,8 +1574,8 @@
 <li class="lvl-2">
 <p>Cache 容量</p>
 <ul class="lvl-2">
-<li class="lvl-6">不作特殊申明时，指的是 Cache 数据块的容量</li>
-<li class="lvl-6">实际容量还包括 Tag 和 Valid bit 的位数</li>
+<li class="lvl-6">不作特殊申明时，为 <code>Block 数 * Block 大小 (bit)</code></li>
+<li class="lvl-6">求 Cache 的实际容量，则为 <code>Block 数 * (Block 大小 (bit) + Tag (bit) + Valid Bit + ……)</code></li>
 </ul>
 </li>
 <li class="lvl-2">
@@ -1879,10 +1879,14 @@
 <p>页表寄存器，保存页表在内存中的首地址</p>
 <ul class="lvl-2">
 <li class="lvl-6">页大小 2<sup>n</sup> bytes，则页内偏移位数为 n</li>
-<li class="lvl-6">虚页号位数 VPN 等于虚拟地址位数 - 页内偏移 n，则有 2<sup>VPN</sup> 个虚页</li>
+<li class="lvl-6">虚页号位数 VPN 等于<ruby>虚拟地址位数<rt>逻辑地址</rt></ruby> - 页内偏移 n，则有 2<sup>VPN</sup> 个虚页</li>
 <li class="lvl-6">物理内存大小 2<sup>m</sup> bytes，则实地址位数为 m</li>
-<li class="lvl-6">实页号位数 PPN 等于实地址位数 - 页内偏移 n（实页与虚页的页大小一致）</li>
-<li class="lvl-6">每个页表项大小：1（有效位）+ 实页号位数 + 1（修改位）+ ……</li>
+<li class="lvl-6">实页号位数 PPN 等于实地址位数 - 页内偏移 n（实页与虚页的页大小一致）
+<ul class="lvl-4">
+<li class="lvl-10">实地址位数等于 log<sub>2</sub>(主存容量)</li>
+</ul>
+</li>
+<li class="lvl-6">每个页表项大小：1（有效位）+ PPN（实页号位数） + 1（修改位）+ ……</li>
 <li class="lvl-6">每个页表所占空间：虚页数量 2<sup>VPN</sup> * 页表项大小</li>
 </ul>
 </li>
@@ -2212,7 +2216,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee" style="color:#6A5ACD"></i>
     </span>
-    <span title="站点阅读时长">约 6:33 可通读</span>
+    <span title="站点阅读时长">约 6:34 可通读</span>
 </div>
   <div class="powered-by" style="color:#6A5ACD">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
