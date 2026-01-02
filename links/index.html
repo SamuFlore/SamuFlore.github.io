@@ -41,7 +41,7 @@
 <meta property="og:image" content="https://lanc1oud.top/img/avatar.png">
 <meta property="og:image" content="https://lilyellow.site/images/labixiaoxin.jpg">
 <meta property="article:published_time" content="2025-07-16T14:35:52.000Z">
-<meta property="article:modified_time" content="2026-01-02T13:26:46.892Z">
+<meta property="article:modified_time" content="2026-01-02T14:40:22.663Z">
 <meta property="article:author" content="Samustach Floresein">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://samuflore.top/images/fontawesome.png">
@@ -270,7 +270,20 @@
          }
          .card:hover {
          transform: scale(1.1);
-         box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.12), 0 0 6px 0 rgba(0, 0, 0, 0.04);
+         box-shadow: 0 2px 6px 0 rgba(169, 169, 169, 0.12), 0 0 6px 0 rgba(169, 169, 169, 0.04);
+         background-color: var(--card-hover-bg, #6A5ACD);
+         /* 可选：添加背景色过渡，让颜色变化更平滑 */
+         transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+         color: #fff;
+         }
+         .card:hover a,
+         .card:hover a:hover { /* 同时覆盖a标签自身的hover样式 */
+         color: #ffffff !important; /* !important 确保优先级足够，覆盖原有样式 */
+         text-decoration: none; /* 可选：保留无下划线样式 */
+         }
+         /* 可选：确保.info类文字也继承白色（其实已继承，此句可省略，仅作兜底） */
+         .card:hover .info {
+         color: #ffffff !important;
          }
          .card a {
          border:none;
@@ -289,12 +302,8 @@
          }
          .card .card-header a {
          font-style: normal;
-         color: #6A5ACD;
+         color: var(--card-a-color, #6A5ACD);
          font-weight: bold;
-         text-decoration: none;
-         }
-         .card .card-header a:hover {
-         color: #d480aa;
          text-decoration: none;
          }
          .card .card-header .info {
@@ -308,56 +317,56 @@
       </style>
       <div class="links-content">
          <div class="link-navigation">
-            <div class="card">
+            <div class="card" style="--card-hover-bg: #73b7d7;">
                <img class="ava" src="../images/fontawesome.png">
                <div class="card-header">
                   <div>
-                     <a target="_blank" rel="noopener" href="https://fontawesome.com/v4/icons/">Font Awesome 4</a>
+                     <a target="_blank" rel="noopener" href="https://fontawesome.com/v4/icons/" style="--card-a-color: #73b7d7">Font Awesome 4</a>
                   </div>
                   <div class="info">Icons.</div>
                </div>
             </div>
-            <div class="card">
+            <div class="card" style="--card-hover-bg: #7a6ec7;">
                <img class="ava" src="../images/hitokoto.png">
                <div class="card-header">
                   <div>
-                     <a target="_blank" rel="noopener" href="https://hitokoto.cn/">一言 Hitokoto</a>
+                     <a target="_blank" rel="noopener" href="https://hitokoto.cn/" style="--card-a-color: #7a6ec7">一言 Hitokoto</a>
                   </div>
                   <div class="info">随机句子。</div>
                </div>
             </div>
-            <div class="card">
+            <div class="card" style="--card-hover-bg: #b86e00ff;">
                <img class="ava" src="../images/hsn.png">
                <div class="card-header">
                   <div>
-                     <a target="_blank" rel="noopener" href="https://www.zh314.xyz/">hsn's blog</a>
+                     <a target="_blank" rel="noopener" href="https://www.zh314.xyz/" style="--card-a-color: #b86e00ff">hsn's blog</a>
                   </div>
                   <div class="info">是想长头发但是还在敲代码的hsn!</div>
                </div>
             </div>
-            <div class="card">
+            <div class="card" style="--card-hover-bg: #63bbd6">
                <img class="ava" src="https://img.whitesand.top/img/2025/03/favicon.webp">
                <div class="card-header">
                   <div>
-                     <a target="_blank" rel="noopener" href="https://lyrashore.com">流萤白沙のBlog</a>
+                     <a target="_blank" rel="noopener" href="https://lyrashore.com" style="--card-a-color: #63bbd6">流萤白沙のBlog</a>
                   </div>
                   <div class="info">学习-记录-分享</div>
                </div>
             </div>
-            <div class="card">
+            <div class="card" style="--card-hover-bg: #bbbbbbff">
                <img class="ava" src="../images/fei.png">
                <div class="card-header">
                   <div>
-                     <a target="_blank" rel="noopener" href="https://fei-cn-xie.github.io">Fei</a>
+                     <a target="_blank" rel="noopener" href="https://fei-cn-xie.github.io" style="--card-a-color: #bbbbbbff">Fei</a>
                   </div>
                   <div class="info">非淡泊无以明志, 非宁静无以致远</div>
                </div>
             </div>
-            <div class="card">
+            <div class="card" style="--card-hover-bg: #66B6F3">
                <img class="ava" src="https://siriusuna.top/static/avatars/Siriusuna.png">
                <div class="card-header">
                   <div>
-                     <a target="_blank" rel="noopener" href="https://siriusuna.top">Siriusuna</a>
+                     <a target="_blank" rel="noopener" href="https://siriusuna.top" style="--card-a-color: #66B6F3">Siriusuna</a>
                   </div>
                   <div class="info">光続けば、いつかは終わる定めなのだけれど...</div>
                </div>
@@ -395,7 +404,8 @@
 </div>
 <h1 id="成为好朋友">成为好朋友</h1>
 <p>欢迎互友~您可按照如下格式在此页评论，以便我及时将贵站添加到友链页。建议使用 Markdown。</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sitename:</span> <span class="string">SamuFlore&#x27;s</span> <span class="string">Dimension</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">https://samuflore.top</span></span><br><span class="line"><span class="attr">info:</span> <span class="string">德才兼備、知行合一</span></span><br><span class="line"><span class="attr">avatar:</span> <span class="string">https://samuflore.top/images/avatar.jpg</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sitename:</span> <span class="string">SamuFlore&#x27;s</span> <span class="string">Dimension</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">https://samuflore.top</span></span><br><span class="line"><span class="attr">info:</span> <span class="string">德才兼備、知行合一</span></span><br><span class="line"><span class="attr">avatar:</span> <span class="string">https://samuflore.top/images/avatar.jpg</span></span><br><span class="line"><span class="attr">color:</span> <span class="comment">#6A5ACD</span></span><br></pre></td></tr></table></figure>
+<p><a href="#sfs-dimension-%E7%9A%84%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5">效果见上</a>。</p>
 <p>该页面<ins>不会</ins>清理已无法正常运行的站点，但会为其添加一个特殊标识以作为一种永恒的回忆。</p>
 <h1 id="Q-A">Q &amp; A</h1>
 <h2 id="有什么要求？">有什么要求？</h2>
