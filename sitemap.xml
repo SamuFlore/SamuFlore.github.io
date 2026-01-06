@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://samuflore.top/posts/188737f4/</loc>
+    <loc>https://samuflore.top/posts/b1cdfa63/</loc>
     
     <lastmod>2026-01-06</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://samuflore.top/posts/b1cdfa63/</loc>
+    <loc>https://samuflore.top/posts/188737f4/</loc>
     
     <lastmod>2026-01-06</lastmod>
     
@@ -505,20 +505,6 @@
   </url>
   
   <url>
-    <loc>https://samuflore.top/tags/P3/</loc>
-    <lastmod>2026-01-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://samuflore.top/tags/Logisim/</loc>
-    <lastmod>2026-01-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://samuflore.top/tags/P4/</loc>
     <lastmod>2026-01-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -527,6 +513,20 @@
   
   <url>
     <loc>https://samuflore.top/tags/Verilog/</loc>
+    <lastmod>2026-01-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://samuflore.top/tags/P3/</loc>
+    <lastmod>2026-01-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://samuflore.top/tags/Logisim/</loc>
     <lastmod>2026-01-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -554,20 +554,6 @@
   </url>
   
   <url>
-    <loc>https://samuflore.top/tags/History/</loc>
-    <lastmod>2026-01-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://samuflore.top/tags/Repost/</loc>
-    <lastmod>2026-01-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://samuflore.top/tags/Travel/</loc>
     <lastmod>2026-01-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -589,14 +575,21 @@
   </url>
   
   <url>
-    <loc>https://samuflore.top/tags/Biography/</loc>
+    <loc>https://samuflore.top/tags/History/</loc>
     <lastmod>2026-01-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://samuflore.top/tags/P5/</loc>
+    <loc>https://samuflore.top/tags/Repost/</loc>
+    <lastmod>2026-01-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://samuflore.top/tags/Biography/</loc>
     <lastmod>2026-01-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -617,14 +610,21 @@
   </url>
   
   <url>
-    <loc>https://samuflore.top/tags/P6/</loc>
+    <loc>https://samuflore.top/tags/P7/</loc>
     <lastmod>2026-01-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://samuflore.top/tags/P7/</loc>
+    <loc>https://samuflore.top/tags/P5/</loc>
+    <lastmod>2026-01-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://samuflore.top/tags/P6/</loc>
     <lastmod>2026-01-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -687,21 +687,14 @@
   </url>
   
   <url>
-    <loc>https://samuflore.top/tags/P1/</loc>
-    <lastmod>2026-01-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://samuflore.top/tags/Testbench/</loc>
-    <lastmod>2026-01-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://samuflore.top/tags/Linguistics/</loc>
+    <lastmod>2026-01-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://samuflore.top/tags/P1/</loc>
     <lastmod>2026-01-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -716,6 +709,13 @@
   
   <url>
     <loc>https://samuflore.top/tags/Recursion/</loc>
+    <lastmod>2026-01-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://samuflore.top/tags/Testbench/</loc>
     <lastmod>2026-01-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -771,6 +771,13 @@
   </url>
   
   <url>
+    <loc>https://samuflore.top/tags/ISE/</loc>
+    <lastmod>2026-01-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://samuflore.top/tags/Sign-Magnitude/</loc>
     <lastmod>2026-01-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -786,27 +793,6 @@
   
   <url>
     <loc>https://samuflore.top/tags/Two-s-Complement/</loc>
-    <lastmod>2026-01-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://samuflore.top/tags/NexT/</loc>
-    <lastmod>2026-01-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://samuflore.top/tags/Font/</loc>
-    <lastmod>2026-01-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://samuflore.top/tags/ISE/</loc>
     <lastmod>2026-01-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -862,6 +848,20 @@
   </url>
   
   <url>
+    <loc>https://samuflore.top/tags/NexT/</loc>
+    <lastmod>2026-01-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://samuflore.top/tags/Font/</loc>
+    <lastmod>2026-01-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://samuflore.top/tags/C/</loc>
     <lastmod>2026-01-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -890,14 +890,14 @@
   </url>
   
   <url>
-    <loc>https://samuflore.top/tags/%E7%9D%A6%E6%9C%88/</loc>
+    <loc>https://samuflore.top/tags/Physics/</loc>
     <lastmod>2026-01-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://samuflore.top/tags/Physics/</loc>
+    <loc>https://samuflore.top/tags/%E7%9D%A6%E6%9C%88/</loc>
     <lastmod>2026-01-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -934,14 +934,14 @@
   </url>
   
   <url>
-    <loc>https://samuflore.top/categories/%E7%A5%9E%E7%9A%87%E6%A5%93%E7%A7%80%E9%9B%86/</loc>
+    <loc>https://samuflore.top/categories/%E5%85%AB%E7%B4%98%E4%B9%9D%E9%87%8E%E9%9B%86/</loc>
     <lastmod>2026-01-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://samuflore.top/categories/%E5%85%AB%E7%B4%98%E4%B9%9D%E9%87%8E%E9%9B%86/</loc>
+    <loc>https://samuflore.top/categories/%E7%A5%9E%E7%9A%87%E6%A5%93%E7%A7%80%E9%9B%86/</loc>
     <lastmod>2026-01-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -955,14 +955,14 @@
   </url>
   
   <url>
-    <loc>https://samuflore.top/categories/%E6%A5%A0%E7%AB%B9%E8%93%AE%E8%8A%B1%E9%9B%86/</loc>
+    <loc>https://samuflore.top/categories/%E9%95%B7%E6%AC%A3%E9%9B%86/</loc>
     <lastmod>2026-01-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://samuflore.top/categories/%E9%95%B7%E6%AC%A3%E9%9B%86/</loc>
+    <loc>https://samuflore.top/categories/%E6%A5%A0%E7%AB%B9%E8%93%AE%E8%8A%B1%E9%9B%86/</loc>
     <lastmod>2026-01-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -990,14 +990,14 @@
   </url>
   
   <url>
-    <loc>https://samuflore.top/categories/%E5%A4%A9%E7%90%B4%E9%9B%86/</loc>
+    <loc>https://samuflore.top/categories/2025-2026-%E5%AD%B8%E5%B9%B4/%E5%9F%BA%E7%A4%8E%E7%89%A9%E7%90%86%E5%AD%B8/</loc>
     <lastmod>2026-01-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://samuflore.top/categories/2025-2026-%E5%AD%B8%E5%B9%B4/%E5%9F%BA%E7%A4%8E%E7%89%A9%E7%90%86%E5%AD%B8/</loc>
+    <loc>https://samuflore.top/categories/%E5%A4%A9%E7%90%B4%E9%9B%86/</loc>
     <lastmod>2026-01-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
