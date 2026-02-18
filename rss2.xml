@@ -9,8 +9,33 @@
     <atom:link href="https://samuflore.top/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>一人倒、衆人倒。</description>
-    <pubDate>Mon, 16 Feb 2026 10:11:32 GMT</pubDate>
+    <pubDate>Wed, 18 Feb 2026 13:27:35 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[Hexo教程]从 NexT 到 Stellar</title>
+      <link>https://samuflore.top/posts/1fa68377/</link>
+      <guid>https://samuflore.top/posts/1fa68377/</guid>
+      <pubDate>Wed, 18 Feb 2026 13:23:43 GMT</pubDate>
+      
+      <description>我用 Stellar，如拨云雾而睹青天。</description>
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="序">序</h1>]]></content:encoded>
+      
+      
+      <category domain="https://samuflore.top/categories/Hexo%E6%95%99%E7%A8%8B/">Hexo教程</category>
+      
+      
+      <category domain="https://samuflore.top/tags/Hexo/">Hexo</category>
+      
+      <category domain="https://samuflore.top/tags/Stellar/">Stellar</category>
+      
+      
+      <comments>https://samuflore.top/posts/1fa68377/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>[CJKV]和</title>
@@ -392,38 +417,6 @@
       
       
       <comments>https://samuflore.top/posts/52a88c87/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>[C Primer Minus]Vol. 2: DS</title>
-      <link>https://samuflore.top/posts/163b741/</link>
-      <guid>https://samuflore.top/posts/163b741/</guid>
-      <pubDate>Mon, 15 Dec 2025 16:25:53 GMT</pubDate>
-      
-      <description>&lt;h1 id=&quot;序&quot;&gt;序&lt;/h1&gt;
-&lt;p&gt;这是名为《C Primer Minus》的 C 语言简易教程第二册：&lt;ruby&gt;数据结构&lt;rt&gt;Data Structure&lt;/rt&gt;&lt;/ruby&gt;篇。&lt;/p&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<h1 id="序">序</h1><p>这是名为《C Primer Minus》的 C 语言简易教程第二册：<ruby>数据结构<rt>Data Structure</rt></ruby>篇。</p><span id="more"></span>]]></content:encoded>
-      
-      
-      <category domain="https://samuflore.top/categories/C-Primer-Minus/">C Primer Minus</category>
-      
-      
-      <category domain="https://samuflore.top/tags/%E5%9A%B4%E6%9C%88/">嚴月</category>
-      
-      <category domain="https://samuflore.top/tags/Tutorial/">Tutorial</category>
-      
-      <category domain="https://samuflore.top/tags/C/">C</category>
-      
-      <category domain="https://samuflore.top/tags/Guidance/">Guidance</category>
-      
-      <category domain="https://samuflore.top/tags/Data-Structure/">Data Structure</category>
-      
-      
-      <comments>https://samuflore.top/posts/163b741/#disqus_thread</comments>
       
     </item>
     
