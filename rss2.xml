@@ -9,7 +9,7 @@
     <atom:link href="https://samuflore.top/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>一人倒、衆人倒。</description>
-    <pubDate>Wed, 18 Feb 2026 13:27:35 GMT</pubDate>
+    <pubDate>Wed, 18 Feb 2026 14:51:21 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -22,7 +22,7 @@
       
       
       
-      <content:encoded><![CDATA[<h1 id="序">序</h1>]]></content:encoded>
+      <content:encoded><![CDATA[<h2 id="序">序</h2><p>测试。</p>]]></content:encoded>
       
       
       <category domain="https://samuflore.top/categories/Hexo%E6%95%99%E7%A8%8B/">Hexo教程</category>
