@@ -46,7 +46,7 @@
   --link: hsla(240deg 23.07692307692307% 56.666666666666664% / 1);
   --link-a20: hsla(240deg 23.07692307692307% 56.666666666666664% / 0.2);
   --background: hsla(210deg 20% 98% / 1);
-  --card: #fff;
+  --card: rgba(255,255,255,0.5);
   --bg-a20: hsla(210deg 0% 100% / 0.2);
   --bg-a50: hsla(210deg 0% 100% / 0.5);
   --bg-a60: hsla(210deg 0% 100% / 0.6);
@@ -68,7 +68,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: hsla(210deg 8% 12% / 1);
-    --card: hsla(210deg 10% 24% / 1);
+    --card: rgba(255,255,255,0.25);
     --bg-a20: hsla(210deg 0% 0% / 0.2);
     --bg-a50: hsla(210deg 0% 0% / 0.5);
     --bg-a60: hsla(210deg 0% 0% / 0.6);
@@ -96,7 +96,7 @@
 }
 :root[data-theme="light"] {
   --background: hsla(210deg 20% 98% / 1);
-  --card: #fff;
+  --card: rgba(255,255,255,0.5);
   --bg-a20: hsla(210deg 0% 100% / 0.2);
   --bg-a50: hsla(210deg 0% 100% / 0.5);
   --bg-a60: hsla(210deg 0% 100% / 0.6);
@@ -117,7 +117,7 @@
 }
 :root[data-theme="dark"] {
   --background: hsla(210deg 8% 12% / 1);
-  --card: hsla(210deg 10% 24% / 1);
+  --card: rgba(255,255,255,0.25);
   --bg-a20: hsla(210deg 0% 0% / 0.2);
   --bg-a50: hsla(210deg 0% 0% / 0.5);
   --bg-a60: hsla(210deg 0% 0% / 0.6);
@@ -384,7 +384,7 @@
   --theme-mark: var(--theme);
   --theme-codeblock: var(--theme);
   --background: hsla(210deg 20% 98% / 1);
-  --card: #fff;
+  --card: rgba(255,255,255,0.5);
   --bg-a20: hsla(210deg 0% 100% / 0.2);
   --bg-a50: hsla(210deg 0% 100% / 0.5);
   --bg-a60: hsla(210deg 0% 100% / 0.6);
@@ -405,7 +405,7 @@
 }
 .colorful[color='dark'] {
   --background: hsla(210deg 8% 12% / 1);
-  --card: hsla(210deg 10% 24% / 1);
+  --card: rgba(255,255,255,0.25);
   --bg-a20: hsla(210deg 0% 0% / 0.2);
   --bg-a50: hsla(210deg 0% 0% / 0.5);
   --bg-a60: hsla(210deg 0% 0% / 0.6);
@@ -458,7 +458,7 @@
   --link: hsla(50.96385542168675deg 95% 32% / 1);
   --link-a20: hsla(50.96385542168675deg 95% 32% / 0.2);
   --background: hsla(210deg 20% 98% / 1);
-  --card: #fff;
+  --card: rgba(255,255,255,0.5);
   --bg-a20: hsla(210deg 0% 100% / 0.2);
   --bg-a50: hsla(210deg 0% 100% / 0.5);
   --bg-a60: hsla(210deg 0% 100% / 0.6);
@@ -505,7 +505,7 @@
   --link: hsla(4.105263157894738deg 80% 60% / 1);
   --link-a20: hsla(4.105263157894738deg 80% 60% / 0.2);
   --background: hsla(210deg 8% 12% / 1);
-  --card: hsla(210deg 10% 24% / 1);
+  --card: rgba(255,255,255,0.25);
   --bg-a20: hsla(210deg 0% 0% / 0.2);
   --bg-a50: hsla(210deg 0% 0% / 0.5);
   --bg-a60: hsla(210deg 0% 0% / 0.6);
@@ -7280,7 +7280,7 @@ details.toc[open] >div.body section .header+.doc_tree {
   background-size: cover;
   --inset: 32px;
   --background-opacity: 0.8;
-  background-image: url("https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.13/image/sidebar-bg1@small.jpg");
+  background-image: url("https://i.mituw.com/imgs/2026/02/19/f1929e6351423425.jpg");
   filter: saturate(var(--saturate)) blur(var(--blur-px)) opacity(var(--background-opacity));
 }
 @media screen and (prefers-color-scheme: dark) {
@@ -7772,11 +7772,6 @@ details.toc[open] >div.body section .header+.doc_tree {
   width: 4px;
   background: var(--block);
   border-radius: 4px;
-}
-@media screen and (min-width: 1180px) {
-  .widget-wrapper.toc {
-    background: var(--background);
-  }
 }
 .widget-wrapper.toc .toc {
   --fsp: calc(16px - 2px);
@@ -9134,6 +9129,7 @@ body>.sitebg {
   right: 0;
   bottom: 0;
   background-size: cover;
+  background-image: url("https://i.mituw.com/imgs/2026/02/19/c3a65654416738af.png");
 }
 body>.sitebg .siteblur {
   width: 100%;
@@ -9878,7 +9874,7 @@ a[data-fancybox] {
   --at-color-sub: var(--text-p3);
   --at-color-grey: var(--text-p4);
   --at-color-meta: var(--text-p4);
-  --at-color-border: var(--block-border);
+  --at-color-border: transparent;
   --at-color-light: var(--link);
   --at-color-bg: var(--card);
   --at-color-bg-transl: var(--card);
