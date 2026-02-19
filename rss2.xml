@@ -9,35 +9,8 @@
     <atom:link href="https://samuflore.top/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>一人倒、衆人倒。</description>
-    <pubDate>Thu, 19 Feb 2026 05:02:33 GMT</pubDate>
+    <pubDate>Thu, 19 Feb 2026 03:14:33 GMT</pubDate>
     <generator>http://hexo.io/</generator>
-    
-    <item>
-      <title>[Hexo教程]从 NexT 到 Stellar</title>
-      <link>https://samuflore.top/posts/1fa68377/</link>
-      <guid>https://samuflore.top/posts/1fa68377/</guid>
-      <pubDate>Wed, 18 Feb 2026 13:23:43 GMT</pubDate>
-      
-      <description>我用 Stellar，如拨云雾而睹青天。</description>
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="序">序</h2><p>我为什么换用 Stellar？<br>——根据 LeanCloud 发布的<a href="https://docs.leancloud.cn/sdk/announcements/sunset-announcement">通知</a>，LeanCloud 的生命即将走向尽头。</p><div class="tag-plugin timeline"><div class="timenode" index="0"><div class="header"><span>2026 年 1 月 12 日</span></div><div class="body fs14"><ul class="lvl-0"><li class="lvl-2"><p>停止新用户注册</p></li><li class="lvl-2"><p>停止创建新的应用<br>现有存量应用在正式停止服务前，仍可继续正常使用。</p></li></ul></div></div><div class="timenode" index="1"><div class="header"><span>2027 年 1 月 12 日</span></div><div class="body fs14"><p>平台将正式关闭所有面向公众的服务，包括应用访问、数据读写、API 调用、控制台使用等。</p></div></div></div><p>我之前一直使用的 Valine 评论系统所依靠的数据库正是 LeanCloud。为了能够继续使用评论系统，我不得不着手将 Valine 迁移到其衍生版本 Waline 上来。</p><div class="tag-plugin link dis-select"><a class="link-card plain" title="Waline.js" href="https://waline.js.org/" target="_blank" rel="external nofollow noopener noreferrer" cardlink autofill><div class="left"><span class="title">Waline.js</span><span class="cap link footnote">https://waline.js.org/</span></div><div class="right"><div class="lazy img" data-bg="https://waline.js.org/logo.png"></div></div></a></div><p>然而天不遂人意，Waline 所支持的 NexT 版本为 NexT 8 以上，而由于历史原因，NexT 不同版本可能在不同仓库中，导致我当时所用的是 NexT 7 的某个版本，却一直认为自己用的是最新版。<br>我对原版的 NexT 主题魔改了很多，若从 NexT 7 升级到 NexT 8，许多改动会失效，于是我决定直接放弃 NexT，转而使用我早就相中的 Stellar！</p><p>第一次见到 Stellar，是从一个叫 Clarity 的 Nuxt 主题那，它吸收了 Stellar 的设计风格。更换博客框架已不现实。不过 Stellar 并不比这位兄弟差，当时我就动了更换主题的念头。</p><div class="tag-plugin link dis-select"><a class="link-card plain" title="GitHub" href="https://github.com/L33Z22L11/blog-v3" target="_blank" rel="external nofollow noopener noreferrer" cardlink autofill="icon"><div class="left"><span class="title">GitHub</span><span class="cap link footnote">https://github.com/L33Z22L11/blog-v3</span></div><div class="right"><div class="lazy img" data-bg="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/link/8f277b4ee0ecd.svg"></div></div></a></div><div class="tag-plugin link dis-select"><a class="link-card plain" title="纸鹿摸鱼处" href="https://blog.zhilu.site/" target="_blank" rel="external nofollow noopener noreferrer" cardlink autofill><div class="left"><span class="title">纸鹿摸鱼处</span><span class="cap link footnote">https://blog.zhilu.site/</span></div><div class="right"><div class="lazy img" data-bg="https://weavatar.com/avatar/47c0f2e82b76d9b10eb3023df9e02e4e3fdbeaf5b74b842063f207971e7fbe7b?s=160"></div></div></a></div><h2 id="Stellar-的标签系统">Stellar 的标签系统</h2><div class="tag-plugin link dis-select"><a class="link-card plain" title="文档 | Stellar" href="https://xaoxuu.com/wiki/stellar/#start" target="_blank" rel="external nofollow noopener noreferrer" cardlink autofill><div class="left"><span class="title">文档 | Stellar</span><span class="cap link footnote">https://xaoxuu.com/wiki/stellar/#start</span></div><div class="right"><div class="lazy img" data-bg="https://res.xaox.cc/gh/cdn-x/wiki@main/stellar/icon.svg"></div></div></a></div>]]></content:encoded>
-      
-      
-      <category domain="https://samuflore.top/categories/Hexo%E6%95%99%E7%A8%8B/">Hexo教程</category>
-      
-      
-      <category domain="https://samuflore.top/tags/Hexo/">Hexo</category>
-      
-      <category domain="https://samuflore.top/tags/%E6%9D%8F%E6%9C%88/">杏月</category>
-      
-      <category domain="https://samuflore.top/tags/Stellar/">Stellar</category>
-      
-      
-      <comments>https://samuflore.top/posts/1fa68377/#disqus_thread</comments>
-      
-    </item>
     
     <item>
       <title>[CJKV]和</title>
@@ -115,9 +88,9 @@
       
       <category domain="https://samuflore.top/tags/%E7%9D%A6%E6%9C%88/">睦月</category>
       
-      <category domain="https://samuflore.top/tags/News/">News</category>
-      
       <category domain="https://samuflore.top/tags/Arknights-Endfield/">Arknights: Endfield</category>
+      
+      <category domain="https://samuflore.top/tags/News/">News</category>
       
       
       <comments>https://samuflore.top/posts/ffdc7592/#disqus_thread</comments>
@@ -142,9 +115,9 @@
       
       <category domain="https://samuflore.top/tags/%E7%9D%A6%E6%9C%88/">睦月</category>
       
-      <category domain="https://samuflore.top/tags/BanG-Dream/">BanG Dream!</category>
-      
       <category domain="https://samuflore.top/tags/News/">News</category>
+      
+      <category domain="https://samuflore.top/tags/BanG-Dream/">BanG Dream!</category>
       
       
       <comments>https://samuflore.top/posts/423a2cc1/#disqus_thread</comments>
@@ -285,6 +258,31 @@
       
       
       <comments>https://samuflore.top/posts/52a88c87/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>[楠竹蓮花集]十二月八日</title>
+      <link>https://samuflore.top/posts/1a21b5b/</link>
+      <guid>https://samuflore.top/posts/1a21b5b/</guid>
+      <pubDate>Tue, 09 Dec 2025 04:29:46 GMT</pubDate>
+      
+      <description>二〇二五年十二月八日是个重大的日子。这一天结束了我的计组实验，同时让我第一次意识到我已经是个成年人了。</description>
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="序">序</h1><p>二〇二五年十二月八日是个重大的日子。这一天结束了我的计组实验，同时让我第一次意识到我已经是个成年人了。</p><!--more--><p>我并不认为一个人会因为过了一次 18 岁生日就从一个未成年的个体变为一个成年人的个体。如果我对我自己的想法都如此，那么很自然我对我同龄人的想法也是如此。直到十二月八日我发现大家都变成大人了，那么我自然也应该变成大人了。</p><p>但我仍然有些难以置信。我并不觉得 18 岁生日到现在我的思维和处事方式发生了什么质的改变，熟悉的人对我的观点也并没有因为我过了 18 岁生日而发生显著的改变。最重要的，我平时做的事也并没有因为过了那个时间节点就完全不一样起来——现在仍然是每天学习，有时画画，练字，以及打游戏。</p><p>相应的，我感觉我的烦恼也没有因为步入成年而变成成年人的烦恼。学习上，时间安排上，今天吃什么，周末要不要出去玩之类的烦恼，仍然还是小孩一样。感情上的烦恼倒是已经略微脱离学生时代的青涩，而加入了一些可以被称之为“成年人的烦恼”的东西了，比如花钱的问题——而这主要是经济不独立导致的。</p><p>但当我发现我的同龄人竟然真正地出现了成年人的烦恼时，我突然觉得我也出现了成年人的烦恼。第一个成年人的烦恼，就是烦恼自己竟然已经有了成年人的烦恼。这让我立刻从脱离计组苦海的高兴转为一种莫名的悲伤中。</p><p>而第二个烦恼就是我突然发现大家真的都发生了很大的变化。从这个角度来看我感觉我确实是一个很恋旧的人 ww。对大家的印象还停留在很久以前，殊不知别人并不会保持我以为的一成不变，尽管他们自己说不定也意识不到自己发生了这样的变化，就像我一样。<br>好吧，这也是在所难免的。上了大学就是这样，当你交新朋友的速度远远低于和老朋友断开联系的速度的时候，你就会发现自己已经近乎成为一座孤岛了。</p><p>是的，当我写下这一段的时候，我已经出现了第三个烦恼。那就是端水的艺术真的完全学不会。</p><p>算了，如果有什么是不会变的话，恐怕是<ins>弔人</ins>喜欢的糖和茶了吧。</p><p><img src="/posts/1a21b5b/%E8%81%8A%E5%A4%A9%E8%AE%B0%E5%BD%95.jpg" alt="弔人还是那个弔人没变"></p>]]></content:encoded>
+      
+      
+      <category domain="https://samuflore.top/categories/%E6%A5%A0%E7%AB%B9%E8%93%AE%E8%8A%B1%E9%9B%86/">楠竹蓮花集</category>
+      
+      
+      <category domain="https://samuflore.top/tags/Life/">Life</category>
+      
+      <category domain="https://samuflore.top/tags/%E5%9A%B4%E6%9C%88/">嚴月</category>
+      
+      
+      <comments>https://samuflore.top/posts/1a21b5b/#disqus_thread</comments>
       
     </item>
     
