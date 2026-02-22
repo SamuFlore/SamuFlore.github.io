@@ -138,7 +138,7 @@
 
   <div class="related-wrap md-text" id="comments">
     <section class='header cmt-title cap theme'>
-      <p>评论将在审核通过后公示~</p>
+      <p>来发评论吧~</p>
 
     </section>
     <section class='body cmt-body waline'>
@@ -671,7 +671,7 @@
     utils.css('https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline-meta.css');
 
     const path = el.getAttribute('comment_id') ?? decodeURI(window.location.pathname);
-    const waline = init(Object.assign({"js":"https://unpkg.com/@waline/client@v3/dist/waline.js","css":"https://unpkg.com/@waline/client@v3/dist/waline.css","meta_css":"https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline-meta.css","serverURL":"https://waline.samuflore.top","commentCount":true,"pageview":true,"dark":"auto","reaction":true,"emoji":["https://unpkg.com/@waline/emojis@1.1.0/tieba"]}, {
+    const waline = init(Object.assign({"js":"https://unpkg.com/@waline/client@v3/dist/waline.js","css":"https://unpkg.com/@waline/client@v3/dist/waline.css","meta_css":"https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline-meta.css","serverURL":"https://waline.samuflore.top","commentCount":true,"pageview":true,"dark":"auto","reaction":true,"locale":{"placeholder":"评论将在审核通过后公示~"},"emoji":["https://unpkg.com/@waline/emojis@1.1.0/tieba"]}, {
       el: '#waline_container',
       path: path,
       

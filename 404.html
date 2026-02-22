@@ -69,7 +69,7 @@
 
 <widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/posts/ec4ac3d0/"><span class="title">[長欣集]现代诗一首</span></a><a class="item title" href="/posts/95afa136/"><span class="title">Blog 1：[長欣集]诗二首</span></a><a class="item title" href="/posts/188737f4/"><span class="title">[天琴集]天琴集序</span></a><a class="item title" href="/posts/b1cdfa63/"><span class="title">[概率與數理模型]概统概要</span></a><a class="item title" href="/posts/52a88c87/"><span class="title">[CO]CO 理论概要</span></a><a class="item title" href="/posts/585cfa20/"><span class="title">†[基礎物理學]基础物理学 B II 概要</span></a><a class="item title" href="/posts/deef238d/"><span class="title">[OO Pre]2025 面向对象程序设计先导课程总结</span></a><a class="item title" href="/posts/937d20ea/"><span class="title">MD 样式测试</span></a><a class="item title" href="/posts/f183ae5b/"><span class="title">[長欣集]梅间</span></a><a class="item title" href="/posts/b29c065f/"><span class="title">[CJKV]和</span></a></div></widget>
 
-<widget class="widget-wrapper timeline"><div class="widget-header dis-select"><span class="name">近期动态</span></div><div class="widget-body fs14"><div class="tag-plugin timeline data-service ds-timeline" data-api="https://api.github.com/repos/SamuFlore/blog-timeline/issues" limit="10"></div></div></widget>
+<widget class="widget-wrapper timeline"><div class="widget-header dis-select"><span class="name">BAKER</span></div><div class="widget-body fs14"><div class="tag-plugin timeline data-service ds-timeline" data-api="https://api.github.com/repos/SamuFlore/blog-timeline/issues?per_page=2" limit="2"></div></div></widget>
 </div>
 
 </div></aside><div class="l_main" id="main">
@@ -93,7 +93,7 @@
 
   <div class="related-wrap md-text" id="comments">
     <section class='header cmt-title cap theme'>
-      <p>评论将在审核通过后公示~</p>
+      <p>来发评论吧~</p>
 
     </section>
     <section class='body cmt-body waline'>
@@ -114,7 +114,7 @@
 </div></footer>
 <div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
 <div class="widgets">
-<widget class="widget-wrapper timeline"><div class="widget-header dis-select"><span class="name">近期动态</span></div><div class="widget-body fs14"><div class="tag-plugin timeline data-service ds-timeline" data-api="https://api.github.com/repos/SamuFlore/blog-timeline/issues" limit="10"></div></div></widget>
+<widget class="widget-wrapper timeline"><div class="widget-header dis-select"><span class="name">BAKER</span></div><div class="widget-body fs14"><div class="tag-plugin timeline data-service ds-timeline" data-api="https://api.github.com/repos/SamuFlore/blog-timeline/issues?per_page=2" limit="2"></div></div></widget>
 </div></aside><div class='float-panel'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
@@ -623,7 +623,7 @@
     utils.css('https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline-meta.css');
 
     const path = el.getAttribute('comment_id') ?? decodeURI(window.location.pathname);
-    const waline = init(Object.assign({"js":"https://unpkg.com/@waline/client@v3/dist/waline.js","css":"https://unpkg.com/@waline/client@v3/dist/waline.css","meta_css":"https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline-meta.css","serverURL":"https://waline.samuflore.top","commentCount":true,"pageview":true,"dark":"auto","reaction":true,"emoji":["https://unpkg.com/@waline/emojis@1.1.0/tieba"]}, {
+    const waline = init(Object.assign({"js":"https://unpkg.com/@waline/client@v3/dist/waline.js","css":"https://unpkg.com/@waline/client@v3/dist/waline.css","meta_css":"https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline-meta.css","serverURL":"https://waline.samuflore.top","commentCount":true,"pageview":true,"dark":"auto","reaction":true,"locale":{"placeholder":"评论将在审核通过后公示~"},"emoji":["https://unpkg.com/@waline/emojis@1.1.0/tieba"]}, {
       el: '#waline_container',
       path: path,
       
