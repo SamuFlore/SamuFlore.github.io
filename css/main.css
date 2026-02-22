@@ -9658,33 +9658,33 @@ a[data-fancybox] {
 .cmt-body {
   --waline-font-size: 0.9375rem;
 /* 常规颜色 */
-  --waline-white: #fff;
-  --waline-light-grey: #999;
-  --waline-dark-grey: #666;
+  --waline-white: #afafaf;
+  --waline-light-grey: #676767;
+  --waline-dark-grey: #424242;
 /* 主题色 */
   --waline-theme-color: var(--theme);
   --waline-active-color: var(--accent);
 /* 布局颜色 */
   --waline-color: #444;
-  --waline-bgcolor: #fff;
-  --waline-bgcolor-light: #f8f8f8;
-  --waline-bgcolor-hover: #f0f0f0;
-  --waline-border-color: #ddd;
-  --waline-disable-bgcolor: #f8f8f8;
-  --waline-disable-color: #bbb;
+  --waline-bgcolor: #d0d0d0;
+  --waline-bgcolor-light: #e7e7e7;
+  --waline-bgcolor-hover: #c6c6c6;
+  --waline-border-color: #afafaf;
+  --waline-disable-bgcolor: #d0d0d0;
+  --waline-disable-color: #ababab;
   --waline-code-bgcolor: #282c34;
 /* 特殊颜色 */
-  --waline-bq-color: #f0f0f0;
+  --waline-bq-color: #dadada;
 /* 头像 */
   --waline-avatar-size: 3.25rem;
   --waline-m-avatar-size: calc(var(--waline-avatar-size) * 9 / 13);
 /* 徽章 */
   --waline-badge-color: #3498db;
-  --waline-badge-font-size: 0.725em;
+  --waline-badge-font-size: 0.5em;
 /* 信息 */
-  --waline-info-bgcolor: #f8f8f8;
-  --waline-info-color: #999;
-  --waline-info-font-size: 0.725em;
+  --waline-info-bgcolor: #d8d8d8;
+  --waline-info-color: #7b7b7b;
+  --waline-info-font-size: 0.5em;
 /* 渲染选择 */
   --waline-border: 1px solid var(--waline-border-color);
   --waline-avatar-radius: 50%;
@@ -9701,7 +9701,7 @@ a[data-fancybox] {
   --waline-light-grey: #666;
   --waline-dark-grey: #999;
 /* 布局颜色 */
-  --waline-color: #fff;
+  --waline-color: #d6d6d6;
   --waline-bgcolor: var(--block);
   --waline-bgcolor-light: #272727;
   --waline-border-color: #333;
@@ -9717,14 +9717,14 @@ a[data-fancybox] {
   padding: 0.375em;
   font-weight: bold;
   font-size: 1.25em;
-  color: #fff;
+  color: #c7c7c7;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) .cmt-body.waline {
     --waline-white: #000;
     --waline-light-grey: #666;
     --waline-dark-grey: #999;
-    --waline-color: #fff;
+    --waline-color: #d6d6d6;
     --waline-bgcolor: var(--block);
     --waline-bgcolor-light: #272727;
     --waline-border-color: #333;
@@ -9738,7 +9738,7 @@ a[data-fancybox] {
     padding: 0.375em;
     font-weight: bold;
     font-size: 1.25em;
-    color: #fff;
+    color: #c7c7c7;
   }
 }
 .cmt-body.artalk .artalk {
