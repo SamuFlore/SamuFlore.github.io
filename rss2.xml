@@ -3,7 +3,7 @@
   xmlns:atom="http://www.w3.org/2005/Atom"
   xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>SamuFlore</title>
+    <title>SamuFlore&#39;s Dimension</title>
     <link>https://samuflore.top/</link>
     
     <atom:link href="https://samuflore.top/rss2.xml" rel="self" type="application/rss+xml"/>

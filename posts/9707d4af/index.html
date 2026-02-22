@@ -17,19 +17,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   <meta name="theme-color" content="#f9fafb">
-  <title>[CO Pre]One-Hot 编码 - SamuFlore</title>
+  <title>[CO Pre]One-Hot 编码 - SamuFlore's Dimension</title>
 
   
     <meta name="description" content="独热编码（One-Hot Encoding），又称一位有效编码，是一种将分类变量转换为数值形式的常用方法。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[CO Pre]One-Hot 编码">
 <meta property="og:url" content="https://samuflore.top/posts/9707d4af/">
-<meta property="og:site_name" content="SamuFlore">
+<meta property="og:site_name" content="SamuFlore&#39;s Dimension">
 <meta property="og:description" content="独热编码（One-Hot Encoding），又称一位有效编码，是一种将分类变量转换为数值形式的常用方法。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://samuflore.top/images/avatar.jpg">
 <meta property="article:published_time" content="2025-08-19T14:06:21.000Z">
-<meta property="article:modified_time" content="2026-02-19T03:09:41.538Z">
+<meta property="article:modified_time" content="2026-02-22T14:43:01.266Z">
 <meta property="article:author" content="Samustach Floresein">
 <meta property="article:tag" content="CO">
 <meta property="article:tag" content="桂月">
@@ -44,7 +44,7 @@
 
   <!-- feed -->
   
-    <link rel="alternate" href="/rss2.xml" title="SamuFlore" type="application/rss+xml">
+    <link rel="alternate" href="/rss2.xml" title="SamuFlore's Dimension" type="application/rss+xml">
   
 
   <link rel="stylesheet" href="/css/main.css?v=1.33.1">
@@ -56,7 +56,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg"},"dateCreated":"2025-08-19T22:06:21+08:00","dateModified":"2026-02-19T11:09:41+08:00","datePublished":"2025-08-19T22:06:21+08:00","description":"独热编码（One-Hot Encoding），又称一位有效编码，是一种将分类变量转换为数值形式的常用方法。","headline":"[CO Pre]One-Hot 编码","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/9707d4af/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg","logo":{"@type":"ImageObject","url":"/images/avatar.jpg"}},"url":"https://samuflore.top/posts/9707d4af/","keywords":"CO, 桂月, Pre, One-Hot Encoding","image":[]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg"},"dateCreated":"2025-08-19T22:06:21+08:00","dateModified":"2026-02-22T22:43:01+08:00","datePublished":"2025-08-19T22:06:21+08:00","description":"独热编码（One-Hot Encoding），又称一位有效编码，是一种将分类变量转换为数值形式的常用方法。","headline":"[CO Pre]One-Hot 编码","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/9707d4af/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg","logo":{"@type":"ImageObject","url":"/images/avatar.jpg"}},"url":"https://samuflore.top/posts/9707d4af/","keywords":"CO, 桂月, Pre, One-Hot Encoding","image":[]}</script>
   <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&family=Mozilla+Headline:wght@200..700&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@200..700&display=swap" rel="stylesheet">
 <!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- hexo injector head_end end --><style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--blockquote-bg-color:#555;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 <body><div class="sitebg"><div class="siteblur"></div></div>
@@ -64,7 +64,7 @@
 <div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
 
 
-<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/images/avatar.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main">SamuFlore</div><div class="sub normal cap">SamuFlore's Dimension</div><div class="sub hover cap" style="opacity:0"> 德才兼備、知行合一</div></a></div></header>
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/images/avatar.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main"><img no-lazy height="32px" src="https://i.mituw.com/imgs/2026/02/22/b3940979c8688109.png"/ onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><div class="sub normal cap">SamuFlore's Dimension</div><div class="sub hover cap" style="opacity:0"> 德才兼備、知行合一</div></a></div></header>
 
 <div class="nav-area">
 
@@ -79,9 +79,9 @@
 <a class="link" title="Kamonto's Little Planet" target="_blank" rel="noopener" href="https://kamonto.github.io/Kamonto_blog/"><div class="flex"><svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M6 9a3 3 0 1 0 0 6h3a1 1 0 1 1 0 2H6A5 5 0 0 1 6 7h3a1 1 0 0 1 0 2zm1 3a1 1 0 0 1 1-1h8a1 1 0 1 1 0 2H8a1 1 0 0 1-1-1m8-5a1 1 0 1 0 0 2h3a3 3 0 1 1 0 6h-3a1 1 0 1 0 0 2h3a5 5 0 0 0 0-10z" clip-rule="evenodd"/></svg><span>Kamonto's Little Planet</span></div></a>
 <a class="link" title="钟鼓楼" target="_blank" rel="noopener" href="https://thysrael.github.io/"><div class="flex"><svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M6 9a3 3 0 1 0 0 6h3a1 1 0 1 1 0 2H6A5 5 0 0 1 6 7h3a1 1 0 0 1 0 2zm1 3a1 1 0 0 1 1-1h8a1 1 0 1 1 0 2H8a1 1 0 0 1-1-1m8-5a1 1 0 1 0 0 2h3a3 3 0 1 1 0 6h-3a1 1 0 1 0 0 2h3a5 5 0 0 0 0-10z" clip-rule="evenodd"/></svg><span>钟鼓楼</span></div></a></div></div></widget>
 
+<widget class="widget-wrapper related post-list"><div class="widget-header dis-select"><span class="name">专栏：25 计组实验</span></div><div class="widget-body"><a class="item" href="/posts/444343b2/"><span class="title">[CO Finale] 2025 北航计算机组成实验总结</span></a><a class="item" href="/posts/28be479a/"><span class="title">[CO P7]Verilog 设计 MIPS 微系统</span></a><a class="item" href="/posts/905092e9/"><span class="title">[CO P6]Verilog 设计五级流水线 CPU-2</span></a><a class="item" href="/posts/65cd5a9/"><span class="title">[CO P5]Verilog 设计五级流水线 CPU</span></a><a class="item" href="/posts/53039668/"><span class="title">[CO P4]Verilog 设计单周期 CPU</span></a><a class="item" href="/posts/627c408f/"><span class="title">[CO P3]Logisim 设计单周期 CPU</span></a><a class="item" href="/posts/6d68c22/"><span class="title">[CO P2]P2 上机之思考</span></a><a class="item" href="/posts/2d82ddc6/"><span class="title">[CO P2]宏、函数与栈</span></a><a class="item" href="/posts/fae59a6c/"><span class="title">[CO P1]P1 上机之思考</span></a><a class="item" href="/posts/2dab591c/"><span class="title">[CO P1]如何优雅地写 Testbench</span></a><a class="item" href="/posts/18246a69/"><span class="title">[CO P0]P0 上机之思考</span></a><a class="item" href="/posts/11653afb/"><span class="title">[CO P0]关于 Mealy 机和 Moore 机的思考</span></a><a class="item" href="/posts/1f9d902/"><span class="title">[CO Pre]MIPS 汇编入门</span></a><a class="item" href="/posts/c9f56abd/"><span class="title">[CO Pre]Verilog 入门</span></a><a class="item active" href="/posts/9707d4af/"><span class="title">[CO Pre]One-Hot 编码</span><svg class="active-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M21 11.098v4.993c0 3.096 0 4.645-.734 5.321c-.35.323-.792.526-1.263.58c-.987.113-2.14-.907-4.445-2.946c-1.02-.901-1.529-1.352-2.118-1.47a2.225 2.225 0 0 0-.88 0c-.59.118-1.099.569-2.118 1.47c-2.305 2.039-3.458 3.059-4.445 2.945a2.238 2.238 0 0 1-1.263-.579C3 20.736 3 19.188 3 16.091v-4.994C3 6.81 3 4.666 4.318 3.333C5.636 2 7.758 2 12 2c4.243 0 6.364 0 7.682 1.332C21 4.665 21 6.81 21 11.098" opacity=".5"/><path fill="currentColor" d="M9 5.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5z"/></svg></a><a class="item" href="/posts/e7ebcfa7/"><span class="title">[CO Pre]Logisim 入门</span></a><a class="item" href="/posts/908cc5fb/"><span class="title">[CO Pre]原码、反码与补码</span></a></div></widget>
 
-
-<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/posts/ec4ac3d0/"><span class="title">[長欣集]现代诗一首</span></a><a class="item title" href="/posts/95afa136/"><span class="title">Blog 1：[長欣集]诗二首</span></a><a class="item title" href="/posts/188737f4/"><span class="title">[天琴集]天琴集序</span></a><a class="item title" href="/posts/b1cdfa63/"><span class="title">[概率與數理模型]概统概要</span></a><a class="item title" href="/posts/52a88c87/"><span class="title">[CO]CO 理论概要</span></a><a class="item title" href="/posts/585cfa20/"><span class="title">†[基礎物理學]基础物理学 B II 概要</span></a><a class="item title" href="/posts/deef238d/"><span class="title">[OO Pre]2025 面向对象程序设计先导课程总结</span></a><a class="item title" href="/posts/937d20ea/"><span class="title">MD 样式测试</span></a><a class="item title" href="/posts/f183ae5b/"><span class="title">[長欣集]梅间</span></a><a class="item title" href="/posts/b29c065f/"><span class="title">[CJKV]和</span></a></div></widget>
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/posts/28be479a/"><span class="title">[CO P7]Verilog 设计 MIPS 微系统</span></a><a class="item title" href="/posts/627c408f/"><span class="title">[CO P3]Logisim 设计单周期 CPU</span></a><a class="item title" href="/posts/53039668/"><span class="title">[CO P4]Verilog 设计单周期 CPU</span></a><a class="item title" href="/posts/65cd5a9/"><span class="title">[CO P5]Verilog 设计五级流水线 CPU</span></a><a class="item title" href="/posts/905092e9/"><span class="title">[CO P6]Verilog 设计五级流水线 CPU-2</span></a><a class="item title" href="/posts/444343b2/"><span class="title">[CO Finale] 2025 北航计算机组成实验总结</span></a><a class="item title" href="/posts/e7ebcfa7/"><span class="title">[CO Pre]Logisim 入门</span></a><a class="item title" href="/posts/9707d4af/"><span class="title">[CO Pre]One-Hot 编码</span></a><a class="item title" href="/posts/11653afb/"><span class="title">[CO P0]关于 Mealy 机和 Moore 机的思考</span></a><a class="item title" href="/posts/18246a69/"><span class="title">[CO P0]P0 上机之思考</span></a></div></widget>
 </div>
 
 </div></aside><div class="l_main" id="main">
@@ -93,8 +93,8 @@
 <div class="article banner top">
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
-<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/2025-2026-%E5%AD%B8%E5%B9%B4/">2025 - 2026 學年</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/2025-2026-%E5%AD%B8%E5%B9%B4/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B5%84%E6%88%90%E5%8E%9F%E7%90%86/">計算機組成原理</a></div>
-<div class="flex-row" id="post-meta"><a class="author" href="/author/samuflore/">Seymiris Asakawa</a><span class="sep"></span><span class="text created"><time datetime="2025-08-19T14:06:21.000Z">2025-08-19</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-02-19T03:09:41.538Z">2026-02-19</time></span></div></div></div>
+<span class="sep"></span><a class="cap breadcrumb" id="menu" href="/topic/">专栏</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/posts/444343b2/">25 计组实验</a></div>
+<div class="flex-row" id="post-meta"><a class="author" href="/author/samuflore/">Seymiris Asakawa</a><span class="sep"></span><span class="text created"><time datetime="2025-08-19T14:06:21.000Z">2025-08-19</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-02-22T14:43:01.266Z">2026-02-22</time></span></div></div></div>
     
     <div class="bottom only-title">
       
