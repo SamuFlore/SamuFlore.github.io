@@ -708,7 +708,7 @@
     utils.css('https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline-meta.css');
 
     const path = el.getAttribute('comment_id') ?? decodeURI(window.location.pathname);
-    const waline = init(Object.assign({"js":"https://unpkg.com/@waline/client@v3/dist/waline.js","css":"https://unpkg.com/@waline/client@v3/dist/waline.css","meta_css":"https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline-meta.css","serverURL":"https://waline.samuflore.top","commentCount":true,"pageview":false,"dark":"auto","reaction":true,"emoji":["https://unpkg.com/@waline/emojis@1.1.0/tieba"]}, {
+    const waline = init(Object.assign({"js":"https://unpkg.com/@waline/client@v3/dist/waline.js","css":"https://unpkg.com/@waline/client@v3/dist/waline.css","meta_css":"https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline-meta.css","serverURL":"https://waline.samuflore.top","commentCount":true,"pageview":false,"dark":"dark","reaction":true,"emoji":["https://unpkg.com/@waline/emojis@1.1.0/tieba"]}, {
       el: '#waline_container',
       path: path,
       
