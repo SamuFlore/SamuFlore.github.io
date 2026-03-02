@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://samuflore.top/images/avatar.jpg">
 <meta property="article:published_time" content="2026-03-01T13:09:49.000Z">
-<meta property="article:modified_time" content="2026-03-01T15:10:58.343Z">
+<meta property="article:modified_time" content="2026-03-02T03:33:28.082Z">
 <meta property="article:author" content="Samustach Floresein">
 <meta property="article:tag" content="Pre">
 <meta property="article:tag" content="桃月">
@@ -57,7 +57,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg"},"dateCreated":"2026-03-01T21:09:49+08:00","dateModified":"2026-03-01T23:10:58+08:00","datePublished":"2026-03-01T21:09:49+08:00","description":"","headline":"[OS Pre]Hello, Linux!","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/5069adfd/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg","logo":{"@type":"ImageObject","url":"/images/avatar.jpg"}},"url":"https://samuflore.top/posts/5069adfd/","keywords":"Pre, 桃月, OS, Linux, Vim","thumbnailUrl":null,"image":[]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg"},"dateCreated":"2026-03-01T21:09:49+08:00","dateModified":"2026-03-02T11:33:28+08:00","datePublished":"2026-03-01T21:09:49+08:00","description":"","headline":"[OS Pre]Hello, Linux!","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/5069adfd/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg","logo":{"@type":"ImageObject","url":"/images/avatar.jpg"}},"url":"https://samuflore.top/posts/5069adfd/","keywords":"Pre, 桃月, OS, Linux, Vim","thumbnailUrl":null,"image":[]}</script>
   <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&family=Mozilla+Headline:wght@200..700&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@200..700&display=swap" rel="stylesheet">
 <!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- hexo injector head_end end --><style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--blockquote-bg-color:#555;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 <body><div class="sitebg"><div class="siteblur"></div></div>
@@ -95,7 +95,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" id="menu" href="/topic/">专栏</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/posts/5069adfd/">26 操作系统</a></div>
-<div class="flex-row" id="post-meta"><a class="author" href="/author/samuflore/">Seymiris Asakawa</a><span class="sep"></span><span class="text created"><time datetime="2026-03-01T13:09:49.000Z">2026-03-01</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-03-01T15:10:58.343Z">2026-03-01</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><a class="author" href="/author/samuflore/">Seymiris Asakawa</a><span class="sep"></span><span class="text created"><time datetime="2026-03-01T13:09:49.000Z">2026-03-01</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-03-02T03:33:28.082Z">2026-03-02</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -144,7 +144,136 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> test.txt test2.txt</span><br></pre></td></tr></table></figure>
 <h4 id="diff">diff</h4>
 <p>对于<mark class="tag-plugin colorful mark" color="yellow">两个纯文本文件</mark>，使用 <code>diff</code> 进行比较。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">diff</span><br><span class="line">用法：diff [选项] 文件1 文件2</span><br><span class="line">选项（常用）：</span><br><span class="line">-b              不检查空白字符的不同。</span><br><span class="line">-B              不检查空行。</span><br><span class="line">-q              仅显示有无差异，不显示详细信息。</span><br></pre></td></tr></table></figure></article>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">diff</span><br><span class="line">用法：diff [选项] 文件1 文件2</span><br><span class="line">选项（常用）：</span><br><span class="line">-b              不检查空白字符的不同。</span><br><span class="line">-B              不检查空行。</span><br><span class="line">-q              仅显示有无差异，不显示详细信息。</span><br></pre></td></tr></table></figure>
+<h3 id="查找操作">查找操作</h3>
+<h4 id="find">find</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">find</span><br><span class="line">用法：find [路径] &lt;选项&gt;</span><br><span class="line">作用：在给定路径下递归地查找文件，输出符合要求的文件的路径。如果没有给定路径，则在当前目录下查找。</span><br><span class="line">选项（常用）：</span><br><span class="line">-name &lt;文件名&gt;             指定需要查找的文件名。</span><br></pre></td></tr></table></figure>
+<p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find -name test.c</span><br></pre></td></tr></table></figure>
+<h4 id="grep">grep</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">grep</span><br><span class="line">用法：grep [选项] PATTERN FILE</span><br><span class="line">（PATTERN是匹配字符串，FILE是文件或目录的路径）</span><br><span class="line">作用：输出匹配PATTERN的文件和相关的行。</span><br><span class="line">选项（常用）：</span><br><span class="line">-a              不忽略二进制数据进行搜索。</span><br><span class="line">-i              忽略大小写差异。</span><br><span class="line">-r              从目录中递归查找。</span><br><span class="line">-n              显示行号。</span><br></pre></td></tr></table></figure>
+<div class="tag-plugin colorful note"><div class="title">注意</div><div class="body"><p><code>grep</code> 是区分大小写的。</p></div></div>
+<p>例如查找某一目录下所有文件中含有 <code>hello</code> 的行（不区分大小写）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -i -r hello</span><br></pre></td></tr></table></figure>
+<h4 id="tree">tree</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tree</span><br><span class="line">用法: tree [选项] [目录名]</span><br><span class="line">选项(常用)：</span><br><span class="line">-a              列出全部文件（包含隐藏文件）。</span><br><span class="line">-d              只列出目录。</span><br></pre></td></tr></table></figure>
+<h3 id="man">man</h3>
+<p>查找指令手册。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">man</span><br><span class="line">用法：man [选项] 命令</span><br><span class="line">作用：查看命令的详细说明手册。</span><br></pre></td></tr></table></figure>
+<h3 id="快捷键（Mac）">快捷键（Mac）</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<kbd>⌃ Ctrl</kbd> + <kbd>C</kbd>：终止当前程序的运行。
+</li>
+<li class="lvl-2">
+<kbd>⌃ Ctrl</kbd> + <kbd>Z</kbd>：挂起当前程序。
+</li>
+<li class="lvl-2">
+<kbd>⌃ Ctrl</kbd> + <kbd>D</kbd>：输入一个 `EOF`。
+</li>
+<li class="lvl-2">
+<kbd>⌃ Ctrl</kbd> + <kbd>L</kbd>：清空屏幕。相当于命令 `clear`。
+</li>
+<li class="lvl-2">
+<kbd>⌃ Ctrl</kbd> + <kbd>S</kbd>：暂停终端。
+</li>
+<li class="lvl-2">
+<kbd>⌃ Ctrl</kbd> + <kbd>D</kbd>：取消暂停终端。
+</li>
+</ul>
+<h2 id="Vim">Vim</h2>
+<div class="tag-plugin link dis-select"><a class="link-card plain" title="简明 VIM 练级攻略" href="https://coolshell.cn/articles/5426.html" target="_blank" rel="external nofollow noopener noreferrer" cardlink autofill="icon"><div class="left"><span class="title">简明 VIM 练级攻略</span><span class="cap link footnote">https://coolshell.cn/articles/5426.html</span></div><div class="right"><div class="lazy img" data-bg="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/link/8f277b4ee0ecd.svg"></div></div></a></div>
+<h2 id="实用工具">实用工具</h2>
+<h3 id="GCC">GCC</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gcc</span><br><span class="line">用法：gcc [选项] 源代码文件</span><br><span class="line">作用：编译源代码文件。</span><br></pre></td></tr></table></figure>
+<p>编译生成 <code>.out</code> 文件之后就可以运行。</p>
+<h3 id="make-Makefile">make &amp; Makefile</h3>
+<p>Makefile 是一个指导性的文件（文件名就为 Makefile，无后缀）。</p>
+<figure class="highlight makefile"><figcaption><span>基本格式</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">target: dependencies</span></span><br><span class="line">    command 1</span><br><span class="line">    command 2</span><br><span class="line">    ...</span><br><span class="line">    command n</span><br></pre></td></tr></table></figure>
+<p><code>target</code> 是构建的目标，可以是真的目标文件、可执行文件，也可以是一个标签。<code>dependencies</code> 是构建所需的其它文件或目标。之后的是构建所需的指令，每个 command 前必须有一个 <code>tab</code>，不能用空格。</p>
+<figure class="highlight makefile"><figcaption><span>例子</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">all: hello</span></span><br><span class="line"></span><br><span class="line"><span class="section">hello: hello.c</span></span><br><span class="line">    gcc -o hello hello.c</span><br></pre></td></tr></table></figure>
+<div class="tag-plugin colorful note"><div class="title"><strong><p>提示</p>
+</strong></div><div class="body"><p>Makefile 会自动找到所有需要构建的文件进行操作。首先它会构建 <code>all</code>，然后发现需要构建 <code>hello</code>，然后执行 <code>gcc -o hello hello.c</code>。</p></div></div>
+<p>之后执行 <code>make hello</code> 或是 <code>make</code>，即可产生 <code>hello</code> 这个可执行文件，使用 <code>./hello</code> 就可以执行它。值得注意的是，当执行 <code>make</code> 指令而不附加其他参数时，默认构建第一个目标。</p>
+<h3 id="ctags">ctags</h3>
+<p>ctags 是一个方便代码阅读的工具，这里主要用到代码跳转功能。<br>
+首先打开 <code>~/.vimrc</code>（Vim 的配置文件），添加两行并保存：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set tags=tags</span><br><span class="line">set autochdir</span><br></pre></td></tr></table></figure>
+<p>ctags 可以实现跨文件跳转，例如首先创建一个 <code>hello.c</code>：</p>
+<figure class="highlight c"><figcaption><span>hello.c</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;test.h&quot;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span> &#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Pair</span> <span class="title">p</span>;</span></span><br><span class="line">    p.a = <span class="number">1</span>;</span><br><span class="line">    p.b = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后创建 <code>test.h</code></p>
+<figure class="highlight c"><figcaption><span>test.h</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Pair</span> &#123;</span></span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">    <span class="type">int</span> b;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>保存并退出 Vim，执行：</p>
+<div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_1" value="ctags -R *"><button class="copy-btn" onclick="util.copy(&quot;copy_1&quot;,&quot;复制成功&quot;)"><svg class="icon copy-btn" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M5.75 1a.75.75 0 00-.75.75v3c0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75v-3a.75.75 0 00-.75-.75h-4.5zm.75 3V2.5h3V4h-3zm-2.874-.467a.75.75 0 00-.752-1.298A1.75 1.75 0 002 3.75v9.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0014 13.25v-9.5a1.75 1.75 0 00-.874-1.515.75.75 0 10-.752 1.298.25.25 0 01.126.217v9.5a.25.25 0 01-.25.25h-8.5a.25.25 0 01-.25-.25v-9.5a.25.25 0 01.126-.217z"/></svg></button></div>
+<p>目录下出现了 <code>tags</code> 这个文件——符号名索引。</p>
+<p>现在使用 Vim 打开 <code>hello.c</code> 文件，将光标移动到 <code>a</code> 或 <code>b</code> 处，按下 <kbd>⌃ Ctrl</kbd> + <kbd>]</kbd> 就可以跳转到结构体中 <code>a</code> 或 <code>b</code> 的定义处。再按下 <kbd>⌃ Ctrl</kbd> + <kbd>o</kbd> 就可以返回跳转前的位置。</p>
+<h3 id="tmux">tmux</h3>
+<p>终端复用。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>输入 <code>tmux</code> 进入 tmux 的新会话。</p>
+</li>
+<li class="lvl-2">
+<kbd>⌃ Ctrl</kbd> + <kbd>B</kbd> 然后 <kbd>⇧ Shift</kbd> + <kbd>Num 5</kbd>，将窗口左右分屏。
+</li>
+<li class="lvl-2">
+<kbd>⌃ Ctrl</kbd> + <kbd>B</kbd> 然后 <kbd>⇧ Shift</kbd> + <kbd>单引号</kbd>，将窗口上下分屏。
+</li>
+<li class="lvl-2">
+<kbd>⌃ Ctrl</kbd> + <kbd>B</kbd> 然后 <kbd>⬆ Up</kbd> / <kbd>⬇ Down</kbd> / <kbd>⬅ Left</kbd> / <kbd>➡︎ Right</kbd>，根据方向按键来切换窗格。
+</li>
+<li class="lvl-2">
+<kbd>⌃ Ctrl</kbd> + <kbd>B</kbd> 然后 <kbd>␣ Space</kbd>，切换窗格布局（上下变左右，左右变上下）。
+</li>
+<li class="lvl-2">
+<kbd>⌃ Ctrl</kbd> + <kbd>B</kbd> 然后 <kbd>X</kbd>，关闭使用的窗格。
+</li>
+<li class="lvl-2">
+<kbd>⌃ Ctrl</kbd> + <kbd>B</kbd> 然后 <kbd>D</kbd>，分离（Detach）当前会话，回到 Shell。原有的程序会保持在 tmux 会话中的状态。
+</li>
+<li class="lvl-2">
+<p>回到会话：<mark class="tag-plugin colorful mark" color="yellow">在 Shell 下用</mark> <code>tmux ls</code> 查看当前的会话列表，记住会话名（冒号左边的数字），使用 <code>tmux a -t 会话名</code> 恢复会话。</p>
+</li>
+</ul>
+<h2 id="Git">Git</h2>
+<h3 id="git-restore"><code>git restore</code></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>若修改还没有进入暂存区（未 <code>git add</code>），可以使用 <code>git restore &lt;filename&gt;</code> 来撤销修改，使之退回到<mark class="tag-plugin colorful mark" color="yellow">上一个 commit</mark>的状态。若已经加入暂存区，则可以通过 <code>git restore --staged &lt;filename&gt;</code> 来取消暂存，然后再输入 <code>git restore &lt;filename&gt;</code> 来撤回更改。</p>
+</li>
+</ul>
+<h2 id="Shell-脚本">Shell 脚本</h2>
+<h3 id="Shell-脚本的执行">Shell 脚本的执行</h3>
+<p>约定脚本文件以 <code>.sh</code> 结尾。</p>
+<div class="tag-plugin colorful note"><div class="title">注意</div><div class="body"><p>Linux 中没有扩展名的概念。</p></div></div>
+<p>执行时，使用 <code>./文件名</code>。<br>
+使用 <code>touch</code> 命令创建的文件默认是没有执行执行权限的，需要手动添加：</p>
+<div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_2" value="chmod +x 文件名"><button class="copy-btn" onclick="util.copy(&quot;copy_2&quot;,&quot;复制成功&quot;)"><svg class="icon copy-btn" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M5.75 1a.75.75 0 00-.75.75v3c0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75v-3a.75.75 0 00-.75-.75h-4.5zm.75 3V2.5h3V4h-3zm-2.874-.467a.75.75 0 00-.752-1.298A1.75 1.75 0 002 3.75v9.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0014 13.25v-9.5a1.75 1.75 0 00-.874-1.515.75.75 0 10-.752 1.298.25.25 0 01.126.217v9.5a.25.25 0 01-.25.25h-8.5a.25.25 0 01-.25-.25v-9.5a.25.25 0 01.126-.217z"/></svg></button></div>
+<h3 id="Bash-Shell-语法基础">Bash Shell 语法基础</h3>
+<h4 id="Hello-world！">Hello, world！</h4>
+<figure class="highlight bash"><figcaption><span>hello.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># My first Shell script!</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Hello, world!&quot;</span></span><br></pre></td></tr></table></figure>
+<p>保存、修改权限、执行。</p>
+<div class="tag-plugin colorful note"><div class="title">提示</div><div class="body"><p>第一行的 <code>#!</code> 称作 Shebang，当文件中存在 Shebang，程序加载器会分析其后的内容，并将这些内容作为脚本文件的解释器。</p></div></div>
+<h4 id="变量">变量</h4>
+<p>Shell 是弱类型语言，定义变量时无需指定类型。<br>
+定义变量的方法是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var_name=value </span><br></pre></td></tr></table></figure>
+<div class="tag-plugin colorful note" color="orange"><div class="title">注意</div><div class="body"><p>等号两侧不允许有空格。</p></div></div>
+<p>使用 <code>$var_name</code> 或 <code>$&#123;var_name&#125;</code> 来获取变量的值。</p>
+<div class="tag-plugin grid" style="grid-template-columns: repeat(2, 1fr);"><div class="cell" style>
+    <div class="tag-plugin colorful note" color="green" child="codeblock"><div class="body"><figure class="highlight bash"><figcaption><span>推荐的写法</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str=<span class="string">&quot;Hello, world!&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;str&#125;</span></span><br></pre></td></tr></table></figure></div></div>
+    </div>
+    <div class="cell" style>
+    <div class="tag-plugin colorful note" color="red" child="codeblock"><div class="body"><figure class="highlight bash"><figcaption><span>不推荐的写法</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str=<span class="string">&quot;Hello, world!&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$str</span></span><br></pre></td></tr></table></figure></div></div>
+    </div>
+    </div>
+<h4 id="传入参数">传入参数</h4>
+<p>在<mark class="tag-plugin colorful mark" color="yellow">双引号</mark>包裹的字符串内输入 <code>$1</code>, <code>$2</code> 等等，这些变量将通过命令行来传递，例如：</p>
+<figure class="highlight bash"><figcaption><span>hello.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">str=<span class="string">&quot;Hello, World! My name is <span class="variable">$1</span>.&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;str&#125;</span></span><br></pre></td></tr></table></figure>
+<p>执行命令：</p>
+<div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_3" value="./hello.sh Seym"><button class="copy-btn" onclick="util.copy(&quot;copy_3&quot;,&quot;复制成功&quot;)"><svg class="icon copy-btn" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M5.75 1a.75.75 0 00-.75.75v3c0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75v-3a.75.75 0 00-.75-.75h-4.5zm.75 3V2.5h3V4h-3zm-2.874-.467a.75.75 0 00-.752-1.298A1.75 1.75 0 002 3.75v9.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0014 13.25v-9.5a1.75 1.75 0 00-.874-1.515.75.75 0 10-.752 1.298.25.25 0 01.126.217v9.5a.25.25 0 01-.25.25h-8.5a.25.25 0 01-.25-.25v-9.5a.25.25 0 01.126-.217z"/></svg></button></div>
+<p>会看到输出 <code>Hello, World! My name is Seym.</code>。</p>
+<div class="tag-plugin colorful note"><div class="title">提示</div><div class="body"><p>第一个参量对应的变量叫 <code>$1</code>，第二个叫 <code>$2</code>，以此类推。</p></div></div></article>
 <div class="article-footer">
     <section id="license">
       <div class="header"><span>许可协议</span></div>
@@ -191,7 +320,7 @@
 
 
 
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%8F"><span class="toc-text">序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux-%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C"><span class="toc-text">Linux 基础操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C"><span class="toc-text">目录操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#cd"><span class="toc-text">cd</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ls"><span class="toc-text">ls</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mkdir"><span class="toc-text">mkdir</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rmdir"><span class="toc-text">rmdir</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="toc-text">文件操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#touch"><span class="toc-text">touch</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rm"><span class="toc-text">rm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cp"><span class="toc-text">cp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mv"><span class="toc-text">mv</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#diff"><span class="toc-text">diff</span></a></li></ol></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%8F"><span class="toc-text">序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux-%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C"><span class="toc-text">Linux 基础操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C"><span class="toc-text">目录操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#cd"><span class="toc-text">cd</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ls"><span class="toc-text">ls</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mkdir"><span class="toc-text">mkdir</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rmdir"><span class="toc-text">rmdir</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="toc-text">文件操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#touch"><span class="toc-text">touch</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rm"><span class="toc-text">rm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cp"><span class="toc-text">cp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mv"><span class="toc-text">mv</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#diff"><span class="toc-text">diff</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E6%93%8D%E4%BD%9C"><span class="toc-text">查找操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#find"><span class="toc-text">find</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#grep"><span class="toc-text">grep</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tree"><span class="toc-text">tree</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#man"><span class="toc-text">man</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE%EF%BC%88Mac%EF%BC%89"><span class="toc-text">快捷键（Mac）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vim"><span class="toc-text">Vim</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7"><span class="toc-text">实用工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GCC"><span class="toc-text">GCC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#make-Makefile"><span class="toc-text">make &amp; Makefile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ctags"><span class="toc-text">ctags</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tmux"><span class="toc-text">tmux</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git"><span class="toc-text">Git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-restore"><span class="toc-text">git restore</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Shell-%E8%84%9A%E6%9C%AC"><span class="toc-text">Shell 脚本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Shell-%E8%84%9A%E6%9C%AC%E7%9A%84%E6%89%A7%E8%A1%8C"><span class="toc-text">Shell 脚本的执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bash-Shell-%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80"><span class="toc-text">Bash Shell 语法基础</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Hello-world%EF%BC%81"><span class="toc-text">Hello, world！</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%98%E9%87%8F"><span class="toc-text">变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%A0%E5%85%A5%E5%8F%82%E6%95%B0"><span class="toc-text">传入参数</span></a></li></ol></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
 </div></aside><div class='float-panel'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
