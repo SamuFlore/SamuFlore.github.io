@@ -7280,7 +7280,7 @@ details.toc[open] >div.body section .header+.doc_tree {
   background-size: cover;
   --inset: 32px;
   --background-opacity: 0.8;
-  background-image: url("https://i.mituw.com/imgs/2026/02/19/f1929e6351423425.jpg");
+  background-image: url("https://api.goodboyboy.top/bing/?rand=true");
   filter: saturate(var(--saturate)) blur(var(--blur-px)) opacity(var(--background-opacity));
 }
 @media screen and (prefers-color-scheme: dark) {
