@@ -7280,7 +7280,7 @@ details.toc[open] >div.body section .header+.doc_tree {
   background-size: cover;
   --inset: 32px;
   --background-opacity: 0.8;
-  background-image: url("https://api.goodboyboy.top/bing/?rand=true");
+  background-image: url("https://api.elaina.cat/random/");
   filter: saturate(var(--saturate)) blur(var(--blur-px)) opacity(var(--background-opacity));
 }
 @media screen and (prefers-color-scheme: dark) {
@@ -9129,7 +9129,7 @@ body>.sitebg {
   right: 0;
   bottom: 0;
   background-size: cover;
-  background-image: url("https://api.goodboyboy.top/bing/?rand=true");
+  background-image: url("https://api.elaina.cat/random/");
 }
 body>.sitebg .siteblur {
   width: 100%;
