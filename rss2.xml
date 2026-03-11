@@ -9,8 +9,25 @@
     <atom:link href="https://samuflore.top/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>一人倒、衆人倒。</description>
-    <pubDate>Thu, 05 Mar 2026 13:27:27 GMT</pubDate>
+    <pubDate>Wed, 11 Mar 2026 14:39:03 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[博客技術]浅谈 RSS 对于开源博客的意义</title>
+      <link>https://samuflore.top/posts/2f28a1fe/</link>
+      <guid>https://samuflore.top/posts/2f28a1fe/</guid>
+      <pubDate>Wed, 11 Mar 2026 14:16:30 GMT</pubDate>
+      
+      <description>2026 年，还要 RSS 做什么？</description>
+      
+      
+      
+      
+      
+      
+      <comments>https://samuflore.top/posts/2f28a1fe/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>[OS Pre]GDB</title>
@@ -30,11 +47,11 @@
       <category domain="https://samuflore.top/categories/2025-2026-%E5%AD%B8%E5%B9%B4/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%B5%B1/">操作系統</category>
       
       
-      <category domain="https://samuflore.top/tags/Pre/">Pre</category>
-      
       <category domain="https://samuflore.top/tags/%E6%A1%83%E6%9C%88/">桃月</category>
       
       <category domain="https://samuflore.top/tags/OS/">OS</category>
+      
+      <category domain="https://samuflore.top/tags/Pre/">Pre</category>
       
       <category domain="https://samuflore.top/tags/GDB/">GDB</category>
       
@@ -63,11 +80,11 @@
       
       <category domain="https://samuflore.top/tags/MIPS/">MIPS</category>
       
-      <category domain="https://samuflore.top/tags/Pre/">Pre</category>
-      
       <category domain="https://samuflore.top/tags/%E6%A1%83%E6%9C%88/">桃月</category>
       
       <category domain="https://samuflore.top/tags/OS/">OS</category>
+      
+      <category domain="https://samuflore.top/tags/Pre/">Pre</category>
       
       <category domain="https://samuflore.top/tags/C/">C</category>
       
@@ -94,11 +111,11 @@
       <category domain="https://samuflore.top/categories/2025-2026-%E5%AD%B8%E5%B9%B4/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%B5%B1/">操作系統</category>
       
       
-      <category domain="https://samuflore.top/tags/Pre/">Pre</category>
-      
       <category domain="https://samuflore.top/tags/%E6%A1%83%E6%9C%88/">桃月</category>
       
       <category domain="https://samuflore.top/tags/OS/">OS</category>
+      
+      <category domain="https://samuflore.top/tags/Pre/">Pre</category>
       
       <category domain="https://samuflore.top/tags/Linux/">Linux</category>
       
@@ -272,33 +289,6 @@
       
       
       <comments>https://samuflore.top/posts/e299423e/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>[楠竹蓮花集]2025 的 A - Z</title>
-      <link>https://samuflore.top/posts/aaca0c6e/</link>
-      <guid>https://samuflore.top/posts/aaca0c6e/</guid>
-      <pubDate>Wed, 31 Dec 2025 12:39:26 GMT</pubDate>
-      
-      <description>年终总结。</description>
-      
-      
-      
-      <content:encoded><![CDATA[<p>21 世纪就要过去 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mn>4</mn></mfrac></mrow><annotation encoding="application/x-tex">\frac{1}{4}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">4</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span> 了。</p><!--more--><h1 id="A-Arduino">A: Arduino</h1><p>你好、再见、开灯、关灯……</p><h1 id="B-Blog">B: Blog</h1><p>累计吹水 188k 字……</p><h1 id="C-CS-for-Computer-Science">C: CS for Computer Science</h1><p>以熬夜，代码和调试闻名的学院。</p><h1 id="D-Drawing">D: Drawing</h1><p>又菜又爱玩系列。</p><h1 id="E-Earthquake">E: Earthquake</h1><p>人生第二次体验地震。</p><h1 id="F-Fever">F: Fever</h1><p>每天一杯奶，自信引诱人。</p><h1 id="G-Game">G: Game</h1><p>今天谁想玩游戏？</p><h1 id="H-Huang">H: Huang</h1><p>一个姓氏。</p><h1 id="I-Imagination">I: Imagination</h1><p>今年的确做了许多需要想象力的工作。</p><h1 id="J-Jin">J: Jin</h1><p>年度汉字：進。</p><h1 id="K-Kanaria">K: Kanaria</h1><p>“我让你听术力口了吗？”</p><h1 id="L-Luv">L: Luv</h1><p>各种意义的爱。</p><h1 id="M-Moving-House">M: Moving House</h1><p>搬进大豪斯了。</p><h1 id="N-Nintendo">N: Nintendo</h1><p>旅行必备。</p><h1 id="O-Objection">O: Objection</h1><p>声音从丹田发出，并且举起了食指！</p><h1 id="P-Photograph">P: Photograph</h1><p>我们尼康拍猫猫也是很好的（指指点点）。</p><h1 id="Q-Quarrel">Q: Quarrel</h1><p>装腔与滑跪。</p><h1 id="R-Robot">R: Robot</h1><p>聊天 bot 高松灯制造了聊天 bot 寒曦。</p><h1 id="S-Skiing">S: Skiing</h1><p>这辈子没见过这么多雪。</p><h1 id="T-Travel">T: Travel</h1><p>请关注八纮九野集的更新。</p><h1 id="U-UmiTaki">U: UmiTaki</h1><p>希！海！</p><h1 id="V-Volunteer">V: Volunteer</h1><p>合法摸鱼。</p><h1 id="W-Wind">W: Wind</h1><p>狂风大背头。</p><h1 id="X-Xi-Chan">X: Xi Chan</h1><p>羲酱。</p><h1 id="Y-YOASOBI">Y: YOASOBI</h1><p>恭喜 YOASOBI 双杀拿下我的 2025 年度歌手。</p><h1 id="Z-Zi-Min">Z: Zi Min</h1><p>追星成功！</p>]]></content:encoded>
-      
-      
-      <category domain="https://samuflore.top/categories/%E6%A5%A0%E7%AB%B9%E8%93%AE%E8%8A%B1%E9%9B%86/">楠竹蓮花集</category>
-      
-      
-      <category domain="https://samuflore.top/tags/Life/">Life</category>
-      
-      <category domain="https://samuflore.top/tags/%E5%9A%B4%E6%9C%88/">嚴月</category>
-      
-      <category domain="https://samuflore.top/tags/Annual-Summary/">Annual Summary</category>
-      
-      
-      <comments>https://samuflore.top/posts/aaca0c6e/#disqus_thread</comments>
       
     </item>
     
