@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://samuflore.top/images/avatar.jpg">
 <meta property="article:published_time" content="2026-03-18T13:21:02.000Z">
-<meta property="article:modified_time" content="2026-03-19T01:24:31.614Z">
+<meta property="article:modified_time" content="2026-03-19T03:21:45.756Z">
 <meta property="article:author" content="Samustach Floresein">
 <meta property="article:tag" content="桃月">
 <meta property="article:tag" content="OS">
@@ -57,7 +57,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg"},"dateCreated":"2026-03-18T21:21:02+08:00","dateModified":"2026-03-19T09:24:31+08:00","datePublished":"2026-03-18T21:21:02+08:00","description":"","headline":"[OS Lab0]如何成为 Makefile 和 Shell 大神","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/48d104ae/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg","logo":{"@type":"ImageObject","url":"/images/avatar.jpg"}},"url":"https://samuflore.top/posts/48d104ae/","keywords":"桃月, OS, Shell, Makefile, Lab0","thumbnailUrl":null,"image":[]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg"},"dateCreated":"2026-03-18T21:21:02+08:00","dateModified":"2026-03-19T11:21:45+08:00","datePublished":"2026-03-18T21:21:02+08:00","description":"","headline":"[OS Lab0]如何成为 Makefile 和 Shell 大神","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/48d104ae/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg","logo":{"@type":"ImageObject","url":"/images/avatar.jpg"}},"url":"https://samuflore.top/posts/48d104ae/","keywords":"桃月, OS, Shell, Makefile, Lab0","thumbnailUrl":null,"image":[]}</script>
   <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&family=Mozilla+Headline:wght@200..700&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@200..700&display=swap" rel="stylesheet">
 <!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- hexo injector head_end end --><style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--blockquote-bg-color:#555;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 <body><div class="sitebg"><div class="siteblur"></div></div>
@@ -95,7 +95,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" id="menu" href="/topic/">专栏</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/posts/48d104ae/">26 操作系统</a></div>
-<div class="flex-row" id="post-meta"><a class="author" href="/author/samuflore/">Seymiris Asakawa</a><span class="sep"></span><span class="text created"><time datetime="2026-03-18T13:21:02.000Z">2026-03-18</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-03-19T01:24:31.614Z">2026-03-19</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><a class="author" href="/author/samuflore/">Seymiris Asakawa</a><span class="sep"></span><span class="text created"><time datetime="2026-03-18T13:21:02.000Z">2026-03-18</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-03-19T03:21:45.756Z">2026-03-19</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -286,10 +286,10 @@
 </li>
 </ul>
 <h3 id="难点分析">难点分析</h3>
-<p>本次实验的难点在于面对不同的要求时及时地想到能够实现的 Shell 指令。在做 Extra 时，我一度卡在如何将 <code>grep</code> 找到的 ERROR 输入到文本中。使用 <code>echo</code> 会导致换行符丢失。</p>
-<p>另外一些难点在于运用 <code>awk</code> <code>uniq</code> 等提示中给出的指令。必须读清楚指令的作用和语法。</p>
+<p>本次实验的难点在于掌握 Shell、Makefile、Vim 等工具的应用，以及掌握 Linux 的使用。Vim 的操作和快捷键比较复杂，Shell 的指令种类和语法比较多，都属于难点。</p>
+<p>另外一些难点在于运用 <code>awk</code> 等补充的指令处理字符串相关的内容。</p>
 <h3 id="实验体会">实验体会</h3>
-<p>这次试验展现出了我在 Shell 脚本编写方面的不足。一方面对于指令运用不是很熟，另一方面 Vim 的使用也不是很顺畅。课下需要多加练习。</p>
+<p>Lab0 的实验让我掌握了基本的 Linux 使用和 Git 等工具的使用，极大地丰富了我的知识面，方便了开发。Vim 十分好用，熟练之后可以很方便的编辑文本，脱离鼠标。</p>
 <h3 id="原创说明">原创说明</h3>
 <p>本实验报告为原创，没有请求同学/助教/人工智能的帮助。</p>
 </article>
@@ -310,7 +310,7 @@
       <div class='title cap theme'>您可能感兴趣的文章</div>
     </section>
     <section class='body'>
-    <div class="related-posts"><a class="item" href="\posts\5069adfd\" title="[OS Pre]Hello, Linux!"><span class="title">[OS Pre]Hello, Linux!</span><span class="excerpt">工欲善其事，必先利其器。</span></a><a class="item" href="\posts\9998f383\" title="[OS Pre]GDB"><span class="title">[OS Pre]GDB</span><span class="excerpt">GNU Debugger 怎么用？</span></a><a class="item" href="\posts\d6b2cc32\" title="[OS Pre]概念拾遗"><span class="title">[OS Pre]概念拾遗</span><span class="excerpt">了解之前遗漏的知识。</span></a><a class="item" href="\posts\2f28a1fe\" title="[博客技術]浅谈 RSS 对于开源博客的意义"><span class="title">[博客技術]浅谈 RSS 对于开源博客的意义</span><span class="excerpt">都 2026 年，还要 RSS 做什么？</span></a></div></section></div>
+    <div class="related-posts"><a class="item" href="\posts\5069adfd\" title="[OS Pre]Hello, Linux!"><span class="title">[OS Pre]Hello, Linux!</span><span class="excerpt">工欲善其事，必先利其器。</span></a><a class="item" href="\posts\9998f383\" title="[OS Pre]GDB"><span class="title">[OS Pre]GDB</span><span class="excerpt">GNU Debugger 怎么用？</span></a><a class="item" href="\posts\d6b2cc32\" title="[OS Pre]概念拾遗"><span class="title">[OS Pre]概念拾遗</span><span class="excerpt">了解之前遗漏的知识。</span></a><a class="item" href="\posts\2f28a1fe\" title="[博客技術]浅谈 RSS 对于开源博客的意义"><span class="title">[博客技術]浅谈 RSS 对于开源博客的意义</span><span class="excerpt">都 2026 年，还要 RSS 做什么？</span></a><a class="item" href="\posts\9eefdea9\" title="序"><span class="title">序</span><span class="excerpt">“创作是并没有什么秘诀，能够交头接耳，一句话就传授给别一个的，倘不然，只要有这秘诀，就真可以登广告，收学费，开一个三天包成文豪学校了。以中国之大，或者也许会有罢，但是，这其实是骗子。”</span></a></div></section></div>
 
 
   <div class="related-wrap md-text" id="comments">
