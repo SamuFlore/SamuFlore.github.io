@@ -17,28 +17,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   <meta name="theme-color" content="#f9fafb">
-  <title>[孤獨星球]ABB 传 - SamuFlore's Dimension</title>
+  <title>[OS Lab1]内核、启动和 Printf - SamuFlore's Dimension</title>
 
   
-    <meta name="description" content="传奇人物 ABB。">
+    <meta name="description" content="侵入内核。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[孤獨星球]ABB 传">
-<meta property="og:url" content="https://samuflore.top/posts/e299423e/">
+<meta property="og:title" content="[OS Lab1]内核、启动和 Printf">
+<meta property="og:url" content="https://samuflore.top/posts/acdcdd17/">
 <meta property="og:site_name" content="SamuFlore&#39;s Dimension">
-<meta property="og:description" content="传奇人物 ABB。">
+<meta property="og:description" content="侵入内核。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://samuflore.top/images/avatar.jpg">
-<meta property="article:published_time" content="2026-01-05T06:49:42.000Z">
-<meta property="article:modified_time" content="2026-02-19T03:07:41.449Z">
+<meta property="article:published_time" content="2026-03-23T00:11:15.000Z">
+<meta property="article:modified_time" content="2026-03-23T04:24:34.995Z">
 <meta property="article:author" content="Samustach Floresein">
-<meta property="article:tag" content="Biography">
-<meta property="article:tag" content="睦月">
+<meta property="article:tag" content="桃月">
+<meta property="article:tag" content="OS">
+<meta property="article:tag" content="Lab1">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://samuflore.top/images/avatar.jpg">
   
   
   
-  <meta name="keywords" content="Biography,睦月">
+  <meta name="keywords" content="桃月,OS,Lab1">
 
   <!-- feed -->
   
@@ -54,7 +55,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg"},"dateCreated":"2026-01-05T14:49:42+08:00","dateModified":"2026-02-19T11:07:41+08:00","datePublished":"2026-01-05T14:49:42+08:00","description":"传奇人物 ABB。","headline":"[孤獨星球]ABB 传","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/e299423e/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg","logo":{"@type":"ImageObject","url":"/images/avatar.jpg"}},"url":"https://samuflore.top/posts/e299423e/","keywords":"Biography, 睦月","image":[]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg"},"dateCreated":"2026-03-23T08:11:15+08:00","dateModified":"2026-03-23T12:24:34+08:00","datePublished":"2026-03-23T08:11:15+08:00","description":"","headline":"[OS Lab1]内核、启动和 Printf","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/acdcdd17/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg","logo":{"@type":"ImageObject","url":"/images/avatar.jpg"}},"url":"https://samuflore.top/posts/acdcdd17/","keywords":"桃月, OS, Lab1","thumbnailUrl":null,"image":[]}</script>
   <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&family=Mozilla+Headline:wght@200..700&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@200..700&display=swap" rel="stylesheet">
 <!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- hexo injector head_end end --><style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--blockquote-bg-color:#555;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 <body><div class="sitebg"><div class="siteblur"></div></div>
@@ -77,7 +78,7 @@
 <a class="link" title="Kamonto's Little Planet" target="_blank" rel="noopener" href="https://kamonto.github.io/Kamonto_blog/"><div class="flex"><svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M6 9a3 3 0 1 0 0 6h3a1 1 0 1 1 0 2H6A5 5 0 0 1 6 7h3a1 1 0 0 1 0 2zm1 3a1 1 0 0 1 1-1h8a1 1 0 1 1 0 2H8a1 1 0 0 1-1-1m8-5a1 1 0 1 0 0 2h3a3 3 0 1 1 0 6h-3a1 1 0 1 0 0 2h3a5 5 0 0 0 0-10z" clip-rule="evenodd"/></svg><span>Kamonto's Little Planet</span></div></a>
 <a class="link" title="钟鼓楼" target="_blank" rel="noopener" href="https://thysrael.github.io/"><div class="flex"><svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M6 9a3 3 0 1 0 0 6h3a1 1 0 1 1 0 2H6A5 5 0 0 1 6 7h3a1 1 0 0 1 0 2zm1 3a1 1 0 0 1 1-1h8a1 1 0 1 1 0 2H8a1 1 0 0 1-1-1m8-5a1 1 0 1 0 0 2h3a3 3 0 1 1 0 6h-3a1 1 0 1 0 0 2h3a5 5 0 0 0 0-10z" clip-rule="evenodd"/></svg><span>钟鼓楼</span></div></a></div></div></widget>
 
-
+<widget class="widget-wrapper related post-list"><div class="widget-header dis-select"><span class="name">专栏：26 操作系统</span></div><div class="widget-body"><a class="item active" href="/posts/acdcdd17/"><span class="title">[OS Lab1]内核、启动和 Printf</span><svg class="active-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M21 11.098v4.993c0 3.096 0 4.645-.734 5.321c-.35.323-.792.526-1.263.58c-.987.113-2.14-.907-4.445-2.946c-1.02-.901-1.529-1.352-2.118-1.47a2.225 2.225 0 0 0-.88 0c-.59.118-1.099.569-2.118 1.47c-2.305 2.039-3.458 3.059-4.445 2.945a2.238 2.238 0 0 1-1.263-.579C3 20.736 3 19.188 3 16.091v-4.994C3 6.81 3 4.666 4.318 3.333C5.636 2 7.758 2 12 2c4.243 0 6.364 0 7.682 1.332C21 4.665 21 6.81 21 11.098" opacity=".5"/><path fill="currentColor" d="M9 5.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5z"/></svg></a><a class="item" href="/posts/48d104ae/"><span class="title">[OS Lab0]如何成为 Makefile 和 Shell 大神</span></a><a class="item" href="/posts/9998f383/"><span class="title">[OS Pre]GDB</span></a><a class="item" href="/posts/d6b2cc32/"><span class="title">[OS Pre]概念拾遗</span></a><a class="item" href="/posts/5069adfd/"><span class="title">[OS Pre]Hello, Linux!</span></a></div></widget>
 
 <widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/posts/acdcdd17/"><span class="title">[OS Lab1]内核、启动和 Printf</span></a><a class="item title" href="/posts/b29c065f/"><span class="title">[CJKV]和</span></a><a class="item title" href="/posts/48d104ae/"><span class="title">[OS Lab0]如何成为 Makefile 和 Shell 大神</span></a><a class="item title" href="/posts/5069adfd/"><span class="title">[OS Pre]Hello, Linux!</span></a><a class="item title" href="/posts/937d20ea/"><span class="title">MD 样式测试</span></a><a class="item title" href="/posts/2f28a1fe/"><span class="title">[博客技術]浅谈 RSS 对于开源博客的意义</span></a><a class="item title" href="/posts/8a8b0861/"><span class="title">†Blog 2：[Hexo教程]Hexo之代码块添加复制按钮</span></a><a class="item title" href="/posts/ec5f1055/"><span class="title">†Blog 9：[Hexo教程]Hexo NexT 自定义字体</span></a><a class="item title" href="/posts/e11361f1/"><span class="title">†Blog 7：[Hexo教程]更高级的 Markdown 渲染器：Markdown-it</span></a><a class="item title" href="/posts/ff51cb4c/"><span class="title">Blog 8：[Hexo教程]Hexo之提交搜索引擎收录</span></a></div></widget>
 </div>
@@ -91,132 +92,115 @@
 <div class="article banner top">
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
-<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%AD%A4%E7%8D%A8%E6%98%9F%E7%90%83/">孤獨星球</a></div>
-<div class="flex-row" id="post-meta"><a class="author" href="/author/samuflore/">Seymiris Asakawa</a><span class="sep"></span><span class="text created"><time datetime="2026-01-05T06:49:42.000Z">2026-01-05</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-02-19T03:07:41.449Z">2026-02-19</time></span></div></div></div>
+<span class="sep"></span><a class="cap breadcrumb" id="menu" href="/topic/">专栏</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/posts/acdcdd17/">26 操作系统</a></div>
+<div class="flex-row" id="post-meta"><a class="author" href="/author/samuflore/">Seymiris Asakawa</a><span class="sep"></span><span class="text created"><time datetime="2026-03-23T00:11:15.000Z">2026-03-23</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-03-23T04:24:34.995Z">2026-03-23</time></span></div></div></div>
     
     <div class="bottom only-title">
       
       <div class="text-area">
-        <h1 class="text title"><span>[孤獨星球]ABB 传</span></h1>
+        <h1 class="text title"><span>[OS Lab1]内核、启动和 Printf</span></h1>
         
       </div>
     </div>
     
   </div>
-  </div><article class="md-text content"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="530" height="86" src="//music.163.com/outchain/player?type=2&id=2007322789&auto=0&height=66"></iframe>
-<h1 id="序">序</h1>
-<blockquote>
-<p>“又当又立的类人生物。”</p>
-<div class="right">
-<p>—— YZJ</p>
-</div>
-</blockquote>
-<blockquote>
-<p>“一个拥有猎奇脑回路的小人做出了令人发笑的一堆事。”</p>
-<div class="right">
-<p>—— Lingxu</p>
-</div>
-</blockquote>
-<blockquote>
-<p>“拥有可笑自尊的普通人。”</p>
-<div class="right">
-<p>—— L</p>
-</div>
-</blockquote>
-<blockquote>
-<p>“希望全世界都围着她转的利己主义者，但事实不可能如此。。。。。”</p>
-<div class="right">
-<p>—— Y</p>
-</div>
-</blockquote>
-<blockquote>
-<p>“精算情场进退棋，先抛旧爱觅新枝。一朝梦碎羞回首，又扮情深掩败棋。”</p>
-<div class="right">
-<p>—— Tay</p>
-</div>
-</blockquote>
-<blockquote>
-<p>“有点被害妄想症了……”</p>
-<div class="right">
-<p>—— N</p>
-</div>
-</blockquote>
-<blockquote>
-<p>“老鼠屎转世成精了吧。”</p>
-<div class="right">
-<p>—— X</p>
-</div>
-</blockquote>
-<blockquote>
-<p>“我很高兴你觉得我们在浪费时间，并且认为我们不会长久——事实证明那是对的，我还有更有意思的事要做呢。另外我也很高兴看到你的小聪明都失败了，我们还是好朋友，希望你不要太难过。最后，你猜对了，我爸就是瞧不起你，我也瞧不起你，所以你努力了吗？”</p>
-<div class="right">
-<p>—— Xancius</p>
-</div>
-</blockquote>
-<!--more-->
-<h1 id="后日谈">后日谈</h1>
-<p>一个男生，打着电话的男生，坐在公园里哭。公园空荡荡的，大家都走了，而我停在了一边——桃月，2025 年，气温仍然很低。空气中弥漫着寒冷，风，干燥，还有眼泪，眼泪，眼泪和他的呜咽声。我站在男生的正前方，听着他委屈的通电话声，手上的一切动作都停了下来。我想过去给他擦一擦眼泪，然而他摆摆手，自己抹掉了。电话那头也在哭？我不知道，我仍然站在原地。这让我想到了若干年前的某一天，于是我过去抽了他一巴掌，把他的电话挂了，让公园恢复了沉寂。直到晚风再次吹起，直到上课的铃声再次响起，他回过神来，起身走了。“真可怜，”我仍然站在原地，“希望你能搞定。”</p>
-<h1 id="Xc-Fl-Lm-与-ABB">Xc, Fl, Lm 与 ABB</h1>
-<p><ins>ABB</ins> 做过的事情，是我 21 年之后从不同的人嘴里逐渐拼出来的，否则我就要错过这样一段精彩的故事了。</p>
-<p>2018 年——对了，故事还要从 2018 年说起。那是 <ins>ABB</ins> 刚上初中时，见到自己身边的朋友纷纷有了心仪的对象，是羡慕不已。那还是 2018 年的秋天，是一个大家谁也不认识谁的季节。在这班上，<ins>ABB</ins> 心中并非没有想象一位「真命天子」，想象他时时刻刻注意着她。下面为了简便和保护隐私起见，我且称之为 <ins>Lm</ins>。</p>
-<p>可 <ins>ABB</ins> 深知<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>自己配不上这位 <ins>Lm</ins>。<ins>Lm</ins> 又高又帅，人缘好，并且成绩很好，在各方面都很受同学老师的欢迎；<ins>ABB</ins> 则发自内心的认为自己并没有什么出众的点<sup class="footnote-ref"><a href="#fn1" id="fnref1:1">[1:1]</a></sup>——身材并不高挑，成绩平平，脾气并不好……然而这并不是最重要的，最重要的是 <ins>ABB</ins> 知道自己有一个不可能竞争过的对手，那就是 <ins>ABB</ins> 自己的好朋友，我且称之为 <ins>Fl</ins><sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>。</p>
-<p><ins>Fl</ins> 对 <ins>SamuFlore</ins> 而言是一个很特殊的人，因为那是 <ins>SamuFlore</ins> 第一次碰到这样一个兴趣爱好重合度如此高的朋友。<ins>Fl</ins> 对 <ins>ABB</ins> 也很重要，因为 <ins>ABB</ins> 深知自己不是 <ins>Fl</ins> 的对手，但仍然可以通过 <ins>Fl</ins> 去接近 <ins>Lm</ins>，哪怕只是听一听 <ins>Fl</ins> 和 <ins>Lm</ins> 之间的八卦，然后想象一下自己是故事的主角。没错，因为 <ins>ABB</ins> 就是这样的一个人。<ins>Fl</ins> 有 <ins>ABB</ins> 没有的好脾气，<ins>ABB</ins> 没有的好成绩，<ins>ABB</ins> 没有的好人缘，<ins>ABB</ins> 和 <ins>Lm</ins> 的关系也远不如 <ins>Fl</ins> 和 <ins>Lm</ins> 的关系——但那都无所谓，<ins>ABB</ins> 除了这招之外，还有别的招数呢。</p>
-<p>事实上，<ins>ABB</ins> 也不是没有发起过对 <ins>Lm</ins> 的追求，但这行动无外乎两种结果——被明确拒绝，或者被打太极<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>。在正面战场的两番挫败，让 <ins>ABB</ins> 知道自己无法通过正常的手段达成自己的目的，于是她选择找 <ins>Lm</ins> 的好朋友 <ins>Xc</ins> 谈了一场不受祝福的恋爱。</p>
-<p>这样一段感情，从最开始，其目的就是不纯粹甚至是可笑的。<ins>ABB</ins> 这样选无外乎再找一个人当跳板，进一步接触 <ins>Lm</ins>，同时也让 <ins>Fl</ins> 放下戒心，继续和 <ins>ABB</ins> 当朋友罢了。这样一种狂热的喜欢与嫉妒慢慢地滋生于 <ins>ABB</ins> 的心中。<ins>ABB</ins> 就这样一边和 <ins>Xc</ins> 保持着表面的恋爱关系，一边维持和 <ins>Fl</ins> 的朋友关系，一边慢慢接近 <ins>Lm</ins>——她的终极目标。</p>
-<p>在这样一条道路上或许还有许多与 <ins>Xc</ins>、<ins>Fl</ins> 一样的工具人。</p>
-<hr>
-<p>对于一个从一开始就不喜欢的人，<ins>ABB</ins> 有一百万种不同的方式去为难他，而不用承担任何后果，只有宣泄生活压力的快乐。<ins>ABB</ins> 可以站在名为「忠诚」的制高点上，对 <ins>Xc</ins> 和任何异性的关系破口大骂<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>。所谓「冤枉你的人，比你还知道你有多冤枉」（<ins>郭德纲</ins>）<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup>，说的正是这回事。对于一个实际为敌人的朋友，<ins>ABB</ins> 也有一百万种不同的方式去背后捅刀子。<ins>ABB</ins> 可以利用 <ins>Fl</ins> 的善意去攻击 <ins>Xc</ins>，甚至 <ins>Lm</ins>；可以装作关心 <ins>Fl</ins> 的样子说「我真的不想谈」，转头劝 <ins>Fl</ins> 也不要去追 <ins>Lm</ins>。据 <ins>SamuFlore</ins> 考证，<ins>Fl</ins> 曾把 <ins>ABB</ins> 当作挚友一样看待，到了「<ins>ABB</ins> 不高兴时能在安慰她之余指出 <ins>ABB</ins> 自身的错误」的程度，就 <ins>SamuFlore</ins> 而言，至今还没有交到（或是没有发现）对自己这样好的朋友<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup>。</p>
-<p>而 <ins>ABB</ins> 辜负了 <ins>Fl</ins>。准确地说，<ins>ABB</ins> 辜负了所有人。</p>
-<p>这样的伎俩是不可能长期持续下去的，<ins>Fl</ins> 和 <ins>ABB</ins> 后来自然闹掰了，这件丑事也被曝光了出来。<ins>ABB</ins> 也到了放弃 <ins>Lm</ins> 的边缘。<ins>Xc</ins> 对于 <ins>ABB</ins> 而言自然也已经没有用处了，但经年累月的控制 <ins>Xc</ins> 已经让 <ins>ABB</ins> 产生了阴暗的想法，阴谋的败露更让 <ins>ABB</ins> 变得被害妄想，<ins>ABB</ins> 是不会轻易放过 <ins>Xc</ins> 这个出气筒的。时间到了 2021 年上半年，<ins>ABB</ins> 向 <ins>Xc</ins> 提出了分手，可怜的 <ins>Xc</ins> 天真地以为 <ins>ABB</ins> 已经放过他了，这件事就这样过去了<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup>。</p>
-<p>一直以来，<ins>ABB</ins> 严格地管控 <ins>Xc</ins> 的人际关系。在 <ins>Xc</ins> 被 <ins>ABB</ins> 分手之后，便自然而然地恢复了和许多异性朋友之间的关系。然而 <ins>Xc</ins> 直到这时候仍然不知道 <ins>ABB</ins> 此前和他建立关系是因为想要追求 <ins>Lm</ins><sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup>，<ins>ABB</ins> 算准了这一点，在知情的其他人对其群起而攻之的时候，不时地向 <ins>Xc</ins> 卖惨，利用 <ins>Xc</ins> 作为前男友的立场博取同情，同时借此破坏 <ins>Xc</ins> 和其他人的人际关系。唉，这 <ins>ABB</ins> 怎么这么坏呀<sup class="footnote-ref"><a href="#fn5" id="fnref5:1">[5:1]</a></sup>！</p>
-<p>一方面因为做的事情败露而被大家攻击，势单力薄；一方面想要彻底控制 <ins>Xc</ins>，败坏他的人际关系，但是迟迟不见成效；一方面学校学习更是个臭水平<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup>，<ins>ABB</ins> 就是这样一点点滑进扭曲的深渊。</p>
-<p>到了 2022 年 7 月 14 日，<ins>ABB</ins> 大概是彻底疯了。她找到 <ins>Xc</ins>，准备进行最后的攻击。<ins>ABB</ins> 的第一招，名曰「临时分手」。</p>
-<div class="tips">
-<p>「临时分手」<br>
-从 <ins>Xc</ins> 的视角而言，<ins>Xc</ins> 与 <ins>ABB</ins> 早已于 2021 年分手。此后虽然 <ins>ABB</ins> 时常搅扰 <ins>Xc</ins>，<ins>Xc</ins> 均以朋友身份与其相处。既然已经恢复单身，<ins>Xc</ins> 认为自己重新结交异性朋友的自然而然的。</p>
-<p>但 <ins>ABB</ins> 可不这么认为，因为 <ins>ABB</ins> 当时提出的只是所谓「临时分手」，你 <ins>Xc</ins> 未经允许就和其他异性恢复关系，我 <ins>ABB</ins> 自然要攻击你了。</p>
-</div>
-<p>简单来说，就是：</p>
-<div class="danger">
-<p>「我只是暂时和你分手，就算我没告诉你我只是暂时和你分手，你自己不会发现吗？」</p>
-</div>
-<p><ins>ABB</ins> 的第二招，名曰「校园霸凌」。</p>
-<div class="tips">
-<p>「校园霸凌」<br>
-对 <ins>ABB</ins> 而言，尽管是因为自己的行为招人讨厌和孤立，<ins>ABB</ins> 仍然觉得责任不在自己。而是其他人对其进行「校园霸凌」。这「施暴方」就包括 <ins>Fl</ins> 和支持 <ins>Fl</ins> 的人。对于 <ins>Lm</ins>，当 <ins>ABB</ins> 认为自己已经毫无希望的时候，大概也将其划为了「施暴方」。</p>
-<p>但 <ins>ABB</ins> 并非孤身一人。正如之前所说，<ins>ABB</ins> 再次攻击了 <ins>Xc</ins>，将自己包装成校园霸凌的「受害者」，并要求 <ins>Xc</ins> 远离这些人。就本质上来说，<ins>ABB</ins> 仍然没有放弃破坏 <ins>Xc</ins> 人际关系的计划。</p>
-</div>
-<p>简单来说，就是：</p>
-<div class="danger">
-<p>「他们霸凌我。你不帮我，那你也是霸凌我。就算你不知道你是我对象，你就不知道来帮我吗？」</p>
-</div>
-<hr>
-<p>可怜的 <ins>Xc</ins>，至少到了事情的最后，也没有笨到让 <ins>ABB</ins> 得逞。在和 <ins>ABB</ins> 大吵一架之后，<ins>ABB</ins> 就这样从我们的人际关系中彻底消失了<sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup>。</p>
-<p>高考结束之后，我已经没有见过 <ins>ABB</ins> 了。不过 <ins>ABB</ins> 和 <ins>ABB</ins> 的故事早已变成我们这些年茶余饭后的笑谈了。</p>
-<h1 id="前日谈">前日谈</h1>
-<p>一个女生，扎着马尾的女生，坐在教室里哭。教室空荡荡的，大家都走了，而我停在了一边——菊月，2018 年，气温仍然很高。空气中弥漫着消毒水，汗，湿气，还有眼泪，眼泪，眼泪和她的呜咽声。我站在女生的右后方，听着她委屈的自言自语，手上的一切动作都停了下来。我的灵魂离开身体，置身于她的委屈之中，被她一遍一遍小声重复的那个她讨厌的名字包围着，于是我也泛起一丝忧伤。直到窗外的杜鹃再次鸣叫，直到放学的铃声再次响起，我回过神来，收拾好东西，而她停止了哭泣，仍然趴在座位上。“真可怜，”我再次路过她身边，“但我不认识你。”</p>
+  </div><article class="md-text content"><h2 id="什么是内核？">什么是内核？</h2>
+<p>好吧，在正式开始之前，我需要问自己一个问题——“什么是内核？”</p>
+<p>操作系统内核是属于操作系统的，它是操作系统的一个组成部分。</p>
+<p>操作系统内核拥有操作所有硬件的权限，但不会让用户直接操作——一般情况下，用户使用操作系统的时候都是在用户态，用户态没有能力操作这么多。</p>
+<p>有的时候会陷入内核，有的时候不会。</p>
+<h2 id="启动操作系统">启动操作系统</h2>
+<p>按下电脑电源之后，是不需要我们自己去启动操作系统的；重启电脑之后，原先的操作系统还是能保留在电脑里的。我们的生活经验其实说明了两件事：</p>
+<ol>
+<li class="lvl-3">
+<p>通电之后，有什么东西让内核运行起来了，或者内核自动运行起来了。</p>
+</li>
+<li class="lvl-3">
+<p>内核不在 RAM 里，那个东西也不在（如果有的话）。</p>
+</li>
+</ol>
+<p>其实，再仔细考虑一下，就知道这个“东西”是真实存在的。我们假设这个“东西”不存在。</p>
+<p>如果内核不在 RAM，那还能在哪里？这个问题只能从非易失性存储器中找答案。</p>
+<p>如果内核在磁盘，可以吗？答案是不行。一个程序要能运行，与它相关的指令和数据必须先加载到内存里，让 CPU 直接访问，程序才能运行起来。而这恰好是内核该做的，这就发生矛盾了——内核想要运行起来，需要被自己加载到内存，但是内核需要运行起来才能把自己加载到内存。</p>
+<div class="tag-plugin quot p"><p class="content">✋😭🤚<span class="text">一定不要自己加载自己</span>✍️✍️✍️</p></div>
+<p>事实上，这正是操作系统设计的时候遇到的一个知名难题：硬件是在软件的控制下执行的，而当刚上电的时候，存储设备上的软件又需要由硬件载入到内存中去执行。可是没有软件的控制，谁来指挥硬件去载入软件？</p>
+<p>这就叫做 <code>pull oneself up by one's bootstraps</code>。操作系统的启动就叫 <code>boot</code>。</p>
+<p>回到刚才的话题，如果内核在 ROM 或 FLASH，可以吗？答案是可以，但是不好。理由如下：</p>
+<ol>
+<li class="lvl-3">
+<p>学过计组的朋友们都知道，CPU 的可寻址空间是有限的。ROM 或 FLASH 确实可以被 CPU 直接访问，但它们的空间都挺小的，肯定装不下现代操作系统的内核。</p>
+</li>
+<li class="lvl-3">
+<p>ROM 是写死的，这意味着内核放在其中就无法更改，不利于移植或更新。</p>
+</li>
+<li class="lvl-3">
+<p>如果 CPU 通电后，操作系统直接启动，意味着一台计算机只能启动一个操作系统。</p>
+</li>
+</ol>
+<p>所以设计人员<psw>从这句充满哲理的谚语中</psw>找到了一个解决办法，那就是分两个阶段启动操作系统，并设计一个叫 <code>bootloader</code> 的程序做先导。</p>
+<div class="tag-plugin timeline"><div class="timenode" index="0"><div class="header"><span>通电</span></div><div class="body fs14"><p>CPU 通电，取指寄存器复位。</p></div></div><div class="timenode" index="1"><div class="header"><span>Stage1</span></div><div class="body fs14"><p>相关硬件初始化、初始化 RAM、将 Stage2 代码复制到 RAM，跳转 Stage2 入口。</p></div></div><div class="timenode" index="2"><div class="header"><span>Stage2</span></div><div class="body fs14"><p>相关硬件初始化、载入内核镜像到 RAM、为内核设置启动参数，跳转内核入口。</p></div></div><div class="timenode" index="3"><div class="header"><span>完成</span></div><div class="body fs14"><p>操作系统开始运行。</p></div></div></div>
+<p>有 <code>bootloader</code>，就可以支持运行更大的操作系统，也可以支持选择多系统，解决了这个难题。</p>
+<h3 id="等等">等等</h3>
+<p>事实上，以上介绍的是真实操作系统的大致启动流程。在这门课中，我们使用的是 QEMU 模拟器模拟一台没有操作系统的裸机环境，这个启动过程被极大地简化了。QEMU 支持直接加载 ELF 格式的内核，相当于提供了一个 <code>bootloader</code>。因而启动过程已经简化成了加载内核到内存，随后跳转到内核入口，启动就完成了！</p>
+<h2 id="MOS-内核文件组织">MOS 内核文件组织</h2>
+<p>内核文件大概是由这些目录及其下的文件构成的：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>init</code>：内核初始化相关代码</p>
+</li>
+<li class="lvl-2">
+<p><code>include</code>：存放系统头文件</p>
+</li>
+<li class="lvl-2">
+<p><code>lib</code>：库函数目录</p>
+</li>
+<li class="lvl-2">
+<p><code>kern</code>：存放内核的主体代码</p>
+</li>
+<li class="lvl-2">
+<p><code>tests</code>：存放测试程序</p>
+</li>
+<li class="lvl-2">
+<p><code>tools</code>：存放实用工具，比如 <code>readelf</code></p>
+</li>
+<li class="lvl-2">
+<p><code>target</code>：存放编译的产物（执行 <code>make</code> 后产生）</p>
+</li>
+</ul>
+<p>还有在根目录的 <code>Makefile</code>，这是整个内核文件组织的地图。</p>
+<details class="tag-plugin colorful folding" child="codeblock"><summary><p>简化的 Makefile</p>
+</summary><div class="body"><figure class="highlight makefile"><figcaption><span>简化的 Makefile</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">include</span> <span class="keyword">include</span>.mk <span class="comment"># 导入定义</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 路径定义</span></span><br><span class="line">target_dir              := target</span><br><span class="line">mos_elf                 := <span class="variable">$(target_dir)</span>/mos <span class="comment"># ELF 所在目录</span></span><br><span class="line">user_disk               := <span class="variable">$(target_dir)</span>/fs.img <span class="comment"># 磁盘镜像</span></span><br><span class="line">empty_disk              := <span class="variable">$(target_dir)</span>/empty.img</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指导链接器将多个 .o 文件链接成目标的脚本</span></span><br><span class="line">link_script             := kernel.lds</span><br><span class="line"></span><br><span class="line">modules                 := lib init kern <span class="comment"># 需要生成的子模块</span></span><br><span class="line">targets                 := <span class="variable">$(mos_elf)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">objects                 := <span class="variable">$(<span class="built_in">addsuffix</span> /*.o, <span class="variable">$(modules)</span>)</span> <span class="comment"># 遍历所有需要生成的目标文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 这是 QEMU 需要用到的参数</span></span><br><span class="line">QEMU_FLAGS              += -cpu 4Kc -m 64 -nographic -M malta \</span><br><span class="line">						<span class="variable">$(<span class="built_in">shell</span> [ -f &#x27;<span class="variable">$(user_disk)</span>&#x27; ] &amp;&amp; echo &#x27;-drive id=ide0,<span class="built_in">file</span>=<span class="variable">$(user_disk)</span>,<span class="built_in">if</span>=ide,format=raw&#x27;)</span> \</span><br><span class="line">						<span class="variable">$(<span class="built_in">shell</span> [ -f &#x27;<span class="variable">$(empty_disk)</span>&#x27; ] &amp;&amp; echo &#x27;-drive id=ide1,<span class="built_in">file</span>=<span class="variable">$(empty_disk)</span>,<span class="built_in">if</span>=ide,format=raw&#x27;)</span> \</span><br><span class="line">						-no-reboot</span><br><span class="line"></span><br><span class="line"><span class="comment"># 声明伪目标，执行这些目标的时候，无视 Makefile 时间戳的性质，确保其永远会被执行</span></span><br><span class="line"><span class="meta"><span class="keyword">.PHONY</span>: all $(modules) clean</span></span><br><span class="line"></span><br><span class="line"><span class="section">all: <span class="variable">$(targets)</span> # targets = mos_elf</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$(mos_elf)</span>: <span class="variable">$(modules)</span> <span class="comment"># 调用链接器（LD）链接所有目标文件</span></span><br><span class="line">	<span class="variable">$(LD)</span> <span class="variable">$(LDFLAGS)</span> -o <span class="variable">$(mos_elf)</span> -N -T <span class="variable">$(link_script)</span> <span class="variable">$(objects)</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$(modules)</span>: <span class="comment"># $@ 表示进入 $(modules) 表示的各个子目录，$(MAKE) 执行子目录里面的 Makefile</span></span><br><span class="line">	<span class="variable">$(MAKE)</span> --directory=<span class="variable">$@</span></span><br><span class="line"></span><br><span class="line"><span class="section">clean: # 清除生成的文件</span></span><br><span class="line">	for d in * tools/readelf user/* tests/*; do</span><br><span class="line">		if [ -f $$d/Makefile ]; then</span><br><span class="line">			<span class="variable">$(MAKE)</span> --directory=$$d clean</span><br><span class="line">		fi</span><br><span class="line">	done</span><br><span class="line">	rm -rf *.o *~ <span class="variable">$(target_dir)</span> <span class="keyword">include</span>/generated</span><br><span class="line">	find . -name &#x27;*.objdump&#x27; -exec rm &#123;&#125; &#x27;;&#x27;</span><br><span class="line"></span><br><span class="line"><span class="section">run: # 编译</span></span><br><span class="line">	<span class="variable">$(QEMU)</span> <span class="variable">$(QEMU_FLAGS)</span> -kernel <span class="variable">$(mos_elf)</span></span><br></pre></td></tr></table></figure></div></details>
+<p>当我们执行 <code>make</code>，发生了什么？</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>首先，我们会从 Makefile 中的第一个目标开始，这里是 <code>all</code>。它需要 <code>$(targets)</code> 这个依赖，于是接下来找到 <code>$(targets)</code> 这个目标。</p>
+</li>
+<li class="lvl-2">
+<p><code>$(targets)</code> 被解读为 <code>$(mos_elf)</code>。要注意这里只是目标意义上的 <code>$(mos_elf)</code>，不是路径意义上的。于是接下来找到 <code>$(mos_elf)</code> 这个目标。</p>
+</li>
+<li class="lvl-2">
+<p><code>$(mos_elf)</code> 需要 <code>$(modules)</code> 这个依赖，于是找到 <code>$(modules)</code> 这个目标。</p>
+</li>
+<li class="lvl-2">
+<p><code>$(modules)</code> 执行各个目录下的 Makefile。把要用的目标文件都编译好。</p>
+</li>
+<li class="lvl-2">
+<p>回到 <code>$(mos_elf)</code>，它调用链接器链接所有目标文件，并把结果放到 <code>./target/mos</code>。</p>
+</li>
+</ul>
+<div class="tag-plugin colorful note" color="purple"><div class="title"><strong><p>为什么是 <code>./target/mos</code>？</p>
+</strong></div><div class="body"><p>请看到 30 行的 <code>$(LD) $(LDFLAGS) -o $(mos_elf) -N -T $(link_script) $(objects)</code>，里面有 <code>-o $(mos_elf)</code>，这里才是路径意义上的 <code>$(mos_elf)</code>，即 <code>$(mos_elf)</code>（见 4，5 两行）</p></div></div>
+<h2 id="什么是-ELF-？">什么是 ELF ？</h2>
+<p>刚才若干个地方都提到了 ELF，那什么是 ELF？<br>
+<ruby>Executable<rt>E</rt></ruby> and <ruby>Linkable<rt>L</rt></ruby> <ruby>Format<rt>F</rt></ruby> 是 Unix 上一种常用的目标文件格式。我们都知道，用 <code>gcc -c</code> 可以得到目标文件 <code>*.o</code>，然而由于整个程序的布局还没有确定，这些目标文件中的跳转指令等等的目标地址还没有确定下来。在链接阶段，所有目标文件会被链接在一起，过程中链接器会填写这些空缺的地址信息<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>。</p>
+<p>其实，不仅是目标文件，可执行文件也是 ELF 格式。</p>
+<p>执行 Makefile 得到的 <code>./target/mos</code> 也是一个 ELF 文件。我们需要了解一下 ELF 文件到底包含了什么内容。</p>
+<p>ELF 文件的结构大致如下：</p>
+<div class="tag-plugin image"><div class="image-bg" style="width:100%;"><img class="lazy" src="https://i.cetsteam.com/imgs/2026/03/23/7b966da1b703100f.png" data-src="https://i.cetsteam.com/imgs/2026/03/23/7b966da1b703100f.png" alt="ELF&nbsp;文件格式" style="width:500px;" onerror="this.src=&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2rem' height='2rem' viewBox='0 0 24 24'%3E%3C!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --%3E%3Cpath fill='%23F44336' d='M22 12.698c-.002 1.47-.013 2.718-.096 3.743c-.097 1.19-.296 2.184-.74 3.009a4.2 4.2 0 0 1-.73.983c-.833.833-1.893 1.21-3.237 1.39C15.884 22 14.2 22 12.053 22h-.106c-2.148 0-3.83 0-5.144-.177c-1.343-.18-2.404-.557-3.236-1.39c-.738-.738-1.12-1.656-1.322-2.795c-.2-1.12-.236-2.512-.243-4.241Q1.999 12.737 2 12v-.054c0-2.148 0-3.83.177-5.144c.18-1.343.557-2.404 1.39-3.236s1.893-1.21 3.236-1.39c1.168-.157 2.67-.175 4.499-.177a.697.697 0 1 1 0 1.396c-1.855.002-3.234.018-4.313.163c-1.189.16-1.906.464-2.436.994S3.72 5.8 3.56 6.99C3.397 8.2 3.395 9.788 3.395 12v.784l.932-.814a2.14 2.14 0 0 1 2.922.097l3.99 3.99a1.86 1.86 0 0 0 2.385.207l.278-.195a2.79 2.79 0 0 1 3.471.209l2.633 2.37c.265-.557.423-1.288.507-2.32c.079-.972.09-2.152.091-3.63a.698.698 0 0 1 1.396 0' opacity='.5'/%3E%3Cpath fill='%23F44336' fill-rule='evenodd' d='M17.5 11c-2.121 0-3.182 0-3.841-.659S13 8.621 13 6.5s0-3.182.659-3.841S15.379 2 17.5 2s3.182 0 3.841.659S22 4.379 22 6.5s0 3.182-.659 3.841S19.621 11 17.5 11m-1.47-7.03a.75.75 0 1 0-1.06 1.06l1.47 1.47l-1.47 1.47a.75.75 0 0 0 1.06 1.06l1.47-1.47l1.47 1.47a.75.75 0 1 0 1.06-1.06L18.56 6.5l1.47-1.47a.75.75 0 0 0-1.06-1.06L17.5 5.44z' clip-rule='evenodd'/%3E%3C/svg%3E&quot;"><div class="lazy-icon" style="background-image:url(https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd);"></div></div><div class="image-meta"><span class="image-caption center">ELF&nbsp;文件格式</span></div></div>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>笔者注：此点存疑。 <a href="#fnref1" class="footnote-backref">↩︎</a> <a href="#fnref1:1" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn2" class="footnote-item"><p>笔者注：<ins>Fl</ins> 当然也是 <ins>SamuFlore</ins> 的好朋友。 <a href="#fnref2" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn3" class="footnote-item"><p>笔者注：这点没有考证，确实是笔者的失误，然而就结果来看是不紧要的。 <a href="#fnref3" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn4" class="footnote-item"><p>笔者注：这包括 <ins>Fl</ins> 和 <ins>Xc</ins> 之间的友谊。 <a href="#fnref4" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn5" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1mX4y1y7aH/?msockid=fbfa81dd01d511f180bb661a6a325cf7&amp;vd_source=01d46a67d8b24551291e48937afde394">《冤枉你的人，比你还知道你有多冤枉》<ins>郭德纲</ins>、<ins>于谦</ins></a> <a href="#fnref5" class="footnote-backref">↩︎</a> <a href="#fnref5:1" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn6" class="footnote-item"><p>笔者注：据当事人回忆，这是因为 <ins>ABB</ins> 是 <ins>Fl</ins> 初中交到的第一个好朋友。 <a href="#fnref6" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn7" class="footnote-item"><p>笔者注：据考证，<ins>ABB</ins> 和 <ins>Xc</ins> 分手后，最后对着 <ins>Lm</ins> 发起了一次冲锋：<ins>ABB</ins> 问 <ins>Lm</ins>「你选 <ins>Xc</ins> 还是选我？」 <a href="#fnref7" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn8" class="footnote-item"><p>笔者注：准确地说是这时候只有 <ins>Xc</ins> 不知道 <ins>ABB</ins> 的真实目的。 <a href="#fnref8" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn9" class="footnote-item"><p>笔者注：<ins>SamuFlore</ins> 觉得水平很臭。 <a href="#fnref9" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn10" class="footnote-item"><p>笔者注：当然包括 <ins>SamuFlore</ins> 的。 <a href="#fnref10" class="footnote-backref">↩︎</a></p>
+<li id="fn1" class="footnote-item"><p>参见本专栏之前的<a href="https://samuflore.top/posts/d6b2cc32/#%E4%BB%8E%E6%BA%90%E4%BB%A3%E7%A0%81%E5%88%B0%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6">一篇文章</a>。 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
 </section>
@@ -231,14 +215,14 @@
 
 </div>
 
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/posts/b1cdfa63/">[概率與數理模型]概统概要</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/posts/aaca0c6e/">[楠竹蓮花集]2025 的 A - Z</a></div></section></div>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/posts/48d104ae/">[OS Lab0]如何成为 Makefile 和 Shell 大神</a></div></section></div>
 
 <div class="related-wrap" id="related-posts">
     <section class='header'>
       <div class='title cap theme'>您可能感兴趣的文章</div>
     </section>
     <section class='body'>
-    <div class="related-posts"><a class="item" href="\posts\be27c6b\" title="[孤獨星球]林信之江传"><span class="title">[孤獨星球]林信之江传</span><span class="excerpt">林信之江是网名，故不需要缀以“君”的称呼。</span></a><a class="item" href="\posts\90dbc4f6\" title="[孤獨星球]贺卿传"><span class="title">[孤獨星球]贺卿传</span><span class="excerpt">以本文纪念一个为枯燥高三生活带来涟漪的人。</span></a><a class="item" href="\posts\6a852807\" title="[八紘九野集]广州·深圳"><span class="title">[八紘九野集]广州·深圳</span><span class="excerpt">小时候知道湖南的铁路归属广铁集团管理的时候，我就对这个神秘的地方充满了好奇。</span></a><a class="item" href="\posts\ffdc7592\" title="[江子社]鹰角网络消息"><span class="title">[江子社]鹰角网络消息</span><span class="excerpt">江子通信社上海 2026 年 1 月 23 日电（记者 Seymiris Asakawa）</span></a></div></section></div>
+    <div class="related-posts"><a class="item" href="\posts\48d104ae\" title="[OS Lab0]如何成为 Makefile 和 Shell 大神"><span class="title">[OS Lab0]如何成为 Makefile 和 Shell 大神</span><span class="excerpt">我想成为 Makefile & Shell 领域大神……</span></a><a class="item" href="\posts\9998f383\" title="[OS Pre]GDB"><span class="title">[OS Pre]GDB</span><span class="excerpt">GNU Debugger 怎么用？</span></a><a class="item" href="\posts\d6b2cc32\" title="[OS Pre]概念拾遗"><span class="title">[OS Pre]概念拾遗</span><span class="excerpt">了解之前遗漏的知识。</span></a><a class="item" href="\posts\5069adfd\" title="[OS Pre]Hello, Linux!"><span class="title">[OS Pre]Hello, Linux!</span><span class="excerpt">工欲善其事，必先利其器。</span></a></div></section></div>
 
 
   <div class="related-wrap md-text" id="comments">
@@ -298,7 +282,7 @@
 
 
 
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BA%8F"><span class="toc-text">序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%8E%E6%97%A5%E8%B0%88"><span class="toc-text">后日谈</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Xc-Fl-Lm-%E4%B8%8E-ABB"><span class="toc-text">Xc, Fl, Lm 与 ABB</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E6%97%A5%E8%B0%88"><span class="toc-text">前日谈</span></a></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%86%85%E6%A0%B8%EF%BC%9F"><span class="toc-text">什么是内核？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-text">启动操作系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%89%E7%AD%89"><span class="toc-text">等等</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MOS-%E5%86%85%E6%A0%B8%E6%96%87%E4%BB%B6%E7%BB%84%E7%BB%87"><span class="toc-text">MOS 内核文件组织</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-ELF-%EF%BC%9F"><span class="toc-text">什么是 ELF ？</span></a></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
 </div></aside><div class='float-panel'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
