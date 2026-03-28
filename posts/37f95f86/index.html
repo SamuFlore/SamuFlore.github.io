@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
   
-  <meta name="robots" content="noindex,follow">
+  
   <meta name="generator" content="Hexo 7.3.0">
   <meta http-equiv='x-dns-prefetch-control' content='on' />
   
@@ -17,24 +17,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   <meta name="theme-color" content="#f9fafb">
-  <title>归档 - SamuFlore's Dimension</title>
+  <title>[OO]OO Unit1 总结：表达式解析 - SamuFlore's Dimension</title>
 
   
-    <meta name="description" content="一人倒、衆人倒。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="归档">
-<meta property="og:url" content="https://samuflore.top/archives/2024/">
+    <meta name="description" content="表达式解析来了，电梯还会远吗？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[OO]OO Unit1 总结：表达式解析">
+<meta property="og:url" content="https://samuflore.top/posts/37f95f86/">
 <meta property="og:site_name" content="SamuFlore&#39;s Dimension">
-<meta property="og:description" content="一人倒、衆人倒。">
+<meta property="og:description" content="表达式解析来了，电梯还会远吗？">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://samuflore.top/images/avatar.jpg">
+<meta property="article:published_time" content="2026-03-27T14:53:26.000Z">
+<meta property="article:modified_time" content="2026-03-28T08:37:12.451Z">
 <meta property="article:author" content="Samustach Floresein">
+<meta property="article:tag" content="桃月">
+<meta property="article:tag" content="OO">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://samuflore.top/images/avatar.jpg">
   
   
   
-  
+  <meta name="keywords" content="桃月,OO,Java">
 
   <!-- feed -->
   
@@ -50,12 +55,12 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"https://samuflore.top","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg"},"name":"SamuFlore's Dimension","description":"一人倒、衆人倒。","url":"https://samuflore.top"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg"},"dateCreated":"2026-03-27T22:53:26+08:00","dateModified":"2026-03-28T16:37:12+08:00","datePublished":"2026-03-27T22:53:26+08:00","description":"","headline":"[OO]OO Unit1 总结：表达式解析","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/37f95f86/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg","logo":{"@type":"ImageObject","url":"/images/avatar.jpg"}},"url":"https://samuflore.top/posts/37f95f86/","keywords":"桃月, OO, Java","thumbnailUrl":null,"image":[]}</script>
   <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&family=Mozilla+Headline:wght@200..700&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@200..700&display=swap" rel="stylesheet">
 <!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- hexo injector head_end end --><style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--blockquote-bg-color:#555;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 <body><div class="sitebg"><div class="siteblur"></div></div>
 
-<div class="l_body index" id="start" layout="undefined" type="undefined" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+<div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
 
 
 <header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/images/avatar.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main"><img no-lazy height="32px" src="https://i.mituw.com/imgs/2026/02/22/b3940979c8688109.png"/ onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><div class="sub normal cap">SamuFlore's Dimension</div><div class="sub hover cap" style="opacity:0"> 德才兼備、知行合一</div></a></div></header>
@@ -67,17 +72,336 @@
 <div class="widgets">
 <div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
 
+<widget class="widget-wrapper markdown"><div class="widget-header dis-select"><span class="name">前人栽树、后人乘凉</span></div><div class="widget-body fs14"><h4 id="推荐阅读">推荐阅读</h4>
+
+<div class="linklist left" style="grid-template-columns:repeat(1,1fr);">
+<a class="link" title="Kamonto's Little Planet" target="_blank" rel="noopener" href="https://kamonto.github.io/Kamonto_blog/"><div class="flex"><svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M6 9a3 3 0 1 0 0 6h3a1 1 0 1 1 0 2H6A5 5 0 0 1 6 7h3a1 1 0 0 1 0 2zm1 3a1 1 0 0 1 1-1h8a1 1 0 1 1 0 2H8a1 1 0 0 1-1-1m8-5a1 1 0 1 0 0 2h3a3 3 0 1 1 0 6h-3a1 1 0 1 0 0 2h3a5 5 0 0 0 0-10z" clip-rule="evenodd"/></svg><span>Kamonto's Little Planet</span></div></a>
+<a class="link" title="钟鼓楼" target="_blank" rel="noopener" href="https://thysrael.github.io/"><div class="flex"><svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M6 9a3 3 0 1 0 0 6h3a1 1 0 1 1 0 2H6A5 5 0 0 1 6 7h3a1 1 0 0 1 0 2zm1 3a1 1 0 0 1 1-1h8a1 1 0 1 1 0 2H8a1 1 0 0 1-1-1m8-5a1 1 0 1 0 0 2h3a3 3 0 1 1 0 6h-3a1 1 0 1 0 0 2h3a5 5 0 0 0 0-10z" clip-rule="evenodd"/></svg><span>钟鼓楼</span></div></a></div></div></widget>
+
+
+
 <widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/posts/37f95f86/"><span class="title">[OO]OO Unit1 总结：表达式解析</span></a><a class="item title" href="/posts/acdcdd17/"><span class="title">[OS Lab1]内核、启动和 Printf</span></a><a class="item title" href="/posts/48d104ae/"><span class="title">[OS Lab0]如何成为 Makefile 和 Shell 大神</span></a><a class="item title" href="/posts/b29c065f/"><span class="title">[CJKV]和</span></a><a class="item title" href="/posts/5069adfd/"><span class="title">[OS Pre]Hello, Linux!</span></a><a class="item title" href="/posts/937d20ea/"><span class="title">MD 样式测试</span></a><a class="item title" href="/posts/2f28a1fe/"><span class="title">[博客技術]浅谈 RSS 对于开源博客的意义</span></a><a class="item title" href="/posts/8a8b0861/"><span class="title">†Blog 2：[Hexo教程]Hexo之代码块添加复制按钮</span></a><a class="item title" href="/posts/ec5f1055/"><span class="title">†Blog 9：[Hexo教程]Hexo NexT 自定义字体</span></a><a class="item title" href="/posts/e11361f1/"><span class="title">†Blog 7：[Hexo教程]更高级的 Markdown 渲染器：Markdown-it</span></a></div></widget>
 </div>
 
 </div></aside><div class="l_main" id="main">
 
-<header class="header mobile-only"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/images/avatar.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main"><img no-lazy height="32px" src="https://i.mituw.com/imgs/2026/02/22/b3940979c8688109.png"/ onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><div class="sub normal cap">SamuFlore's Dimension</div><div class="sub hover cap" style="opacity:0"> 德才兼備、知行合一</div></a></div></header>
-
- 
 
 
-<div class="navbar top"><div class="navbar-blur"><div class="navbar-container"><nav class="post"><a href="/">近期发布</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/topic/">专栏</a><a class="active" href="/archives/">归档</a><a href="/recent/">BAKER</a></nav></div></div></div><div class="post-list archives"><article class="" id="archive"><div class='archive-header h4'>2026</div><div class="archive-list"><a class='post fs14' href="/posts/37f95f86/"><time>03-27</time><span>[OO]OO Unit1 总结：表达式解析</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/acdcdd17/"><time>03-23</time><span>[OS Lab1]内核、启动和 Printf</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/48d104ae/"><time>03-18</time><span>[OS Lab0]如何成为 Makefile 和 Shell 大神</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/2f28a1fe/"><time>03-11</time><span>[博客技術]浅谈 RSS 对于开源博客的意义</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/9998f383/"><time>03-05</time><span>[OS Pre]GDB</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/d6b2cc32/"><time>03-04</time><span>[OS Pre]概念拾遗</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/5069adfd/"><time>03-01</time><span>[OS Pre]Hello, Linux!</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/b29c065f/"><time>02-13</time><span>[CJKV]和</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/6a852807/"><time>01-23</time><span>[八紘九野集]广州·深圳</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/ffdc7592/"><time>01-23</time><span>[江子社]鹰角网络消息</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/423a2cc1/"><time>01-13</time><span>[江子社]株式会社ブシロード消息</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/b1cdfa63/"><time>01-06</time><span>[概率與數理模型]概统概要</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/e299423e/"><time>01-05</time><span>[孤獨星球]ABB 传</span></a></div></article><article class="" id="archive"><div class='archive-header h4'>2025</div><div class="archive-list"><a class='post fs14' href="/posts/aaca0c6e/"><time>12-31</time><span>[楠竹蓮花集]2025 的 A - Z</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/585cfa20/"><time>12-21</time><span>†[基礎物理學]基础物理学 B II 概要</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/52a88c87/"><time>12-16</time><span>[CO]CO 理论概要</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/1a21b5b/"><time>12-09</time><span>[楠竹蓮花集]十二月八日</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/444343b2/"><time>12-08</time><span>[CO Finale] 2025 北航计算机组成实验总结</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/28be479a/"><time>12-08</time><span>[CO P7]Verilog 设计 MIPS 微系统</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/905092e9/"><time>12-01</time><span>[CO P6]Verilog 设计五级流水线 CPU-2</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/65cd5a9/"><time>11-24</time><span>[CO P5]Verilog 设计五级流水线 CPU</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/cb2f1325/"><time>11-19</time><span>[Repost]How To Ask Questions The Smart Way</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/53039668/"><time>11-17</time><span>[CO P4]Verilog 设计单周期 CPU</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/be27c6b/"><time>11-09</time><span>[孤獨星球]林信之江传</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/deef238d/"><time>11-05</time><span>[OO Pre]2025 面向对象程序设计先导课程总结</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/627c408f/"><time>11-04</time><span>[CO P3]Logisim 设计单周期 CPU</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/9c1eb1fe/"><time>11-02</time><span>心罗外传</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/6d68c22/"><time>10-27</time><span>[CO P2]P2 上机之思考</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/bf207952/"><time>10-27</time><span>[八紘九野集]天津</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/2d82ddc6/"><time>10-24</time><span>[CO P2]宏、函数与栈</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/fae59a6c/"><time>10-21</time><span>[CO P1]P1 上机之思考</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/937d20ea/"><time>10-20</time><span>MD 样式测试</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/2dab591c/"><time>10-19</time><span>[CO P1]如何优雅地写 Testbench</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/f4bf9c17/"><time>10-19</time><span>[鶴鳴洲集]“他妈的”，究竟是谁妈的？</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/90dbc4f6/"><time>10-14</time><span>[孤獨星球]贺卿传</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/18246a69/"><time>10-13</time><span>[CO P0]P0 上机之思考</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/11653afb/"><time>10-05</time><span>[CO P0]关于 Mealy 机和 Moore 机的思考</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/b73dbb31/"><time>10-04</time><span>[楠竹蓮花集]老狗</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/1f9d902/"><time>09-20</time><span>[CO Pre]MIPS 汇编入门</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/10425c0c/"><time>09-09</time><span>新川大陆文化史</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/c9f56abd/"><time>09-01</time><span>[CO Pre]Verilog 入门</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/9707d4af/"><time>08-19</time><span>[CO Pre]One-Hot 编码</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/e7ebcfa7/"><time>08-14</time><span>[CO Pre]Logisim 入门</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/7e709353/"><time>08-14</time><span>加密文章测试</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/908cc5fb/"><time>08-14</time><span>[CO Pre]原码、反码与补码</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/ec5f1055/"><time>08-09</time><span>†Blog 9：[Hexo教程]Hexo NexT 自定义字体</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/ff51cb4c/"><time>07-21</time><span>Blog 8：[Hexo教程]Hexo之提交搜索引擎收录</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/e11361f1/"><time>07-18</time><span>†Blog 7：[Hexo教程]更高级的 Markdown 渲染器：Markdown-it</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/9eefdea9/"><time>07-17</time><span>序</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/82cd8a81/"><time>07-17</time><span>Blog 5：[八紘九野集]井冈山</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/1bea1421/"><time>07-16</time><span>Blog 4：[Hexo教程]Hexo之博文添加图片</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/8a8b0861/"><time>07-15</time><span>†Blog 2：[Hexo教程]Hexo之代码块添加复制按钮</span></a></div><div class="archive-list"><a class='post fs14' href="/posts/95afa136/"><time>07-15</time><span>Blog 1：[長欣集]诗二首</span></a></div></article><article class="" id="archive"><div class='archive-header h4'>2024</div><div class="archive-list"><a class='post fs14' href="/posts/f183ae5b/"><time>04-01</time><span>[長欣集]梅间</span></a></div></article><article class="" id="archive"><div class='archive-header h4'>2006</div><div class="archive-list"><a class='post fs14' href="/posts/ec4ac3d0/"><time>10-27</time><span>[長欣集]现代诗一首</span></a></div></article><article class="" id="archive"><div class='archive-header h4'>2005</div><div class="archive-list"><a class='post fs14' href="/posts/188737f4/"><time>10-28</time><span>[天琴集]天琴集序</span></a></div></article></div>
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/2025-2026-%E5%AD%B8%E5%B9%B4/">2025 - 2026 學年</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/2025-2026-%E5%AD%B8%E5%B9%B4/%E9%9D%A2%E5%90%91%E5%B0%8D%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%A8%AD%E8%A8%88/">面向對象程序設計</a></div>
+<div class="flex-row" id="post-meta"><a class="author" href="/author/samuflore/">Seymiris Asakawa</a><span class="sep"></span><span class="text created"><time datetime="2026-03-27T14:53:26.000Z">2026-03-27</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-03-28T08:37:12.451Z">2026-03-28</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>[OO]OO Unit1 总结：表达式解析</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><h2 id="前言">前言</h2>
+<p>OO 第一单元的主题是表达式与解析。三次作业主要围绕解析输入、化简合并、优化输出展开，逐步迭代增加自定义函数、导数等内容。</p>
+<p>这一单元根本上需要掌握梯度下降法的原理，并且需要一个优良的架构来减少迭代开发的工作量。</p>
+<h2 id="基于度量的程序结构分析">基于度量的程序结构分析</h2>
+<p>以下复杂度分析由 Statistic 插件、MetricsReloaded 插件和人工完成。</p>
+<h3 id="类的基本分析">类的基本分析</h3>
+<table>
+<thead>
+<tr>
+<th>类\指标</th>
+<th>属性（个）</th>
+<th>方法（个）</th>
+<th>类总代码规模（行）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Executer</td>
+<td>2</td>
+<td>5</td>
+<td>60</td>
+</tr>
+<tr>
+<td>Expr</td>
+<td>2</td>
+<td>17</td>
+<td>159</td>
+</tr>
+<tr>
+<td>Term</td>
+<td>3</td>
+<td>10</td>
+<td>136</td>
+</tr>
+<tr>
+<td>Parser</td>
+<td>2</td>
+<td>14</td>
+<td>202</td>
+</tr>
+<tr>
+<td>Lexer</td>
+<td>4</td>
+<td>11</td>
+<td>131</td>
+</tr>
+<tr>
+<td>RecurFunc</td>
+<td>3</td>
+<td>3</td>
+<td>28</td>
+</tr>
+<tr>
+<td>StandardFunc</td>
+<td>2</td>
+<td>2</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Main</td>
+<td>0</td>
+<td>1</td>
+<td>10</td>
+</tr>
+<tr>
+<td>总计</td>
+<td>/</td>
+<td>63</td>
+<td>738</td>
+</tr>
+</tbody>
+</table>
+<p>另外有枚举类 <code>TokenType.java</code> 和接口 <code>Function.java</code>。</p>
+<p>就我个人而言，我觉得这三轮迭代下来我起码控制住了类的数量，没有出现类爆炸的现象，可喜可贺（</p>
+<p>总代码规模出乎意料没有超过一千行，并且在 Checkstyle 的约束下，每个方法的行数也得到了很好的控制，使得整体可读性较强。</p>
+<p>一些方法的分支数量非常大，我已经通过一些手段减少了分支，比如在 <code>Lexer</code> 中的 <code>next()</code> 方法需要判定当前 Token 的类型并返回，这就需要给不同的情况返回不同的枚举类型。我将可能的符号进一步分类成标识符 <code>Idf</code>，符号 <code>Symbol</code> 两大类，各自写分支判断，再加上最基本的数字 <code>Num</code> 类，成功减少了同一个方法中的分支数量，提高可读性和扩展性。</p>
+<h4 id="类的设计">类的设计</h4>
+<p><img src="https://picui.ogmua.cn/s1/2026/03/28/69c7549111504.webp" alt></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>Main</code>：声明变量，初始化 <code>Executer</code> 并调用其中方法，输出结果。</p>
+</li>
+<li class="lvl-2">
+<p><code>Executer</code>：为了保持 <code>Main</code> 类纯净而设计的一个类，用来接受输入，存储函数模板，计算结果并返回，让 <code>Main</code> 类只提供一个入口。</p>
+</li>
+<li class="lvl-2">
+<p><code>Expr</code>：不加区分地认为 <code>coeff * Term</code> 为一个表达式。实现了一些基本的运算、替换和构建方法。</p>
+</li>
+<li class="lvl-2">
+<p><code>Term</code>：形如 <code>x ^ exponentX * y ^ exponentY * exp(expContent)</code> 的结构。实现了一些基本的运算、替换和构建方法。</p>
+</li>
+<li class="lvl-2">
+<p><code>Function</code>：供两类自定义函数使用的接口。声明了函数展开成 <code>Expr</code> 的方法。</p>
+</li>
+<li class="lvl-2">
+<p><code>StandardFunc</code>：普通自定义函数。有一个 <code>Expr</code> 类型变量保存函数模板，实现接口提供的方法并往模板中代入实参。</p>
+</li>
+<li class="lvl-2">
+<p><code>RecurFunc</code>：递推函数。存储定义中的 <code>f&#123;0&#125;(x)</code> 和 <code>f&#123;1&#125;(x)</code>，以及递推表达式。实现接口提供的方法并按需要计算 <code>2 ~ 5</code> 项。</p>
+</li>
+<li class="lvl-2">
+<p><code>Lexer</code>：词法分析器。提供返回 <code>TokenType</code> 枚举类型、查看 Token 和检查类型等方法。</p>
+</li>
+<li class="lvl-2">
+<p><code>Parser</code>：递归下降解析 <code>Lexer</code> 传来的 Tokens。</p>
+</li>
+<li class="lvl-2">
+<p><code>TokenType</code>：定义枚举。</p>
+</li>
+</ul>
+<h3 id="经典-OO-度量分析">经典 OO 度量分析</h3>
+<table>
+<thead>
+<tr>
+<th>类\指标</th>
+<th>平均操作复杂度</th>
+<th>最大操作复杂度</th>
+<th>加权方法复杂度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Executer</td>
+<td>2.00</td>
+<td>5</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Expr</td>
+<td>2.22</td>
+<td>8</td>
+<td><strong>40</strong></td>
+</tr>
+<tr>
+<td>Term</td>
+<td><strong>4.00</strong></td>
+<td>18</td>
+<td><strong>40</strong></td>
+</tr>
+<tr>
+<td>Parser</td>
+<td>3.07</td>
+<td>13</td>
+<td>43</td>
+</tr>
+<tr>
+<td>Lexer</td>
+<td><strong>4.27</strong></td>
+<td>16</td>
+<td><strong>47</strong></td>
+</tr>
+<tr>
+<td>RecurFunc</td>
+<td>2.00</td>
+<td>3</td>
+<td>6</td>
+</tr>
+<tr>
+<td>StandardFunc</td>
+<td>1.00</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Main</td>
+<td>1.00</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>警告值以加粗标出。</p>
+</blockquote>
+<p>从以上用插件分析得到的数据来看，复杂度超标的重灾区主要是 <code>Term</code> 和 <code>Lexer</code> 两个类。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>Lexer</code> 类作为词法分析器，承担了解析所有可能的符号识别、符号判定功能，并实现 <code>peek()</code> 和 <code>next()</code> 两个基本的方法。但是考虑到任何输入都需要给到 <code>Lexer</code> 提取 Tokens，所以我把字符串预处理的方法也写在 <code>Lexer</code> 内了。从解耦合的角度来看，我认为可以创建一个预处理器类，名为 <code>PreProcessor</code> 之类的，专门实现预处理的方法。这些方法是不宜放在 <code>Main</code> 中的，因此如果需要从 <code>Lexer</code> 中分离，就有必要单独创建一个类。</p>
+</li>
+<li class="lvl-2">
+<p><code>Term</code> 类是整个架构的核心之一。它实现了若干基本计算方法，一些 getter，重写了 <code>toString()</code> 方法，实现了替换其中 <code>x</code> 为另一个表达式的 <code>replace()</code> 方法，以及重写了计算哈希值和判定相等的方法。在我的架构中，我认为 <code>Term</code> 几乎不能精简，并且功能较为明确。</p>
+</li>
+</ul>
+<p>另外还有 <code>Expr</code> 类的方法复杂度比较高。<code>Expr</code> 类和 <code>Term</code> 类紧密相连，所需要实现的计算方法也比较多，造成了较高的复杂度。</p>
+<h2 id="架构设计演变">架构设计演变</h2>
+<p>这三次迭代下来我没有经历大规模的重构，但改动了一些类在整体架构中的定位。</p>
+<h3 id="第一次作业">第一次作业</h3>
+<p>第一次作业只要求识别形如 <code>coeff * x ^ exponent</code> 的式子并化简。形式比较简单，因此我选择使用一个 <code>Poly</code> 类来装下全部内容。它用 <code>TreeMap&lt;BigInteger, BigInteger&gt;</code> 来表示一个因式，在输出时用符号将其相连即可。</p>
+<p>这一次作业有一个有必要的优化点：对于形如 <code>-x+1</code> 的式子，可以将正项提前为 <code>1-x</code> 来省略一个正号。如果没有做这个优化，将会被发配 B 房（</p>
+<h3 id="第二次作业">第二次作业</h3>
+<p>第二次作业主要加入了三个内容：自定义函数、选择式因子和指数函数因子。</p>
+<p>对于指数函数的加入，我意识到原来的 <code>Poly</code> 格式不够用了，于是在它的基础上加入了指数函数的部分，并改称 <code>Term</code> 类。这个类不维护系数，只负责维护幂函数的次数和指数函数的表达式，系数和 <code>Term</code> 构成 <code>Expr</code> 类的属性。和第一次作业相比，这是最大的改动。</p>
+<p>针对自定义函数，我选择在 <code>Parser</code> 类中维护一个 <code>HashMap&lt;String, Expr&gt; functions</code>，用来保存自定义函数的模板。在解析到函数调用的时候，获取参数（一定是一个因子）并替换到模板中，避免使用类似宏展开的方法。</p>
+<h3 id="第三次作业">第三次作业</h3>
+<p>第三次作业加入了另一个自变量 <code>y</code>、实现求导因子，以及需要处理递推函数。</p>
+<p>加入自变量 <code>y</code> 是简单的，只需要让 <code>Term</code> 的基本格式改为 <code>x ^ exponentX * y ^ exponentY * exp(expContent)</code>，并重写各种运算的方法，加入 <code>y</code> 的影响即可。</p>
+<p>实现导数也是不难的。我仍旧沿用递归下降的思路，为 <code>Expr</code> 类和 <code>Term</code> 类分别实现求导方法，让 <code>Expr</code> 类的求导方法调用 <code>Term</code> 类的求导方法，<code>Term</code> 中处理指数函数时又可以调用 <code>Expr</code> 类的方法。</p>
+<p>函数方面，由于加入了新的函数，为了便于管理和拓展，我加入了一个 <code>Function</code> 接口，并让两个类去实现其中的方法。这样，在保存函数模板时便无需区分到底是哪种函数。为了避免哈希表键重名带来的值覆盖问题，我强制递推函数在存入哈希表时函数名记为 <code>fr</code>，这是一个不甚优雅的方法，应该有更好的实现。</p>
+<h2 id="Bug-分析">Bug 分析</h2>
+<p>这三次作业中，第二次作业出现了 TLE 的 Bug，具体原因分析如下：</p>
+<p>第二次作业的选择式因子 Cost 计算规则是：<code>Cost([(A==B)?C:D]) = Cost(A) + Cost(B) + choose(Cost(C), Cost(D)) + 5</code>，其中 <code>choose(Cost(C), Cost(D))</code> 表示最终选择式子的 Cost。</p>
+<p>换句话说，在二选一的情况下，未被选择的式子，其可以有无穷复杂度而不超过 Cost 限制。</p>
+<p>从出题的角度来说，这是希望我们直接跳过不需要计算的因子来优化时间性能。但是这个提示隐藏在 Cost 的计算公式中，让我没有发现（），我最初的版本是先计算两个因子，根据选择结果直接返回其中的一个，这就掉入陷阱了。</p>
+<p>第二次作业被互测出的所有问题均是选择式因子没有短路求值带来的 TLE 问题。在 Bug 修复阶段，我为 <code>Lexer</code> 类加入了一个 <code>skipFactor()</code> 方法，实现了合并修复。</p>
+<h2 id="Hack-分析">Hack 分析</h2>
+<p>我构造的测试样例会包括当次作业要求的全部功能，先从正确性的角度测试别人的代码，这种测试并非十分有效，但还是成功地 Hack 中过一位同学。大部分情况下代码都能通过正确性测试，这时候我会结合被测代码创造一些性能相关的测试。比如针对做了提取公因数优化的代码，我会往指数函数中各项塞入一些大系数，这种方法成功测出过几个 TLE 的代码。</p>
+<h2 id="优化分析">优化分析</h2>
+<p>三次迭代中在保证正确性的基础上做的优化如下：</p>
+<ol>
+<li class="lvl-3">
+<p>正项提前优化：<code>Expr</code> 输出时，找到一项系数为正的项作为首项输出，然后再依次输出其它的项即可。由于作业要求中没有限制输出的顺序，因此这个优化是可以保证正确性与简洁性的。它只改变了最终的输出逻辑，没有修改解析和计算的逻辑。</p>
+</li>
+<li class="lvl-3">
+<p>提公因数优化：在指数函数中提取各项系数的最大公因数到 <code>exp()</code> 符号外，和原式进行长度比较：如果提取后长度缩短，则选用提取后的结果，否则原样输出。这个优化仍然是在输出逻辑中完成。Java 中提供了计算 GCD 的方法，避免了重复造轮子。在此基础上我还保证了括号输出的正确性，确保输出可以满足题目要求。</p>
+</li>
+</ol>
+<p>事实上计算 GCD 并提取到符号外并不是最短的。应该在某一个范围内遍历所有的因数，分别比较长度找到最短，但我无法保证这样写不会造成 TLE，最后放弃（</p>
+<h2 id="大模型相关">大模型相关</h2>
+<p>大模型使用比例估计：</p>
+<table>
+<thead>
+<tr>
+<th>作业\指标</th>
+<th>正确性</th>
+<th>性能优化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第一次</td>
+<td>20%</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>第二次</td>
+<td>10%</td>
+<td>5%</td>
+</tr>
+<tr>
+<td>第三次</td>
+<td>5%</td>
+<td>5%</td>
+</tr>
+</tbody>
+</table>
+<p>第一次作业中，由于对递归下降的写法和 Java 的语法仍然不熟，请求 AI 的帮助较多。随着逐渐熟悉，使用 AI 的频率下降了，并且主要转移到了询问 AI 如何优化输出长度的方面。</p>
+<p>我利用 AI 辅助查找自己和别人的 Bug，并尝试搭建过数据生成器和评测机，用于对拍。大模型的评测机在检验正确性上是没有问题的，但是很难确保其生成的数据都符合 Cost 要求。并且也很难要求其区分输出的优劣。</p>
+<p>三次互测中我并没有发现明显使用 AI 生成的代码。</p>
+<h2 id="心得体会">心得体会</h2>
+<p>OO 是一门非常偏实际的课程。不论是作业的内容，使用的工具，还是版本管理、代码风格、Bug 修复等等环节，都致力于让我们感受到软件开发和迭代的基本流程，我认为这是一门非常优质的课程，对我的学习很有帮助。</p>
+<h2 id="未来方向">未来方向</h2>
+<p>我认为应当更加明确的规定 AI 在课程中的应用范围，这样有助于减少完全依赖 AI 完成作业的现象。</p>
+<p>另外，在某些 Cost 方面可以放开限制。比如第二次作业中对于不计算的选择式因子，不计入 Cost，但是在第三次作业中不调用的递推函数却计入 Cost。我认为可以统一一个标准，让 Cost 计算更加合理。</p>
+<h2 id="思考题">思考题</h2>
+<ol>
+<li class="lvl-3">
+<p>根据输入的具体要求来维护不同的计数器，还可以针对符号顺序进行一些特判。</p>
+</li>
+<li class="lvl-3">
+<p>可以沿用递归下降法的思路，自顶向下进行计算。</p>
+</li>
+</ol>
+</article>
+<div class="article-footer">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>Seymiris Asakawa 作文。<br>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    
+
+</div>
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/posts/acdcdd17/">[OS Lab1]内核、启动和 Printf</a></div></section></div>
+
+<div class="related-wrap" id="related-posts">
+    <section class='header'>
+      <div class='title cap theme'>您可能感兴趣的文章</div>
+    </section>
+    <section class='body'>
+    <div class="related-posts"><a class="item" href="\posts\deef238d\" title="[OO Pre]2025 面向对象程序设计先导课程总结"><span class="title">[OO Pre]2025 面向对象程序设计先导课程总结</span><span class="excerpt">OO Pre!</span></a><a class="item" href="\posts\acdcdd17\" title="[OS Lab1]内核、启动和 Printf"><span class="title">[OS Lab1]内核、启动和 Printf</span><span class="excerpt">侵入内核。</span></a><a class="item" href="\posts\48d104ae\" title="[OS Lab0]如何成为 Makefile 和 Shell 大神"><span class="title">[OS Lab0]如何成为 Makefile 和 Shell 大神</span><span class="excerpt">我想成为 Makefile & Shell 领域大神……</span></a><a class="item" href="\posts\2f28a1fe\" title="[博客技術]浅谈 RSS 对于开源博客的意义"><span class="title">[博客技術]浅谈 RSS 对于开源博客的意义</span><span class="excerpt">都 2026 年，还要 RSS 做什么？</span></a></div></section></div>
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>来发评论吧~</p>
+
+    </section>
+    <section class='body cmt-body waline'>
+      
+
+<div id="waline_container" class="waline_thread"><svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+
+    </section>
+  </div>
+
+
+
 <footer class="page-footer footnote"><hr><div class="sitemap" style="column-count:2;"><div class="sitemap-group"><span class="fs15">探索</span><a href="/rss2.xml">💖RSS</a><a target="_blank" rel="noopener" href="https://travel.moe/go?travel=on">🚇异次元之旅</a></div><div class="sitemap-group"><span class="fs15">传送门</span><a href="/categories/">分类</a><a href="/archives/">归档</a><a href="/topic/">专栏</a><a href="/wiki/">Wiki</a></div></div><div class="text"><p><span id="busuanzi_container_site_pv">总访问量 <span id="busuanzi_value_site_pv"></span> 次。</span><br></p>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <p><span id="timeDate">载入天数…</span><span id="times">载入时分秒…</span></p>
@@ -116,7 +440,12 @@
 <div style="display:inline-block;"><img src="/images/kr.svg" width=100px ></div>
 </div></footer>
 <div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
-</aside><div class='float-panel'>
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E5%BA%A6%E9%87%8F%E7%9A%84%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90"><span class="toc-text">基于度量的程序结构分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%88%86%E6%9E%90"><span class="toc-text">类的基本分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B1%BB%E7%9A%84%E8%AE%BE%E8%AE%A1"><span class="toc-text">类的设计</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8-OO-%E5%BA%A6%E9%87%8F%E5%88%86%E6%9E%90"><span class="toc-text">经典 OO 度量分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E6%BC%94%E5%8F%98"><span class="toc-text">架构设计演变</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%9C%E4%B8%9A"><span class="toc-text">第一次作业</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A"><span class="toc-text">第二次作业</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A"><span class="toc-text">第三次作业</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bug-%E5%88%86%E6%9E%90"><span class="toc-text">Bug 分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hack-%E5%88%86%E6%9E%90"><span class="toc-text">Hack 分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E5%88%86%E6%9E%90"><span class="toc-text">优化分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9B%B8%E5%85%B3"><span class="toc-text">大模型相关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%83%E5%BE%97%E4%BD%93%E4%BC%9A"><span class="toc-text">心得体会</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AA%E6%9D%A5%E6%96%B9%E5%90%91"><span class="toc-text">未来方向</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%80%83%E9%A2%98"><span class="toc-text">思考题</span></a></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
   </button>
@@ -611,6 +940,28 @@
 
 <!-- optional -->
 
+  <script type="module">
+  import { init } from 'https://unpkg.com/@waline/client/dist/waline.js';
+
+  const el = document.getElementById('waline_container');
+  util.viewportLazyload(el, load_waline, false);
+
+  function load_waline(){
+    if (!el) return;
+
+    utils.css('https://unpkg.com/@waline/client/dist/waline.css');
+    utils.css('https://gcore.jsdelivr.net/npm/@waline/client/dist/waline-meta.css');
+
+    const path = el.getAttribute('comment_id') ?? decodeURI(window.location.pathname);
+    const waline = init(Object.assign({"js":"https://unpkg.com/@waline/client/dist/waline.js","css":"https://unpkg.com/@waline/client/dist/waline.css","meta_css":"https://gcore.jsdelivr.net/npm/@waline/client/dist/waline-meta.css","serverURL":"https://waline.samuflore.top","commentCount":true,"pageview":true,"dark":"auto","reaction":true,"locale":{"placeholder":"评论将在审核通过后公示~"},"emoji":["https://unpkg.com/@waline/emojis@1.1.0/tieba"]}, {
+      el: '#waline_container',
+      path: path,
+      
+    }));
+  }
+</script>
+
+
 
 
 <script defer>
@@ -828,4 +1179,4 @@
 
 <!-- inject -->
 
-</div></body></html>
+</div><!-- hexo injector body_end start --><script src="/js/outdate.js"></script><!-- hexo injector body_end end --></body></html>
