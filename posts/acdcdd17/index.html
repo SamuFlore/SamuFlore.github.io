@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://samuflore.top/images/avatar.jpg">
 <meta property="article:published_time" content="2026-03-23T00:11:15.000Z">
-<meta property="article:modified_time" content="2026-03-30T14:03:48.887Z">
+<meta property="article:modified_time" content="2026-03-31T14:24:22.685Z">
 <meta property="article:author" content="Samustach Floresein">
 <meta property="article:tag" content="桃月">
 <meta property="article:tag" content="OS">
@@ -55,7 +55,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg"},"dateCreated":"2026-03-23T08:11:15+08:00","dateModified":"2026-03-30T22:03:48+08:00","datePublished":"2026-03-23T08:11:15+08:00","description":"","headline":"[OS Lab1]内核、启动和 Printf","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/acdcdd17/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg","logo":{"@type":"ImageObject","url":"/images/avatar.jpg"}},"url":"https://samuflore.top/posts/acdcdd17/","keywords":"桃月, OS, Lab1","thumbnailUrl":null,"image":[]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg"},"dateCreated":"2026-03-23T08:11:15+08:00","dateModified":"2026-03-31T22:24:22+08:00","datePublished":"2026-03-23T08:11:15+08:00","description":"","headline":"[OS Lab1]内核、启动和 Printf","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/acdcdd17/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg","logo":{"@type":"ImageObject","url":"/images/avatar.jpg"}},"url":"https://samuflore.top/posts/acdcdd17/","keywords":"桃月, OS, Lab1","thumbnailUrl":null,"image":[]}</script>
   <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&family=Mozilla+Headline:wght@200..700&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@200..700&display=swap" rel="stylesheet">
 <!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- hexo injector head_end end --><style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--blockquote-bg-color:#555;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 <body><div class="sitebg"><div class="siteblur"></div></div>
@@ -93,7 +93,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" id="menu" href="/topic/">专栏</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/posts/acdcdd17/">26 操作系统</a></div>
-<div class="flex-row" id="post-meta"><a class="author" href="/author/samuflore/">Seymiris Asakawa</a><span class="sep"></span><span class="text created"><time datetime="2026-03-23T00:11:15.000Z">2026-03-23</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-03-30T14:03:48.887Z">2026-03-30</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><a class="author" href="/author/samuflore/">Seymiris Asakawa</a><span class="sep"></span><span class="text created"><time datetime="2026-03-23T00:11:15.000Z">2026-03-23</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-03-31T14:24:22.685Z">2026-03-31</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -326,6 +326,47 @@
 <p>使用 <code>va_arg(va_list ap, type)</code> 来取出一个传入的参数，必须指定要取出的参数的类型，比如 <code>va_arg(ap, int)</code> 表示下一个我要取出一个 <code>int</code> 类型的参数。</p>
 </li>
 </ul>
+<h2 id="实验报告">实验报告</h2>
+<h3 id="思考题">思考题</h3>
+<h4 id="Thinking-1-1">Thinking 1.1</h4>
+<p>命令 <code>'$(CROSS_COMPILE)objdump &#123;&#125; -aldS &gt; &#123;&#125;.objdump &amp;&amp; echo &#123;&#125;.objdump' ';'</code> 的各个参数的含义如下：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>-a</code>：显示静态库的文件头信息</p>
+</li>
+<li class="lvl-2">
+<p><code>-l</code>：显示行号</p>
+</li>
+<li class="lvl-2">
+<p><code>-d</code>：对二进制文件的代码段进行反汇编</p>
+</li>
+<li class="lvl-2">
+<p><code>-S</code>：开启调试然后将 <code>objdump</code> 命令执行的结果重定向到同名的 <code>.objdump</code> 文件中，并输出。</p>
+</li>
+</ul>
+<h4 id="Thinking-1-2">Thinking 1.2</h4>
+<p><code>hello</code> 的编译指令是 <code>$(CC) $^ -o $@ -m32 -static -g</code>，其中 <code>-m32</code> 声明这是 32 位 ELF 文件，而 <code>readelf</code> 没有用 <code>-m32</code>，自动编译为 64 位 ELF 文件。而我编写的 <code>readelf</code> 文件是适用于 32 位 ELF 文件的。</p>
+<p>使用 <code>file</code> 命令分析：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">readelf: ELF 64-bit LSB pie executable</span><br><span class="line">hello: ELF 32-bit LSB executable</span><br></pre></td></tr></table></figure>
+<h4 id="Thinking-1-3">Thinking 1.3</h4>
+<p>这个固定的地址存放的是 Bootloader，它负责第一阶段的启动。Bootloader 在初始化硬件、设定好各种参数后会跳转到内核入口。因此可以保证正确跳转到内核入口。</p>
+<h3 id="难点分析">难点分析</h3>
+<p>Lab 1 的难点有如下几个方面：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>理解 ELF 文件结构：首先要理解 ELF 头、段头表、节头表的关系，并了解如何通过 ELF 头访问各个段头表和节头表。</p>
+</li>
+<li class="lvl-2">
+<p>了解从内核如何从源代码到可执行文件：需要看懂 Makefile，了解各指令在做什么事，知道如何指定 <code>.text</code> 等的位置，知道如何写 Linker Script 等等。</p>
+</li>
+<li class="lvl-2">
+<p>为内核编写函数：用 <code>printk</code> 函数作为实战，需要回忆基本的 C 语言知识，按需求完成。</p>
+</li>
+</ul>
+<h3 id="实验体会">实验体会</h3>
+<p>实验中我初步了解了如何通过 Makefile 看懂整个项目做的事情，了解了操作系统的启动过程，并知道了最基本的内核构造。希望这可以为后面的实验打下坚实的基础。</p>
+<h3 id="原创说明">原创说明</h3>
+<p>本实验报告为原创，没有请求同学/助教/人工智能的帮助。</p>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
@@ -417,7 +458,7 @@
 
 
 
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%86%85%E6%A0%B8%EF%BC%9F"><span class="toc-text">什么是内核？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-text">启动操作系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%89%E7%AD%89"><span class="toc-text">等等</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MOS-%E5%86%85%E6%A0%B8%E6%96%87%E4%BB%B6%E7%BB%84%E7%BB%87"><span class="toc-text">MOS 内核文件组织</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-ELF-%EF%BC%9F"><span class="toc-text">什么是 ELF ？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ELF-%E6%96%87%E4%BB%B6%E5%A4%B4"><span class="toc-text">ELF 文件头</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AE%B5%E5%A4%B4%E8%A1%A8"><span class="toc-text">段头表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8A%82%E5%A4%B4%E8%A1%A8"><span class="toc-text">节头表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MIPS-%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80"><span class="toc-text">MIPS 内存布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linker-Script"><span class="toc-text">Linker Script</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%B3%E8%BD%AC%E5%85%A5%E5%8F%A3"><span class="toc-text">跳转入口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-%E5%8F%98%E9%95%BF%E5%8F%82%E6%95%B0"><span class="toc-text">C 变长参数</span></a></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%86%85%E6%A0%B8%EF%BC%9F"><span class="toc-text">什么是内核？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-text">启动操作系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%89%E7%AD%89"><span class="toc-text">等等</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MOS-%E5%86%85%E6%A0%B8%E6%96%87%E4%BB%B6%E7%BB%84%E7%BB%87"><span class="toc-text">MOS 内核文件组织</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-ELF-%EF%BC%9F"><span class="toc-text">什么是 ELF ？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ELF-%E6%96%87%E4%BB%B6%E5%A4%B4"><span class="toc-text">ELF 文件头</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AE%B5%E5%A4%B4%E8%A1%A8"><span class="toc-text">段头表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8A%82%E5%A4%B4%E8%A1%A8"><span class="toc-text">节头表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MIPS-%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80"><span class="toc-text">MIPS 内存布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linker-Script"><span class="toc-text">Linker Script</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%B3%E8%BD%AC%E5%85%A5%E5%8F%A3"><span class="toc-text">跳转入口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-%E5%8F%98%E9%95%BF%E5%8F%82%E6%95%B0"><span class="toc-text">C 变长参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A"><span class="toc-text">实验报告</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%80%83%E9%A2%98"><span class="toc-text">思考题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Thinking-1-1"><span class="toc-text">Thinking 1.1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Thinking-1-2"><span class="toc-text">Thinking 1.2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Thinking-1-3"><span class="toc-text">Thinking 1.3</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%BE%E7%82%B9%E5%88%86%E6%9E%90"><span class="toc-text">难点分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%BD%93%E4%BC%9A"><span class="toc-text">实验体会</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E5%88%9B%E8%AF%B4%E6%98%8E"><span class="toc-text">原创说明</span></a></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
 </div></aside><div class='float-panel'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
