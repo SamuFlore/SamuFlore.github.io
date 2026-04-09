@@ -9,11 +9,48 @@
     <atom:link href="https://samuflore.top/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>一人倒、衆人倒。</description>
-    <pubDate>Sat, 28 Mar 2026 08:37:12 GMT</pubDate>
+    <pubDate>Thu, 09 Apr 2026 15:02:34 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>[OO]OO Unit1 总结：表达式解析</title>
+      <title>[BUAA OS Lab2]内存管理</title>
+      <link>https://samuflore.top/posts/4a08425d/</link>
+      <guid>https://samuflore.top/posts/4a08425d/</guid>
+      <pubDate>Mon, 06 Apr 2026 14:20:06 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;序&quot;&gt;序&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在工作能够完成的时限内，工作量会一直增加，直到所有可用时间都被填充为止。&lt;br&gt;
+——《经济学人》，1995&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这是&lt;ruby&gt;西里尔&lt;rt&gt;Cyril&lt;/rt&gt;&lt;/rub</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="序">序</h2><blockquote><p>在工作能够完成的时限内，工作量会一直增加，直到所有可用时间都被填充为止。<br>——《经济学人》，1995</p></blockquote><p>这是<ruby>西里尔<rt>Cyril</rt></ruby>·<ruby>诺斯古德<rt>Northcote</rt></ruby>·<ruby>帕金森<rt>Parkinson</rt></ruby>提出的一句话。在 1958 年，帕金森把这句话扩充成一本书，名为《帕金森定律：对于进度的追求》，同时凝练出了著名的帕金森定律：</p><blockquote><p>在预算之内，支出的需求会一直增加，直到所有资源被用完为止。</p></blockquote><p>在计算机领域，这一定律同样适用。给 128 MB 可用内存，软件就占用 128 MB；给 16 GB 可用内存，软件就占用 16 GB。内存越来越大，但软件用掉的也越来越多，却仿佛没有本质上的飞跃。所以，只要帕金森定律仍然生效，无论我们有多大的内存，内存都是稀缺的资源，做好内存管理是每个开发者的本职工作。</p><h2 id></h2>]]></content:encoded>
+      
+      
+      <category domain="https://samuflore.top/categories/2025-2026-%E5%AD%B8%E5%B9%B4/">2025 - 2026 學年</category>
+      
+      <category domain="https://samuflore.top/categories/2025-2026-%E5%AD%B8%E5%B9%B4/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%B5%B1/">操作系統</category>
+      
+      
+      <category domain="https://samuflore.top/tags/%E6%A2%85%E6%9C%88/">梅月</category>
+      
+      <category domain="https://samuflore.top/tags/OS/">OS</category>
+      
+      <category domain="https://samuflore.top/tags/Lab1/">Lab1</category>
+      
+      
+      <comments>https://samuflore.top/posts/4a08425d/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>[BUAA OO]OO Unit1 总结：表达式解析</title>
       <link>https://samuflore.top/posts/37f95f86/</link>
       <guid>https://samuflore.top/posts/37f95f86/</guid>
       <pubDate>Fri, 27 Mar 2026 14:53:26 GMT</pubDate>
@@ -42,7 +79,7 @@
     </item>
     
     <item>
-      <title>[OS Lab1]内核、启动和 Printf</title>
+      <title>[BUAA OS Lab1]内核、启动和 Printf</title>
       <link>https://samuflore.top/posts/acdcdd17/</link>
       <guid>https://samuflore.top/posts/acdcdd17/</guid>
       <pubDate>Mon, 23 Mar 2026 00:11:15 GMT</pubDate>
@@ -71,7 +108,7 @@
     </item>
     
     <item>
-      <title>[OS Lab0]如何成为 Makefile 和 Shell 大神</title>
+      <title>[BUAA OS Lab0]如何成为 Makefile 和 Shell 大神</title>
       <link>https://samuflore.top/posts/48d104ae/</link>
       <guid>https://samuflore.top/posts/48d104ae/</guid>
       <pubDate>Wed, 18 Mar 2026 13:21:02 GMT</pubDate>
@@ -129,7 +166,7 @@
     </item>
     
     <item>
-      <title>[OS Pre]GDB</title>
+      <title>[BUAA OS Pre]GDB</title>
       <link>https://samuflore.top/posts/9998f383/</link>
       <guid>https://samuflore.top/posts/9998f383/</guid>
       <pubDate>Thu, 05 Mar 2026 06:23:58 GMT</pubDate>
@@ -160,7 +197,7 @@
     </item>
     
     <item>
-      <title>[OS Pre]概念拾遗</title>
+      <title>[BUAA OS Pre]概念拾遗</title>
       <link>https://samuflore.top/posts/d6b2cc32/</link>
       <guid>https://samuflore.top/posts/d6b2cc32/</guid>
       <pubDate>Wed, 04 Mar 2026 00:36:16 GMT</pubDate>
@@ -193,7 +230,7 @@
     </item>
     
     <item>
-      <title>[OS Pre]Hello, Linux!</title>
+      <title>[BUAA OS Pre]Hello, Linux!</title>
       <link>https://samuflore.top/posts/5069adfd/</link>
       <guid>https://samuflore.top/posts/5069adfd/</guid>
       <pubDate>Sun, 01 Mar 2026 13:09:49 GMT</pubDate>
@@ -284,33 +321,6 @@
       
       
       <comments>https://samuflore.top/posts/6a852807/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>[江子社]鹰角网络消息</title>
-      <link>https://samuflore.top/posts/ffdc7592/</link>
-      <guid>https://samuflore.top/posts/ffdc7592/</guid>
-      <pubDate>Fri, 23 Jan 2026 03:13:44 GMT</pubDate>
-      
-      <description>江子通信社上海 2026 年 1 月 23 日电（记者 Seymiris Asakawa）</description>
-      
-      
-      
-      <content:encoded><![CDATA[<h1 id="明日方舟：终末地于昨日上午进行公测">明日方舟：终末地于昨日上午进行公测</h1><p>江子通信社上海 2026 年 1 月 23 日电（记者 <ins>Seymiris Asakawa</ins>）</p><!--more--><p>鹰角网络备受期待的新作「明日方舟：终末地」已于昨日（22 日）宣布进行全球公测<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>，该作品是「明日方舟」IP 下的第二部作品。据悉，前作「明日方舟」在多个平台获得优异成绩，曾与「Tom Clancy’s Rainbow Six Siege」、「BanG Dream! Ave Mujica」等知名游戏或企划联动，受到了世界范围内玩家的喜爱。</p><p>本作「明日方舟：终末地」与前作的策略塔防玩法不同，选择了「战斗冒险 + 模拟经营」的游戏模式。在二游轻量化、逐渐为玩家减负的今天，其回归复杂养成与复杂玩法的游戏设计被指「倒行逆施」，引发了广大玩家的热议。此外，据记者了解到的情况，本作的抽卡资源收集较难，且在游戏上线之初，卡池内角色数量较少，因而大部分玩家认为抽卡体验较差。卡池内部分角色的形象较为小众，引发部分玩家心理不适。</p><p>据可靠消息来源，22 日「明日方舟：终末地」外服的 PayPal 支付渠道出现恶性 Bug，玩家反映称若绑定了 PayPal 支付方式，可能会在不知情的情况下被错误扣款用于支付他人的充值订单。该 Bug 已经造成了某些玩家超过 5000 美元的经济损失，并因为时间临近月底导致其后续无法付清生活账单。22 日夜，「明日方舟：终末地」官方账号在 X 平台发布道歉信，称于上午 11 时关闭了 PayPal 支付选项，并立刻开始排查错误订单，下午 6 时 30 分开始对错误订单进行退款处理。</p><p>当日，鹰角网络社会招聘页面发布「项目法务（合同专家）」加急招聘页面，分析认为其可能面临与 PayPal 等的诉讼纠纷，或将面临大笔罚款（绷）。根据社会招聘页面其他信息显示，19 日鹰角发布「海外支付产品运营（明日方舟：终末地）」招聘页面，或因游戏公测时间临近，未能招到合适人员，这可能是引发此次重大事故的原因之一。</p><p>记者 <ins>Seymiris Asakawa</ins> 表示希望「明日方舟：终末地」不会暴死，否则希望不要牵连前作「明日方舟」。</p><p>【责任编辑：長崎 愛音】</p><hr class="footnotes-sep"><section class="footnotes"><ol class="footnotes-list"><li id="fn1" class="footnote-item"><p><a href="https://endfield.hypergryph.com/#home">https://endfield.hypergryph.com/#home</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p></li></ol></section>]]></content:encoded>
-      
-      
-      <category domain="https://samuflore.top/categories/%E6%B1%9F%E5%AD%90%E9%80%9A%E4%BF%A1%E7%A4%BE/">江子通信社</category>
-      
-      
-      <category domain="https://samuflore.top/tags/%E7%9D%A6%E6%9C%88/">睦月</category>
-      
-      <category domain="https://samuflore.top/tags/News/">News</category>
-      
-      <category domain="https://samuflore.top/tags/Arknights-Endfield/">Arknights: Endfield</category>
-      
-      
-      <comments>https://samuflore.top/posts/ffdc7592/#disqus_thread</comments>
       
     </item>
     
