@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://samuflore.top/images/avatar.jpg">
 <meta property="article:published_time" content="2026-04-06T14:20:06.000Z">
-<meta property="article:modified_time" content="2026-04-14T15:05:10.594Z">
+<meta property="article:modified_time" content="2026-04-16T15:53:58.448Z">
 <meta property="article:author" content="Samustach Floresein">
 <meta property="article:tag" content="梅月">
 <meta property="article:tag" content="OS">
@@ -55,7 +55,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg"},"dateCreated":"2026-04-06T22:20:06+08:00","dateModified":"2026-04-14T23:05:10+08:00","datePublished":"2026-04-06T22:20:06+08:00","description":"","headline":"[BUAA OS Lab2]内存管理","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/4a08425d/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg","logo":{"@type":"ImageObject","url":"/images/avatar.jpg"}},"url":"https://samuflore.top/posts/4a08425d/","keywords":"梅月, OS, Lab1","thumbnailUrl":null,"image":[]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg"},"dateCreated":"2026-04-06T22:20:06+08:00","dateModified":"2026-04-16T23:53:58+08:00","datePublished":"2026-04-06T22:20:06+08:00","description":"","headline":"[BUAA OS Lab2]内存管理","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/4a08425d/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg","logo":{"@type":"ImageObject","url":"/images/avatar.jpg"}},"url":"https://samuflore.top/posts/4a08425d/","keywords":"梅月, OS, Lab1","thumbnailUrl":null,"image":[]}</script>
   <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&family=Mozilla+Headline:wght@200..700&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@200..700&display=swap" rel="stylesheet">
 <!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- hexo injector head_end end --><style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--blockquote-bg-color:#555;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 <body><div class="sitebg"><div class="siteblur"></div></div>
@@ -93,7 +93,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" id="menu" href="/topic/">专栏</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/posts/4a08425d/">26 操作系统</a></div>
-<div class="flex-row" id="post-meta"><a class="author" href="/author/samuflore/">Seymiris Asakawa</a><span class="sep"></span><span class="text created"><time datetime="2026-04-06T14:20:06.000Z">2026-04-06</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-04-14T15:05:10.594Z">2026-04-14</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><a class="author" href="/author/samuflore/">Seymiris Asakawa</a><span class="sep"></span><span class="text created"><time datetime="2026-04-06T14:20:06.000Z">2026-04-06</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-04-16T15:53:58.448Z">2026-04-16</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -278,7 +278,7 @@ VA_{kseg0} - \text{0x80000000} = PA
 <h2 id="页式内存管理">页式内存管理</h2>
 <h3 id="从-TLB-开始">从 TLB 开始</h3>
 <p>先看看两级页表的样子：</p>
-<div class="tag-plugin image"><div class="image-bg" style="width:100%;"><img class="lazy" src="https://i.cetsteam.com/imgs/2026/04/13/a6ba9b9417abb4fa.png" data-src="https://i.cetsteam.com/imgs/2026/04/13/a6ba9b9417abb4fa.png" style="width:500px;" onerror="this.src=&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2rem' height='2rem' viewBox='0 0 24 24'%3E%3C!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --%3E%3Cpath fill='%23F44336' d='M22 12.698c-.002 1.47-.013 2.718-.096 3.743c-.097 1.19-.296 2.184-.74 3.009a4.2 4.2 0 0 1-.73.983c-.833.833-1.893 1.21-3.237 1.39C15.884 22 14.2 22 12.053 22h-.106c-2.148 0-3.83 0-5.144-.177c-1.343-.18-2.404-.557-3.236-1.39c-.738-.738-1.12-1.656-1.322-2.795c-.2-1.12-.236-2.512-.243-4.241Q1.999 12.737 2 12v-.054c0-2.148 0-3.83.177-5.144c.18-1.343.557-2.404 1.39-3.236s1.893-1.21 3.236-1.39c1.168-.157 2.67-.175 4.499-.177a.697.697 0 1 1 0 1.396c-1.855.002-3.234.018-4.313.163c-1.189.16-1.906.464-2.436.994S3.72 5.8 3.56 6.99C3.397 8.2 3.395 9.788 3.395 12v.784l.932-.814a2.14 2.14 0 0 1 2.922.097l3.99 3.99a1.86 1.86 0 0 0 2.385.207l.278-.195a2.79 2.79 0 0 1 3.471.209l2.633 2.37c.265-.557.423-1.288.507-2.32c.079-.972.09-2.152.091-3.63a.698.698 0 0 1 1.396 0' opacity='.5'/%3E%3Cpath fill='%23F44336' fill-rule='evenodd' d='M17.5 11c-2.121 0-3.182 0-3.841-.659S13 8.621 13 6.5s0-3.182.659-3.841S15.379 2 17.5 2s3.182 0 3.841.659S22 4.379 22 6.5s0 3.182-.659 3.841S19.621 11 17.5 11m-1.47-7.03a.75.75 0 1 0-1.06 1.06l1.47 1.47l-1.47 1.47a.75.75 0 0 0 1.06 1.06l1.47-1.47l1.47 1.47a.75.75 0 1 0 1.06-1.06L18.56 6.5l1.47-1.47a.75.75 0 0 0-1.06-1.06L17.5 5.44z' clip-rule='evenodd'/%3E%3C/svg%3E&quot;"><div class="lazy-icon" style="background-image:url(https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd);"></div></div></div>
+<div class="tag-plugin image"><div class="image-bg" style="aspect-ratio:1318/896;width:500px;"><img class="lazy" src="https://i.cetsteam.com/imgs/2026/04/13/a6ba9b9417abb4fa.png" data-src="https://i.cetsteam.com/imgs/2026/04/13/a6ba9b9417abb4fa.png" onerror="this.src=&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2rem' height='2rem' viewBox='0 0 24 24'%3E%3C!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --%3E%3Cpath fill='%23F44336' d='M22 12.698c-.002 1.47-.013 2.718-.096 3.743c-.097 1.19-.296 2.184-.74 3.009a4.2 4.2 0 0 1-.73.983c-.833.833-1.893 1.21-3.237 1.39C15.884 22 14.2 22 12.053 22h-.106c-2.148 0-3.83 0-5.144-.177c-1.343-.18-2.404-.557-3.236-1.39c-.738-.738-1.12-1.656-1.322-2.795c-.2-1.12-.236-2.512-.243-4.241Q1.999 12.737 2 12v-.054c0-2.148 0-3.83.177-5.144c.18-1.343.557-2.404 1.39-3.236s1.893-1.21 3.236-1.39c1.168-.157 2.67-.175 4.499-.177a.697.697 0 1 1 0 1.396c-1.855.002-3.234.018-4.313.163c-1.189.16-1.906.464-2.436.994S3.72 5.8 3.56 6.99C3.397 8.2 3.395 9.788 3.395 12v.784l.932-.814a2.14 2.14 0 0 1 2.922.097l3.99 3.99a1.86 1.86 0 0 0 2.385.207l.278-.195a2.79 2.79 0 0 1 3.471.209l2.633 2.37c.265-.557.423-1.288.507-2.32c.079-.972.09-2.152.091-3.63a.698.698 0 0 1 1.396 0' opacity='.5'/%3E%3Cpath fill='%23F44336' fill-rule='evenodd' d='M17.5 11c-2.121 0-3.182 0-3.841-.659S13 8.621 13 6.5s0-3.182.659-3.841S15.379 2 17.5 2s3.182 0 3.841.659S22 4.379 22 6.5s0 3.182-.659 3.841S19.621 11 17.5 11m-1.47-7.03a.75.75 0 1 0-1.06 1.06l1.47 1.47l-1.47 1.47a.75.75 0 0 0 1.06 1.06l1.47-1.47l1.47 1.47a.75.75 0 1 0 1.06-1.06L18.56 6.5l1.47-1.47a.75.75 0 0 0-1.06-1.06L17.5 5.44z' clip-rule='evenodd'/%3E%3C/svg%3E&quot;"><div class="lazy-icon" style="background-image:url(https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd);"></div></div></div>
 <p>MOS 中，在 <code>kuseg</code> 段，虚拟地址需要经过 TLB 变换到物理地址。如果 TLB 中没有储存这一映射关系，就会抛出 TLB Miss 异常。这时将会跳转到异常处理函数，执行 TLB 重填。接下来我们按照一次 TLB Miss 发生会做什么事来梳理这部分内容。</p>
 <h3 id="TLB-重填">TLB 重填</h3>
 <p>TLB 重填的入口在 <code>kern/tlb_asm.S</code> 这个汇编代码中。</p>
@@ -357,10 +357,136 @@ VA_{kseg0} - \text{0x80000000} = PA
 <p>至此，Lab2 的代码就讲解完毕了。</p>
 <h2 id="跋">跋</h2>
 <p>说实话，这绝对我写过字数相当靠前的几篇文章之一。并且它甚至不是期末复习类型的。一想到还有几个 Lab，每个 Lab 都有可能要写这么多字……</p>
-<h2 id="思考题">思考题</h2>
-<h3 id="Thinking-2-1">Thinking 2.1</h3>
+<h2 id="课上测试">课上测试</h2>
+<psw>失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了失败了</psw>
+<h3 id="Lab2-Exam">Lab2 Exam</h3>
+<p>Lab2 Exam 要求在 <code>include/queue.h</code> 中实现一个链表宏 <code>LIST_INSERT_AT(type, head, elm, field, index)</code>，作用是在类型为 <code>type</code> 的链表的给定位置插入一个元素。具体说明如下：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>type</code>：链表节点对应的结构体类型名，如 <code>Page</code>。</p>
+</li>
+<li class="lvl-2">
+<p><code>index</code>：目标插入位置的索引。</p>
+<ul class="lvl-2">
+<li class="lvl-6">如果 <code>index == 0</code>，插入链表头部，让 <code>elm</code> 作为第一个节点。</li>
+<li class="lvl-6">如果 <code>index &gt; 0</code>，将 <code>elm</code> 插到第 <code>index - 1</code> 个元素的后面。</li>
+</ul>
+</li>
+</ul>
+<p>这题不难，唯一有一点需要强调：<code>type</code> 是链表节点对应的结构体类型<u>名</u>，而不是一个类型！如果你要定义一个叫做 <code>_var</code> 的结构体指针，那你最好记得写成：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">type</span> *_<span class="title">var</span>;</span></span><br></pre></td></tr></table></figure>
+<p>而不是</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">type *_var;</span><br></pre></td></tr></table></figure>
+<p>否则你将急哭。</p>
+<div class="tag-plugin colorful note" color="blue"><div class="title"><strong><p>提示</p>
+</strong></div><div class="body"><p>可以用 <code>LIST_FOREACH</code> 宏实现遍历，记得维护好计数器和指向链表节点的临时变量 <code>_var</code>。</p></div></div>
+<h3 id="Lab2-Extra">Lab2 Extra</h3>
+<p>Lab2 Extra 涉及到页表自映射的原理和实现。</p>
+<p>在正式开始之前，我们需要了解页表自映射是怎么一回事。</p>
+<p>一直以来，我们都只能通过 <code>kseg0</code> 段的虚拟地址来访问页目录和页表，这限制了我们只能在内核态访问它们。现在我们希望在用户态可以通过只读的方式访问到页表。</p>
+<p>换句话说，我们需要从 <code>kuseg</code> 段中选一部分虚拟地址出来，将它们映射到页表所在的物理页面。虚拟地址空间很大，不用白不用（当然这是相对于物理地址空间而言的）。</p>
+<p>最简单的办法是这样：我们假设从 <code>base</code> 到 <code>base + 4MB</code> 这个前闭后开的 <code>4MB</code> 区域映射到 <code>1024</code> 张页表，每张 <code>4KB</code>。然后我们还需要一个 <code>4KB</code> 空间，分为 <code>1024 * 4byte</code>，作为一级页表（页目录），每个页目录项（<code>4byte</code>）存储一个页表的基地址。</p>
+<p>可以证明这样一件事：<code>base</code> 是 <code>4MB</code> 的倍数时，在 <code>[base, base + 4MB)</code> 这个区间内，地址的高 <code>10</code> 位是保持不变的。</p>
+<p>这有什么用呢？这意味着当我们拿到虚拟地址开始查页目录的时候，我们找到的永远是同一个页目录项：<code>pgdir + PDX(va) &lt;&lt; 2</code>，然后我们就会根据这个页目录项找到同一个页表，再去查页表项，最后得到物理页。</p>
+<p>既然这个页目录和页表总是绑定在一起，那我们不如把它们合二为一。</p>
+<p>具体是这样做：既然我们查到的永远是同一个页目录项，并且这个页目录项会指向同一个页表，而我们现在又要将二者变成同一个东西，那我们干脆让这个页目录项指向这个页目录本身就好了。这样的话，页目录同时又成了页表，实现了合二为一。</p>
+<p>我们的内存布局就会变成这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">+-----+ base</span><br><span class="line">|  0  | 页表 </span><br><span class="line">+-----+</span><br><span class="line">|  1  | 页表</span><br><span class="line">+-----+</span><br><span class="line">| ... |</span><br><span class="line">| ... |</span><br><span class="line">+-----+</span><br><span class="line">|	  | 既是页表，也是页目录</span><br><span class="line">+-----+</span><br><span class="line">| ... |</span><br><span class="line">| ... |</span><br><span class="line">+-----+</span><br><span class="line">| 1023|</span><br><span class="line">+-----+ base + 4MB</span><br></pre></td></tr></table></figure>
+<p>我们模拟一下流程：</p>
+<ol>
+<li class="lvl-3">
+<p>拿到虚拟地址，位于 <code>[base, base + 4MB)</code> 内。</p>
+</li>
+<li class="lvl-3">
+<p>页目录基地址 + 虚拟地址高 <code>10</code> 位偏移量 * 每项 <code>4byte</code> 得到页目录项。</p>
+</li>
+<li class="lvl-3">
+<p>这个页目录项指向了页目录的基地址。但 CPU 并不知道它还是页目录，CPU 以为已经找到了页表。</p>
+</li>
+<li class="lvl-3">
+<p>页表基地址 + 虚拟地址中间 <code>10</code> 位偏移量 * 每项 <code>4byte</code> 得到页表项。</p>
+</li>
+<li class="lvl-3">
+<p>根据页表项找到了物理页。</p>
+</li>
+</ol>
+<p>有了对自映射的基本认知，我们来看看问题是什么。</p>
+<p>我们需要完成四个函数，模拟自映射的建立、查询和解除：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>create_self_map(Pde *pgdir, u_int asid, u_long base)</code></p>
+<ul class="lvl-2">
+<li class="lvl-6">首先遍历 <code>[base, base + 1024 * PAGE_SIZE)</code> 的连续 <code>4MB</code> 虚拟地址空间，检查其是否与物理页进行了映射。如果有，则清除，并将计数器 <code>count</code> 加 <code>1</code>。</li>
+<li class="lvl-6">然后将所有页表自映射到 <code>[base, base + 1024 * PAGE_SIZE)</code> 的地址空间。页目录项必须<u>有效且不可写</u>。</li>
+<li class="lvl-6">返回 <code>count</code> 的值。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><code>pte_va(u_long base, u_int pdeno, u_int pteno)</code></p>
+<ul class="lvl-2">
+<li class="lvl-6">给定自映射虚拟地址空间的首地址 <code>base</code> ，计算使用自映射访问第 <code>pdeno</code> 张页表的第 <code>pteno</code> 个页表项时，需要使用的虚拟地址。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><code>pde_va(u_long base, u_int pdeno)</code></p>
+<ul class="lvl-2">
+<li class="lvl-6">给定自映射虚拟地址空间的首地址 <code>base</code> ，计算使用自映射访问页目录中的第 <code>pdeno</code> 个页目录项时，需要使用的虚拟地址。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><code>remove_all_self_map(Pde *pgdir, u_int asid)</code></p>
+<ul class="lvl-2">
+<li class="lvl-6">首先遍历所有页目录项，找到其中用于实现自映射的页目录项，将其清空来解除自映射，并用计数器 <code>count</code> 记录解除自映射的数量。</li>
+<li class="lvl-6">通过上述页目录项的地址相对页目录首地址的偏移，算出自映射虚拟地址空间的首地址 <code>base</code>。</li>
+<li class="lvl-6">遍历 <code>[base, base + 1024 * PAGE_SIZE)</code> 的虚拟地址空间，清楚 TLB 缓存。</li>
+<li class="lvl-6">返回 <code>count</code> 的值。</li>
+</ul>
+</li>
+</ul>
+<p>首先是第一个函数，一步步来：</p>
+<ol>
+<li class="lvl-3">
+<p>遍历并检查映射，这个其实在 Lab2 中已有出现，用的是 <code>pgdir_walk</code> 函数：</p>
+</li>
+</ol>
+<figure class="highlight c"><figcaption><span>kern/pmap.c</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">create_self_map</span><span class="params">(Pde *pgdir, u_int asid, u_long base)</span> &#123;</span><br><span class="line">	<span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">	<span class="comment">/* Your Code Here (1/4) */</span></span><br><span class="line">	u_long va = base;</span><br><span class="line">	<span class="keyword">for</span> (; va &lt; base + <span class="number">1024</span> * PAGE_SIZE; va += PAGE_SIZE) &#123;</span><br><span class="line">		Pte *pte = <span class="literal">NULL</span>;</span><br><span class="line">		pgdir_walk(pgdir, va, <span class="number">0</span>, &amp;pte);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果 <code>pte</code> 地址不为空且页表项有效位有效，则表示有映射，用 <code>page_remove</code> 移除映射：</p>
+<figure class="highlight c"><figcaption><span>kern/pmap.c</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Pte *pte = <span class="literal">NULL</span>;</span><br><span class="line">pgdir_walk(pgdir, va, <span class="number">0</span>, &amp;pte);</span><br><span class="line"><span class="keyword">if</span> (pte &amp;&amp; (*pte &amp; PTE_V)) &#123;</span><br><span class="line">	page_remove(pgdir, asid, va);</span><br><span class="line">	count++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后是一句让人摸不着头脑的话：“将所有页表自映射到 <code>[base, base + 1024 * PAGE_SIZE)</code> 的地址空间”。这到底是什么意思呢？</p>
+<p>其实我们只要做一件事，那就是之前说的将页目录的那个特定的页目录项指向页目录本身。</p>
+<p>我们有这一片虚拟地址空间的首地址 <code>base</code>，我们有页目录基地址 <code>pgdir</code>，页目录项一定是 <code>pgdir + PDX(base) &lt;&lt; 2</code>，也就是 <code>pgdir[PDX(base)]</code>。我们要把页目录项的内容改成 <code>pgdir</code> 的物理地址，然后别忘了修改权限位：</p>
+<figure class="highlight c"><figcaption><span>kern/pmap.c</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pgdir[PDX(base)] = PADDR(pgdir) | PTE_V | PTE_C_CACHEABLE;</span><br><span class="line"><span class="keyword">return</span> count;</span><br></pre></td></tr></table></figure>
+<p>接着是两个计算用的函数，我们理解题意即可做出：</p>
+<ol>
+<li class="lvl-3">
+<p>第 <code>pdeno</code> 张页表的基地址是 <code>base + (pdeno &lt;&lt; 12)</code>（<code>pdeno</code> 乘以页表大小 <code>4KB</code>），这张页表的第 <code>pteno</code> 个页表项，就是再偏移 <code>pteno &lt;&lt; 2</code>（<code>pteno</code> 乘以页表项大小 <code>4byte</code>）：</p>
+</li>
+</ol>
+<figure class="highlight c"><figcaption><span>kern/pmap.c</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">u_long <span class="title function_">pte_va</span><span class="params">(u_long base, u_int pdeno, u_int pteno)</span> &#123;</span><br><span class="line">	<span class="comment">/* Your Code Here (2/4) */</span></span><br><span class="line">	<span class="keyword">return</span> base + (pdeno &lt;&lt; <span class="number">12</span>) + (pteno &lt;&lt; <span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li class="lvl-3">
+<p>我们需要理解一个数学关系：<code>pgdir = base + PDX(base) &lt;&lt; 12</code>。为什么？核心问题是为什么页目录是第 <code>PDX(base)</code> 个 <code>4KB</code> 大小的页表。解释是这样的：页目录的 <code>1024</code> 条页目录项，分别对应这 <code>1024</code> 个 <code>4KB</code> 页表，比如第 <code>0</code> 条页目录项对应第 <code>0</code> 个页表。现在我们知道第 <code>PDX(base)</code> 条页目录项对应页目录这个页表，那它自然是第 <code>PDX(base)</code> 个页表了。所以有 <code>pgdir = base + PDX(base) &lt;&lt; 12</code>。</p>
+</li>
+</ol>
+<figure class="highlight c"><figcaption><span>kern/pmap.c</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">u_long <span class="title function_">pde_va</span><span class="params">(u_long base, u_int pdeno)</span> &#123;</span><br><span class="line">	<span class="comment">/* Your Code Here (3/4) */</span></span><br><span class="line">	<span class="keyword">return</span> base + (PDX(base) &lt;&lt; <span class="number">12</span>) + (pdeno &lt;&lt; <span class="number">2</span>);</span><br><span class="line">	<span class="comment">// 事实上就是 base + (pgdir + pdeno &lt;&lt; 2)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后是解除自映射：</p>
+<ol>
+<li class="lvl-3">
+<p>循环 1024 次，遍历每个页目录项，如果发现页目录项的内容等于页目录基地址，说明这就是自映射的那个页目录项，将其清空</p>
+</li>
+</ol>
+<figure class="highlight c"><figcaption><span>kern/pmap.c</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">remove_all_self_map</span><span class="params">(Pde *pgdir, u_int asid)</span> &#123;</span><br><span class="line">	<span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">	<span class="comment">/* Your Code Here (4/4) */</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1024</span>; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (PTE_ADDR(pgdir[i]) == PADDR(pgdir)) &#123;</span><br><span class="line">			count++;</span><br><span class="line">			pgdir[i] = <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li class="lvl-3">
+<p>得到 <code>base</code> 的值：循环变量 <code>i</code> 相当于是虚拟地址的高 <code>10</code> 位（因为我们用页目录基地址加 <code>i</code> 这个偏移量得到页目录项），因此我们将其左移 <code>22</code> 位就能得到虚拟地址空间的首地址：</p>
+</li>
+</ol>
+<figure class="highlight c"><figcaption><span>kern/pmap.c</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">remove_all_self_map</span><span class="params">(Pde *pgdir, u_int asid)</span> &#123;</span><br><span class="line">	<span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">	<span class="comment">/* Your Code Here (4/4) */</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1024</span>; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (PTE_ADDR(pgdir[i]) == PADDR(pgdir)) &#123;</span><br><span class="line">			count++;</span><br><span class="line">			pgdir[i] = <span class="number">0</span>;</span><br><span class="line">			u_long base = i &lt;&lt; <span class="number">22</span>; <span class="comment">// </span></span><br><span class="line">			u_long va = base;</span><br><span class="line">			<span class="keyword">for</span> (; va &lt; base + <span class="number">1024</span> * PAGE_SIZE; va += PAGE_SIZE) &#123;</span><br><span class="line">				tlb_invalidate(asid, va);</span><br><span class="line">			&#125;		</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="实验报告">实验报告</h2>
+<h3 id="思考题">思考题</h3>
+<h4 id="Thinking-2-1">Thinking 2.1</h4>
 <p>都是虚拟地址。</p>
-<h3 id="Thinking-2-2">Thinking 2.2</h3>
+<h4 id="Thinking-2-2">Thinking 2.2</h4>
 <p>用宏来实现链表的生成以及增删改查，可以适用于多种类型。对于：</p>
 <figure class="highlight c"><figcaption><span>queue.h</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> LIST_ENTRY(type)                                                                           \</span></span><br><span class="line"><span class="meta">	struct &#123;                                                                                   \</span></span><br><span class="line"><span class="meta">		struct type *le_next;  <span class="comment">/* next element */</span>                                          \</span></span><br><span class="line"><span class="meta">		struct type **le_prev; <span class="comment">/* address of previous next element */</span>                      \</span></span><br><span class="line"><span class="meta">	&#125;</span></span><br><span class="line">	</span><br><span class="line"><span class="comment">/* something */</span></span><br></pre></td></tr></table></figure>
 <p>可以根据传入的 <code>type</code> 来生成不同的链表结构。</p>
@@ -372,7 +498,7 @@ VA_{kseg0} - \text{0x80000000} = PA
 <p>单向链表在某个节点后插入新节点的时间复杂度是 <code>O(1)</code>，在尾部插入的时间复杂度是 <code>O(n)</code>；删除任意位置的时间复杂度是 <code>O(n)</code>。</p>
 <p>双向链表的增删时间复杂度都是 <code>O(1)</code>。</p>
 <p>循环链表的增删时间复杂度都是 <code>O(1)</code>。</p>
-<h3 id="Thinking-2-3">Thinking 2.3</h3>
+<h4 id="Thinking-2-3">Thinking 2.3</h4>
 <p>选 C。<br>
 在 <code>pmap.h</code> 中，有：</p>
 <figure class="highlight c"><figcaption><span>pmap.h</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LIST_HEAD(Page_list, Page);</span><br></pre></td></tr></table></figure>
@@ -387,7 +513,7 @@ VA_{kseg0} - \text{0x80000000} = PA
 <p>展开 <code>Page_LIST_entry_t</code>，并代入 <code>struct Page</code>：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Page</span> &#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">        <span class="class"><span class="keyword">struct</span> <span class="title">Page</span> *<span class="title">le_next</span>;</span></span><br><span class="line">        <span class="class"><span class="keyword">struct</span> <span class="title">Page</span> **<span class="title">le_prev</span>;</span></span><br><span class="line">    &#125; pp_link;</span><br><span class="line">    u_short pp_ref;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>代回 <code>Page_list</code> 得到 C。</p>
-<h3 id="Thinking-2-4">Thinking 2.4</h3>
+<h4 id="Thinking-2-4">Thinking 2.4</h4>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p><code>ASID</code> 的必要性</p>
@@ -400,7 +526,7 @@ VA_{kseg0} - \text{0x80000000} = PA
 <p>最大数量：2<sup>8</sup> = 256 个地址空间。</p>
 </li>
 </ul>
-<h3 id="Thinking-2-5">Thinking 2.5</h3>
+<h4 id="Thinking-2-5">Thinking 2.5</h4>
 <ol>
 <li class="lvl-3">
 <p><code>tlb_invalidate</code> 调用 <code>tlb_out</code>。</p>
@@ -421,7 +547,7 @@ VA_{kseg0} - \text{0x80000000} = PA
 <figure class="highlight mipsasm"><figcaption><span>tlb_asm.S</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">mtc0 </span>   <span class="built_in">zero</span>, CP0_ENTRYHI</span><br><span class="line"><span class="keyword">mtc0 </span>   <span class="built_in">zero</span>, CP0_ENTRYLO0</span><br><span class="line"><span class="keyword">mtc0 </span>   <span class="built_in">zero</span>, CP0_ENTRYLO1</span><br></pre></td></tr></table></figure>
 <p>最后用 <code>tlbwi</code> 指令，将三个寄存器的值写入表项，实现清零。</p>
 <figure class="highlight mipsasm"><figcaption><span>tlb_asm.S</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">nop</span></span><br><span class="line"><span class="keyword"></span><span class="keyword">tlbwi</span></span><br></pre></td></tr></table></figure>
-<h3 id="Thinking-2-6">Thinking 2.6</h3>
+<h4 id="Thinking-2-6">Thinking 2.6</h4>
 <ol>
 <li class="lvl-3">
 <p>触发 TLB Miss 后进入 TLB 重填步骤：<code>do_tlb_refill</code>。</p>
@@ -433,7 +559,7 @@ VA_{kseg0} - \text{0x80000000} = PA
 <p>分配页面：<code>page_alloc</code>。</p>
 </li>
 </ol>
-<h3 id="Thinking-2-7">Thinking 2.7</h3>
+<h4 id="Thinking-2-7">Thinking 2.7</h4>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p>X86 采用段页式的内存管理机制，MIPS 采用的是纯粹的页式管理。</p>
@@ -534,7 +660,7 @@ VA_{kseg0} - \text{0x80000000} = PA
 
 
 
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%8F"><span class="toc-text">序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E5%8F%8D%E6%80%9D"><span class="toc-text">一些反思</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E5%9B%9E%E8%AF%B4%E5%88%B0%E2%80%A6%E2%80%A6"><span class="toc-text">上回说到……</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E6%A0%B8%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">内核初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mips-detect-memory"><span class="toc-text">mips_detect_memory</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mips-vm-init"><span class="toc-text">mips_vm_init</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%B5%E6%8E%A7%E5%88%B6%E5%9D%97"><span class="toc-text">页控制块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#alloc"><span class="toc-text">alloc</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#page-init"><span class="toc-text">page_init</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%93%BE%E8%A1%A8%E5%AE%8F"><span class="toc-text">链表宏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9E%E5%88%B0-page-init"><span class="toc-text">回到 page_init</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B5%E5%BC%8F%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="toc-text">页式内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E-TLB-%E5%BC%80%E5%A7%8B"><span class="toc-text">从 TLB 开始</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TLB-%E9%87%8D%E5%A1%AB"><span class="toc-text">TLB 重填</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#do-tlb-refill"><span class="toc-text">_do_tlb_refill</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B5%E7%9A%84%E6%9F%A5%E6%89%BE"><span class="toc-text">页的查找</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#page-lookup"><span class="toc-text">page_lookup</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pgdir-walk"><span class="toc-text">pgdir_walk</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#page-alloc"><span class="toc-text">page_alloc</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B5%E7%9A%84%E7%94%B3%E8%AF%B7"><span class="toc-text">页的申请</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#passive-alloc"><span class="toc-text">passive_alloc</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#page-insert"><span class="toc-text">page_insert</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B5%E7%9A%84%E7%A7%BB%E9%99%A4"><span class="toc-text">页的移除</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#page-remove"><span class="toc-text">page_remove</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tlb-invalidate"><span class="toc-text">tlb_invalidate</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%8B"><span class="toc-text">跋</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%80%83%E9%A2%98"><span class="toc-text">思考题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Thinking-2-1"><span class="toc-text">Thinking 2.1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Thinking-2-2"><span class="toc-text">Thinking 2.2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Thinking-2-3"><span class="toc-text">Thinking 2.3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Thinking-2-4"><span class="toc-text">Thinking 2.4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Thinking-2-5"><span class="toc-text">Thinking 2.5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Thinking-2-6"><span class="toc-text">Thinking 2.6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Thinking-2-7"><span class="toc-text">Thinking 2.7</span></a></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%8F"><span class="toc-text">序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E5%8F%8D%E6%80%9D"><span class="toc-text">一些反思</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E5%9B%9E%E8%AF%B4%E5%88%B0%E2%80%A6%E2%80%A6"><span class="toc-text">上回说到……</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E6%A0%B8%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">内核初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mips-detect-memory"><span class="toc-text">mips_detect_memory</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mips-vm-init"><span class="toc-text">mips_vm_init</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%B5%E6%8E%A7%E5%88%B6%E5%9D%97"><span class="toc-text">页控制块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#alloc"><span class="toc-text">alloc</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#page-init"><span class="toc-text">page_init</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%93%BE%E8%A1%A8%E5%AE%8F"><span class="toc-text">链表宏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9E%E5%88%B0-page-init"><span class="toc-text">回到 page_init</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B5%E5%BC%8F%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="toc-text">页式内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E-TLB-%E5%BC%80%E5%A7%8B"><span class="toc-text">从 TLB 开始</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TLB-%E9%87%8D%E5%A1%AB"><span class="toc-text">TLB 重填</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#do-tlb-refill"><span class="toc-text">_do_tlb_refill</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B5%E7%9A%84%E6%9F%A5%E6%89%BE"><span class="toc-text">页的查找</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#page-lookup"><span class="toc-text">page_lookup</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pgdir-walk"><span class="toc-text">pgdir_walk</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#page-alloc"><span class="toc-text">page_alloc</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B5%E7%9A%84%E7%94%B3%E8%AF%B7"><span class="toc-text">页的申请</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#passive-alloc"><span class="toc-text">passive_alloc</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#page-insert"><span class="toc-text">page_insert</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B5%E7%9A%84%E7%A7%BB%E9%99%A4"><span class="toc-text">页的移除</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#page-remove"><span class="toc-text">page_remove</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tlb-invalidate"><span class="toc-text">tlb_invalidate</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%8B"><span class="toc-text">跋</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BE%E4%B8%8A%E6%B5%8B%E8%AF%95"><span class="toc-text">课上测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Lab2-Exam"><span class="toc-text">Lab2 Exam</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lab2-Extra"><span class="toc-text">Lab2 Extra</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A"><span class="toc-text">实验报告</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%80%83%E9%A2%98"><span class="toc-text">思考题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Thinking-2-1"><span class="toc-text">Thinking 2.1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Thinking-2-2"><span class="toc-text">Thinking 2.2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Thinking-2-3"><span class="toc-text">Thinking 2.3</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Thinking-2-4"><span class="toc-text">Thinking 2.4</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Thinking-2-5"><span class="toc-text">Thinking 2.5</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Thinking-2-6"><span class="toc-text">Thinking 2.6</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Thinking-2-7"><span class="toc-text">Thinking 2.7</span></a></li></ol></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
 </div></aside><div class='float-panel'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
