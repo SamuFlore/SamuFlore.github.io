@@ -29,17 +29,17 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://samuflore.top/images/avatar.jpg">
 <meta property="article:published_time" content="2026-04-06T14:20:06.000Z">
-<meta property="article:modified_time" content="2026-04-16T15:53:58.448Z">
+<meta property="article:modified_time" content="2026-04-21T11:39:53.362Z">
 <meta property="article:author" content="Samustach Floresein">
 <meta property="article:tag" content="梅月">
 <meta property="article:tag" content="OS">
-<meta property="article:tag" content="Lab1">
+<meta property="article:tag" content="Lab2">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://samuflore.top/images/avatar.jpg">
   
   
   
-  <meta name="keywords" content="梅月,OS,Lab1">
+  <meta name="keywords" content="梅月,OS,Lab2">
 
   <!-- feed -->
   
@@ -55,7 +55,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg"},"dateCreated":"2026-04-06T22:20:06+08:00","dateModified":"2026-04-16T23:53:58+08:00","datePublished":"2026-04-06T22:20:06+08:00","description":"","headline":"[BUAA OS Lab2]内存管理","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/4a08425d/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg","logo":{"@type":"ImageObject","url":"/images/avatar.jpg"}},"url":"https://samuflore.top/posts/4a08425d/","keywords":"梅月, OS, Lab1","thumbnailUrl":null,"image":[]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg"},"dateCreated":"2026-04-06T22:20:06+08:00","dateModified":"2026-04-21T19:39:53+08:00","datePublished":"2026-04-06T22:20:06+08:00","description":"","headline":"[BUAA OS Lab2]内存管理","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/4a08425d/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg","logo":{"@type":"ImageObject","url":"/images/avatar.jpg"}},"url":"https://samuflore.top/posts/4a08425d/","keywords":"梅月, OS, Lab2","thumbnailUrl":null,"image":[]}</script>
   <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&family=Mozilla+Headline:wght@200..700&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@200..700&display=swap" rel="stylesheet">
 <!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- hexo injector head_end end --><style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--blockquote-bg-color:#555;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 <body><div class="sitebg"><div class="siteblur"></div></div>
@@ -78,9 +78,9 @@
 <a class="link" title="Kamonto's Little Planet" target="_blank" rel="noopener" href="https://kamonto.github.io/Kamonto_blog/"><div class="flex"><svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M6 9a3 3 0 1 0 0 6h3a1 1 0 1 1 0 2H6A5 5 0 0 1 6 7h3a1 1 0 0 1 0 2zm1 3a1 1 0 0 1 1-1h8a1 1 0 1 1 0 2H8a1 1 0 0 1-1-1m8-5a1 1 0 1 0 0 2h3a3 3 0 1 1 0 6h-3a1 1 0 1 0 0 2h3a5 5 0 0 0 0-10z" clip-rule="evenodd"/></svg><span>Kamonto's Little Planet</span></div></a>
 <a class="link" title="钟鼓楼" target="_blank" rel="noopener" href="https://thysrael.github.io/"><div class="flex"><svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M6 9a3 3 0 1 0 0 6h3a1 1 0 1 1 0 2H6A5 5 0 0 1 6 7h3a1 1 0 0 1 0 2zm1 3a1 1 0 0 1 1-1h8a1 1 0 1 1 0 2H8a1 1 0 0 1-1-1m8-5a1 1 0 1 0 0 2h3a3 3 0 1 1 0 6h-3a1 1 0 1 0 0 2h3a5 5 0 0 0 0-10z" clip-rule="evenodd"/></svg><span>钟鼓楼</span></div></a></div></div></widget>
 
-<widget class="widget-wrapper related post-list"><div class="widget-header dis-select"><span class="name">专栏：26 操作系统</span></div><div class="widget-body"><a class="item active" href="/posts/4a08425d/"><span class="title">[BUAA OS Lab2]内存管理</span><svg class="active-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M21 11.098v4.993c0 3.096 0 4.645-.734 5.321c-.35.323-.792.526-1.263.58c-.987.113-2.14-.907-4.445-2.946c-1.02-.901-1.529-1.352-2.118-1.47a2.225 2.225 0 0 0-.88 0c-.59.118-1.099.569-2.118 1.47c-2.305 2.039-3.458 3.059-4.445 2.945a2.238 2.238 0 0 1-1.263-.579C3 20.736 3 19.188 3 16.091v-4.994C3 6.81 3 4.666 4.318 3.333C5.636 2 7.758 2 12 2c4.243 0 6.364 0 7.682 1.332C21 4.665 21 6.81 21 11.098" opacity=".5"/><path fill="currentColor" d="M9 5.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5z"/></svg></a><a class="item" href="/posts/acdcdd17/"><span class="title">[BUAA OS Lab1]内核、启动和 Printf</span></a><a class="item" href="/posts/48d104ae/"><span class="title">[BUAA OS Lab0]如何成为 Makefile 和 Shell 大神</span></a><a class="item" href="/posts/9998f383/"><span class="title">[BUAA OS Pre]GDB</span></a><a class="item" href="/posts/d6b2cc32/"><span class="title">[BUAA OS Pre]概念拾遗</span></a><a class="item" href="/posts/5069adfd/"><span class="title">[BUAA OS Pre]Hello, Linux!</span></a></div></widget>
+<widget class="widget-wrapper related post-list"><div class="widget-header dis-select"><span class="name">专栏：26 操作系统</span></div><div class="widget-body"><a class="item" href="/posts/c35d5e9/"><span class="title">[BUAA OS Lab3]进程与异常</span></a><a class="item active" href="/posts/4a08425d/"><span class="title">[BUAA OS Lab2]内存管理</span><svg class="active-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M21 11.098v4.993c0 3.096 0 4.645-.734 5.321c-.35.323-.792.526-1.263.58c-.987.113-2.14-.907-4.445-2.946c-1.02-.901-1.529-1.352-2.118-1.47a2.225 2.225 0 0 0-.88 0c-.59.118-1.099.569-2.118 1.47c-2.305 2.039-3.458 3.059-4.445 2.945a2.238 2.238 0 0 1-1.263-.579C3 20.736 3 19.188 3 16.091v-4.994C3 6.81 3 4.666 4.318 3.333C5.636 2 7.758 2 12 2c4.243 0 6.364 0 7.682 1.332C21 4.665 21 6.81 21 11.098" opacity=".5"/><path fill="currentColor" d="M9 5.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5z"/></svg></a><a class="item" href="/posts/acdcdd17/"><span class="title">[BUAA OS Lab1]内核、启动和 Printf</span></a><a class="item" href="/posts/48d104ae/"><span class="title">[BUAA OS Lab0]如何成为 Makefile 和 Shell 大神</span></a><a class="item" href="/posts/9998f383/"><span class="title">[BUAA OS Pre]GDB</span></a><a class="item" href="/posts/d6b2cc32/"><span class="title">[BUAA OS Pre]概念拾遗</span></a><a class="item" href="/posts/5069adfd/"><span class="title">[BUAA OS Pre]Hello, Linux!</span></a></div></widget>
 
-<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/posts/4a08425d/"><span class="title">[BUAA OS Lab2]内存管理</span></a><a class="item title" href="/posts/b1cdfa63/"><span class="title">[BUAA 概率與數理模型]概统概要</span></a><a class="item title" href="/posts/585cfa20/"><span class="title">†[BUAA 基礎物理學]基础物理学 B II 概要</span></a><a class="item title" href="/posts/6d68c22/"><span class="title">[BUAA CO P2]P2 上机之思考</span></a><a class="item title" href="/posts/627c408f/"><span class="title">[BUAA CO P3]Logisim 设计单周期 CPU</span></a><a class="item title" href="/posts/53039668/"><span class="title">[BUAA CO P4]Verilog 设计单周期 CPU</span></a><a class="item title" href="/posts/65cd5a9/"><span class="title">[BUAA CO P5]Verilog 设计五级流水线 CPU</span></a><a class="item title" href="/posts/905092e9/"><span class="title">[BUAA CO P6]Verilog 设计五级流水线 CPU-2</span></a><a class="item title" href="/posts/28be479a/"><span class="title">[BUAA CO P7]Verilog 设计 MIPS 微系统</span></a><a class="item title" href="/posts/444343b2/"><span class="title">[BUAA CO Finale] 2025 北航计算机组成实验总结</span></a></div></widget>
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/posts/c35d5e9/"><span class="title">[BUAA OS Lab3]进程与异常</span></a><a class="item title" href="/posts/4a08425d/"><span class="title">[BUAA OS Lab2]内存管理</span></a><a class="item title" href="/posts/b1cdfa63/"><span class="title">[BUAA 概率與數理模型]概统概要</span></a><a class="item title" href="/posts/585cfa20/"><span class="title">†[BUAA 基礎物理學]基础物理学 B II 概要</span></a><a class="item title" href="/posts/6d68c22/"><span class="title">[BUAA CO P2]P2 上机之思考</span></a><a class="item title" href="/posts/627c408f/"><span class="title">[BUAA CO P3]Logisim 设计单周期 CPU</span></a><a class="item title" href="/posts/53039668/"><span class="title">[BUAA CO P4]Verilog 设计单周期 CPU</span></a><a class="item title" href="/posts/65cd5a9/"><span class="title">[BUAA CO P5]Verilog 设计五级流水线 CPU</span></a><a class="item title" href="/posts/905092e9/"><span class="title">[BUAA CO P6]Verilog 设计五级流水线 CPU-2</span></a><a class="item title" href="/posts/28be479a/"><span class="title">[BUAA CO P7]Verilog 设计 MIPS 微系统</span></a></div></widget>
 </div>
 
 </div></aside><div class="l_main" id="main">
@@ -92,8 +92,8 @@
 <div class="article banner top">
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
-<span class="sep"></span><a class="cap breadcrumb" id="menu" href="/topic/">专栏</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/posts/4a08425d/">26 操作系统</a></div>
-<div class="flex-row" id="post-meta"><a class="author" href="/author/samuflore/">Seymiris Asakawa</a><span class="sep"></span><span class="text created"><time datetime="2026-04-06T14:20:06.000Z">2026-04-06</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-04-16T15:53:58.448Z">2026-04-16</time></span></div></div></div>
+<span class="sep"></span><a class="cap breadcrumb" id="menu" href="/topic/">专栏</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/posts/c35d5e9/">26 操作系统</a></div>
+<div class="flex-row" id="post-meta"><a class="author" href="/author/samuflore/">Seymiris Asakawa</a><span class="sep"></span><span class="text created"><time datetime="2026-04-06T14:20:06.000Z">2026-04-06</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-04-21T11:39:53.362Z">2026-04-21</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -382,6 +382,8 @@ VA_{kseg0} - \text{0x80000000} = PA
 </strong></div><div class="body"><p>可以用 <code>LIST_FOREACH</code> 宏实现遍历，记得维护好计数器和指向链表节点的临时变量 <code>_var</code>。</p></div></div>
 <h3 id="Lab2-Extra">Lab2 Extra</h3>
 <p>Lab2 Extra 涉及到页表自映射的原理和实现。</p>
+<div class="tag-plugin colorful note" color="purple"><div class="title"><strong><p>注意</p>
+</strong></div><div class="body"><p>左移 <code>&lt;&lt;</code> <code>12</code> 位等价于乘以页面大小 <code>4KB</code>，左移 <code>&lt;&lt;</code> <code>2</code> 位等价于乘以表项大小 <code>4byte</code>。之后不会再强调这一点了（）</p></div></div>
 <p>在正式开始之前，我们需要了解页表自映射是怎么一回事。</p>
 <p>一直以来，我们都只能通过 <code>kseg0</code> 段的虚拟地址来访问页目录和页表，这限制了我们只能在内核态访问它们。现在我们希望在用户态可以通过只读的方式访问到页表。</p>
 <p>换句话说，我们需要从 <code>kuseg</code> 段中选一部分虚拟地址出来，将它们映射到页表所在的物理页面。虚拟地址空间很大，不用白不用（当然这是相对于物理地址空间而言的）。</p>
@@ -392,24 +394,18 @@ VA_{kseg0} - \text{0x80000000} = PA
 <p>具体是这样做：既然我们查到的永远是同一个页目录项，并且这个页目录项会指向同一个页表，而我们现在又要将二者变成同一个东西，那我们干脆让这个页目录项指向这个页目录本身就好了。这样的话，页目录同时又成了页表，实现了合二为一。</p>
 <p>我们的内存布局就会变成这样：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">+-----+ base</span><br><span class="line">|  0  | 页表 </span><br><span class="line">+-----+</span><br><span class="line">|  1  | 页表</span><br><span class="line">+-----+</span><br><span class="line">| ... |</span><br><span class="line">| ... |</span><br><span class="line">+-----+</span><br><span class="line">|	  | 既是页表，也是页目录</span><br><span class="line">+-----+</span><br><span class="line">| ... |</span><br><span class="line">| ... |</span><br><span class="line">+-----+</span><br><span class="line">| 1023|</span><br><span class="line">+-----+ base + 4MB</span><br></pre></td></tr></table></figure>
-<p>我们模拟一下流程：</p>
+<p>那凭什么仅仅只让页目录的某一个特殊项指向页目录自己的物理地址，就能让所有页表自动地平铺到 <code>[base, base + 4MB)</code> 这个虚拟地址空间呢？<br>
+对于 <code>[base, base + 4MB)</code> 这一段空间，我们知道 <code>base + i &lt;&lt; 12</code> 可以得到第 <code>i</code> 个页表的基地址。当页目录的某个特殊项指向自己的物理地址，页目录本身也成了一个页表，我们假设 <code>base + k &lt;&lt; 12</code> 可以找到页目录的基地址，它同时是第 <code>k</code> 个页表的基地址。</p>
+<p>现在对于虚拟地址空间内的任何一个虚拟地址 <code>va</code>，我们按照虚拟地址翻译到物理地址的过程走一遍：</p>
 <ol>
 <li class="lvl-3">
-<p>拿到虚拟地址，位于 <code>[base, base + 4MB)</code> 内。</p>
+<p>取一级页表偏移 <code>PDX(va)</code>，找到页目录项：<code>pgdir + PDX(va) &lt;&lt; 2</code>。按之前假设的页目录基地址，这应该是 <code>base + k &lt;&lt; 12 + PDX(va) &lt;&lt; 2</code>。由于第 <code>i</code> 个页目录项对应的是第 <code>i</code> 个页表的基地址 <code>base + i &lt;&lt; 12</code>，我们这里找到的事实上是第 <code>PDX(va)</code> 个页表的基地址 <code>base + PDX(va) &lt;&lt; 12</code>。</p>
 </li>
 <li class="lvl-3">
-<p>页目录基地址 + 虚拟地址高 <code>10</code> 位偏移量 * 每项 <code>4byte</code> 得到页目录项。</p>
-</li>
-<li class="lvl-3">
-<p>这个页目录项指向了页目录的基地址。但 CPU 并不知道它还是页目录，CPU 以为已经找到了页表。</p>
-</li>
-<li class="lvl-3">
-<p>页表基地址 + 虚拟地址中间 <code>10</code> 位偏移量 * 每项 <code>4byte</code> 得到页表项。</p>
-</li>
-<li class="lvl-3">
-<p>根据页表项找到了物理页。</p>
+<p>取二级页表偏移 <code>PTX(va)</code>，得到页表项：<code>base + PDX(va) &lt;&lt; 12 + PTX(va) &lt;&lt; 2</code>。</p>
 </li>
 </ol>
+<p>啊哈！这真是太神奇了。相当于我们不用苦哈哈地去管什么地址翻译流程，我们只需要从 <code>base</code> 开始偏移两次：一次是高 <code>10</code> 位 <code>PDX(va)</code>，一次是中间 <code>10</code> 位 <code>PTX(va)</code>，就能找到虚拟地址对应的页表项，得到物理页框号了！</p>
 <p>有了对自映射的基本认知，我们来看看问题是什么。</p>
 <p>我们需要完成四个函数，模拟自映射的建立、查询和解除：</p>
 <ul class="lvl-0">
@@ -468,7 +464,7 @@ VA_{kseg0} - \text{0x80000000} = PA
 <p>我们需要理解一个数学关系：<code>pgdir = base + PDX(base) &lt;&lt; 12</code>。为什么？核心问题是为什么页目录是第 <code>PDX(base)</code> 个 <code>4KB</code> 大小的页表。解释是这样的：页目录的 <code>1024</code> 条页目录项，分别对应这 <code>1024</code> 个 <code>4KB</code> 页表，比如第 <code>0</code> 条页目录项对应第 <code>0</code> 个页表。现在我们知道第 <code>PDX(base)</code> 条页目录项对应页目录这个页表，那它自然是第 <code>PDX(base)</code> 个页表了。所以有 <code>pgdir = base + PDX(base) &lt;&lt; 12</code>。</p>
 </li>
 </ol>
-<figure class="highlight c"><figcaption><span>kern/pmap.c</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">u_long <span class="title function_">pde_va</span><span class="params">(u_long base, u_int pdeno)</span> &#123;</span><br><span class="line">	<span class="comment">/* Your Code Here (3/4) */</span></span><br><span class="line">	<span class="keyword">return</span> base + (PDX(base) &lt;&lt; <span class="number">12</span>) + (pdeno &lt;&lt; <span class="number">2</span>);</span><br><span class="line">	<span class="comment">// 事实上就是 base + (pgdir + pdeno &lt;&lt; 2)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><figcaption><span>kern/pmap.c</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">u_long <span class="title function_">pde_va</span><span class="params">(u_long base, u_int pdeno)</span> &#123;</span><br><span class="line">	<span class="comment">/* Your Code Here (3/4) */</span></span><br><span class="line">	<span class="keyword">return</span> base + (PDX(base) &lt;&lt; <span class="number">12</span>) + (pdeno &lt;&lt; <span class="number">2</span>);</span><br><span class="line">	<span class="comment">// 事实上就是 pgdir + pdeno &lt;&lt; 2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>然后是解除自映射：</p>
 <ol>
 <li class="lvl-3">
@@ -593,14 +589,14 @@ VA_{kseg0} - \text{0x80000000} = PA
 
 </div>
 
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/posts/37f95f86/">[BUAA OO]OO Unit1 总结：表达式解析</a></div></section></div>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/posts/c35d5e9/">[BUAA OS Lab3]进程与异常</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/posts/37f95f86/">[BUAA OO]OO Unit1 总结：表达式解析</a></div></section></div>
 
 <div class="related-wrap" id="related-posts">
     <section class='header'>
       <div class='title cap theme'>您可能感兴趣的文章</div>
     </section>
     <section class='body'>
-    <div class="related-posts"><a class="item" href="\posts\acdcdd17\" title="[BUAA OS Lab1]内核、启动和 Printf"><span class="title">[BUAA OS Lab1]内核、启动和 Printf</span><span class="excerpt">侵入内核。</span></a><a class="item" href="\posts\f183ae5b\" title="[長欣集]梅间"><span class="title">[長欣集]梅间</span><span class="excerpt">何風雲之易幻兮、夫惟舊日以焉追？</span></a><a class="item" href="\posts\48d104ae\" title="[BUAA OS Lab0]如何成为 Makefile 和 Shell 大神"><span class="title">[BUAA OS Lab0]如何成为 Makefile 和 Shell 大神</span><span class="excerpt">我想成为 Makefile & Shell 领域大神……</span></a><a class="item" href="\posts\9998f383\" title="[BUAA OS Pre]GDB"><span class="title">[BUAA OS Pre]GDB</span><span class="excerpt">GNU Debugger 怎么用？</span></a><a class="item" href="\posts\d6b2cc32\" title="[BUAA OS Pre]概念拾遗"><span class="title">[BUAA OS Pre]概念拾遗</span><span class="excerpt">了解之前遗漏的知识。</span></a></div></section></div>
+    <div class="related-posts"><a class="item" href="\posts\c35d5e9\" title="[BUAA OS Lab3]进程与异常"><span class="title">[BUAA OS Lab3]进程与异常</span><span class="excerpt">别失手！</span></a><a class="item" href="\posts\f183ae5b\" title="[長欣集]梅间"><span class="title">[長欣集]梅间</span><span class="excerpt">何風雲之易幻兮、夫惟舊日以焉追？</span></a><a class="item" href="\posts\acdcdd17\" title="[BUAA OS Lab1]内核、启动和 Printf"><span class="title">[BUAA OS Lab1]内核、启动和 Printf</span><span class="excerpt">侵入内核。</span></a><a class="item" href="\posts\48d104ae\" title="[BUAA OS Lab0]如何成为 Makefile 和 Shell 大神"><span class="title">[BUAA OS Lab0]如何成为 Makefile 和 Shell 大神</span><span class="excerpt">我想成为 Makefile & Shell 领域大神……</span></a><a class="item" href="\posts\9998f383\" title="[BUAA OS Pre]GDB"><span class="title">[BUAA OS Pre]GDB</span><span class="excerpt">GNU Debugger 怎么用？</span></a></div></section></div>
 
 
   <div class="related-wrap md-text" id="comments">
