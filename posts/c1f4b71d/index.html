@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://samuflore.top/images/avatar.jpg">
 <meta property="article:published_time" content="2026-05-06T07:02:28.000Z">
-<meta property="article:modified_time" content="2026-05-27T15:48:14.332Z">
+<meta property="article:modified_time" content="2026-05-27T16:50:39.769Z">
 <meta property="article:author" content="Samustach Floresein">
 <meta property="article:tag" content="OS">
 <meta property="article:tag" content="臯月">
@@ -55,7 +55,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg"},"dateCreated":"2026-05-06T15:02:28+08:00","dateModified":"2026-05-27T23:48:14+08:00","datePublished":"2026-05-06T15:02:28+08:00","description":"","headline":"[BUAA OS Lab4]系统调用、进程间通信与 Fork","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/c1f4b71d/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg","logo":{"@type":"ImageObject","url":"/images/avatar.jpg"}},"url":"https://samuflore.top/posts/c1f4b71d/","keywords":"OS, 臯月, Lab4","thumbnailUrl":null,"image":[]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg"},"dateCreated":"2026-05-06T15:02:28+08:00","dateModified":"2026-05-28T00:50:39+08:00","datePublished":"2026-05-06T15:02:28+08:00","description":"","headline":"[BUAA OS Lab4]系统调用、进程间通信与 Fork","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/c1f4b71d/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"/images/avatar.jpg","logo":{"@type":"ImageObject","url":"/images/avatar.jpg"}},"url":"https://samuflore.top/posts/c1f4b71d/","keywords":"OS, 臯月, Lab4","thumbnailUrl":null,"image":[]}</script>
   <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&family=Mozilla+Headline:wght@200..700&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@200..700&display=swap" rel="stylesheet"><style>
   @font-face {
     font-family: 'Torus';
@@ -137,7 +137,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" id="menu" href="/topic/">专栏</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/posts/e2112bdd/">26 操作系统</a></div>
-<div class="flex-row" id="post-meta"><a class="author" href="/author/samuflore/">Seymiris Asakawa</a><span class="sep"></span><span class="text created"><time datetime="2026-05-06T07:02:28.000Z">2026-05-06</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-05-27T15:48:14.332Z">2026-05-27</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><a class="author" href="/author/samuflore/">Seymiris Asakawa</a><span class="sep"></span><span class="text created"><time datetime="2026-05-06T07:02:28.000Z">2026-05-06</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-05-27T16:50:39.769Z">2026-05-28</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -406,10 +406,10 @@ Linus Torvalds, 2000</p>
 <h3 id="写在前面">写在前面</h3>
 <p>由于题目长度过长，我正考虑将题目转为 HTML 储存在站点中。</p>
 <h3 id="Lab-4-Exam">Lab 4 Exam</h3>
-<div class="tag-plugin link dis-select"><a class="link-card plain" title="Lab 4 Exam 题目" href="../../statics/lab4exam.mhtml" cardlink autofill><div class="left"><span class="title">Lab 4 Exam 题目</span><span class="cap link footnote">https://samuflore.top/statics/lab4exam.mhtml</span></div><div class="right"><div class="lazy img" data-bg="https://api.iconify.design/solar:text-bold-duotone.svg?color=%237777AA"></div></div></a></div>
+<div class="tag-plugin link dis-select"><a class="link-card plain" title="Lab 4 Exam 题目" href="../../statics/lab4exam.html" cardlink autofill><div class="left"><span class="title">Lab 4 Exam 题目</span><span class="cap link footnote">https://samuflore.top/statics/lab4exam</span></div><div class="right"><div class="lazy img" data-bg="https://api.iconify.design/solar:text-bold-duotone.svg?color=%237777AA"></div></div></a></div>
 <p>单击打开后如果未渲染，可以右击将 MHTML 文件保存至本地用浏览器打开。</p>
 <h3 id="Lab-4-Extra">Lab 4 Extra</h3>
-<div class="tag-plugin link dis-select"><a class="link-card plain" title="Lab 4 Extra 题目" href="../../statics/lab4extra.mhtml" cardlink autofill><div class="left"><span class="title">Lab 4 Extra 题目</span><span class="cap link footnote">https://samuflore.top/statics/lab4extra.mhtml</span></div><div class="right"><div class="lazy img" data-bg="https://api.iconify.design/solar:text-bold-duotone.svg?color=%237777AA"></div></div></a></div>
+<div class="tag-plugin link dis-select"><a class="link-card plain" title="Lab 4 Extra 题目" href="../../statics/lab4extra.html" cardlink autofill><div class="left"><span class="title">Lab 4 Extra 题目</span><span class="cap link footnote">https://samuflore.top/statics/lab4extra</span></div><div class="right"><div class="lazy img" data-bg="https://api.iconify.design/solar:text-bold-duotone.svg?color=%237777AA"></div></div></a></div>
 <p>单击打开后如果未渲染，可以右击将 MHTML 文件保存至本地用浏览器打开。</p>
 <h2 id="实验报告">实验报告</h2>
 <h3 id="思考题">思考题</h3>
