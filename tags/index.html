@@ -103,6 +103,12 @@
     line-height: 1.85;
     letter-spacing: 0.04em;
   }
+  /* Stellar 1.44.0 默认在移动端把根字号增加 2px，这里保持为 16px。 */
+  @media screen and (max-width: 667px) {
+    :root {
+      --fs-root: 16px;
+    }
+  }
 </style>
 
 
@@ -526,14 +532,14 @@
           <span class='name'>Hexo</span>
         </a>
       
-        <a class='tag' href="/tags/Repost/">
-          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
-          <span class='name'>Repost</span>
-        </a>
-      
         <a class='tag' href="/tags/Logisim/">
           <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
           <span class='name'>Logisim</span>
+        </a>
+      
+        <a class='tag' href="/tags/Repost/">
+          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
+          <span class='name'>Repost</span>
         </a>
       
         <a class='tag' href="/tags/Travel/">
@@ -611,19 +617,24 @@
           <span class='name'>P1</span>
         </a>
       
-        <a class='tag' href="/tags/P4/">
-          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
-          <span class='name'>P4</span>
-        </a>
-      
         <a class='tag' href="/tags/P3/">
           <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
           <span class='name'>P3</span>
         </a>
       
+        <a class='tag' href="/tags/P4/">
+          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
+          <span class='name'>P4</span>
+        </a>
+      
         <a class='tag' href="/tags/Tianjin-City/">
           <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
           <span class='name'>Tianjin City</span>
+        </a>
+      
+        <a class='tag' href="/tags/P5/">
+          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
+          <span class='name'>P5</span>
         </a>
       
         <a class='tag' href="/tags/P7/">
@@ -636,24 +647,19 @@
           <span class='name'>P6</span>
         </a>
       
-        <a class='tag' href="/tags/P5/">
-          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
-          <span class='name'>P5</span>
-        </a>
-      
         <a class='tag' href="/tags/Annual-Summary/">
           <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
           <span class='name'>Annual Summary</span>
         </a>
       
-        <a class='tag' href="/tags/Physics/">
-          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
-          <span class='name'>Physics</span>
-        </a>
-      
         <a class='tag' href="/tags/BanG-Dream/">
           <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
           <span class='name'>BanG Dream!</span>
+        </a>
+      
+        <a class='tag' href="/tags/Physics/">
+          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
+          <span class='name'>Physics</span>
         </a>
       
         <a class='tag' href="/tags/Arknights-Endfield/">
@@ -686,16 +692,6 @@
           <span class='name'>Guangdong Province</span>
         </a>
       
-        <a class='tag' href="/tags/Linux/">
-          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
-          <span class='name'>Linux</span>
-        </a>
-      
-        <a class='tag' href="/tags/Vim/">
-          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
-          <span class='name'>Vim</span>
-        </a>
-      
         <a class='tag' href="/tags/C/">
           <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
           <span class='name'>C</span>
@@ -706,6 +702,16 @@
           <span class='name'>GDB</span>
         </a>
       
+        <a class='tag' href="/tags/Linux/">
+          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
+          <span class='name'>Linux</span>
+        </a>
+      
+        <a class='tag' href="/tags/Vim/">
+          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
+          <span class='name'>Vim</span>
+        </a>
+      
         <a class='tag' href="/tags/RSS/">
           <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
           <span class='name'>RSS</span>
@@ -714,6 +720,11 @@
         <a class='tag' href="/tags/Lab0/">
           <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
           <span class='name'>Lab0</span>
+        </a>
+      
+        <a class='tag' href="/tags/Unit2/">
+          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
+          <span class='name'>Unit2</span>
         </a>
       
         <a class='tag' href="/tags/Lab1/">
@@ -731,21 +742,6 @@
           <span class='name'>NapCat</span>
         </a>
       
-        <a class='tag' href="/tags/Lab2/">
-          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
-          <span class='name'>Lab2</span>
-        </a>
-      
-        <a class='tag' href="/tags/Unit2/">
-          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
-          <span class='name'>Unit2</span>
-        </a>
-      
-        <a class='tag' href="/tags/Lab3/">
-          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
-          <span class='name'>Lab3</span>
-        </a>
-      
         <a class='tag' href="/tags/Jiangsu-Province/">
           <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
           <span class='name'>Jiangsu Province</span>
@@ -756,19 +752,19 @@
           <span class='name'>Nanjing City</span>
         </a>
       
+        <a class='tag' href="/tags/Lab2/">
+          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
+          <span class='name'>Lab2</span>
+        </a>
+      
+        <a class='tag' href="/tags/Lab3/">
+          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
+          <span class='name'>Lab3</span>
+        </a>
+      
         <a class='tag' href="/tags/Lab4/">
           <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
           <span class='name'>Lab4</span>
-        </a>
-      
-        <a class='tag' href="/tags/Lab5/">
-          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
-          <span class='name'>Lab5</span>
-        </a>
-      
-        <a class='tag' href="/tags/Lab6/">
-          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
-          <span class='name'>Lab6</span>
         </a>
       
         <a class='tag' href="/tags/Unit3/">
@@ -779,6 +775,16 @@
         <a class='tag' href="/tags/Unit4/">
           <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
           <span class='name'>Unit4</span>
+        </a>
+      
+        <a class='tag' href="/tags/Lab6/">
+          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
+          <span class='name'>Lab6</span>
+        </a>
+      
+        <a class='tag' href="/tags/Lab5/">
+          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
+          <span class='name'>Lab5</span>
         </a>
       
         <a class='tag' href="/tags/One-Hot-Encoding/">
@@ -821,21 +827,6 @@
           <span class='name'>Recursion</span>
         </a>
       
-        <a class='tag' href="/tags/Mount-Jinggang/">
-          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
-          <span class='name'>Mount Jinggang</span>
-        </a>
-      
-        <a class='tag' href="/tags/Jiangxi-Province/">
-          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
-          <span class='name'>Jiangxi Province</span>
-        </a>
-      
-        <a class='tag' href="/tags/Ji-an-City/">
-          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
-          <span class='name'>Ji&#39;an City</span>
-        </a>
-      
         <a class='tag' href="/tags/Sign-Magnitude/">
           <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
           <span class='name'>Sign-Magnitude</span>
@@ -856,9 +847,34 @@
           <span class='name'>Introduction</span>
         </a>
       
+        <a class='tag' href="/tags/Mount-Jinggang/">
+          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
+          <span class='name'>Mount Jinggang</span>
+        </a>
+      
+        <a class='tag' href="/tags/Jiangxi-Province/">
+          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
+          <span class='name'>Jiangxi Province</span>
+        </a>
+      
+        <a class='tag' href="/tags/Ji-an-City/">
+          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
+          <span class='name'>Ji&#39;an City</span>
+        </a>
+      
         <a class='tag' href="/tags/ISE/">
           <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
           <span class='name'>ISE</span>
+        </a>
+      
+        <a class='tag' href="/tags/MARS/">
+          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
+          <span class='name'>MARS</span>
+        </a>
+      
+        <a class='tag' href="/tags/Assembly-Language/">
+          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
+          <span class='name'>Assembly Language</span>
         </a>
       
         <a class='tag' href="/tags/Markdown/">
@@ -894,16 +910,6 @@
         <a class='tag' href="/tags/Font/">
           <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
           <span class='name'>Font</span>
-        </a>
-      
-        <a class='tag' href="/tags/MARS/">
-          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
-          <span class='name'>MARS</span>
-        </a>
-      
-        <a class='tag' href="/tags/Assembly-Language/">
-          <svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>
-          <span class='name'>Assembly Language</span>
         </a>
       
         <a class='tag' href="/tags/%E6%9D%8F%E6%9C%88/">
