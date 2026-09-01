@@ -8768,6 +8768,56 @@ details.toc[open] >div.body section .header+.doc_tree {
     background: var(--bg-a20);
   }
 }
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+  transition-property: background-color, border-color, color, fill, stroke !important;
+  transition-duration: 0.3s !important;
+  transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1) !important;
+}
+.l_left footer.footer .social .theme-mode-icon {
+  display: block;
+  overflow: visible;
+  transform-origin: center;
+}
+.l_left footer.footer .social .theme-mode-icon .theme-icon-moon,
+.l_left footer.footer .social .theme-mode-icon .theme-icon-sun {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.l_left footer.footer .social .theme-mode-icon .theme-icon-moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+.l_left footer.footer .social .theme-mode-icon .theme-icon-sun {
+  opacity: 0;
+  transform: rotate(-45deg) scale(0.72);
+}
+:root[data-theme="dark"] .l_left footer.footer .social .theme-mode-icon .theme-icon-moon {
+  opacity: 0;
+  transform: rotate(45deg) scale(0.72);
+}
+:root[data-theme="dark"] .l_left footer.footer .social .theme-mode-icon .theme-icon-sun {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+html.theme-transition .l_left footer.footer .social .theme-mode-icon .theme-icon-moon,
+html.theme-transition .l_left footer.footer .social .theme-mode-icon .theme-icon-sun {
+  transition-property: opacity, transform !important;
+  transition-duration: 0.3s !important;
+  transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1) !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.theme-transition,
+  html.theme-transition *,
+  html.theme-transition *::before,
+  html.theme-transition *::after {
+    transition-property: none !important;
+    transition-duration: 0s !important;
+  }
+}
 .widget-wrapper.ghrepo .repo {
   display: block;
   padding: 0.75rem 0.5rem;

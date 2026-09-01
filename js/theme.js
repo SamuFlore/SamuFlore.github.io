@@ -1,16 +1,64 @@
-const applyTheme = (theme) => {
-  if (theme === 'auto') {
-    document.documentElement.removeAttribute('data-theme')
-  } else {
-    document.documentElement.setAttribute('data-theme', theme)
-  }
+const THEME_STORAGE_KEY = 'Stellar.theme'
+const THEME_TRANSITION_CLASS = 'theme-transition'
+const THEME_TRANSITION_DURATION = 300
+let themeTransitionTimer = null
 
-  // applyThemeToGiscus(theme)
+const normalizeTheme = (theme) => theme === 'dark' ? 'dark' : 'light'
+
+const currentTheme = () => document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
+
+const syncThemeToggle = (theme) => {
+  const nextTheme = theme === 'dark' ? 'light' : 'dark'
+  const messages = window.__STELLAR_I18N__ || {}
+  const label = messages[nextTheme] || (nextTheme === 'dark' ? '切换到深色模式' : '切换到浅色模式')
+  document.querySelectorAll('[data-theme-toggle]').forEach((toggle) => {
+    toggle.setAttribute('title', label)
+    toggle.setAttribute('aria-label', label)
+    toggle.setAttribute('data-next-theme', nextTheme)
+    if (toggle.dataset.themeToggleBound !== 'true') {
+      toggle.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault()
+          switchTheme()
+        }
+      })
+      toggle.dataset.themeToggleBound = 'true'
+    }
+  })
 }
 
-// FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
+const beginThemeTransition = () => {
+  const root = document.documentElement
+  root.classList.remove(THEME_TRANSITION_CLASS)
+  // 强制浏览器先提交旧状态，随后 data-theme 的变化才会产生过渡。
+  void root.offsetWidth
+  root.classList.add(THEME_TRANSITION_CLASS)
+  window.clearTimeout(themeTransitionTimer)
+  themeTransitionTimer = window.setTimeout(() => {
+    root.classList.remove(THEME_TRANSITION_CLASS)
+  }, THEME_TRANSITION_DURATION)
+}
+
+const updateDarkMode = (theme) => {
+  if (typeof utils === 'undefined' || !utils.dark?.method?.toggle) {
+    return
+  }
+  utils.dark.mode = theme
+  utils.dark.method.toggle.start()
+}
+
+const applyTheme = (theme, options = {}) => {
+  const nextTheme = normalizeTheme(theme)
+  if (options.animate) {
+    beginThemeTransition()
+  }
+  document.documentElement.setAttribute('data-theme', nextTheme)
+  syncThemeToggle(nextTheme)
+  applyThemeToGiscus(nextTheme)
+  return nextTheme
+}
+
 const applyThemeToGiscus = (theme) => {
-  // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
   const cmt = document.getElementById('giscus')
   if (cmt) {
     // This works before giscus load.
@@ -27,35 +75,24 @@ const applyThemeToGiscus = (theme) => {
 }
 
 const switchTheme = () => {
-  // light -> dark -> auto -> light -> ...
-  const currentTheme = document.documentElement.getAttribute('data-theme')
-  let newTheme;
-  switch (currentTheme) {
-    case 'light':
-      newTheme = 'dark'
-      break
-    case 'dark':
-      newTheme = 'auto'
-      break
-    default:
-      newTheme = 'light'
-  }
-  applyTheme(newTheme)
-  window.localStorage.setItem('Stellar.theme', newTheme)
-  utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
-  utils.dark.method.toggle.start();
+  const newTheme = applyTheme(currentTheme() === 'dark' ? 'light' : 'dark', { animate: true })
+  window.localStorage.setItem(THEME_STORAGE_KEY, newTheme)
+  updateDarkMode(newTheme)
 
-  const messages = window.__STELLAR_I18N__ || {};
-  hud?.toast?.(messages[newTheme])
+  const messages = window.__STELLAR_I18N__ || {}
+  if (typeof hud !== 'undefined' && typeof hud.toast === 'function') {
+    hud.toast(messages[newTheme])
+  }
 }
 
 (() => {
-  // Apply user's preferred theme, if any.
-  const theme = window.localStorage.getItem('Stellar.theme')
-  if (theme !== null) {
-    applyTheme(theme)
-  } else {
-    utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  // 仅接受 light / dark；旧版本留下的 auto 值会被规范化为当前配置的模式。
+  const savedTheme = window.localStorage.getItem(THEME_STORAGE_KEY)
+  const configuredTheme = normalizeTheme(document.documentElement.getAttribute('data-theme'))
+  const initialTheme = savedTheme === 'dark' || savedTheme === 'light' ? savedTheme : configuredTheme
+  const theme = applyTheme(initialTheme)
+  if (savedTheme !== null && savedTheme !== 'light' && savedTheme !== 'dark') {
+    window.localStorage.setItem(THEME_STORAGE_KEY, theme)
   }
-  utils.dark.method.toggle.start();
+  updateDarkMode(theme)
 })()

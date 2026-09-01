@@ -1,5 +1,5 @@
 
-<!DOCTYPE html><html lang="zh-CN">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light">
 
 <head>
   <meta charset="utf-8">
@@ -228,7 +228,9 @@
 
 
 </div>
-
+<footer class="footer dis-select"><div class="social-wrap" style="--item-grad:url(#footer-social-icon-grad)">
+<svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="footer-social-icon-grad" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
+<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="icon" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
 </div></aside><div class="l_main" id="main" data-ui-surface="content">
 
 
@@ -269,7 +271,7 @@
 <p>在 GitHub 新建一个仓库，用以存放文档的 Markdown 文件，比如仓库名叫做 <code>MyRepo</code>。假设文档名为 <code>MyWiki</code>。</p>
 <div class="tag-plugin colorful note" color="yellow"><div class="title">注意</div><div class="body"><p>“文档名”指的是文档配置文件的名字，也就是 <code>source/_data/wiki/MyWiki.yml</code>。</p></div></div>
 <p>在 <code>edit_this_page</code> 字段下新增：</p>
-<div class="tag-plugin copy"><span>YAML</span><input class="copy-area" id="copy_23" value="wiki/MyWiki/:https://github.com/MyName/MyRepo/blob/main/"><button class="copy-btn" onclick="util.copy(&quot;copy_23&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
+<div class="tag-plugin copy"><span>YAML</span><input class="copy-area" id="copy_19" value="wiki/MyWiki/:https://github.com/MyName/MyRepo/blob/main/"><button class="copy-btn" onclick="util.copy(&quot;copy_19&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
 <p>把 <code>MyName</code> 换成你用户名，<code>MyWiki</code> 换成你文档名，<code>MyRepo</code> 换成你仓库的名字即可。</p>
 <h3 id="本文仓库">本文仓库</h3>
 <p>在 <code>MyWiki.yml</code> 中会有这样一项配置：</p>

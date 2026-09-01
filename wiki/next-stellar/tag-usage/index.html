@@ -1,5 +1,5 @@
 
-<!DOCTYPE html><html lang="zh-CN">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light">
 
 <head>
   <meta charset="utf-8">
@@ -228,7 +228,9 @@
 
 
 </div>
-
+<footer class="footer dis-select"><div class="social-wrap" style="--item-grad:url(#footer-social-icon-grad)">
+<svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="footer-social-icon-grad" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
+<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="icon" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
 </div></aside><div class="l_main" id="main" data-ui-surface="content">
 
 
@@ -468,10 +470,10 @@
 <h2 id="Copy">Copy</h2>
 <p>单行可复制文字。</p>
 <figure class="highlight md"><figcaption><span>样例</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">{% copy curl -s https://sh.xaox.cc/install | sh %}</span><br><span class="line">{% copy git:https xaoxuu.com/hexo-theme-stellar prefix:HTTPS %}</span><br><span class="line">{% copy git:ssh xaoxuu.com/hexo-theme-stellar prefix:SSH %}</span><br><span class="line">{% copy git:gh xaoxuu.com/hexo-theme-stellar %}</span><br></pre></td></tr></tbody></table></figure>
-<div class="tag-plugin copy"><input class="copy-area" id="copy_19" value="curl -s https://sh.xaox.cc/install | sh"><button class="copy-btn" onclick="util.copy(&quot;copy_19&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
-<div class="tag-plugin copy"><span>HTTPS</span><input class="copy-area" id="copy_20" value="https://github.com/xaoxuu.com/hexo-theme-stellar.git"><button class="copy-btn" onclick="util.copy(&quot;copy_20&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
-<div class="tag-plugin copy"><span>SSH</span><input class="copy-area" id="copy_21" value="git@github.com:SamuFlore/BUAA_OOPre_2025.git"><button class="copy-btn" onclick="util.copy(&quot;copy_21&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
-<div class="tag-plugin copy"><input class="copy-area" id="copy_22" value="gh repo clone SamuFlore/BUAA_OOPre_2025"><button class="copy-btn" onclick="util.copy(&quot;copy_22&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
+<div class="tag-plugin copy"><input class="copy-area" id="copy_20" value="curl -s https://sh.xaox.cc/install | sh"><button class="copy-btn" onclick="util.copy(&quot;copy_20&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
+<div class="tag-plugin copy"><span>HTTPS</span><input class="copy-area" id="copy_21" value="https://github.com/xaoxuu.com/hexo-theme-stellar.git"><button class="copy-btn" onclick="util.copy(&quot;copy_21&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
+<div class="tag-plugin copy"><span>SSH</span><input class="copy-area" id="copy_22" value="git@github.com:SamuFlore/BUAA_OOPre_2025.git"><button class="copy-btn" onclick="util.copy(&quot;copy_22&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
+<div class="tag-plugin copy"><input class="copy-area" id="copy_23" value="gh repo clone SamuFlore/BUAA_OOPre_2025"><button class="copy-btn" onclick="util.copy(&quot;copy_23&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
 <div class="tag-plugin colorful note"><div class="title"><strong><p>注意</p>
 </strong></div><div class="body"><p>输入 <code>git:xxx</code> 并给出仓库名即可自动生成链接。</p></div></div>
 <h2 id="Radio">Radio</h2>
