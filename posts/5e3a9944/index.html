@@ -1282,6 +1282,26 @@ M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">�
   }, 'card-hover');
 </script>
 
+<script>
+  stellar.initPlugin(() => {
+    let disposed = false;
+    ctx.link_preview = {"delay":300,"maxWidth":520,"maxHeight":420,"siteOrigin":"https://samuflore.top"};
+    utils.js('/js/plugins/link-preview.js', { defer: true }).then(() => {
+      if (!disposed && stellar.linkPreview && typeof stellar.linkPreview.mountAll === 'function') {
+        stellar.linkPreview.mountAll(document);
+      }
+    }).catch((error) => {
+      console.error('[Plugin link-preview] 加载失败:', error);
+    });
+    return () => {
+      disposed = true;
+      if (stellar.linkPreview && typeof stellar.linkPreview.destroy === 'function') {
+        stellar.linkPreview.destroy();
+      }
+    };
+  }, 'link-preview');
+</script>
+
 
 
 <!-- inject -->

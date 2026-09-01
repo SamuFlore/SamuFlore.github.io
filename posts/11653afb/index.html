@@ -33,15 +33,15 @@
 <meta property="article:tag" content="露月">
 <meta property="article:tag" content="CO">
 <meta property="article:tag" content="Logisim">
+<meta property="article:tag" content="P0">
 <meta property="article:tag" content="Finite State Machine">
 <meta property="article:tag" content="Mealy Machine">
 <meta property="article:tag" content="Moore Machine">
-<meta property="article:tag" content="P0">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://samuflore.top/posts/11653afb/Moore.svg"><meta name="twitter:title" content="[BUAA CO P0]关于 Mealy 机和 Moore 机的思考">
   
   
-  <meta name="keywords" content="露月,CO,Logisim,Finite State Machine,Mealy Machine,Moore Machine,P0">
+  <meta name="keywords" content="露月,CO,Logisim,P0,Finite State Machine,Mealy Machine,Moore Machine">
 
   <!-- feed -->
   
@@ -64,7 +64,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg"},"dateCreated":"2025-10-05T17:24:33+08:00","dateModified":"2026-04-09T23:00:31+08:00","datePublished":"2025-10-05T17:24:33+08:00","description":"完成 P0 课下内容后，我对 Logisim 中完成两种有限状态机的方法以及其区别有了一些见解。","headline":"[BUAA CO P0]关于 Mealy 机和 Moore 机的思考","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/11653afb/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg","logo":{"@type":"ImageObject","url":"https://samuflore.top/images/avatar.jpg"}},"url":"https://samuflore.top/posts/11653afb/","keywords":"露月, CO, Logisim, Finite State Machine, Mealy Machine, Moore Machine, P0","thumbnailUrl":"/posts/11653afb/Moore.svg","image":["/posts/11653afb/Moore.svg"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg"},"dateCreated":"2025-10-05T17:24:33+08:00","dateModified":"2026-04-09T23:00:31+08:00","datePublished":"2025-10-05T17:24:33+08:00","description":"完成 P0 课下内容后，我对 Logisim 中完成两种有限状态机的方法以及其区别有了一些见解。","headline":"[BUAA CO P0]关于 Mealy 机和 Moore 机的思考","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/11653afb/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg","logo":{"@type":"ImageObject","url":"https://samuflore.top/images/avatar.jpg"}},"url":"https://samuflore.top/posts/11653afb/","keywords":"露月, CO, Logisim, P0, Finite State Machine, Mealy Machine, Moore Machine","thumbnailUrl":"/posts/11653afb/Moore.svg","image":["/posts/11653afb/Moore.svg"]}</script>
   <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&family=Mozilla+Headline:wght@200..700&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@200..700&display=swap" rel="stylesheet"><style>
   @font-face {
     font-family: 'Torus';
@@ -921,7 +921,7 @@
 <p>看来确实解决问题了，不过这样真的就把整个电路变成“四不像”机了。最正确的做法是不要搞什么 <code>isOut</code>，直接用“状态存储”的输出值来判断要不要将 <code>Out</code> 置为 1。这样就能正确地完成 Moore 机了。如果要的是 Mealy 机，最好把输入和“状态存储”的输出值直接相连，用一个逻辑来判断，以免混淆。</p>
 </article>
 
-<div class="article-tags"><a class="tag" href="/tags/%E9%9C%B2%E6%9C%88/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>露月</a><a class="tag" href="/tags/CO/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>CO</a><a class="tag" href="/tags/Logisim/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Logisim</a><a class="tag" href="/tags/Finite-State-Machine/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Finite State Machine</a><a class="tag" href="/tags/Mealy-Machine/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Mealy Machine</a><a class="tag" href="/tags/Moore-Machine/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Moore Machine</a><a class="tag" href="/tags/P0/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>P0</a></div>
+<div class="article-tags"><a class="tag" href="/tags/%E9%9C%B2%E6%9C%88/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>露月</a><a class="tag" href="/tags/CO/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>CO</a><a class="tag" href="/tags/Logisim/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Logisim</a><a class="tag" href="/tags/P0/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>P0</a><a class="tag" href="/tags/Finite-State-Machine/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Finite State Machine</a><a class="tag" href="/tags/Mealy-Machine/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Mealy Machine</a><a class="tag" href="/tags/Moore-Machine/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Moore Machine</a></div>
 
 <div class="article-footer">
     <section id="license">
@@ -1565,6 +1565,26 @@
       }
     };
   }, 'card-hover');
+</script>
+
+<script>
+  stellar.initPlugin(() => {
+    let disposed = false;
+    ctx.link_preview = {"delay":300,"maxWidth":520,"maxHeight":420,"siteOrigin":"https://samuflore.top"};
+    utils.js('/js/plugins/link-preview.js', { defer: true }).then(() => {
+      if (!disposed && stellar.linkPreview && typeof stellar.linkPreview.mountAll === 'function') {
+        stellar.linkPreview.mountAll(document);
+      }
+    }).catch((error) => {
+      console.error('[Plugin link-preview] 加载失败:', error);
+    });
+    return () => {
+      disposed = true;
+      if (stellar.linkPreview && typeof stellar.linkPreview.destroy === 'function') {
+        stellar.linkPreview.destroy();
+      }
+    };
+  }, 'link-preview');
 </script>
 
 

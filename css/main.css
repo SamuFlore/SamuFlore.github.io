@@ -11814,3 +11814,109 @@ img.lazy.error {
     opacity: 0;
   }
 }
+.stellar-link-preview {
+  position: fixed;
+  z-index: 1001;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  max-width: calc(100vw - 24px);
+  padding: 8px;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px);
+  will-change: transform, opacity;
+  transition: opacity 0.22s ease-out, transform 0.22s ease-out, visibility 0s linear 0.22s;
+}
+.stellar-link-preview.is-visible {
+  pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+.stellar-link-preview__inner {
+  box-sizing: border-box;
+  width: min(var(--stellar-link-preview-max-width, 520px), calc(100vw - 24px));
+  max-height: min(var(--stellar-link-preview-max-height, 420px), calc(100vh - 24px));
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--block-border);
+  border-radius: 16px;
+  corner-shape: superellipse(1.25);
+  background: var(--background);
+  color: var(--text-p1);
+  box-shadow: 0 12px 16px -4px rgba(0,0,0,0.2);
+  text-align: left;
+  line-height: 1.6;
+}
+.stellar-link-preview__inner::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+.stellar-link-preview__inner::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+.stellar-link-preview__inner::-webkit-scrollbar-thumb {
+  background: var(--text-meta);
+  cursor: pointer;
+  border-radius: 2px;
+}
+.stellar-link-preview__inner::-webkit-scrollbar-thumb:hover {
+  background: var(--text-p3);
+}
+.stellar-link-preview__title {
+  margin: 0 0 0.35rem;
+  color: var(--text-p1);
+  font-size: calc(var(--fs-content-base) + 2px);
+  font-weight: 700;
+  line-height: 1.35;
+}
+.stellar-link-preview .stellar-link-preview__meta {
+  margin: 0 0 0.8rem;
+  color: var(--text-p3);
+  font-size: calc(var(--fs-content-base) - 4px);
+  line-height: 1.4;
+}
+.stellar-link-preview .stellar-link-preview__status {
+  margin: 0;
+  color: var(--text-p3);
+  font-size: calc(var(--fs-content-base) - 2px);
+}
+.stellar-link-preview__content.md-text {
+  width: auto;
+  max-width: none;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  font-size: calc(var(--fs-content-base) - 2px);
+}
+.stellar-link-preview__content.content.slide-up,
+.stellar-link-preview__content .slide-up {
+  opacity: 1;
+  transform: none;
+}
+.stellar-link-preview__content > :first-child {
+  margin-top: 0;
+}
+.stellar-link-preview__content > :last-child {
+  margin-bottom: 0;
+}
+.stellar-link-preview__content .article-tags,
+.stellar-link-preview__content .article-footer,
+.stellar-link-preview__content #comments,
+.stellar-link-preview__content .related-wrap {
+  display: none;
+}
+@media screen and (max-width: 667px) {
+  .stellar-link-preview {
+    display: none !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stellar-link-preview {
+    transition: none;
+  }
+}

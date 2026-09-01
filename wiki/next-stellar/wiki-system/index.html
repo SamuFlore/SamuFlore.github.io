@@ -271,7 +271,7 @@
 <p>在 GitHub 新建一个仓库，用以存放文档的 Markdown 文件，比如仓库名叫做 <code>MyRepo</code>。假设文档名为 <code>MyWiki</code>。</p>
 <div class="tag-plugin colorful note" color="yellow"><div class="title">注意</div><div class="body"><p>“文档名”指的是文档配置文件的名字，也就是 <code>source/_data/wiki/MyWiki.yml</code>。</p></div></div>
 <p>在 <code>edit_this_page</code> 字段下新增：</p>
-<div class="tag-plugin copy"><span>YAML</span><input class="copy-area" id="copy_19" value="wiki/MyWiki/:https://github.com/MyName/MyRepo/blob/main/"><button class="copy-btn" onclick="util.copy(&quot;copy_19&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
+<div class="tag-plugin copy"><span>YAML</span><input class="copy-area" id="copy_23" value="wiki/MyWiki/:https://github.com/MyName/MyRepo/blob/main/"><button class="copy-btn" onclick="util.copy(&quot;copy_23&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
 <p>把 <code>MyName</code> 换成你用户名，<code>MyWiki</code> 换成你文档名，<code>MyRepo</code> 换成你仓库的名字即可。</p>
 <h3 id="本文仓库">本文仓库</h3>
 <p>在 <code>MyWiki.yml</code> 中会有这样一项配置：</p>
@@ -927,6 +927,26 @@
       }
     };
   }, 'card-hover');
+</script>
+
+<script>
+  stellar.initPlugin(() => {
+    let disposed = false;
+    ctx.link_preview = {"delay":300,"maxWidth":520,"maxHeight":420,"siteOrigin":"https://samuflore.top"};
+    utils.js('/js/plugins/link-preview.js', { defer: true }).then(() => {
+      if (!disposed && stellar.linkPreview && typeof stellar.linkPreview.mountAll === 'function') {
+        stellar.linkPreview.mountAll(document);
+      }
+    }).catch((error) => {
+      console.error('[Plugin link-preview] 加载失败:', error);
+    });
+    return () => {
+      disposed = true;
+      if (stellar.linkPreview && typeof stellar.linkPreview.destroy === 'function') {
+        stellar.linkPreview.destroy();
+      }
+    };
+  }, 'link-preview');
 </script>
 
 
