@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.mituw.com/imgs/2026/02/22/42ae779a61d0ec23.jpg">
 <meta property="article:published_time" content="2026-02-18T13:23:43.000Z">
-<meta property="article:modified_time" content="2026-08-31T12:48:14.868Z">
+<meta property="article:modified_time" content="2026-09-01T02:39:18.659Z">
 <meta property="article:author" content="Samustach Floresein">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.mituw.com/imgs/2026/02/22/42ae779a61d0ec23.jpg"><meta name="twitter:title" content="起步">
@@ -241,7 +241,7 @@
     <div class="banner-mask banner-mask-top" aria-hidden="true"></div><div class="banner-mask banner-mask-bottom" aria-hidden="true"></div>
     <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki/">文档</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/next-stellar/">从 NexT 到 Stellar</a></div></div><div class="meta-row">
-<div class="flex-row" id="post-meta"><span class="text created">更新于：<time datetime="2026-08-31T12:48:14.868Z">2026-08-31</time></span></div>
+<div class="flex-row" id="post-meta"><span class="text created">更新于：<time datetime="2026-09-01T02:39:18.659Z">2026-09-01</time></span></div>
 </div></div>
     
     <div class="bottom only-title">
@@ -256,7 +256,7 @@
   </div></div>
 <article class="md-text content"><h2 id="准备">准备</h2>
 <p>首先我是从其它主题迁移而来，因此我必须先考虑兼容性问题。按照作者的建议，我首先确认我的环境满足了如下要求：</p>
-<figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">Hexo:</span> <span class="number">6.3</span><span class="number">.0</span> <span class="string">~</span> <span class="string">latest</span></span><br><span class="line"><span class="attr">hexo-cli:</span> <span class="number">4.3</span><span class="number">.0</span> <span class="string">~</span> <span class="string">latest</span></span><br><span class="line"><span class="attr">node:</span> <span class="number">14.17</span><span class="number">.3</span> <span class="string">～</span> <span class="string">latest</span> <span class="string">LTS</span> <span class="comment"># 建议选择 LTS 版本，过高的版本 hexo 还没有进行兼容。</span></span><br><span class="line"><span class="attr">npm:</span> <span class="number">6.14</span><span class="number">.13</span> <span class="string">~</span> <span class="string">latest</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">Hexo:</span> <span class="number">6.3</span><span class="number">.0</span> <span class="string">~</span> <span class="string">latest</span></span><br><span class="line"><span class="attr">hexo-cli:</span> <span class="number">4.3</span><span class="number">.0</span> <span class="string">~</span> <span class="string">latest</span></span><br><span class="line"><span class="attr">node:</span> <span class="string">&gt;=</span> <span class="number">22</span> <span class="comment"># 建议选择 LTS 版本</span></span><br><span class="line"><span class="attr">npm:</span> <span class="string">&gt;=</span> <span class="number">10</span></span><br></pre></td></tr></tbody></table></figure>
 <h2 id="安装-Stellar">安装 Stellar</h2>
 <p>在博客目录下打开终端，执行：</p>
 <div class="tag-plugin copy"><input class="copy-area" id="copy_16" value="npm i hexo-theme-stellar"><button class="copy-btn" onclick="util.copy(&quot;copy_16&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
@@ -294,7 +294,7 @@
 </strong></div><div class="body"><p>生成 svg 的 url 格式如下：</p><div class="tag-plugin copy"><input class="copy-area" id="copy_18" value="https://api.iconify.design/prefix/name.svg"><button class="copy-btn" onclick="util.copy(&quot;copy_18&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div><p>其中 <code>prefix/name</code> 一处可以在 Iconify 选中心仪的图标，复制其名字得到。</p></div></div>
 <h3 id="绑定具体页面">绑定具体页面</h3>
 <p>这时候你肯定要问了：</p>
-<div class="tag-plugin quot p"><p class="content">bxs:quote-left<span class="text">menu_id 是干什么的？</span>bxs:quote-right</p></div>
+<div class="tag-plugin quot p"><p class="content"><svg class="icon" data-icon="bxs:quote-left" aria-hidden="true"></svg><span class="text">menu_id 是干什么的？</span><svg class="icon" data-icon="bxs:quote-right" aria-hidden="true"></svg></p></div>
 <p>其实，它只有一个小小的作用，就是让主题知道你正在浏览哪一种页面，根据页面的不同显示不同的内容。以这 4 个按键为例，当我点击某一按键，待页面加载完成之后，这个按键就是<mark class="tag-plugin colorful mark" color="yellow">高亮</mark>的。这是因为我在这个页面的 md 文件的 front-matter 中声明了「这个页面的 <code>menu_id</code>」，当检测到页面的 <code>menu_id</code> 与上述的 <code>menu_id</code> 相符时，这个按键就会亮起。譬如：</p>
 <figure class="highlight md"><figcaption><span>guestbook.md</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 留 言</span><br><span class="line"><span class="section">menu<span class="emphasis">_id: guestbook</span></span></span><br><span class="line"><span class="emphasis"><span class="section">---</span></span></span><br></pre></td></tr></tbody></table></figure>
 <h2 id="创建文章">创建文章</h2>
@@ -329,7 +329,7 @@
   
 </div>
 
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">回顾上一篇</div><a href="/wiki/next-stellar/">从 NexT 到 Stellar</a></div><div class="item" id="next"><div class="note">接下来阅读</div><a href="/wiki/next-stellar/tag-usage/">标签语法</a></div></section></div>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">先</div><a href="/wiki/next-stellar/">从 NexT 到 Stellar</a></div><div class="item" id="next"><div class="note">次</div><a href="/wiki/next-stellar/tag-usage/">标签语法</a></div></section></div>
 
 
   <div class="related-wrap md-text" id="comments">
@@ -392,7 +392,7 @@
 <widget class="widget-wrapper toc" id="data-toc" collapse="false">
   
     <div class="widget-header dis-select">
-      <span class="name">本文目录</span>
+      <span class="name">目录</span>
       <a class="cap-action" onclick="sidebar.toggleTOC()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a>
     </div>
   
@@ -547,9 +547,9 @@
   })();
   const ctx = {
     date_suffix: {
-      just: `刚刚`,
-      min: `分钟前`,
-      hour: `小时前`,
+      just: `刚才`,
+      min: `分前`,
+      hour: `时前`,
       day: `天前`,
     },
     root : `/`,

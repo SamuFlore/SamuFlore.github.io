@@ -33,15 +33,15 @@
 <meta property="article:tag" content="露月">
 <meta property="article:tag" content="CO">
 <meta property="article:tag" content="Logisim">
-<meta property="article:tag" content="P0">
 <meta property="article:tag" content="Finite State Machine">
 <meta property="article:tag" content="Mealy Machine">
 <meta property="article:tag" content="Moore Machine">
+<meta property="article:tag" content="P0">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://samuflore.top/posts/11653afb/Moore.svg"><meta name="twitter:title" content="[BUAA CO P0]关于 Mealy 机和 Moore 机的思考">
   
   
-  <meta name="keywords" content="露月,CO,Logisim,P0,Finite State Machine,Mealy Machine,Moore Machine">
+  <meta name="keywords" content="露月,CO,Logisim,Finite State Machine,Mealy Machine,Moore Machine,P0">
 
   <!-- feed -->
   
@@ -64,7 +64,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg"},"dateCreated":"2025-10-05T17:24:33+08:00","dateModified":"2026-04-09T23:00:31+08:00","datePublished":"2025-10-05T17:24:33+08:00","description":"完成 P0 课下内容后，我对 Logisim 中完成两种有限状态机的方法以及其区别有了一些见解。","headline":"[BUAA CO P0]关于 Mealy 机和 Moore 机的思考","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/11653afb/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg","logo":{"@type":"ImageObject","url":"https://samuflore.top/images/avatar.jpg"}},"url":"https://samuflore.top/posts/11653afb/","keywords":"露月, CO, Logisim, P0, Finite State Machine, Mealy Machine, Moore Machine","thumbnailUrl":"/posts/11653afb/Moore.svg","image":["/posts/11653afb/Moore.svg"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg"},"dateCreated":"2025-10-05T17:24:33+08:00","dateModified":"2026-04-09T23:00:31+08:00","datePublished":"2025-10-05T17:24:33+08:00","description":"完成 P0 课下内容后，我对 Logisim 中完成两种有限状态机的方法以及其区别有了一些见解。","headline":"[BUAA CO P0]关于 Mealy 机和 Moore 机的思考","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/11653afb/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg","logo":{"@type":"ImageObject","url":"https://samuflore.top/images/avatar.jpg"}},"url":"https://samuflore.top/posts/11653afb/","keywords":"露月, CO, Logisim, Finite State Machine, Mealy Machine, Moore Machine, P0","thumbnailUrl":"/posts/11653afb/Moore.svg","image":["/posts/11653afb/Moore.svg"]}</script>
   <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&family=Mozilla+Headline:wght@200..700&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@200..700&display=swap" rel="stylesheet"><style>
   @font-face {
     font-family: 'Torus';
@@ -140,7 +140,7 @@
 <header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg"></div><img no-lazy class="avatar" src="/images/avatar.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main">SamuFlore</div><div class="sub normal cap">SamuFlore's Dimension</div><div class="sub hover cap" style="opacity:0"> 德才兼備、知行合一</div></a></div></header>
 
 
-<div class="search-wrapper" id="search-wrapper"><div class="search-form" role="search"><label class="search-button" for="search-input" aria-hidden="true"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></label><input type="search" class="search-input" id="search-input" aria-label="站内搜索" placeholder="站内搜索"></div><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+<div class="search-wrapper" id="search-wrapper"><div class="search-form" role="search"><label class="search-button" for="search-input" aria-hidden="true"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></label><input type="search" class="search-input" id="search-input" aria-label="试试 Ctrl K" placeholder="试试 Ctrl K"></div><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
 
 <div class="widgets">
 <svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="leftbar-active-icon-grad" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
@@ -620,13 +620,13 @@
   <div class="widget-body"><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
   
     
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/188737f4/" title="天琴集序">
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/937d20ea/" title="MD 样式测试">
   
   
   
     <span class="ui-collection__content">
       
-      <span class="ui-collection__title">天琴集序</span>
+      <span class="ui-collection__title">MD 样式测试</span>
       
       
     </span>
@@ -638,13 +638,13 @@
 
   
     
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/937d20ea/" title="MD 样式测试">
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/188737f4/" title="天琴集序">
   
   
   
     <span class="ui-collection__content">
       
-      <span class="ui-collection__title">MD 样式测试</span>
+      <span class="ui-collection__title">天琴集序</span>
       
       
     </span>
@@ -818,7 +818,7 @@
     <div class="banner-mask banner-mask-top" aria-hidden="true"></div><div class="banner-mask banner-mask-bottom" aria-hidden="true"></div>
     <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" id="menu" href="/topic/">专栏</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/posts/444343b2/">25 计组实验</a>
-</div><div class="right"><span class="cap reading">1503 字 · 预计阅读 6 分钟</span></div></div><div class="meta-row">
+</div><div class="right"><span class="cap reading">1503 字 · 约 6 分钟</span></div></div><div class="meta-row">
 <div class="flex-row" id="post-meta"><a class="author" href="/author/samuflore/">Seymiris Asakawa</a><span class="sep"></span><span class="text created"><time datetime="2025-10-05T09:24:33.000Z">2025-10-05</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-04-09T15:00:31.742Z">2026-04-09</time></span></div>
 </div></div>
     
@@ -919,7 +919,7 @@
 <p>看来确实解决问题了，不过这样真的就把整个电路变成“四不像”机了。最正确的做法是不要搞什么 <code>isOut</code>，直接用“状态存储”的输出值来判断要不要将 <code>Out</code> 置为 1。这样就能正确地完成 Moore 机了。如果要的是 Mealy 机，最好把输入和“状态存储”的输出值直接相连，用一个逻辑来判断，以免混淆。</p>
 </article>
 
-<div class="article-tags"><a class="tag" href="/tags/%E9%9C%B2%E6%9C%88/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>露月</a><a class="tag" href="/tags/CO/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>CO</a><a class="tag" href="/tags/Logisim/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Logisim</a><a class="tag" href="/tags/P0/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>P0</a><a class="tag" href="/tags/Finite-State-Machine/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Finite State Machine</a><a class="tag" href="/tags/Mealy-Machine/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Mealy Machine</a><a class="tag" href="/tags/Moore-Machine/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Moore Machine</a></div>
+<div class="article-tags"><a class="tag" href="/tags/%E9%9C%B2%E6%9C%88/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>露月</a><a class="tag" href="/tags/CO/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>CO</a><a class="tag" href="/tags/Logisim/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Logisim</a><a class="tag" href="/tags/Finite-State-Machine/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Finite State Machine</a><a class="tag" href="/tags/Mealy-Machine/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Mealy Machine</a><a class="tag" href="/tags/Moore-Machine/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Moore Machine</a><a class="tag" href="/tags/P0/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>P0</a></div>
 
 <div class="article-footer">
     <section id="license">
@@ -931,11 +931,11 @@
 
 </div>
 
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/posts/18246a69/">[BUAA CO P0]P0 上机之思考</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/posts/b73dbb31/">[楠竹蓮花集]老狗</a></div></section></div>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">更新</div><a href="/posts/18246a69/">[BUAA CO P0]P0 上机之思考</a></div><div class="item" id="next"><div class="note">更早</div><a href="/posts/b73dbb31/">[楠竹蓮花集]老狗</a></div></section></div>
 
 <div class="related-wrap" id="related-posts">
     <section class='header'>
-      <div class='title cap theme'>您可能感兴趣的文章</div>
+      <div class='title cap theme'>您可能感兴趣</div>
     </section>
     <section class='body'>
     <div class="related-posts"><a class="item" href="\posts\18246a69\" title="[BUAA CO P0]P0 上机之思考"><span class="title">[BUAA CO P0]P0 上机之思考</span><span class="excerpt">今天非常惊险地通过了 P0 上机（实话说 P0 挂了就招笑了</span></a><a class="item" href="\posts\6d68c22\" title="[BUAA CO P2]P2 上机之思考"><span class="title">[BUAA CO P2]P2 上机之思考</span><span class="excerpt">QwQ，写 P3 课下去了呜呜……</span></a><a class="item" href="\posts\2d82ddc6\" title="[BUAA CO P2]宏、函数与栈"><span class="title">[BUAA CO P2]宏、函数与栈</span><span class="excerpt">我曾写过我更偏好于进入函数后入栈，离开函数前出栈，但这样我一道题都做不对。</span></a><a class="item" href="\posts\fae59a6c\" title="[BUAA CO P1]P1 上机之思考"><span class="title">[BUAA CO P1]P1 上机之思考</span><span class="excerpt">水平太差了。</span></a><a class="item" href="\posts\52a88c87\" title="[BUAA CO]CO 理论概要"><span class="title">[BUAA CO]CO 理论概要</span><span class="excerpt">这是北航计算机组成理论概要。</span></a></div></section></div>
@@ -1001,7 +1001,7 @@
 <widget class="widget-wrapper toc" id="data-toc" collapse="false">
   
     <div class="widget-header dis-select">
-      <span class="name">本文目录</span>
+      <span class="name">目录</span>
       <a class="cap-action" onclick="sidebar.toggleTOC()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a>
     </div>
   
@@ -1156,9 +1156,9 @@
   })();
   const ctx = {
     date_suffix: {
-      just: `刚刚`,
-      min: `分钟前`,
-      hour: `小时前`,
+      just: `刚才`,
+      min: `分前`,
+      hour: `时前`,
       day: `天前`,
     },
     root : `/`,
