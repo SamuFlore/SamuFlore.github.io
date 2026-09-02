@@ -106,8 +106,10 @@
     if (!link || link.dataset.noPreview === 'true' || link.dataset.noPopover === 'true' || link.hasAttribute('download')) {
       return null;
     }
-    const rawHref = link.getAttribute('href');
-    if (!rawHref || rawHref.startsWith('#') || /^(?:mailto|tel|javascript|data):/i.test(rawHref)) return null;
+    const rawHref = (link.getAttribute('href') || '').trim();
+    // 允许指向当前文章标题的锚点（例如 #PCA-Algorithm），但忽略空锚点。
+    // 空锚点通常只用于回到页面顶部，不应触发整篇文章预览。
+    if (!rawHref || rawHref === '#' || /^(?:mailto|tel|javascript|data):/i.test(rawHref)) return null;
 
     let url;
     try {
