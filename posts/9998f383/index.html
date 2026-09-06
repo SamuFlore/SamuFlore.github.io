@@ -725,11 +725,11 @@
   </div></div>
 <article class="md-text content"><h2 id="编译-Debug-版本">编译 Debug 版本</h2>
 <p>为 <code>gcc</code> 命令加入 <code>-g</code> 选项，编译 Debug 版本。</p>
-<div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_8" value="gcc -g hello.c -o hello"><button class="copy-btn" onclick="util.copy(&quot;copy_8&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
+<div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_5" value="gcc -g hello.c -o hello"><button class="copy-btn" onclick="util.copy(&quot;copy_5&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
 <p>之后就可以使用 GDB 来调试程序了。为 GDB 指定要运行的程序的方法有两种：</p>
-<div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_9" value="gdb hello"><button class="copy-btn" onclick="util.copy(&quot;copy_9&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
+<div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_6" value="gdb hello"><button class="copy-btn" onclick="util.copy(&quot;copy_6&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
 <p>或</p>
-<div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_10" value="gdb"><button class="copy-btn" onclick="util.copy(&quot;copy_10&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
+<div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_7" value="gdb"><button class="copy-btn" onclick="util.copy(&quot;copy_7&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
 <p>进入 GDB 交互界面后，使用 <code>file &lt;executable&gt;</code> 指令加载可执行文件：</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) file hello</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="执行程序">执行程序</h3>
@@ -743,14 +743,14 @@
 <p>考虑下面这个 <code>echo</code> 程序：</p>
 <figure class="highlight c"><figcaption><span>echo.c</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// echo.c</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">usage</span><span class="params">()</span> {</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"usage: echo &lt;string&gt;\n"</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">-1</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span> {</span><br><span class="line">    <span class="keyword">if</span> (argc != <span class="number">2</span>) {</span><br><span class="line">        usage();</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, argv[<span class="number">1</span>]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p>编译 Debug 版本：</p>
-<div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_11" value="gcc -g echo.c -o echo"><button class="copy-btn" onclick="util.copy(&quot;copy_11&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
+<div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_8" value="gcc -g echo.c -o echo"><button class="copy-btn" onclick="util.copy(&quot;copy_8&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
 <p>这个 <code>echo</code> 可执行文件需要传入一个参数，我们仍然有两种方法：</p>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p>在命令行中传入参数：</p>
 </li>
 </ul>
-<div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_12" value="gdb --agrs ./echo hello, world"><button class="copy-btn" onclick="util.copy(&quot;copy_12&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
+<div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_9" value="gdb --agrs ./echo hello, world"><button class="copy-btn" onclick="util.copy(&quot;copy_9&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
 <div class="tag-plugin colorful note"><div class="title">注意</div><div class="body"><p><code>--agrs</code> 选项包含了 <code>./echo</code> 这条指令，它将作为一个参数传递给可执行文件，因此必须用 <code>./echo</code> 而不是 <code>echo</code>。</p></div></div>
 <ul class="lvl-0">
 <li class="lvl-2">
@@ -1408,6 +1408,7 @@
     }
   }, 'swiper');
 </script>
+<link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.16/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
 <script>
   stellar.initPlugin(() => {
     const codeElements = document.querySelectorAll('.code');

@@ -11752,6 +11752,50 @@ img.lazy.error {
   margin-right: 1rem;
   border-radius: 8px;
 }
+.md-text p.katex-block,
+.md-text .katex-display,
+.md-text .MathJax_Display,
+.md-text mjx-container[display='true'] {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+.md-text p.katex-block::-webkit-scrollbar,
+.md-text .katex-display::-webkit-scrollbar,
+.md-text .MathJax_Display::-webkit-scrollbar,
+.md-text mjx-container[display='true']::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+.md-text p.katex-block::-webkit-scrollbar-track-piece,
+.md-text .katex-display::-webkit-scrollbar-track-piece,
+.md-text .MathJax_Display::-webkit-scrollbar-track-piece,
+.md-text mjx-container[display='true']::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+.md-text p.katex-block::-webkit-scrollbar-thumb,
+.md-text .katex-display::-webkit-scrollbar-thumb,
+.md-text .MathJax_Display::-webkit-scrollbar-thumb,
+.md-text mjx-container[display='true']::-webkit-scrollbar-thumb {
+  background: var(--text-meta);
+  cursor: pointer;
+  border-radius: 2px;
+}
+.md-text p.katex-block::-webkit-scrollbar-thumb:hover,
+.md-text .katex-display::-webkit-scrollbar-thumb:hover,
+.md-text .MathJax_Display::-webkit-scrollbar-thumb:hover,
+.md-text mjx-container[display='true']::-webkit-scrollbar-thumb:hover {
+  background: var(--text-p3);
+}
+.md-text .katex-display > .katex {
+  width: max-content;
+  min-width: 100%;
+  max-width: none;
+}
 .card-hover.is-card-hover-ready {
   position: relative;
   --card-hover-mouse-x: 50%;
