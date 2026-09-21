@@ -43,11 +43,11 @@ pre.mermaid {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Torus", "Mozilla Text", "GenKiMin2 TC", system-ui, "Microsoft Yahei", "Segoe UI", Arial, sans-serif;
+  font-family: "Torus", "GenKiMin2 TC", system-ui, "Microsoft Yahei", "Segoe UI", Arial, sans-serif;
 }
 .mermaid span,
 .mermaid text {
-  font-family: "Torus", "Mozilla Text", "GenKiMin2 TC", system-ui, "Microsoft Yahei", "Segoe UI", Arial, sans-serif;
+  font-family: "Torus", "GenKiMin2 TC", system-ui, "Microsoft Yahei", "Segoe UI", Arial, sans-serif;
 }
 .mermaid .edgeLabel {
   padding: 4px;
