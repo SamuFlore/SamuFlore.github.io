@@ -2083,7 +2083,7 @@ html {
   height: 100%;
   width: 100%;
   overflow-y: scroll;
-  font-family: "Torus", "Mozilla Text", "LXGW WenKai Mono TC", system-ui, "Microsoft Yahei", "Segoe UI", Arial, sans-serif;
+  font-family: "Torus", "Mozilla Text", "GenKiMin2 TC", system-ui, "Microsoft Yahei", "Segoe UI", Arial, sans-serif;
   font-size: var(--fs-root);
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -8440,7 +8440,7 @@ details.toc[open] >div.body section .header+.doc_tree {
   appearance: none;
   width: 100%;
   box-sizing: border-box;
-  font-family: "Torus", "Mozilla Text", "LXGW WenKai Mono TC", system-ui, "Microsoft Yahei", "Segoe UI", Arial, sans-serif;
+  font-family: "Torus", "Mozilla Text", "GenKiMin2 TC", system-ui, "Microsoft Yahei", "Segoe UI", Arial, sans-serif;
   font-size: calc(var(--fs-content-base) - 2px);
   padding: 12px 0;
   color: var(--text);

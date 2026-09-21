@@ -139,7 +139,7 @@
 }
 .md-text .cmt-body.waline .wl-editor {
   font-size: var(--waline-font-size);
-  font-family: "Torus", "Mozilla Text", "LXGW WenKai Mono TC", system-ui, "Microsoft Yahei", "Segoe UI", Arial, sans-serif;
+  font-family: "Torus", "Mozilla Text", "GenKiMin2 TC", system-ui, "Microsoft Yahei", "Segoe UI", Arial, sans-serif;
 }
 .md-text .cmt-body.waline .wl-content .wl-emoji,
 .md-text .cmt-body.waline .wl-content .vemoji {
