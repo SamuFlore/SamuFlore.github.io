@@ -261,7 +261,7 @@
 <figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">Hexo:</span> <span class="number">6.3</span><span class="number">.0</span> <span class="string">~</span> <span class="string">latest</span></span><br><span class="line"><span class="attr">hexo-cli:</span> <span class="number">4.3</span><span class="number">.0</span> <span class="string">~</span> <span class="string">latest</span></span><br><span class="line"><span class="attr">node:</span> <span class="string">&gt;=</span> <span class="number">22</span> <span class="comment"># 建议选择 LTS 版本</span></span><br><span class="line"><span class="attr">npm:</span> <span class="string">&gt;=</span> <span class="number">10</span></span><br></pre></td></tr></tbody></table></figure>
 <h2 id="安装-Stellar">安装 Stellar</h2>
 <p>在博客目录下打开终端，执行：</p>
-<div class="tag-plugin copy"><input class="copy-area" id="copy_17" value="npm i hexo-theme-stellar"><button class="copy-btn" onclick="util.copy(&quot;copy_17&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
+<div class="tag-plugin copy"><input class="copy-area" id="copy_16" value="npm i hexo-theme-stellar"><button class="copy-btn" onclick="util.copy(&quot;copy_16&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
 <div class="tag-plugin colorful note"><div class="title">注意</div><div class="body"><p>这将会把主题安装到 <code>\Blog\node_modules\hexo-theme-stellar</code> 下。</p></div></div>
 <p>然后，在 <u>站点配置文件</u> <code>_config.yml</code> 中修改 <code>theme</code> 字段为 <code>theme: stellar</code>。</p>
 <p>这样，Stellar 就设置为我博客的主题了。</p>
@@ -271,7 +271,7 @@
 <figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">{% note info %}</span><br><span class="line">这是正文</span><br><span class="line">{% endnote %}</span><br></pre></td></tr></tbody></table></figure>
 <p>而这些语法在 Stellar 中是错误的。因此我需要逐个检查之前的博文，删除所有可能引发错误的标签。</p>
 <p>到这一步，执行：</p>
-<div class="tag-plugin copy"><input class="copy-area" id="copy_18" value="hexo cl &amp;&amp; hexo g &amp;&amp; hexo s"><button class="copy-btn" onclick="util.copy(&quot;copy_18&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
+<div class="tag-plugin copy"><input class="copy-area" id="copy_17" value="hexo cl &amp;&amp; hexo g &amp;&amp; hexo s"><button class="copy-btn" onclick="util.copy(&quot;copy_17&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
 <p>通过了编译等过程，在本地见到了使用 Stellar 主题的我的博客。很好，一切正常。</p>
 <h2 id="字体配置">字体配置</h2>
 <p>我选择沿袭先前的设置，用霞鹭文楷作为中文字体。一方面是因为其字库够大，兼有简、繁、和、假名等，另一方面是因为其字形美观，易于阅读。</p>
@@ -293,7 +293,7 @@
 <div class="tag-plugin colorful note"><div class="title">键值对</div><div class="body"><p>键：<code>menu_id</code>，值：<code>url</code>。</p></div></div>
 <p>这样在左侧边栏就出现了四个按键。定义 icons 的 <code>icons.yml</code> 在 <code>\blog\node_modules\hexo-theme-stellar\_data\icons.yml</code>。亦可以调用 Iconify 的 API 来使用 svg 图形。</p>
 <div class="tag-plugin colorful note"><div class="title"><strong><p>调用 Iconify API</p>
-</strong></div><div class="body"><p>生成 svg 的 url 格式如下：</p><div class="tag-plugin copy"><input class="copy-area" id="copy_19" value="https://api.iconify.design/prefix/name.svg"><button class="copy-btn" onclick="util.copy(&quot;copy_19&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div><p>其中 <code>prefix/name</code> 一处可以在 Iconify 选中心仪的图标，复制其名字得到。</p></div></div>
+</strong></div><div class="body"><p>生成 svg 的 url 格式如下：</p><div class="tag-plugin copy"><input class="copy-area" id="copy_18" value="https://api.iconify.design/prefix/name.svg"><button class="copy-btn" onclick="util.copy(&quot;copy_18&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div><p>其中 <code>prefix/name</code> 一处可以在 Iconify 选中心仪的图标，复制其名字得到。</p></div></div>
 <h3 id="绑定具体页面">绑定具体页面</h3>
 <p>这时候你肯定要问了：</p>
 <div class="tag-plugin quot p"><p class="content"><svg class="icon" data-icon="bxs:quote-left" aria-hidden="true"></svg><span class="text">menu_id 是干什么的？</span><svg class="icon" data-icon="bxs:quote-right" aria-hidden="true"></svg></p></div>

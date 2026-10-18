@@ -11404,6 +11404,112 @@ table a:not([class]):has(img):hover {
     transform: scaleX(1);
   }
 }
+@media print {
+  @page {
+    margin: 1.6cm;
+  }
+  html {
+    background: #fff !important;
+    color-scheme: light;
+  }
+  body {
+    background: #fff !important;
+    --background: #fff;
+    --block: #f6f6f6;
+    --block-border: #d9d9d9;
+    --text: #111;
+    --text-p1: #111;
+    --text-p2: #333;
+    --text-p3: #555;
+    --text-p4: #666;
+    --text-meta: rgba(0,0,0,0.35);
+    --link: #111;
+    --accent: #111;
+  }
+  body > .sitebg,
+  #l_cover,
+  .l_left,
+  .l_right,
+  .main-mask,
+  .float-panel,
+  .article-tags,
+  .article-footer,
+  .page-footer,
+  #read-next,
+  #related-posts,
+  #comments {
+    display: none !important;
+  }
+  .l_body {
+    display: block;
+    width: auto;
+    max-width: none;
+    margin: 0;
+    font-size: inherit;
+  }
+  .l_main {
+    width: auto;
+    max-width: none;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  .article-banner-wrap,
+  .article.banner {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .article-banner-wrap {
+    margin: 0 0 1.5rem;
+  }
+  .md-text.content {
+    max-width: none;
+    padding: 0 0 2rem;
+    overflow: visible;
+    color: var(--text-p1);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .md-text.content h1,
+  .md-text.content h2,
+  .md-text.content h3,
+  .md-text.content h4,
+  .md-text.content h5,
+  .md-text.content h6 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  .md-text.content p,
+  .md-text.content li {
+    orphans: 3;
+    widows: 3;
+  }
+  .md-text.content pre,
+  .md-text.content table,
+  .md-text.content blockquote,
+  .md-text.content .tag-plugin,
+  .md-text.content figure,
+  .md-text.content img {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .md-text.content .md-table-scroll,
+  .md-text.content table:not([class]) {
+    overflow: visible;
+  }
+  .md-text.content table:not([class]) {
+    display: table;
+    width: 100%;
+  }
+  .md-text.content img {
+    max-width: 100%;
+    height: auto;
+  }
+}
 .post-list.wiki {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
