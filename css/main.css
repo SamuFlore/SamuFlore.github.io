@@ -1696,8 +1696,8 @@ code {
   -moz-osx-font-smoothing: auto;
   font-family: "Monaspace Argon", Menlo, Monaco, Consolas, system-ui, monospace, sans-serif;
 }
-p>code:not([class]),
-li>code:not([class]) {
+.md-text p code:not([class]):not(pre code):not(psw code),
+.md-text li code:not([class]):not(pre code):not(psw code) {
   font-size: 85%;
   background: var(--block);
   padding: 0.2em;
@@ -10840,6 +10840,18 @@ body>.sitebg .siteblur:hover {
   padding-bottom: 2rem;
   overflow: hidden;
 }
+.md-text.content ul p,
+.md-text.content ol p,
+.md-text.content ul ul,
+.md-text.content ol ul,
+.md-text.content ul ol,
+.md-text.content ol ol {
+  line-height: 1.75;
+}
+.md-text.content blockquote ul,
+.md-text.content blockquote ol {
+  line-height: 1.75;
+}
 .md-text ul:not(:last-child),
 .md-text ol:not(:last-child) {
   padding-bottom: 0.5rem;
@@ -10857,19 +10869,6 @@ body>.sitebg .siteblur:hover {
   --fs-content: calc(var(--fs-content-base) - 1px);
   font-size: var(--fs-content);
   line-height: 1.5;
-}
-.md-text blockquote p code,
-.md-text ul p code,
-.md-text ol p code,
-.md-text blockquote ul code,
-.md-text ul ul code,
-.md-text ol ul code,
-.md-text blockquote ol code,
-.md-text ul ol code,
-.md-text ol ol code {
-  font-size: inherit;
-  padding: 0;
-  background: none;
 }
 .md-text p *,
 .md-text blockquote *,
@@ -10915,6 +10914,11 @@ body>.sitebg .siteblur:hover {
 .md-text p {
   font-size: var(--fs-content);
 }
+.md-text li > input[type=checkbox],
+.md-text li > p > input[type=checkbox] {
+  background: revert;
+  border: revert;
+}
 .md-text pre {
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
@@ -10937,6 +10941,7 @@ body>.sitebg .siteblur:hover {
   border-radius: 16px;
 }
 li:not([class]) a:not([class]),
+.md-text li a:not([class]),
 p:not([class]) a:not([class]),
 table a:not([class]) {
   position: relative;
@@ -10949,6 +10954,7 @@ table a:not([class]) {
   background: linear-gradient(0deg, var(--block-border), var(--block-border)) no-repeat left 100%/100% 2px;
 }
 li:not([class]) a:not([class]):hover,
+.md-text li a:not([class]):hover,
 p:not([class]) a:not([class]):hover,
 table a:not([class]):hover {
   text-decoration: none;
@@ -10957,11 +10963,13 @@ table a:not([class]):hover {
   background: linear-gradient(0deg, var(--link-a20), var(--link-a20)) no-repeat left 100%/100% 100%;
 }
 li:not([class]) a:not([class]):has(img),
+.md-text li a:not([class]):has(img),
 p:not([class]) a:not([class]):has(img),
 table a:not([class]):has(img) {
   background: none;
 }
 li:not([class]) a:not([class]):has(img):hover,
+.md-text li a:not([class]):has(img):hover,
 p:not([class]) a:not([class]):has(img):hover,
 table a:not([class]):has(img):hover {
   background: none;
