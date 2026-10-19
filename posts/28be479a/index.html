@@ -49,15 +49,15 @@
 <meta property="article:modified_time" content="2026-04-09T15:01:39.633Z">
 <meta property="article:author" content="Samustach Floresein">
 <meta property="article:tag" content="CO">
-<meta property="article:tag" content="MIPS">
 <meta property="article:tag" content="Verilog">
+<meta property="article:tag" content="MIPS">
 <meta property="article:tag" content="嚴月">
 <meta property="article:tag" content="P7">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://samuflore.top/posts/28be479a/%E6%9E%B6%E6%9E%84.jpg"><meta name="twitter:title" content="[BUAA CO P7]Verilog 设计 MIPS 微系统">
   
   
-  <meta name="keywords" content="CO,MIPS,Verilog,嚴月,P7">
+  <meta name="keywords" content="CO,Verilog,MIPS,嚴月,P7">
 
   <!-- feed -->
   
@@ -71,8 +71,8 @@
   
 
   
-  <link rel="preload" href="/css/main.css?rev=20261019-list-spacing&v=1.44.0" as="style">
-  <link rel="stylesheet" href="/css/main.css?rev=20261019-list-spacing&v=1.44.0">
+  <link rel="preload" href="/css/main.css?rev=20261019-preview-fragments&v=1.44.0" as="style">
+  <link rel="stylesheet" href="/css/main.css?rev=20261019-preview-fragments&v=1.44.0">
 
 
   
@@ -81,7 +81,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg"},"dateCreated":"2025-12-08T22:48:21+08:00","dateModified":"2026-04-09T23:01:39+08:00","datePublished":"2025-12-08T22:48:21+08:00","description":"It's time to leave all behind.","headline":"[BUAA CO P7]Verilog 设计 MIPS 微系统","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/28be479a/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg","logo":{"@type":"ImageObject","url":"https://samuflore.top/images/avatar.jpg"}},"url":"https://samuflore.top/posts/28be479a/","keywords":"CO, MIPS, Verilog, 嚴月, P7","thumbnailUrl":"/posts/28be479a/%E6%9E%B6%E6%9E%84.jpg","image":["/posts/28be479a/%E6%9E%B6%E6%9E%84.jpg"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg"},"dateCreated":"2025-12-08T22:48:21+08:00","dateModified":"2026-04-09T23:01:39+08:00","datePublished":"2025-12-08T22:48:21+08:00","description":"It's time to leave all behind.","headline":"[BUAA CO P7]Verilog 设计 MIPS 微系统","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/28be479a/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg","logo":{"@type":"ImageObject","url":"https://samuflore.top/images/avatar.jpg"}},"url":"https://samuflore.top/posts/28be479a/","keywords":"CO, Verilog, MIPS, 嚴月, P7","thumbnailUrl":"/posts/28be479a/%E6%9E%B6%E6%9E%84.jpg","image":["/posts/28be479a/%E6%9E%B6%E6%9E%84.jpg"]}</script>
   <link rel="preload" href="/fonts/Torus-Regular.otf" as="font" type="font/otf" crossorigin><link rel="stylesheet" href="/fonts/GenKiMin2TC.css?v=20261019-swap"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css?v=20261019-swap"><style>
   @font-face {
     font-family: 'Torus';
@@ -134,6 +134,9 @@
     :root {
       --fs-root: 16px;
     }
+  }
+  .widgets .widget-wrapper.user-card.author p.username {
+    font-size: 20px;
   }
 </style>
 
@@ -1134,7 +1137,7 @@
 <p>不说了，注意所谓<ins>所有字节地址</ins>，<code>sw</code> 计算出的地址是第一个字节的地址，再往后三个也是要存入的，因此当 ALU 算出的结果 <strong>+3</strong> 超范围时才发生异常。</p>
 </article>
 
-<div class="article-tags"><a class="tag" href="/tags/CO/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>CO</a><a class="tag" href="/tags/MIPS/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>MIPS</a><a class="tag" href="/tags/Verilog/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>Verilog</a><a class="tag" href="/tags/%E5%9A%B4%E6%9C%88/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>嚴月</a><a class="tag" href="/tags/P7/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>P7</a></div>
+<div class="article-tags"><a class="tag" href="/tags/CO/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>CO</a><a class="tag" href="/tags/Verilog/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>Verilog</a><a class="tag" href="/tags/MIPS/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>MIPS</a><a class="tag" href="/tags/%E5%9A%B4%E6%9C%88/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>嚴月</a><a class="tag" href="/tags/P7/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>P7</a></div>
 
 <div class="article-footer">
     <section id="license">
@@ -1647,14 +1650,6 @@
   });
 </script>
 <script>
-  window.FPConfig = {
-    delay: 0,
-    ignoreKeywords: [],
-    maxRPS: 5,
-    hoverDelay: 25
-  };
-</script>
-<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
   ctx.fancybox = {
     mode: `auto`,
     selector: `.timenode p>img`,
@@ -1785,8 +1780,8 @@
 <script>
   stellar.initPlugin(() => {
     let disposed = false;
-    ctx.link_preview = {"delay":300,"maxWidth":520,"maxHeight":420,"siteOrigin":"https://samuflore.top"};
-    utils.js('/js/plugins/link-preview.js', { defer: true }).then(() => {
+    ctx.link_preview = {"delay":350,"sources":{"article":true,"sidebar":false,"topbar":false,"lists":false,"footer":true,"other":false},"maxWidth":520,"maxHeight":420,"siteOrigin":"https://samuflore.top","siteRoot":"/","fragmentBase":"/_previews/"};
+    utils.js('/js/plugins/link-preview.js?v=20261019-sources', { defer: true }).then(() => {
       if (!disposed && stellar.linkPreview && typeof stellar.linkPreview.mountAll === 'function') {
         stellar.linkPreview.mountAll(document);
       }

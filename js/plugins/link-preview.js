@@ -1,14 +1,22 @@
 /*
  * Stellar link preview
  *
- * 鼠标停留在站内链接上时，请求目标页面并提取文章正文，展示在可滚动的浮层中。
- * 预览只在浏览器端工作，不改变 Hexo 生成的页面结构。
+ * 鼠标停留在站内链接上时，只请求构建时生成的中央内容片段。
+ * 不请求完整页面，不启动目标页的侧栏、评论或脚本。
  */
 (function () {
   'use strict';
 
   window.stellar = window.stellar || {};
 
+  const DEFAULT_SOURCES = {
+    article: true,
+    sidebar: false,
+    topbar: false,
+    lists: false,
+    footer: false,
+    other: false
+  };
   const DEFAULT_CONFIG = {
     delay: 300,
     maxWidth: 520,
@@ -16,6 +24,9 @@
     siteOrigin: '',
     siteHostname: '',
     sitePort: '',
+    siteRoot: '/',
+    fragmentBase: '/_previews/',
+    sources: DEFAULT_SOURCES,
     gap: 8,
     viewportPadding: 12,
     hideDelay: 180
@@ -45,6 +56,15 @@
   function normalizeConfig() {
     const raw = typeof ctx !== 'undefined' && ctx.link_preview ? ctx.link_preview : {};
     const normalized = Object.assign({}, DEFAULT_CONFIG);
+    normalized.sources = Object.assign({}, DEFAULT_SOURCES);
+    const sources = raw.sources;
+    if (sources && typeof sources === 'object' && !Array.isArray(sources)) {
+      Object.keys(DEFAULT_SOURCES).forEach(function (key) {
+        if (Object.prototype.hasOwnProperty.call(sources, key) && typeof sources[key] === 'boolean') {
+          normalized.sources[key] = sources[key];
+        }
+      });
+    }
     const delay = Number(raw.delay);
     const maxWidth = Number(raw.maxWidth);
     const maxHeight = Number(raw.maxHeight);
@@ -62,6 +82,14 @@
       } catch (error) {
         normalized.siteOrigin = '';
       }
+    }
+    const siteRoot = resolveUrl(raw.siteRoot || '/', window.location.href);
+    if (siteRoot && siteRoot.origin === window.location.origin) {
+      normalized.siteRoot = siteRoot.pathname.replace(/\/?$/, '/');
+    }
+    const fragmentBase = resolveUrl(raw.fragmentBase || normalized.siteRoot + '_previews/', window.location.href);
+    if (fragmentBase && fragmentBase.origin === window.location.origin) {
+      normalized.fragmentBase = fragmentBase.pathname.replace(/\/?$/, '/');
     }
     return normalized;
   }
@@ -102,10 +130,23 @@
     }
   }
 
+  function getSource(link) {
+    // 按来源位置分类；侧栏中的导航/Markdown、正文内的页脚组件不能落入正文兜底。
+    if (link.closest('.l_left, .l_right')) return 'sidebar';
+    if (link.closest('.article-footer, .page-footer, .article-tags, .related-wrap')) return 'footer';
+    if (link.closest('.post-list, .paginator-wrap, .pin-slider')) return 'lists';
+    if (link.closest('.navbar, .bread-nav, .article-banner-wrap, .l_main > header.header')) return 'topbar';
+    if (link.closest('article.md-text.content')) return 'article';
+    return 'other';
+  }
+
   function getTarget(link) {
-    if (!link || link.dataset.noPreview === 'true' || link.dataset.noPopover === 'true' || link.hasAttribute('download')) {
+    if (!link || link.dataset.noPreview === 'true' || link.dataset.noPopover === 'true' || link.hasAttribute('download') ||
+      link.getAttribute('role') === 'button' ||
+      link.closest('.stellar-link-preview, [data-no-preview="true"], [data-no-popover="true"], #comments, .tag-plugin.tabs .nav-tabs')) {
       return null;
     }
+    if (!config.sources[getSource(link)]) return null;
     const rawHref = (link.getAttribute('href') || '').trim();
     // 允许指向当前文章标题的锚点（例如 #PCA-Algorithm），但忽略空锚点。
     // 空锚点通常只用于回到页面顶部，不应触发整篇文章预览。
@@ -128,6 +169,14 @@
       url = new URL(url.pathname + url.search + url.hash, window.location.href);
     }
     if (url.pathname === window.location.pathname && url.search === window.location.search && !url.hash) return null;
+    if (!url.pathname.startsWith(config.siteRoot) || url.pathname.startsWith(config.fragmentBase)) return null;
+    // Only HTML routes have preview artifacts; don't preview images, fonts or downloads.
+    let route = url.pathname.slice(config.siteRoot.length);
+    const lastSegment = route.slice(route.lastIndexOf('/') + 1);
+    if (lastSegment.includes('.') && !/\.html?$/i.test(lastSegment)) return null;
+    if (!route || route.endsWith('/')) route += 'index.html';
+    else if (!/\.html?$/i.test(route)) route += '/index.html';
+    const fragmentUrl = new URL(config.fragmentBase + route + '.json', window.location.href);
 
     let hash = url.hash;
     try {
@@ -138,7 +187,8 @@
     url.hash = '';
     return {
       url: url,
-      key: url.pathname + url.search,
+      fragmentUrl: fragmentUrl,
+      key: fragmentUrl.pathname,
       hash: hash
     };
   }
@@ -238,10 +288,6 @@
     schedulePosition();
   }
 
-  function textContentOf(element) {
-    return element ? element.textContent.replace(/\s+/g, ' ').trim() : '';
-  }
-
   function rewriteRelativeUrls(container, baseUrl) {
     container.querySelectorAll('[href], [src], [srcset], [poster], [data-src], [data-srcset], [data-bg]').forEach(function (element) {
       ['href', 'src', 'poster'].forEach(function (attribute) {
@@ -312,7 +358,7 @@
   }
 
   function sanitizeContent(container, baseUrl) {
-    container.querySelectorAll('script, style, noscript, template, iframe, object, embed, form, button, .article-footer, .article-tags, #comments, .related-wrap, .loading-wrap, .lazy-icon').forEach(function (element) {
+    container.querySelectorAll('script, style, link, noscript, template, iframe, object, embed, form, button, .l_left, .l_right, .sitebg, .page-footer, .main-mask, .article-footer, .article-tags, #comments, .related-wrap, .loading-wrap, .lazy-icon').forEach(function (element) {
       element.remove();
     });
     container.classList.remove('slide-up');
@@ -335,22 +381,6 @@
     rewriteRelativeUrls(container, baseUrl);
   }
 
-  function extractPreview(html, targetUrl) {
-    const targetDocument = new DOMParser().parseFromString(html, 'text/html');
-    const article = targetDocument.querySelector('article.md-text.content');
-    if (!article) return null;
-
-    const body = article.cloneNode(true);
-    sanitizeContent(body, targetUrl);
-    const title = textContentOf(targetDocument.querySelector('.article-banner-wrap h1.text.title, .article.banner h1.text.title')) || textContentOf(targetDocument.querySelector('title'));
-    const meta = textContentOf(targetDocument.querySelector('.article-banner-wrap #post-meta, #post-meta'));
-    return {
-      title: title,
-      meta: meta,
-      html: body.innerHTML
-    };
-  }
-
   function fetchPreview(target) {
     const cached = previewCache.get(target.key);
     if (cached) return Promise.resolve(cached);
@@ -360,23 +390,24 @@
     const controller = typeof AbortController === 'function' ? new AbortController() : null;
     const options = {
       credentials: 'same-origin',
-      headers: { Accept: 'text/html' }
+      headers: { Accept: 'application/json' }
     };
     if (controller) options.signal = controller.signal;
 
     const entry = { promise: null, controller: controller };
-    entry.promise = fetch(target.url.href, options).then(function (response) {
+    entry.promise = fetch(target.fragmentUrl.href, options).then(function (response) {
       if (!response.ok) throw new Error('HTTP ' + response.status);
       const responseUrl = response.url ? new URL(response.url, window.location.href) : target.url;
       if (responseUrl.origin !== window.location.origin) throw new Error('Cross-origin response');
       const contentType = response.headers.get('content-type') || '';
-      if (contentType && !/text\/html|application\/xhtml\+xml/i.test(contentType)) {
-        throw new Error('Not an HTML page');
+      if (!/application\/json/i.test(contentType)) {
+        throw new Error('Not a preview fragment');
       }
-      return response.text();
-    }).then(function (html) {
-      const preview = extractPreview(html, target.url.href);
-      if (!preview || !preview.html.trim()) throw new Error('Preview content is empty');
+      return response.json();
+    }).then(function (preview) {
+      if (!preview || preview.version !== 1 || typeof preview.html !== 'string' || !preview.html.trim()) {
+        throw new Error('Invalid preview fragment');
+      }
       previewCache.set(target.key, preview);
       return preview;
     }).finally(function () {
@@ -423,22 +454,20 @@
   function renderPreview(preview, data, target) {
     const inner = preview.querySelector('.stellar-link-preview__inner');
     inner.replaceChildren();
-    if (data.title) {
+    const content = document.createElement('div');
+    content.className = 'stellar-link-preview__content l_body ' + (data.bodyClass === 'index' ? 'index' : 'content');
+    if (typeof data.layout === 'string') content.setAttribute('layout', data.layout);
+    if (typeof data.type === 'string') content.setAttribute('type', data.type);
+    if (data.textIndent === true) content.setAttribute('text-indent', '');
+    content.innerHTML = data.html;
+    sanitizeContent(content, target.url.href);
+    // Article/banner titles are already part of the central content.
+    if (data.title && !content.querySelector('h1')) {
       const title = document.createElement('h3');
       title.className = 'stellar-link-preview__title';
       title.textContent = data.title;
       inner.appendChild(title);
     }
-    if (data.meta) {
-      const meta = document.createElement('p');
-      meta.className = 'stellar-link-preview__meta';
-      meta.textContent = data.meta;
-      inner.appendChild(meta);
-    }
-    const content = document.createElement('div');
-    content.className = 'stellar-link-preview__content md-text';
-    content.innerHTML = data.html;
-    sanitizeContent(content, target.url.href);
     inner.appendChild(content);
     prefixIds(content, target.hash);
     const hydrateIcons = window.stellar && window.stellar.hydrateIcons;
@@ -520,7 +549,7 @@
   }
 
   function bindLink(link) {
-    if (!link || boundLinks.has(link)) return;
+    if (!link || boundLinks.has(link) || !getTarget(link)) return;
     const onPointerEnter = function () {
       if (finePointer.matches) open(link);
     };
@@ -553,18 +582,15 @@
   function mountAll(root) {
     config = normalizeConfig();
     const scope = root && typeof root.querySelectorAll === 'function' ? root : document;
-    const article = scope.matches && scope.matches('article.md-text.content')
-      ? scope
-      : scope.querySelector('article.md-text.content');
-    if (!article) return;
-    article.querySelectorAll('a[href]').forEach(bindLink);
+    if (scope.matches && scope.matches('a[href]')) bindLink(scope);
+    scope.querySelectorAll('a[href]').forEach(bindLink);
     bindLifecycle();
   }
 
   function handleRenderedMarkdown(event) {
     const target = event.detail && event.detail.target;
     if (target && target.nodeType === 1) {
-      mountAll(target.closest('article.md-text.content') || document);
+      mountAll(target);
     }
   }
 
@@ -595,6 +621,9 @@
     unbindAll();
     closePreview();
     previewCache.clear();
+    pendingRequests.forEach(function (entry) {
+      if (entry.controller) entry.controller.abort();
+    });
     pendingRequests.clear();
     if (lifecycleBound) {
       document.removeEventListener('stellar:mdrender', handleRenderedMarkdown);

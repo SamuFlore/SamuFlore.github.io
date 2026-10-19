@@ -66,8 +66,8 @@
   
 
   
-  <link rel="preload" href="/css/main.css?rev=20261019-list-spacing&v=1.44.0" as="style">
-  <link rel="stylesheet" href="/css/main.css?rev=20261019-list-spacing&v=1.44.0">
+  <link rel="preload" href="/css/main.css?rev=20261019-preview-fragments&v=1.44.0" as="style">
+  <link rel="stylesheet" href="/css/main.css?rev=20261019-preview-fragments&v=1.44.0">
 
 
   
@@ -129,6 +129,9 @@
     :root {
       --fs-root: 16px;
     }
+  }
+  .widgets .widget-wrapper.user-card.author p.username {
+    font-size: 20px;
   }
 </style>
 
@@ -951,14 +954,6 @@
   });
 </script>
 <script>
-  window.FPConfig = {
-    delay: 0,
-    ignoreKeywords: [],
-    maxRPS: 5,
-    hoverDelay: 25
-  };
-</script>
-<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
   ctx.fancybox = {
     mode: `auto`,
     selector: `.timenode p>img`,
@@ -1089,8 +1084,8 @@
 <script>
   stellar.initPlugin(() => {
     let disposed = false;
-    ctx.link_preview = {"delay":300,"maxWidth":520,"maxHeight":420,"siteOrigin":"https://samuflore.top"};
-    utils.js('/js/plugins/link-preview.js', { defer: true }).then(() => {
+    ctx.link_preview = {"delay":350,"sources":{"article":true,"sidebar":false,"topbar":false,"lists":false,"footer":true,"other":false},"maxWidth":520,"maxHeight":420,"siteOrigin":"https://samuflore.top","siteRoot":"/","fragmentBase":"/_previews/"};
+    utils.js('/js/plugins/link-preview.js?v=20261019-sources', { defer: true }).then(() => {
       if (!disposed && stellar.linkPreview && typeof stellar.linkPreview.mountAll === 'function') {
         stellar.linkPreview.mountAll(document);
       }
