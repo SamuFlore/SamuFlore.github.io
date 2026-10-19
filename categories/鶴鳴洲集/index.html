@@ -3,6 +3,24 @@
 
 <head>
   <meta charset="utf-8">
+  <script>
+  // 在首屏绘制前应用已保存的明暗偏好；按钮和插件仍由 theme.js 初始化。
+  (function () {
+    try {
+      var saved = localStorage.getItem('Stellar.theme');
+      if (saved === 'light' || saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    } catch (e) {
+      // 禁用存储时沿用 HTML 中的主题配置。
+    }
+  })();
+</script>
+
+
+<link rel="preload" as="image" href="https://api.elaina.cat/random/" fetchpriority="high">
+
+
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.44.0" theme-name="Stellar" theme-version="1.44.0">
   
   <meta name="robots" content="noindex,follow">
@@ -56,7 +74,7 @@
   
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"https://samuflore.top","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg"},"name":"SamuFlore","description":"一人倒、衆人倒。","url":"https://samuflore.top"}</script>
-  <link rel="stylesheet" href="/fonts/GenKiMin2TC.css"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css"><style>
+  <link rel="preload" href="/fonts/Torus-Regular.otf" as="font" type="font/otf" crossorigin><link rel="stylesheet" href="/fonts/GenKiMin2TC.css?v=20261019-swap"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css?v=20261019-swap"><style>
   @font-face {
     font-family: 'Torus';
     src: url('/fonts/Torus-Thin.otf') format('opentype');
@@ -422,7 +440,7 @@
 </div>
 <footer class="footer dis-select"><div class="social-wrap" style="--item-grad:url(#footer-social-icon-grad)">
 <svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="footer-social-icon-grad" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
-<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="icon" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
+<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="theme-mode-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" aria-hidden="true" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
 </div></aside><div class="l_main" id="main" data-ui-surface="content">
 
 
@@ -437,7 +455,7 @@
 <div class="navbar top"><div class="navbar-blur"><div class="navbar-container"><nav class="post"><a href="/">近期发布</a><a class="active" href="/categories/">分类：鶴鳴洲集</a><a href="/tags/">标签</a><a href="/topic/">专栏</a><a href="/archives/">归档</a><a href="/recent/">BAKER</a></nav></div></div></div>
 
 <div class="post-list post"><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/f4bf9c17/">
-<article class="md-text"><h2 class="post-title">[鶴鳴洲集]“他妈的”，究竟是谁妈的？</h2><div class="excerpt"><p>我们都知道，时至今日，在普通话全国推行的大背景下，“ɲit”系（如湘语、西南官话等）和“ʦʰɑk”系（如赣语、南京官话等）这指代同一动作的两个最古老、最广泛的发音及其演变出的各变种仍因为地区的不同而出现在不同的方言中，尚未见一统的趋势。而与此截然不同的是这句“他妈的”竟然早已传遍九州，成为放之四海而皆准的一句国骂了，实在是让人啧啧称奇。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-10-19T06:15:12.000Z">2025-10-19</time></span><span class="cap breadcrumb" style="--text-p2:#77BBDD;--theme-block:#77BBDD20"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>鶴鳴洲集</span></span></div></article>
+<article class="md-text"><h2 class="post-title">[鶴鳴洲集]“他妈的”，究竟是谁妈的？</h2><div class="excerpt"><p>我们都知道，时至今日，在普通话全国推行的大背景下，“ɲit”系（如湘语、西南官话等）和“ʦʰɑk”系（如赣语、南京官话等）这指代同一动作的两个最古老、最广泛的发音及其演变出的各变种仍因为地区的不同而出现在不同的方言中，尚未见一统的趋势。而与此截然不同的是这句“他妈的”竟然早已传遍九州，成为放之四海而皆准的一句国骂了，实在是让人啧啧称奇。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-10-19T06:15:12.000Z">2025-10-19</time></span><span class="cap breadcrumb" style="--text-p2:#77BBDD;--theme-block:#77BBDD20"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>鶴鳴洲集</span></span></div></article>
 </a></div></div>
 
 

@@ -3,6 +3,24 @@
 
 <head>
   <meta charset="utf-8">
+  <script>
+  // 在首屏绘制前应用已保存的明暗偏好；按钮和插件仍由 theme.js 初始化。
+  (function () {
+    try {
+      var saved = localStorage.getItem('Stellar.theme');
+      if (saved === 'light' || saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    } catch (e) {
+      // 禁用存储时沿用 HTML 中的主题配置。
+    }
+  })();
+</script>
+
+
+<link rel="preload" as="image" href="https://api.elaina.cat/random/" fetchpriority="high">
+
+
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.44.0" theme-name="Stellar" theme-version="1.44.0">
   
   
@@ -59,7 +77,7 @@
   
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg"},"dateCreated":"2025-10-20T14:02:30+08:00","dateModified":"2026-09-01T10:51:42+08:00","datePublished":"2025-10-20T14:02:30+08:00","description":"实验性。","headline":"MD 样式测试","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/937d20ea/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg","logo":{"@type":"ImageObject","url":"https://samuflore.top/images/avatar.jpg"}},"url":"https://samuflore.top/posts/937d20ea/","keywords":"露月","thumbnailUrl":"https://res.xaox.cc/gh/cdn-x/wiki@main/stellar/photos/hello@1x.png","image":["https://res.xaox.cc/gh/cdn-x/wiki@main/stellar/photos/hello@1x.png"]}</script>
-  <link rel="stylesheet" href="/fonts/GenKiMin2TC.css"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css"><style>
+  <link rel="preload" href="/fonts/Torus-Regular.otf" as="font" type="font/otf" crossorigin><link rel="stylesheet" href="/fonts/GenKiMin2TC.css?v=20261019-swap"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css?v=20261019-swap"><style>
   @font-face {
     font-family: 'Torus';
     src: url('/fonts/Torus-Thin.otf') format('opentype');
@@ -227,7 +245,7 @@
 
 </nav>
 </div>
-<widget class="widget-wrapper user-card author"><div class="widget-body"><div class="avatar"><img class="lazy" type="img" id="avatar_url" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://s41.ax1x.com/2026/06/29/pmasnC4.jpg"></div><p class="username" type="text" id="name">Seymiris Asakawa</p><p class="bio" type="text" id="bio">江子社记者 Seymiris Asakawa。</p><a class="follow" href="/author/samuflore/"><svg class="icon" data-icon="default:documents" aria-hidden="true"></svg>所有文章</a></div></widget>
+<widget class="widget-wrapper user-card author"><div class="widget-body"><div class="avatar"><img class="lazy" type="img" id="avatar_url" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://s41.ax1x.com/2026/06/29/pmasnC4.jpg"></div><p class="username" type="text" id="name">Seymiris Asakawa</p><p class="bio" type="text" id="bio">江子社记者 Seymiris Asakawa。</p><a class="follow" href="/author/samuflore/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:documents" aria-hidden="true"></svg>所有文章</a></div></widget>
 
 
 <widget class="widget-wrapper link-list-widget">
@@ -481,7 +499,7 @@
 </div>
 <footer class="footer dis-select"><div class="social-wrap" style="--item-grad:url(#footer-social-icon-grad)">
 <svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="footer-social-icon-grad" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
-<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="icon" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
+<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="theme-mode-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" aria-hidden="true" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
 </div></aside><div class="l_main" id="main" data-ui-surface="content">
 
 
@@ -494,7 +512,7 @@
     
     <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a>
-</div><div class="right"><span class="cap reading">1507 字 · 约 6 分钟</span><span class="cap ai-label" style="color:#03a9f4"><svg class="icon" data-icon="default:shield-user" aria-hidden="true"></svg>非 AI 生成</span></div></div><div class="meta-row">
+</div><div class="right"><span class="cap reading">1507 字 · 约 6 分钟</span><span class="cap ai-label" style="color:#03a9f4"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:shield-user" aria-hidden="true"></svg>非 AI 生成</span></div></div><div class="meta-row">
 <div class="flex-row" id="post-meta"><a class="author" href="/author/samuflore/">Seymiris Asakawa</a><span class="sep"></span><span class="text created"><time datetime="2025-10-20T06:02:30.000Z">2025-10-20</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-09-01T02:51:42.810Z">2026-09-01</time></span></div>
 </div></div>
     
@@ -593,7 +611,7 @@
 </div>
 <h1 id="1">1</h1>
 <div class="tag-plugin timeline"><div class="timenode" index="0"><div class="header"><span>2021 年 2 月 16 日</span></div><div class="body fs14"><p>主要部分功能已经开发的差不多了。</p><div class="tag-plugin image"><div class="image-bg" style="aspect-ratio:1179/390;width:300px;"><img class="lazy" src="/posts/937d20ea/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://res.xaox.cc/gh/cdn-x/wiki@main/stellar/photos/hello@1x.png" data-fancybox="true" onerror="this.src=&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2rem' height='2rem' viewBox='0 0 24 24'%3E%3C!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --%3E%3Cpath fill='%23F44336' d='M22 12.698c-.002 1.47-.013 2.718-.096 3.743c-.097 1.19-.296 2.184-.74 3.009a4.2 4.2 0 0 1-.73.983c-.833.833-1.893 1.21-3.237 1.39C15.884 22 14.2 22 12.053 22h-.106c-2.148 0-3.83 0-5.144-.177c-1.343-.18-2.404-.557-3.236-1.39c-.738-.738-1.12-1.656-1.322-2.795c-.2-1.12-.236-2.512-.243-4.241Q1.999 12.737 2 12v-.054c0-2.148 0-3.83.177-5.144c.18-1.343.557-2.404 1.39-3.236s1.893-1.21 3.236-1.39c1.168-.157 2.67-.175 4.499-.177a.697.697 0 1 1 0 1.396c-1.855.002-3.234.018-4.313.163c-1.189.16-1.906.464-2.436.994S3.72 5.8 3.56 6.99C3.397 8.2 3.395 9.788 3.395 12v.784l.932-.814a2.14 2.14 0 0 1 2.922.097l3.99 3.99a1.86 1.86 0 0 0 2.385.207l.278-.195a2.79 2.79 0 0 1 3.471.209l2.633 2.37c.265-.557.423-1.288.507-2.32c.079-.972.09-2.152.091-3.63a.698.698 0 0 1 1.396 0' opacity='.5'/%3E%3Cpath fill='%23F44336' fill-rule='evenodd' d='M17.5 11c-2.121 0-3.182 0-3.841-.659S13 8.621 13 6.5s0-3.182.659-3.841S15.379 2 17.5 2s3.182 0 3.841.659S22 4.379 22 6.5s0 3.182-.659 3.841S19.621 11 17.5 11m-1.47-7.03a.75.75 0 1 0-1.06 1.06l1.47 1.47l-1.47 1.47a.75.75 0 0 0 1.06 1.06l1.47-1.47l1.47 1.47a.75.75 0 1 0 1.06-1.06L18.56 6.5l1.47-1.47a.75.75 0 0 0-1.06-1.06L17.5 5.44z' clip-rule='evenodd'/%3E%3C/svg%3E&quot;"><div class="lazy-icon"></div></div></div></div></div><div class="timenode" index="1"><div class="header"><span>2021 年 2 月 11 日</span></div><div class="body fs14"><p>今天除夕，也是生日，一个人在外地过年+过生日，熬夜开发新主题，尽量在假期结束前放出公测版。</p></div></div></div>
-<div class="tag-plugin quot p"><p class="content"><svg class="icon" data-icon="bxs:quote-left" aria-hidden="true"/><span class="text">你好</span><svg class="icon" data-icon="bxs:quote-right" aria-hidden="true"/></p></div>
+<div class="tag-plugin quot p"><p class="content"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewbox="0 0 24 24" data-icon="bxs:quote-left" aria-hidden="true"/><span class="text">你好</span><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewbox="0 0 24 24" data-icon="bxs:quote-right" aria-hidden="true"/></p></div>
 <p>[[CJKV-和]]</p>
 <hr class="footnotes-sep">
 <section class="footnotes">
@@ -607,7 +625,7 @@ This is a second line <a href="#fnref2" class="footnote-backref">↩︎</a></p>
 </section>
 </article>
 
-<div class="article-tags"><a class="tag" href="/tags/%E9%9C%B2%E6%9C%88/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>露月</a></div>
+<div class="article-tags"><a class="tag" href="/tags/%E9%9C%B2%E6%9C%88/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>露月</a></div>
 
 <div class="article-footer">
     <section id="license">
@@ -1073,7 +1091,7 @@ This is a second line <a href="#fnref2" class="footnote-backref">↩︎</a></p>
       }));
     }
     
-    util.viewportLazyload(el, load_waline);
+    util.viewportLazyload(el, load_waline, false);
   }
   
   // Initialize on page load

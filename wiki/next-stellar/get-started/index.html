@@ -3,6 +3,24 @@
 
 <head>
   <meta charset="utf-8">
+  <script>
+  // 在首屏绘制前应用已保存的明暗偏好；按钮和插件仍由 theme.js 初始化。
+  (function () {
+    try {
+      var saved = localStorage.getItem('Stellar.theme');
+      if (saved === 'light' || saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    } catch (e) {
+      // 禁用存储时沿用 HTML 中的主题配置。
+    }
+  })();
+</script>
+
+
+<link rel="preload" as="image" href="https://api.elaina.cat/random/" fetchpriority="high">
+
+
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.44.0" theme-name="Stellar" theme-version="1.44.0">
   
   
@@ -58,7 +76,7 @@
   
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"https://samuflore.top/wiki/next-stellar/get-started/","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg"},"name":"起步","description":"从 NexT 到 Stellar 的旅程，探索博客主题的演变与创新。","url":"https://samuflore.top/wiki/next-stellar/get-started/"}</script>
-  <link rel="stylesheet" href="/fonts/GenKiMin2TC.css"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css"><style>
+  <link rel="preload" href="/fonts/Torus-Regular.otf" as="font" type="font/otf" crossorigin><link rel="stylesheet" href="/fonts/GenKiMin2TC.css?v=20261019-swap"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css?v=20261019-swap"><style>
   @font-face {
     font-family: 'Torus';
     src: url('/fonts/Torus-Thin.otf') format('opentype');
@@ -230,7 +248,7 @@
 </div>
 <footer class="footer dis-select"><div class="social-wrap" style="--item-grad:url(#footer-social-icon-grad)">
 <svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="footer-social-icon-grad" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
-<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="icon" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
+<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="theme-mode-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" aria-hidden="true" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
 </div></aside><div class="l_main" id="main" data-ui-surface="content">
 
 
@@ -261,7 +279,7 @@
 <figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">Hexo:</span> <span class="number">6.3</span><span class="number">.0</span> <span class="string">~</span> <span class="string">latest</span></span><br><span class="line"><span class="attr">hexo-cli:</span> <span class="number">4.3</span><span class="number">.0</span> <span class="string">~</span> <span class="string">latest</span></span><br><span class="line"><span class="attr">node:</span> <span class="string">&gt;=</span> <span class="number">22</span> <span class="comment"># 建议选择 LTS 版本</span></span><br><span class="line"><span class="attr">npm:</span> <span class="string">&gt;=</span> <span class="number">10</span></span><br></pre></td></tr></tbody></table></figure>
 <h2 id="安装-Stellar">安装 Stellar</h2>
 <p>在博客目录下打开终端，执行：</p>
-<div class="tag-plugin copy"><input class="copy-area" id="copy_16" value="npm i hexo-theme-stellar"><button class="copy-btn" onclick="util.copy(&quot;copy_16&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
+<div class="tag-plugin copy"><input class="copy-area" id="copy_16" value="npm i hexo-theme-stellar"><button class="copy-btn" onclick="util.copy(&quot;copy_16&quot;,&quot;复制成功&quot;)"><svg class="icon copy-btn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
 <div class="tag-plugin colorful note"><div class="title">注意</div><div class="body"><p>这将会把主题安装到 <code>\Blog\node_modules\hexo-theme-stellar</code> 下。</p></div></div>
 <p>然后，在 <u>站点配置文件</u> <code>_config.yml</code> 中修改 <code>theme</code> 字段为 <code>theme: stellar</code>。</p>
 <p>这样，Stellar 就设置为我博客的主题了。</p>
@@ -271,7 +289,7 @@
 <figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">{% note info %}</span><br><span class="line">这是正文</span><br><span class="line">{% endnote %}</span><br></pre></td></tr></tbody></table></figure>
 <p>而这些语法在 Stellar 中是错误的。因此我需要逐个检查之前的博文，删除所有可能引发错误的标签。</p>
 <p>到这一步，执行：</p>
-<div class="tag-plugin copy"><input class="copy-area" id="copy_17" value="hexo cl &amp;&amp; hexo g &amp;&amp; hexo s"><button class="copy-btn" onclick="util.copy(&quot;copy_17&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
+<div class="tag-plugin copy"><input class="copy-area" id="copy_17" value="hexo cl &amp;&amp; hexo g &amp;&amp; hexo s"><button class="copy-btn" onclick="util.copy(&quot;copy_17&quot;,&quot;复制成功&quot;)"><svg class="icon copy-btn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
 <p>通过了编译等过程，在本地见到了使用 Stellar 主题的我的博客。很好，一切正常。</p>
 <h2 id="字体配置">字体配置</h2>
 <p>我选择沿袭先前的设置，用霞鹭文楷作为中文字体。一方面是因为其字库够大，兼有简、繁、和、假名等，另一方面是因为其字形美观，易于阅读。</p>
@@ -293,10 +311,10 @@
 <div class="tag-plugin colorful note"><div class="title">键值对</div><div class="body"><p>键：<code>menu_id</code>，值：<code>url</code>。</p></div></div>
 <p>这样在左侧边栏就出现了四个按键。定义 icons 的 <code>icons.yml</code> 在 <code>\blog\node_modules\hexo-theme-stellar\_data\icons.yml</code>。亦可以调用 Iconify 的 API 来使用 svg 图形。</p>
 <div class="tag-plugin colorful note"><div class="title"><strong><p>调用 Iconify API</p>
-</strong></div><div class="body"><p>生成 svg 的 url 格式如下：</p><div class="tag-plugin copy"><input class="copy-area" id="copy_18" value="https://api.iconify.design/prefix/name.svg"><button class="copy-btn" onclick="util.copy(&quot;copy_18&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div><p>其中 <code>prefix/name</code> 一处可以在 Iconify 选中心仪的图标，复制其名字得到。</p></div></div>
+</strong></div><div class="body"><p>生成 svg 的 url 格式如下：</p><div class="tag-plugin copy"><input class="copy-area" id="copy_18" value="https://api.iconify.design/prefix/name.svg"><button class="copy-btn" onclick="util.copy(&quot;copy_18&quot;,&quot;复制成功&quot;)"><svg class="icon copy-btn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="copy:copy" aria-hidden="true"></svg></button></div><p>其中 <code>prefix/name</code> 一处可以在 Iconify 选中心仪的图标，复制其名字得到。</p></div></div>
 <h3 id="绑定具体页面">绑定具体页面</h3>
 <p>这时候你肯定要问了：</p>
-<div class="tag-plugin quot p"><p class="content"><svg class="icon" data-icon="bxs:quote-left" aria-hidden="true"></svg><span class="text">menu_id 是干什么的？</span><svg class="icon" data-icon="bxs:quote-right" aria-hidden="true"></svg></p></div>
+<div class="tag-plugin quot p"><p class="content"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" data-icon="bxs:quote-left" aria-hidden="true"></svg><span class="text">menu_id 是干什么的？</span><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" data-icon="bxs:quote-right" aria-hidden="true"></svg></p></div>
 <p>其实，它只有一个小小的作用，就是让主题知道你正在浏览哪一种页面，根据页面的不同显示不同的内容。以这 4 个按键为例，当我点击某一按键，待页面加载完成之后，这个按键就是<mark class="tag-plugin colorful mark" color="yellow">高亮</mark>的。这是因为我在这个页面的 md 文件的 front-matter 中声明了「这个页面的 <code>menu_id</code>」，当检测到页面的 <code>menu_id</code> 与上述的 <code>menu_id</code> 相符时，这个按键就会亮起。譬如：</p>
 <figure class="highlight md"><figcaption><span>guestbook.md</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 留 言</span><br><span class="line"><span class="section">menu<span class="emphasis">_id: guestbook</span></span></span><br><span class="line"><span class="emphasis"><span class="section">---</span></span></span><br></pre></td></tr></tbody></table></figure>
 <h2 id="创建文章">创建文章</h2>
@@ -320,7 +338,7 @@
       <span>本文贡献者</span>
       <span class="spacer"></span>
       <a class="edit" target="_blank" rel="noopener" href="https://github.com/SamuFlore/from-next-to-stellar/blob/main/get-started.md">
-        <svg class="icon" data-icon="default:edit" aria-hidden="true"></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:edit" aria-hidden="true"></svg>
         <span>编辑本文</span>
       </a>
     </div>
@@ -387,7 +405,7 @@
 <div style="display:inline-block;"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/images/kr.svg" width=100px ></div>
 </div></footer>
 <div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right" data-ui-surface="sidebar"><div class="widgets">
-<widget class="widget-wrapper ghrepo"><div class="widget-body"><div class="items data-service ds-ghinfo" data-api="https://api.github.com/repos/SamuFlore/from-next-to-stellar"><a class="repo" href="https://github.com/SamuFlore/from-next-to-stellar" target="_blank" rel="external nofollow noopener noreferrer"><div class="repo-name flex-row"><svg class="icon" data-icon="github:repo" aria-hidden="true"></svg>SamuFlore/from-next-to-stellar</div><div class="repo-desc"><span type="text" id="description">&nbsp;</span></div><div class="grid"><div class="flex-row"><svg class="icon" data-icon="github:star" aria-hidden="true"></svg><span type="text" id="stargazers_count"></span></div><div class="flex-row"><svg class="icon" data-icon="github:fork" aria-hidden="true"></svg><span type="text" id="forks_count"></span></div><div class="flex-row data-service ds-ghinfo" index="0" data-api="https://api.github.com/repos/SamuFlore/from-next-to-stellar/tags"><svg class="icon" data-icon="github:tag" aria-hidden="true"></svg><span type="text" id="latest-tag-name">0</span></div></div></a></div></div></widget>
+<widget class="widget-wrapper ghrepo"><div class="widget-body"><div class="items data-service ds-ghinfo" data-api="https://api.github.com/repos/SamuFlore/from-next-to-stellar"><a class="repo" href="https://github.com/SamuFlore/from-next-to-stellar" target="_blank" rel="external nofollow noopener noreferrer"><div class="repo-name flex-row"><svg aria-hidden="true" role="img" class="color-icon-primary" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" style="user-select:none;overflow:visible" data-icon="github:repo" aria-hidden="true"></svg>SamuFlore/from-next-to-stellar</div><div class="repo-desc"><span type="text" id="description">&nbsp;</span></div><div class="grid"><div class="flex-row"><svg aria-hidden="true" role="img" class="color-icon-primary" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" style="user-select:none;overflow:visible" data-icon="github:star" aria-hidden="true"></svg><span type="text" id="stargazers_count"></span></div><div class="flex-row"><svg aria-hidden="true" role="img" class="color-icon-primary" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" style="user-select:none;overflow:visible" data-icon="github:fork" aria-hidden="true"></svg><span type="text" id="forks_count"></span></div><div class="flex-row data-service ds-ghinfo" index="0" data-api="https://api.github.com/repos/SamuFlore/from-next-to-stellar/tags"><svg aria-hidden="true" role="img" class="color-icon-primary" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" style="user-select:none;overflow:visible" data-icon="github:tag" aria-hidden="true"></svg><span type="text" id="latest-tag-name">0</span></div></div></a></div></div></widget>
 
 
 
@@ -778,7 +796,7 @@
       }));
     }
     
-    util.viewportLazyload(el, load_waline);
+    util.viewportLazyload(el, load_waline, false);
   }
   
   // Initialize on page load

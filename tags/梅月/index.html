@@ -3,6 +3,24 @@
 
 <head>
   <meta charset="utf-8">
+  <script>
+  // 在首屏绘制前应用已保存的明暗偏好；按钮和插件仍由 theme.js 初始化。
+  (function () {
+    try {
+      var saved = localStorage.getItem('Stellar.theme');
+      if (saved === 'light' || saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    } catch (e) {
+      // 禁用存储时沿用 HTML 中的主题配置。
+    }
+  })();
+</script>
+
+
+<link rel="preload" as="image" href="https://api.elaina.cat/random/" fetchpriority="high">
+
+
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.44.0" theme-name="Stellar" theme-version="1.44.0">
   
   <meta name="robots" content="noindex,follow">
@@ -56,7 +74,7 @@
   
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"https://samuflore.top","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg"},"name":"SamuFlore","description":"一人倒、衆人倒。","url":"https://samuflore.top"}</script>
-  <link rel="stylesheet" href="/fonts/GenKiMin2TC.css"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css"><style>
+  <link rel="preload" href="/fonts/Torus-Regular.otf" as="font" type="font/otf" crossorigin><link rel="stylesheet" href="/fonts/GenKiMin2TC.css?v=20261019-swap"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css?v=20261019-swap"><style>
   @font-face {
     font-family: 'Torus';
     src: url('/fonts/Torus-Thin.otf') format('opentype');
@@ -422,7 +440,7 @@
 </div>
 <footer class="footer dis-select"><div class="social-wrap" style="--item-grad:url(#footer-social-icon-grad)">
 <svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="footer-social-icon-grad" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
-<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="icon" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
+<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="theme-mode-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" aria-hidden="true" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
 </div></aside><div class="l_main" id="main" data-ui-surface="content">
 
 
@@ -437,15 +455,15 @@
 <div class="navbar top"><div class="navbar-blur"><div class="navbar-container"><nav class="post"><a href="/">近期发布</a><a href="/categories/">分类</a><a class="active" href="/tags/">标签：梅月</a><a href="/topic/">专栏</a><a href="/archives/">归档</a><a href="/recent/">BAKER</a></nav></div></div></div>
 
 <div class="post-list post"><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/ec975a68/">
-<article class="md-text"><h2 class="post-title">[江子社]Koishi + NapCat 搭建第三方 QQ 机器人指南</h2><div class="excerpt"><p>江子社为 Leaves 定制之特辑。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2026-04-25T15:44:12.000Z">2026-04-25</time></span><span class="cap breadcrumb" style="--text-p2:#BB9955;--theme-block:#BB995520"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>江子通信社</span></span></div></article>
+<article class="md-text"><h2 class="post-title">[江子社]Koishi + NapCat 搭建第三方 QQ 机器人指南</h2><div class="excerpt"><p>江子社为 Leaves 定制之特辑。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2026-04-25T15:44:12.000Z">2026-04-25</time></span><span class="cap breadcrumb" style="--text-p2:#BB9955;--theme-block:#BB995520"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>江子通信社</span></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/50f8f9e3/">
-<article class="md-text"><h2 class="post-title">[BUAA OO]Unit2 总结：电梯调度</h2><div class="excerpt"><p>北京航空航天大学电梯规则怪谈。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2026-04-24T11:38:43.000Z">2026-04-24</time></span><span class="cap breadcrumb"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; 面向對象設計與構造</span></span></div></article>
+<article class="md-text"><h2 class="post-title">[BUAA OO]Unit2 总结：电梯调度</h2><div class="excerpt"><p>北京航空航天大学电梯规则怪谈。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2026-04-24T11:38:43.000Z">2026-04-24</time></span><span class="cap breadcrumb"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; 面向對象設計與構造</span></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/c35d5e9/">
-<article class="md-text"><h2 class="post-title">[BUAA OS Lab3]进程与异常</h2><div class="excerpt"><p>别失手！</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2026-04-20T06:55:33.000Z">2026-04-20</time></span><span class="cap breadcrumb" style="--text-p2:#335566;--theme-block:#33556620"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; 操作系統</span></span></div></article>
+<article class="md-text"><h2 class="post-title">[BUAA OS Lab3]进程与异常</h2><div class="excerpt"><p>别失手！</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2026-04-20T06:55:33.000Z">2026-04-20</time></span><span class="cap breadcrumb" style="--text-p2:#335566;--theme-block:#33556620"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; 操作系統</span></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/4a08425d/">
-<article class="md-text"><h2 class="post-title">[BUAA OS Lab2]内存管理</h2><div class="excerpt"><p>在预算之内，支出的需求会一直增加，直到所有资源被用完为止。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2026-04-06T14:20:06.000Z">2026-04-06</time></span><span class="cap breadcrumb" style="--text-p2:#335566;--theme-block:#33556620"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; 操作系統</span></span></div></article>
+<article class="md-text"><h2 class="post-title">[BUAA OS Lab2]内存管理</h2><div class="excerpt"><p>在预算之内，支出的需求会一直增加，直到所有资源被用完为止。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2026-04-06T14:20:06.000Z">2026-04-06</time></span><span class="cap breadcrumb" style="--text-p2:#335566;--theme-block:#33556620"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; 操作系統</span></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/f183ae5b/">
-<article class="md-text"><h2 class="post-title">[長欣集]梅间</h2><div class="excerpt"><p>何風雲之易幻兮、夫惟舊日以焉追？</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2024-04-01T03:09:52.000Z">2024-04-01</time></span><span class="cap breadcrumb" style="--text-p2:#7777AA;--theme-block:#7777AA20"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>長欣集</span></span></div></article>
+<article class="md-text"><h2 class="post-title">[長欣集]梅间</h2><div class="excerpt"><p>何風雲之易幻兮、夫惟舊日以焉追？</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2024-04-01T03:09:52.000Z">2024-04-01</time></span><span class="cap breadcrumb" style="--text-p2:#7777AA;--theme-block:#7777AA20"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>長欣集</span></span></div></article>
 </a></div></div>
 
 

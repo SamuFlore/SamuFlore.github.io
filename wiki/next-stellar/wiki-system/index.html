@@ -3,6 +3,24 @@
 
 <head>
   <meta charset="utf-8">
+  <script>
+  // 在首屏绘制前应用已保存的明暗偏好；按钮和插件仍由 theme.js 初始化。
+  (function () {
+    try {
+      var saved = localStorage.getItem('Stellar.theme');
+      if (saved === 'light' || saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    } catch (e) {
+      // 禁用存储时沿用 HTML 中的主题配置。
+    }
+  })();
+</script>
+
+
+<link rel="preload" as="image" href="https://api.elaina.cat/random/" fetchpriority="high">
+
+
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.44.0" theme-name="Stellar" theme-version="1.44.0">
   
   
@@ -58,7 +76,7 @@
   
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"https://samuflore.top/wiki/next-stellar/wiki-system/","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg"},"name":"文档系统","description":"从 NexT 到 Stellar 的旅程，探索博客主题的演变与创新。","url":"https://samuflore.top/wiki/next-stellar/wiki-system/"}</script>
-  <link rel="stylesheet" href="/fonts/GenKiMin2TC.css"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css"><style>
+  <link rel="preload" href="/fonts/Torus-Regular.otf" as="font" type="font/otf" crossorigin><link rel="stylesheet" href="/fonts/GenKiMin2TC.css?v=20261019-swap"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css?v=20261019-swap"><style>
   @font-face {
     font-family: 'Torus';
     src: url('/fonts/Torus-Thin.otf') format('opentype');
@@ -230,7 +248,7 @@
 </div>
 <footer class="footer dis-select"><div class="social-wrap" style="--item-grad:url(#footer-social-icon-grad)">
 <svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="footer-social-icon-grad" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
-<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="icon" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
+<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="theme-mode-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" aria-hidden="true" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
 </div></aside><div class="l_main" id="main" data-ui-surface="content">
 
 
@@ -271,7 +289,7 @@
 <p>在 GitHub 新建一个仓库，用以存放文档的 Markdown 文件，比如仓库名叫做 <code>MyRepo</code>。假设文档名为 <code>MyWiki</code>。</p>
 <div class="tag-plugin colorful note" color="yellow"><div class="title">注意</div><div class="body"><p>“文档名”指的是文档配置文件的名字，也就是 <code>source/_data/wiki/MyWiki.yml</code>。</p></div></div>
 <p>在 <code>edit_this_page</code> 字段下新增：</p>
-<div class="tag-plugin copy"><span>YAML</span><input class="copy-area" id="copy_23" value="wiki/MyWiki/:https://github.com/MyName/MyRepo/blob/main/"><button class="copy-btn" onclick="util.copy(&quot;copy_23&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
+<div class="tag-plugin copy"><span>YAML</span><input class="copy-area" id="copy_19" value="wiki/MyWiki/:https://github.com/MyName/MyRepo/blob/main/"><button class="copy-btn" onclick="util.copy(&quot;copy_19&quot;,&quot;复制成功&quot;)"><svg class="icon copy-btn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
 <p>把 <code>MyName</code> 换成你用户名，<code>MyWiki</code> 换成你文档名，<code>MyRepo</code> 换成你仓库的名字即可。</p>
 <h3 id="本文仓库">本文仓库</h3>
 <p>在 <code>MyWiki.yml</code> 中会有这样一项配置：</p>
@@ -291,7 +309,7 @@
       <span>本文贡献者</span>
       <span class="spacer"></span>
       <a class="edit" target="_blank" rel="noopener" href="https://github.com/SamuFlore/from-next-to-stellar/blob/main/wiki-system.md">
-        <svg class="icon" data-icon="default:edit" aria-hidden="true"></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:edit" aria-hidden="true"></svg>
         <span>编辑本文</span>
       </a>
     </div>
@@ -358,7 +376,7 @@
 <div style="display:inline-block;"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/images/kr.svg" width=100px ></div>
 </div></footer>
 <div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right" data-ui-surface="sidebar"><div class="widgets">
-<widget class="widget-wrapper ghrepo"><div class="widget-body"><div class="items data-service ds-ghinfo" data-api="https://api.github.com/repos/SamuFlore/from-next-to-stellar"><a class="repo" href="https://github.com/SamuFlore/from-next-to-stellar" target="_blank" rel="external nofollow noopener noreferrer"><div class="repo-name flex-row"><svg class="icon" data-icon="github:repo" aria-hidden="true"></svg>SamuFlore/from-next-to-stellar</div><div class="repo-desc"><span type="text" id="description">&nbsp;</span></div><div class="grid"><div class="flex-row"><svg class="icon" data-icon="github:star" aria-hidden="true"></svg><span type="text" id="stargazers_count"></span></div><div class="flex-row"><svg class="icon" data-icon="github:fork" aria-hidden="true"></svg><span type="text" id="forks_count"></span></div><div class="flex-row data-service ds-ghinfo" index="0" data-api="https://api.github.com/repos/SamuFlore/from-next-to-stellar/tags"><svg class="icon" data-icon="github:tag" aria-hidden="true"></svg><span type="text" id="latest-tag-name">0</span></div></div></a></div></div></widget>
+<widget class="widget-wrapper ghrepo"><div class="widget-body"><div class="items data-service ds-ghinfo" data-api="https://api.github.com/repos/SamuFlore/from-next-to-stellar"><a class="repo" href="https://github.com/SamuFlore/from-next-to-stellar" target="_blank" rel="external nofollow noopener noreferrer"><div class="repo-name flex-row"><svg aria-hidden="true" role="img" class="color-icon-primary" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" style="user-select:none;overflow:visible" data-icon="github:repo" aria-hidden="true"></svg>SamuFlore/from-next-to-stellar</div><div class="repo-desc"><span type="text" id="description">&nbsp;</span></div><div class="grid"><div class="flex-row"><svg aria-hidden="true" role="img" class="color-icon-primary" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" style="user-select:none;overflow:visible" data-icon="github:star" aria-hidden="true"></svg><span type="text" id="stargazers_count"></span></div><div class="flex-row"><svg aria-hidden="true" role="img" class="color-icon-primary" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" style="user-select:none;overflow:visible" data-icon="github:fork" aria-hidden="true"></svg><span type="text" id="forks_count"></span></div><div class="flex-row data-service ds-ghinfo" index="0" data-api="https://api.github.com/repos/SamuFlore/from-next-to-stellar/tags"><svg aria-hidden="true" role="img" class="color-icon-primary" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" style="user-select:none;overflow:visible" data-icon="github:tag" aria-hidden="true"></svg><span type="text" id="latest-tag-name">0</span></div></div></a></div></div></widget>
 
 
 
@@ -749,7 +767,7 @@
       }));
     }
     
-    util.viewportLazyload(el, load_waline);
+    util.viewportLazyload(el, load_waline, false);
   }
   
   // Initialize on page load

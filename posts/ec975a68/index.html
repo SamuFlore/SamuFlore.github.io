@@ -3,6 +3,24 @@
 
 <head>
   <meta charset="utf-8">
+  <script>
+  // 在首屏绘制前应用已保存的明暗偏好；按钮和插件仍由 theme.js 初始化。
+  (function () {
+    try {
+      var saved = localStorage.getItem('Stellar.theme');
+      if (saved === 'light' || saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    } catch (e) {
+      // 禁用存储时沿用 HTML 中的主题配置。
+    }
+  })();
+</script>
+
+
+<link rel="preload" as="image" href="https://api.elaina.cat/random/" fetchpriority="high">
+
+
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.44.0" theme-name="Stellar" theme-version="1.44.0">
   
   
@@ -62,7 +80,7 @@
   
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg"},"dateCreated":"2026-04-25T23:44:12+08:00","dateModified":"2026-05-05T23:03:48+08:00","datePublished":"2026-04-25T23:44:12+08:00","description":"序\n使用 Koishi + NapCat 快速搭建一个第三方 QQ 机器人！\n自微信允许接入 OpenClaw 后，腾讯似乎放弃了过往针对第三方机器人的高压政策。\n环境\n在正式开始之前，请检查您的环境满足以下要求：\n\n\n操作系统：Windows 10/11、macOS 10.15 或更高、Linux（Ubuntu 20.04 或更高 / Debian 10 或更高 / CentOS 9 或更...","headline":"[江子社]Koishi + NapCat 搭建第三方 QQ 机器人指南","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/ec975a68/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg","logo":{"@type":"ImageObject","url":"https://samuflore.top/images/avatar.jpg"}},"url":"https://samuflore.top/posts/ec975a68/","keywords":"News, 梅月, Koishi, NapCat","thumbnailUrl":"https://i.cetsteam.com/imgs/2026/04/26/b0f1b7636dbfaf93.png","image":["https://i.cetsteam.com/imgs/2026/04/26/b0f1b7636dbfaf93.png"]}</script>
-  <link rel="stylesheet" href="/fonts/GenKiMin2TC.css"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css"><style>
+  <link rel="preload" href="/fonts/Torus-Regular.otf" as="font" type="font/otf" crossorigin><link rel="stylesheet" href="/fonts/GenKiMin2TC.css?v=20261019-swap"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css?v=20261019-swap"><style>
   @font-face {
     font-family: 'Torus';
     src: url('/fonts/Torus-Thin.otf') format('opentype');
@@ -230,7 +248,7 @@
 
 </nav>
 </div>
-<widget class="widget-wrapper user-card author"><div class="widget-body"><div class="avatar"><img class="lazy" type="img" id="avatar_url" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://s41.ax1x.com/2026/06/29/pmasnC4.jpg"></div><p class="username" type="text" id="name">Seymiris Asakawa</p><p class="bio" type="text" id="bio">江子社记者 Seymiris Asakawa。</p><a class="follow" href="/author/samuflore/"><svg class="icon" data-icon="default:documents" aria-hidden="true"></svg>所有文章</a></div></widget>
+<widget class="widget-wrapper user-card author"><div class="widget-body"><div class="avatar"><img class="lazy" type="img" id="avatar_url" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://s41.ax1x.com/2026/06/29/pmasnC4.jpg"></div><p class="username" type="text" id="name">Seymiris Asakawa</p><p class="bio" type="text" id="bio">江子社记者 Seymiris Asakawa。</p><a class="follow" href="/author/samuflore/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:documents" aria-hidden="true"></svg>所有文章</a></div></widget>
 
 
 <widget class="widget-wrapper link-list-widget">
@@ -484,7 +502,7 @@
 </div>
 <footer class="footer dis-select"><div class="social-wrap" style="--item-grad:url(#footer-social-icon-grad)">
 <svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="footer-social-icon-grad" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
-<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="icon" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
+<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="theme-mode-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" aria-hidden="true" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
 </div></aside><div class="l_main" id="main" data-ui-surface="content">
 
 
@@ -545,15 +563,15 @@
 <div class="tag-plugin link dis-select"><a class="link-card plain card-hover card-hover--spotlight card-hover--tilt" title="Node.js" href="https://nodejs.org/zh-cn" target="_blank" rel="external nofollow noopener noreferrer" cardlink="" autofill="desc"><div class="left"><span class="title">Node.js</span><span class="cap link footnote">https://nodejs.org/zh-cn</span></div><div class="right"><div class="lazy img" data-bg="https://api.iconify.design/vscode-icons:file-type-node.svg"></div></div></a></div>
 <p>在 Node.js 官网下载 LTS（长期维护版），并按照向导安装程序。</p>
 <h5 id="配置镜像源">配置镜像源</h5>
-<div class="tag-plugin copy"><span>npm</span><input class="copy-area" id="copy_13" value="npm config set registry https://registry.npmmirror.com"><button class="copy-btn" onclick="util.copy(&quot;copy_13&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
+<div class="tag-plugin copy"><span>npm</span><input class="copy-area" id="copy_13" value="npm config set registry https://registry.npmmirror.com"><button class="copy-btn" onclick="util.copy(&quot;copy_13&quot;,&quot;复制成功&quot;)"><svg class="icon copy-btn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
 <h5 id="创建项目">创建项目</h5>
 <p>打开命令行并 <code>cd</code> 到您想创建项目的目录。</p>
 <div class="tag-plugin colorful note"><div class="title">提示</div><div class="body"><p>这个路径不宜过长，并应当避免出现非 ASCII 字符。</p></div></div>
 <p>输入以下命令创建 Koishi 项目：</p>
-<div class="tag-plugin copy"><span>npm</span><input class="copy-area" id="copy_14" value="npm init koishi@latest"><button class="copy-btn" onclick="util.copy(&quot;copy_14&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
+<div class="tag-plugin copy"><span>npm</span><input class="copy-area" id="copy_14" value="npm init koishi@latest"><button class="copy-btn" onclick="util.copy(&quot;copy_14&quot;,&quot;复制成功&quot;)"><svg class="icon copy-btn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
 <h5 id="启动-Koishi-应用">启动 Koishi 应用</h5>
 <p>如果您顺利完成了上述操作，您的应用此时应该已经是启动状态，并弹出了控制台界面。如果您想要关闭应用，可以在命令行中按下 <kbd>^</kbd> + <kbd>C</kbd> 组合键。当应用处于关闭状态时，您可以在运行下面的指令以再次启动：</p>
-<div class="tag-plugin copy"><span>npm</span><input class="copy-area" id="copy_15" value="npm start"><button class="copy-btn" onclick="util.copy(&quot;copy_15&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
+<div class="tag-plugin copy"><span>npm</span><input class="copy-area" id="copy_15" value="npm start"><button class="copy-btn" onclick="util.copy(&quot;copy_15&quot;,&quot;复制成功&quot;)"><svg class="icon copy-btn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
 <h3 id="启动-Koishi">启动 Koishi</h3>
 <p>在开始菜单或应用列表中找到 Koishi 并启动，或通过命令行启动，Koishi 控制台将自动打开。如果没有打开，可以访问默认地址 <code>http://localhost:5140</code>。</p>
 <h2 id="NapCat">NapCat</h2>
@@ -706,7 +724,7 @@
 <p>Leaves 是 Leaves。</p>
 </article>
 
-<div class="article-tags"><a class="tag" href="/tags/News/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>News</a><a class="tag" href="/tags/%E6%A2%85%E6%9C%88/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>梅月</a><a class="tag" href="/tags/Koishi/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Koishi</a><a class="tag" href="/tags/NapCat/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>NapCat</a></div>
+<div class="article-tags"><a class="tag" href="/tags/News/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>News</a><a class="tag" href="/tags/%E6%A2%85%E6%9C%88/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>梅月</a><a class="tag" href="/tags/Koishi/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>Koishi</a><a class="tag" href="/tags/NapCat/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>NapCat</a></div>
 
 <div class="article-footer">
     <section id="license">
@@ -1172,7 +1190,7 @@
       }));
     }
     
-    util.viewportLazyload(el, load_waline);
+    util.viewportLazyload(el, load_waline, false);
   }
   
   // Initialize on page load

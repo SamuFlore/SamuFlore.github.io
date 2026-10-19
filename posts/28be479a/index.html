@@ -3,6 +3,24 @@
 
 <head>
   <meta charset="utf-8">
+  <script>
+  // 在首屏绘制前应用已保存的明暗偏好；按钮和插件仍由 theme.js 初始化。
+  (function () {
+    try {
+      var saved = localStorage.getItem('Stellar.theme');
+      if (saved === 'light' || saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    } catch (e) {
+      // 禁用存储时沿用 HTML 中的主题配置。
+    }
+  })();
+</script>
+
+
+<link rel="preload" as="image" href="https://api.elaina.cat/random/" fetchpriority="high">
+
+
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.44.0" theme-name="Stellar" theme-version="1.44.0">
   
   
@@ -32,14 +50,14 @@
 <meta property="article:author" content="Samustach Floresein">
 <meta property="article:tag" content="CO">
 <meta property="article:tag" content="MIPS">
-<meta property="article:tag" content="嚴月">
 <meta property="article:tag" content="Verilog">
+<meta property="article:tag" content="嚴月">
 <meta property="article:tag" content="P7">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://samuflore.top/posts/28be479a/%E6%9E%B6%E6%9E%84.jpg"><meta name="twitter:title" content="[BUAA CO P7]Verilog 设计 MIPS 微系统">
   
   
-  <meta name="keywords" content="CO,MIPS,嚴月,Verilog,P7">
+  <meta name="keywords" content="CO,MIPS,Verilog,嚴月,P7">
 
   <!-- feed -->
   
@@ -62,8 +80,8 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg"},"dateCreated":"2025-12-08T22:48:21+08:00","dateModified":"2026-04-09T23:01:39+08:00","datePublished":"2025-12-08T22:48:21+08:00","description":"It's time to leave all behind.","headline":"[BUAA CO P7]Verilog 设计 MIPS 微系统","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/28be479a/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg","logo":{"@type":"ImageObject","url":"https://samuflore.top/images/avatar.jpg"}},"url":"https://samuflore.top/posts/28be479a/","keywords":"CO, MIPS, 嚴月, Verilog, P7","thumbnailUrl":"/posts/28be479a/%E6%9E%B6%E6%9E%84.jpg","image":["/posts/28be479a/%E6%9E%B6%E6%9E%84.jpg"]}</script>
-  <link rel="stylesheet" href="/fonts/GenKiMin2TC.css"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css"><style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg"},"dateCreated":"2025-12-08T22:48:21+08:00","dateModified":"2026-04-09T23:01:39+08:00","datePublished":"2025-12-08T22:48:21+08:00","description":"It's time to leave all behind.","headline":"[BUAA CO P7]Verilog 设计 MIPS 微系统","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/28be479a/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg","logo":{"@type":"ImageObject","url":"https://samuflore.top/images/avatar.jpg"}},"url":"https://samuflore.top/posts/28be479a/","keywords":"CO, MIPS, Verilog, 嚴月, P7","thumbnailUrl":"/posts/28be479a/%E6%9E%B6%E6%9E%84.jpg","image":["/posts/28be479a/%E6%9E%B6%E6%9E%84.jpg"]}</script>
+  <link rel="preload" href="/fonts/Torus-Regular.otf" as="font" type="font/otf" crossorigin><link rel="stylesheet" href="/fonts/GenKiMin2TC.css?v=20261019-swap"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css?v=20261019-swap"><style>
   @font-face {
     font-family: 'Torus';
     src: url('/fonts/Torus-Thin.otf') format('opentype');
@@ -231,7 +249,7 @@
 
 </nav>
 </div>
-<widget class="widget-wrapper user-card author"><div class="widget-body"><div class="avatar"><img class="lazy" type="img" id="avatar_url" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://s41.ax1x.com/2026/06/29/pmasnC4.jpg"></div><p class="username" type="text" id="name">Seymiris Asakawa</p><p class="bio" type="text" id="bio">江子社记者 Seymiris Asakawa。</p><a class="follow" href="/author/samuflore/"><svg class="icon" data-icon="default:documents" aria-hidden="true"></svg>所有文章</a></div></widget>
+<widget class="widget-wrapper user-card author"><div class="widget-body"><div class="avatar"><img class="lazy" type="img" id="avatar_url" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://s41.ax1x.com/2026/06/29/pmasnC4.jpg"></div><p class="username" type="text" id="name">Seymiris Asakawa</p><p class="bio" type="text" id="bio">江子社记者 Seymiris Asakawa。</p><a class="follow" href="/author/samuflore/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:documents" aria-hidden="true"></svg>所有文章</a></div></widget>
 
 
 <widget class="widget-wrapper link-list-widget">
@@ -805,7 +823,7 @@
 </div>
 <footer class="footer dis-select"><div class="social-wrap" style="--item-grad:url(#footer-social-icon-grad)">
 <svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="footer-social-icon-grad" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
-<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="icon" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
+<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="theme-mode-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" aria-hidden="true" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
 </div></aside><div class="l_main" id="main" data-ui-surface="content">
 
 
@@ -1115,7 +1133,7 @@
 <p>不说了，注意所谓<ins>所有字节地址</ins>，<code>sw</code> 计算出的地址是第一个字节的地址，再往后三个也是要存入的，因此当 ALU 算出的结果 <strong>+3</strong> 超范围时才发生异常。</p>
 </article>
 
-<div class="article-tags"><a class="tag" href="/tags/CO/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>CO</a><a class="tag" href="/tags/MIPS/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>MIPS</a><a class="tag" href="/tags/%E5%9A%B4%E6%9C%88/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>嚴月</a><a class="tag" href="/tags/Verilog/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Verilog</a><a class="tag" href="/tags/P7/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>P7</a></div>
+<div class="article-tags"><a class="tag" href="/tags/CO/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>CO</a><a class="tag" href="/tags/MIPS/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>MIPS</a><a class="tag" href="/tags/Verilog/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>Verilog</a><a class="tag" href="/tags/%E5%9A%B4%E6%9C%88/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>嚴月</a><a class="tag" href="/tags/P7/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>P7</a></div>
 
 <div class="article-footer">
     <section id="license">
@@ -1581,7 +1599,7 @@
       }));
     }
     
-    util.viewportLazyload(el, load_waline);
+    util.viewportLazyload(el, load_waline, false);
   }
   
   // Initialize on page load

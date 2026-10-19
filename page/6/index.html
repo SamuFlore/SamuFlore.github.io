@@ -3,6 +3,24 @@
 
 <head>
   <meta charset="utf-8">
+  <script>
+  // 在首屏绘制前应用已保存的明暗偏好；按钮和插件仍由 theme.js 初始化。
+  (function () {
+    try {
+      var saved = localStorage.getItem('Stellar.theme');
+      if (saved === 'light' || saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    } catch (e) {
+      // 禁用存储时沿用 HTML 中的主题配置。
+    }
+  })();
+</script>
+
+
+<link rel="preload" as="image" href="https://api.elaina.cat/random/" fetchpriority="high">
+
+
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.44.0" theme-name="Stellar" theme-version="1.44.0">
   
   
@@ -56,7 +74,7 @@
   
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"https://samuflore.top/","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg"},"name":"SamuFlore","description":"一人倒、衆人倒。","url":"https://samuflore.top/"}</script>
-  <link rel="stylesheet" href="/fonts/GenKiMin2TC.css"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css"><style>
+  <link rel="preload" href="/fonts/Torus-Regular.otf" as="font" type="font/otf" crossorigin><link rel="stylesheet" href="/fonts/GenKiMin2TC.css?v=20261019-swap"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css?v=20261019-swap"><style>
   @font-face {
     font-family: 'Torus';
     src: url('/fonts/Torus-Thin.otf') format('opentype');
@@ -533,7 +551,7 @@ SamuFlore's Dimension 1 周年！<br>
 </div>
 <footer class="footer dis-select"><div class="social-wrap" style="--item-grad:url(#footer-social-icon-grad)">
 <svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="footer-social-icon-grad" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
-<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="icon" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
+<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="theme-mode-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" aria-hidden="true" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
 </div></aside><div class="l_main" id="main" data-ui-surface="content">
 
 
@@ -546,29 +564,29 @@ SamuFlore's Dimension 1 周年！<br>
 <div class="navbar top"><div class="navbar-blur"><div class="navbar-container"><nav class="post"><a class="active" href="/">近期发布</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/topic/">专栏</a><a href="/archives/">归档</a><a href="/recent/">BAKER</a></nav></div></div></div>
 
 <div class="post-list post"><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/65cd5a9/">
-<article class="md-text"><h2 class="post-title">[BUAA CO P5]Verilog 设计五级流水线 CPU</h2><div class="excerpt"><p>仍旧猛攻 1h 第三题未通过。不过所幸 P5 这道鬼门关一次过了，题也都抄下来了。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-11-24T13:17:38.000Z">2025-11-24</time></span><span class="cap breadcrumb"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; 計算機組成原理</span></span></div></article>
+<article class="md-text"><h2 class="post-title">[BUAA CO P5]Verilog 设计五级流水线 CPU</h2><div class="excerpt"><p>仍旧猛攻 1h 第三题未通过。不过所幸 P5 这道鬼门关一次过了，题也都抄下来了。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-11-24T13:17:38.000Z">2025-11-24</time></span><span class="cap breadcrumb"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; 計算機組成原理</span></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/cb2f1325/">
-<article class="md-text"><h2 class="post-title">[Repost]How To Ask Questions The Smart Way</h2><div class="excerpt"><p>本指南英文版版权为 Eric S. Raymond, Rick Moen 所有。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-11-19T14:39:40.000Z">2025-11-19</time></span></div></article>
+<article class="md-text"><h2 class="post-title">[Repost]How To Ask Questions The Smart Way</h2><div class="excerpt"><p>本指南英文版版权为 Eric S. Raymond, Rick Moen 所有。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-11-19T14:39:40.000Z">2025-11-19</time></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/53039668/">
-<article class="md-text"><h2 class="post-title">[BUAA CO P4]Verilog 设计单周期 CPU</h2><div class="excerpt"><p>唉唉，又差一点把第三题做出来。猛攻 1h 以失败告终……不过起码通过了，开心~</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-11-17T13:19:44.000Z">2025-11-17</time></span><span class="cap breadcrumb"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; 計算機組成原理</span></span></div></article>
+<article class="md-text"><h2 class="post-title">[BUAA CO P4]Verilog 设计单周期 CPU</h2><div class="excerpt"><p>唉唉，又差一点把第三题做出来。猛攻 1h 以失败告终……不过起码通过了，开心~</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-11-17T13:19:44.000Z">2025-11-17</time></span><span class="cap breadcrumb"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; 計算機組成原理</span></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/be27c6b/">
-<article class="md-text"><h2 class="post-title">[孤獨星球]林信之江传</h2><div class="excerpt"><p>林信之江是网名，故不需要缀以“君”的称呼。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-11-09T15:27:08.000Z">2025-11-09</time></span><span class="cap breadcrumb" style="--text-p2:#7799CC;--theme-block:#7799CC20"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>孤獨星球</span></span></div></article>
+<article class="md-text"><h2 class="post-title">[孤獨星球]林信之江传</h2><div class="excerpt"><p>林信之江是网名，故不需要缀以“君”的称呼。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-11-09T15:27:08.000Z">2025-11-09</time></span><span class="cap breadcrumb" style="--text-p2:#7799CC;--theme-block:#7799CC20"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>孤獨星球</span></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/deef238d/">
-<article class="md-text"><h2 class="post-title">[BUAA OO Pre]2025 面向对象程序设计先导课程总结</h2><div class="excerpt"><p>OO Pre!</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-11-05T03:42:43.000Z">2025-11-05</time></span><span class="cap breadcrumb"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; 面向對象設計與構造</span></span></div></article>
+<article class="md-text"><h2 class="post-title">[BUAA OO Pre]2025 面向对象程序设计先导课程总结</h2><div class="excerpt"><p>OO Pre!</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-11-05T03:42:43.000Z">2025-11-05</time></span><span class="cap breadcrumb"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; 面向對象設計與構造</span></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/627c408f/">
-<article class="md-text"><h2 class="post-title">[BUAA CO P3]Logisim 设计单周期 CPU</h2><div class="excerpt"><p>麻了，P3 就挂了，出师不利啊 qwq</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-11-04T08:26:12.000Z">2025-11-04</time></span><span class="cap breadcrumb"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; 計算機組成原理</span></span></div></article>
+<article class="md-text"><h2 class="post-title">[BUAA CO P3]Logisim 设计单周期 CPU</h2><div class="excerpt"><p>麻了，P3 就挂了，出师不利啊 qwq</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-11-04T08:26:12.000Z">2025-11-04</time></span><span class="cap breadcrumb"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; 計算機組成原理</span></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/9c1eb1fe/">
-<article class="md-text"><h2 class="post-title">心罗外传</h2><div class="excerpt"><p>本文转载自神皇枫秀，敬请留意。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-11-02T07:22:07.000Z">2025-11-02</time></span></div></article>
+<article class="md-text"><h2 class="post-title">心罗外传</h2><div class="excerpt"><p>本文转载自神皇枫秀，敬请留意。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-11-02T07:22:07.000Z">2025-11-02</time></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/6d68c22/">
-<article class="md-text"><h2 class="post-title">[BUAA CO P2]P2 上机之思考</h2><div class="excerpt"><p>QwQ，写 P3 课下去了呜呜……</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-10-27T15:36:32.000Z">2025-10-27</time></span><span class="cap breadcrumb"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; 計算機組成原理</span></span></div></article>
+<article class="md-text"><h2 class="post-title">[BUAA CO P2]P2 上机之思考</h2><div class="excerpt"><p>QwQ，写 P3 课下去了呜呜……</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-10-27T15:36:32.000Z">2025-10-27</time></span><span class="cap breadcrumb"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; 計算機組成原理</span></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/bf207952/">
-<article class="md-text"><h2 class="post-title">[八紘九野集]天津</h2><div class="excerpt"><p>写下这篇文章时，我已三度前往天津游玩，并筹划着 26 年海棠节再次拜访（溜</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-10-27T15:34:24.000Z">2025-10-27</time></span><span class="cap breadcrumb" style="--text-p2:#77DD77;--theme-block:#77DD7720"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>八紘九野集</span></span></div></article>
+<article class="md-text"><h2 class="post-title">[八紘九野集]天津</h2><div class="excerpt"><p>写下这篇文章时，我已三度前往天津游玩，并筹划着 26 年海棠节再次拜访（溜</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-10-27T15:34:24.000Z">2025-10-27</time></span><span class="cap breadcrumb" style="--text-p2:#77DD77;--theme-block:#77DD7720"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>八紘九野集</span></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/2d82ddc6/">
-<article class="md-text"><h2 class="post-title">[BUAA CO P2]宏、函数与栈</h2><div class="excerpt"><p>我曾写过我更偏好于进入函数后入栈，离开函数前出栈，但这样我一道题都做不对。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-10-24T12:27:29.000Z">2025-10-24</time></span><span class="cap breadcrumb"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; 計算機組成原理</span></span></div></article>
+<article class="md-text"><h2 class="post-title">[BUAA CO P2]宏、函数与栈</h2><div class="excerpt"><p>我曾写过我更偏好于进入函数后入栈，离开函数前出栈，但这样我一道题都做不对。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-10-24T12:27:29.000Z">2025-10-24</time></span><span class="cap breadcrumb"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; 計算機組成原理</span></span></div></article>
 </a></div></div>
 
   <div class='paginator-wrap dis-select'>
-  <a class="extend prev" rel="prev" href="/page/5/"><svg class="icon" data-icon="default:arrow-left" aria-hidden="true"></svg></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/"><svg class="icon" data-icon="default:arrow-right" aria-hidden="true"></svg></a>
+  <a class="extend prev" rel="prev" href="/page/5/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:arrow-left" aria-hidden="true"></svg></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:arrow-right" aria-hidden="true"></svg></a>
   </div>
 
 

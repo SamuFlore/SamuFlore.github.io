@@ -3,6 +3,24 @@
 
 <head>
   <meta charset="utf-8">
+  <script>
+  // 在首屏绘制前应用已保存的明暗偏好；按钮和插件仍由 theme.js 初始化。
+  (function () {
+    try {
+      var saved = localStorage.getItem('Stellar.theme');
+      if (saved === 'light' || saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    } catch (e) {
+      // 禁用存储时沿用 HTML 中的主题配置。
+    }
+  })();
+</script>
+
+
+<link rel="preload" as="image" href="https://api.elaina.cat/random/" fetchpriority="high">
+
+
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.44.0" theme-name="Stellar" theme-version="1.44.0">
   
   
@@ -58,7 +76,7 @@
   
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"https://samuflore.top/about/","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg"},"name":"关 于","description":"\nSamustach Floresein\n\n\n介绍\n天朝人，目前就读于北京航空航天大学计算机学院。\n2026 - 2027 学年StudentS TeachingT AssistantA advisoRR for OO2025 - 2026 学年计算机学院宣传部彩虹明天公益社宣传部\n\n  \n\n  \n\n\n  \n\n  \n\n\n  \n\n  \n\n\n  \n\n  \n\n\n\n番剧\n单击以展开\nBanG Dre...","url":"https://samuflore.top/about/"}</script>
-  <link rel="stylesheet" href="/fonts/GenKiMin2TC.css"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css"><style>
+  <link rel="preload" href="/fonts/Torus-Regular.otf" as="font" type="font/otf" crossorigin><link rel="stylesheet" href="/fonts/GenKiMin2TC.css?v=20261019-swap"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css?v=20261019-swap"><style>
   @font-face {
     font-family: 'Torus';
     src: url('/fonts/Torus-Thin.otf') format('opentype');
@@ -339,7 +357,7 @@ SamuFlore's Dimension 1 周年！<br>
 </div>
 <footer class="footer dis-select"><div class="social-wrap" style="--item-grad:url(#footer-social-icon-grad)">
 <svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="footer-social-icon-grad" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
-<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="icon" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
+<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="theme-mode-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" aria-hidden="true" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
 </div></aside><div class="l_main" id="main" data-ui-surface="content">
 
 
@@ -455,19 +473,19 @@ SamuFlore's Dimension 1 周年！<br>
 <p>2026 年 2 月<mark class="tag-plugin colorful mark" color="yellow">之前</mark>的文章，因 Markdown 渲染器 · 主题样式不同等原因，或有格式错误。因其数量不定且难以发现，故不予一一修正。如您觉得影响阅读 · 产生歧义，请<a href="#%E8%81%94%E7%BB%9C">联络</a>我，或前往<a target="_blank" rel="noopener" href="https://github.com/SamuFlore/blog-timeline/issues">此处</a>发送 Issue，这将会显示在 <a href="https://samuflore.top/recent/">BAKER</a> 中。</p>
 </li>
 <li class="lvl-2">
-<p>此博客站点可能有<mark class="tag-plugin colorful mark" color="yellow">多位作者</mark>，<a class="tag-plugin colorful hashtag" color="red" href="https://samuflore.top/author/samuflore/"><svg class="icon" data-icon="hashtag:hashtag" aria-hidden="true"/><span>Samustach&nbsp;Floresein</span></a> 只是其中一位。此站接受投稿，请前往<a target="_blank" rel="noopener" href="https://github.com/SamuFlore/blog-timeline/issues">此处</a>发送 Issue，并附上 <a class="tag-plugin colorful hashtag" color="red"><svg class="icon" data-icon="hashtag:hashtag" aria-hidden="true"/><span>Submission</span></a> 的 Tag，投稿内容投递至 <a class="tag-plugin colorful hashtag" color="blue" href="mailto:samu.flore@outlook.com"><svg class="icon" data-icon="hashtag:hashtag" aria-hidden="true"/><span>Outlook</span></a>。作者已经展示在<a href="#%E8%B4%A1%E7%8C%AE%E8%80%85">贡献者</a>处，感谢~</p>
+<p>此博客站点可能有<mark class="tag-plugin colorful mark" color="yellow">多位作者</mark>，<a class="tag-plugin colorful hashtag" color="red" href="https://samuflore.top/author/samuflore/"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24" data-icon="hashtag:hashtag" aria-hidden="true"/><span>Samustach&nbsp;Floresein</span></a> 只是其中一位。此站接受投稿，请前往<a target="_blank" rel="noopener" href="https://github.com/SamuFlore/blog-timeline/issues">此处</a>发送 Issue，并附上 <a class="tag-plugin colorful hashtag" color="red"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24" data-icon="hashtag:hashtag" aria-hidden="true"/><span>Submission</span></a> 的 Tag，投稿内容投递至 <a class="tag-plugin colorful hashtag" color="blue" href="mailto:samu.flore@outlook.com"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24" data-icon="hashtag:hashtag" aria-hidden="true"/><span>Outlook</span></a>。作者已经展示在<a href="#%E8%B4%A1%E7%8C%AE%E8%80%85">贡献者</a>处，感谢~</p>
 </li>
 <li class="lvl-2">
-<p>点击 <span class="tag-plugin icon colorful" color="blue"><svg class="icon" data-icon="solar:bookmark-broken" aria-hidden="true"/></span>，进入博客主页 · 博客列表页。</p>
+<p>点击 <span class="tag-plugin icon colorful" color="blue"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewbox="0 0 24 24" data-icon="solar:bookmark-broken" aria-hidden="true"/></span>，进入博客主页 · 博客列表页。</p>
 </li>
 <li class="lvl-2">
-<p>点击 <span class="tag-plugin icon colorful" color="purple"><svg class="icon" data-icon="solar:emoji-funny-circle-line-duotone" aria-hidden="true"/></span>，进入文档主页。</p>
+<p>点击 <span class="tag-plugin icon colorful" color="purple"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewbox="0 0 24 24" data-icon="solar:emoji-funny-circle-line-duotone" aria-hidden="true"/></span>，进入文档主页。</p>
 </li>
 <li class="lvl-2">
-<p>点击 <span class="tag-plugin icon colorful" color="yellow"><svg class="icon" data-icon="solar:notebook-bookmark-line-duotone" aria-hidden="true"/></span>，进入留言板。</p>
+<p>点击 <span class="tag-plugin icon colorful" color="yellow"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewbox="0 0 24 24" data-icon="solar:notebook-bookmark-line-duotone" aria-hidden="true"/></span>，进入留言板。</p>
 </li>
 <li class="lvl-2">
-<p>点击 <span class="tag-plugin icon colorful" color="red"><svg class="icon" data-icon="solar:hearts-line-duotone" aria-hidden="true"/></span>，进入友链。</p>
+<p>点击 <span class="tag-plugin icon colorful" color="red"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewbox="0 0 24 24" data-icon="solar:hearts-line-duotone" aria-hidden="true"/></span>，进入友链。</p>
 </li>
 <li class="lvl-2">
 <p>点击文章<ruby>横幅<rt>Banner</rt></ruby>上面包屑导航中的作者名称，可以进入作者主页，浏览该作者的作品。</p>
@@ -506,9 +524,9 @@ SamuFlore's Dimension 1 周年！<br>
 <p>请注意：您也可以线下联络。</p>
 </blockquote>
 <h2 id="Email">Email</h2>
-<a class="tag-plugin colorful hashtag" color="blue" href="mailto:samu.flore@outlook.com"><svg class="icon" data-icon="hashtag:hashtag" aria-hidden="true"/><span>Outlook</span></a> <a class="tag-plugin colorful hashtag" color="red" href="mailto:neliserendo@gmail.com"><svg class="icon" data-icon="hashtag:hashtag" aria-hidden="true"/><span>Gmail</span></a>
+<a class="tag-plugin colorful hashtag" color="blue" href="mailto:samu.flore@outlook.com"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24" data-icon="hashtag:hashtag" aria-hidden="true"/><span>Outlook</span></a> <a class="tag-plugin colorful hashtag" color="red" href="mailto:neliserendo@gmail.com"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24" data-icon="hashtag:hashtag" aria-hidden="true"/><span>Gmail</span></a>
 <h2 id="社交平台">社交平台</h2>
-<a class="tag-plugin colorful hashtag" color="dark" target="_blank" rel="noopener" href="https://github.com/SamuFlore"><svg class="icon" data-icon="hashtag:hashtag" aria-hidden="true"/><span>GitHub</span></a>  
+<a class="tag-plugin colorful hashtag" color="dark" target="_blank" rel="noopener" href="https://github.com/SamuFlore"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24" data-icon="hashtag:hashtag" aria-hidden="true"/><span>GitHub</span></a>  
 <p>微信：Samu_Floresein</p>
 <hr>
 <h1 id="鸣谢">鸣谢</h1>
@@ -947,7 +965,7 @@ SamuFlore's Dimension 1 周年！<br>
       }));
     }
     
-    util.viewportLazyload(el, load_waline);
+    util.viewportLazyload(el, load_waline, false);
   }
   
   // Initialize on page load

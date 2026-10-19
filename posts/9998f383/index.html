@@ -3,6 +3,24 @@
 
 <head>
   <meta charset="utf-8">
+  <script>
+  // 在首屏绘制前应用已保存的明暗偏好；按钮和插件仍由 theme.js 初始化。
+  (function () {
+    try {
+      var saved = localStorage.getItem('Stellar.theme');
+      if (saved === 'light' || saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    } catch (e) {
+      // 禁用存储时沿用 HTML 中的主题配置。
+    }
+  })();
+</script>
+
+
+<link rel="preload" as="image" href="https://api.elaina.cat/random/" fetchpriority="high">
+
+
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.44.0" theme-name="Stellar" theme-version="1.44.0">
   
   
@@ -62,7 +80,7 @@
   
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg"},"dateCreated":"2026-03-05T14:23:58+08:00","dateModified":"2026-04-09T23:01:04+08:00","datePublished":"2026-03-05T14:23:58+08:00","description":"编译 Debug 版本\n为 gcc 命令加入 -g 选项，编译 Debug 版本。\nBASH\n之后就可以使用 GDB 来调试程序了。为 GDB 指定要运行的程序的方法有两种：\nBASH\n或\nBASH\n进入 GDB 交互界面后，使用 file &lt;executable&gt; 指令加载可执行文件：\n1(gdb) file hello\n执行程序\n使用 run 指令让程序运行直至完成：\n1(g...","headline":"[BUAA OS Pre]GDB","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/9998f383/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg","logo":{"@type":"ImageObject","url":"https://samuflore.top/images/avatar.jpg"}},"url":"https://samuflore.top/posts/9998f383/","keywords":"桃月, OS, Pre, GDB","thumbnailUrl":"https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg","image":["https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"]}</script>
-  <link rel="stylesheet" href="/fonts/GenKiMin2TC.css"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css"><style>
+  <link rel="preload" href="/fonts/Torus-Regular.otf" as="font" type="font/otf" crossorigin><link rel="stylesheet" href="/fonts/GenKiMin2TC.css?v=20261019-swap"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css?v=20261019-swap"><style>
   @font-face {
     font-family: 'Torus';
     src: url('/fonts/Torus-Thin.otf') format('opentype');
@@ -230,7 +248,7 @@
 
 </nav>
 </div>
-<widget class="widget-wrapper user-card author"><div class="widget-body"><div class="avatar"><img class="lazy" type="img" id="avatar_url" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://s41.ax1x.com/2026/06/29/pmasnC4.jpg"></div><p class="username" type="text" id="name">Seymiris Asakawa</p><p class="bio" type="text" id="bio">江子社记者 Seymiris Asakawa。</p><a class="follow" href="/author/samuflore/"><svg class="icon" data-icon="default:documents" aria-hidden="true"></svg>所有文章</a></div></widget>
+<widget class="widget-wrapper user-card author"><div class="widget-body"><div class="avatar"><img class="lazy" type="img" id="avatar_url" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://s41.ax1x.com/2026/06/29/pmasnC4.jpg"></div><p class="username" type="text" id="name">Seymiris Asakawa</p><p class="bio" type="text" id="bio">江子社记者 Seymiris Asakawa。</p><a class="follow" href="/author/samuflore/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:documents" aria-hidden="true"></svg>所有文章</a></div></widget>
 
 
 <widget class="widget-wrapper link-list-widget">
@@ -696,7 +714,7 @@
 </div>
 <footer class="footer dis-select"><div class="social-wrap" style="--item-grad:url(#footer-social-icon-grad)">
 <svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="footer-social-icon-grad" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
-<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="icon" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
+<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="theme-mode-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" aria-hidden="true" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
 </div></aside><div class="l_main" id="main" data-ui-surface="content">
 
 
@@ -725,11 +743,11 @@
   </div></div>
 <article class="md-text content"><h2 id="编译-Debug-版本">编译 Debug 版本</h2>
 <p>为 <code>gcc</code> 命令加入 <code>-g</code> 选项，编译 Debug 版本。</p>
-<div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_8" value="gcc -g hello.c -o hello"><button class="copy-btn" onclick="util.copy(&quot;copy_8&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
+<div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_4" value="gcc -g hello.c -o hello"><button class="copy-btn" onclick="util.copy(&quot;copy_4&quot;,&quot;复制成功&quot;)"><svg class="icon copy-btn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
 <p>之后就可以使用 GDB 来调试程序了。为 GDB 指定要运行的程序的方法有两种：</p>
-<div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_9" value="gdb hello"><button class="copy-btn" onclick="util.copy(&quot;copy_9&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
+<div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_5" value="gdb hello"><button class="copy-btn" onclick="util.copy(&quot;copy_5&quot;,&quot;复制成功&quot;)"><svg class="icon copy-btn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
 <p>或</p>
-<div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_10" value="gdb"><button class="copy-btn" onclick="util.copy(&quot;copy_10&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
+<div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_6" value="gdb"><button class="copy-btn" onclick="util.copy(&quot;copy_6&quot;,&quot;复制成功&quot;)"><svg class="icon copy-btn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
 <p>进入 GDB 交互界面后，使用 <code>file &lt;executable&gt;</code> 指令加载可执行文件：</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) file hello</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="执行程序">执行程序</h3>
@@ -743,14 +761,14 @@
 <p>考虑下面这个 <code>echo</code> 程序：</p>
 <figure class="highlight c"><figcaption><span>echo.c</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// echo.c</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">usage</span><span class="params">()</span> {</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"usage: echo &lt;string&gt;\n"</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">-1</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span> {</span><br><span class="line">    <span class="keyword">if</span> (argc != <span class="number">2</span>) {</span><br><span class="line">        usage();</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, argv[<span class="number">1</span>]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p>编译 Debug 版本：</p>
-<div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_11" value="gcc -g echo.c -o echo"><button class="copy-btn" onclick="util.copy(&quot;copy_11&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
+<div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_7" value="gcc -g echo.c -o echo"><button class="copy-btn" onclick="util.copy(&quot;copy_7&quot;,&quot;复制成功&quot;)"><svg class="icon copy-btn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
 <p>这个 <code>echo</code> 可执行文件需要传入一个参数，我们仍然有两种方法：</p>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p>在命令行中传入参数：</p>
 </li>
 </ul>
-<div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_12" value="gdb --agrs ./echo hello, world"><button class="copy-btn" onclick="util.copy(&quot;copy_12&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
+<div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_8" value="gdb --agrs ./echo hello, world"><button class="copy-btn" onclick="util.copy(&quot;copy_8&quot;,&quot;复制成功&quot;)"><svg class="icon copy-btn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
 <div class="tag-plugin colorful note"><div class="title">注意</div><div class="body"><p><code>--agrs</code> 选项包含了 <code>./echo</code> 这条指令，它将作为一个参数传递给可执行文件，因此必须用 <code>./echo</code> 而不是 <code>echo</code>。</p></div></div>
 <ul class="lvl-0">
 <li class="lvl-2">
@@ -809,7 +827,7 @@
 <p>事实上 GDB 还有条件断点、观察点等等厉害的工具，但考虑到使用命令行进行这些操作实在太费事了，就只写到这里。</p>
 </article>
 
-<div class="article-tags"><a class="tag" href="/tags/%E6%A1%83%E6%9C%88/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>桃月</a><a class="tag" href="/tags/OS/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>OS</a><a class="tag" href="/tags/Pre/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Pre</a><a class="tag" href="/tags/GDB/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>GDB</a></div>
+<div class="article-tags"><a class="tag" href="/tags/%E6%A1%83%E6%9C%88/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>桃月</a><a class="tag" href="/tags/OS/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>OS</a><a class="tag" href="/tags/Pre/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>Pre</a><a class="tag" href="/tags/GDB/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>GDB</a></div>
 
 <div class="article-footer">
     <section id="license">
@@ -1275,7 +1293,7 @@
       }));
     }
     
-    util.viewportLazyload(el, load_waline);
+    util.viewportLazyload(el, load_waline, false);
   }
   
   // Initialize on page load

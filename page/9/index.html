@@ -3,6 +3,24 @@
 
 <head>
   <meta charset="utf-8">
+  <script>
+  // 在首屏绘制前应用已保存的明暗偏好；按钮和插件仍由 theme.js 初始化。
+  (function () {
+    try {
+      var saved = localStorage.getItem('Stellar.theme');
+      if (saved === 'light' || saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    } catch (e) {
+      // 禁用存储时沿用 HTML 中的主题配置。
+    }
+  })();
+</script>
+
+
+<link rel="preload" as="image" href="https://api.elaina.cat/random/" fetchpriority="high">
+
+
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.44.0" theme-name="Stellar" theme-version="1.44.0">
   
   
@@ -56,7 +74,7 @@
   
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"https://samuflore.top/","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg"},"name":"SamuFlore","description":"一人倒、衆人倒。","url":"https://samuflore.top/"}</script>
-  <link rel="stylesheet" href="/fonts/GenKiMin2TC.css"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css"><style>
+  <link rel="preload" href="/fonts/Torus-Regular.otf" as="font" type="font/otf" crossorigin><link rel="stylesheet" href="/fonts/GenKiMin2TC.css?v=20261019-swap"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css?v=20261019-swap"><style>
   @font-face {
     font-family: 'Torus';
     src: url('/fonts/Torus-Thin.otf') format('opentype');
@@ -533,7 +551,7 @@ SamuFlore's Dimension 1 周年！<br>
 </div>
 <footer class="footer dis-select"><div class="social-wrap" style="--item-grad:url(#footer-social-icon-grad)">
 <svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="footer-social-icon-grad" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
-<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="icon" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
+<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="theme-mode-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" aria-hidden="true" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
 </div></aside><div class="l_main" id="main" data-ui-surface="content">
 
 
@@ -546,17 +564,17 @@ SamuFlore's Dimension 1 周年！<br>
 <div class="navbar top"><div class="navbar-blur"><div class="navbar-container"><nav class="post"><a class="active" href="/">近期发布</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/topic/">专栏</a><a href="/archives/">归档</a><a href="/recent/">BAKER</a></nav></div></div></div>
 
 <div class="post-list post"><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/8a8b0861/">
-<article class="md-text"><h2 class="post-title">†Blog 2：[Hexo教程]Hexo之代码块添加复制按钮</h2><div class="excerpt"><p>使用 JavaScript 实现之。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-07-15T14:47:05.000Z">2025-07-15</time></span><span class="cap breadcrumb" style="--text-p2:#779977;--theme-block:#77997720"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>博客技術</span></span></div></article>
+<article class="md-text"><h2 class="post-title">†Blog 2：[Hexo教程]Hexo之代码块添加复制按钮</h2><div class="excerpt"><p>使用 JavaScript 实现之。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-07-15T14:47:05.000Z">2025-07-15</time></span><span class="cap breadcrumb" style="--text-p2:#779977;--theme-block:#77997720"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>博客技術</span></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/95afa136/">
-<article class="md-text"><h2 class="post-title">Blog 1：[長欣集]诗二首</h2><div class="excerpt"><p>月夜襲得心百感、落木生春又一年。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-07-15T10:30:43.000Z">2025-07-15</time></span><span class="cap breadcrumb" style="--text-p2:#7777AA;--theme-block:#7777AA20"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>長欣集</span></span></div></article>
+<article class="md-text"><h2 class="post-title">Blog 1：[長欣集]诗二首</h2><div class="excerpt"><p>月夜襲得心百感、落木生春又一年。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-07-15T10:30:43.000Z">2025-07-15</time></span><span class="cap breadcrumb" style="--text-p2:#7777AA;--theme-block:#7777AA20"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>長欣集</span></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/f183ae5b/">
-<article class="md-text"><h2 class="post-title">[長欣集]梅间</h2><div class="excerpt"><p>何風雲之易幻兮、夫惟舊日以焉追？</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2024-04-01T03:09:52.000Z">2024-04-01</time></span><span class="cap breadcrumb" style="--text-p2:#7777AA;--theme-block:#7777AA20"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>長欣集</span></span></div></article>
+<article class="md-text"><h2 class="post-title">[長欣集]梅间</h2><div class="excerpt"><p>何風雲之易幻兮、夫惟舊日以焉追？</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2024-04-01T03:09:52.000Z">2024-04-01</time></span><span class="cap breadcrumb" style="--text-p2:#7777AA;--theme-block:#7777AA20"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>長欣集</span></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/ec4ac3d0/">
-<article class="md-text"><h2 class="post-title">[長欣集]现代诗一首</h2><div class="excerpt"><p>致 Y.U. 与 S.T.</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2006-10-27T13:00:00.000Z">2006-10-27</time></span><span class="cap breadcrumb" style="--text-p2:#7777AA;--theme-block:#7777AA20"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>長欣集</span></span></div></article>
+<article class="md-text"><h2 class="post-title">[長欣集]现代诗一首</h2><div class="excerpt"><p>致 Y.U. 与 S.T.</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2006-10-27T13:00:00.000Z">2006-10-27</time></span><span class="cap breadcrumb" style="--text-p2:#7777AA;--theme-block:#7777AA20"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>長欣集</span></span></div></article>
 </a></div></div>
 
   <div class='paginator-wrap dis-select'>
-  <a class="extend prev" rel="prev" href="/page/8/"><svg class="icon" data-icon="default:arrow-left" aria-hidden="true"></svg></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><span class="extend next" rel="next"><svg class="icon" data-icon="default:arrow-right" aria-hidden="true"></svg></span>
+  <a class="extend prev" rel="prev" href="/page/8/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:arrow-left" aria-hidden="true"></svg></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><span class="extend next" rel="next"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:arrow-right" aria-hidden="true"></svg></span>
   </div>
 
 

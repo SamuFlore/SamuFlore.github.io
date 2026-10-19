@@ -3,6 +3,24 @@
 
 <head>
   <meta charset="utf-8">
+  <script>
+  // 在首屏绘制前应用已保存的明暗偏好；按钮和插件仍由 theme.js 初始化。
+  (function () {
+    try {
+      var saved = localStorage.getItem('Stellar.theme');
+      if (saved === 'light' || saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    } catch (e) {
+      // 禁用存储时沿用 HTML 中的主题配置。
+    }
+  })();
+</script>
+
+
+<link rel="preload" as="image" href="https://api.elaina.cat/random/" fetchpriority="high">
+
+
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.44.0" theme-name="Stellar" theme-version="1.44.0">
   
   
@@ -63,7 +81,7 @@
   
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg"},"dateCreated":"2026-03-04T08:36:16+08:00","dateModified":"2026-04-09T23:01:14+08:00","datePublished":"2026-03-04T08:36:16+08:00","description":"C 语言拾遗\n从源代码到可执行文件\n以如下代码为例：\nhello.c123456#include &lt;stdio.h&gt;int main(void) {  printf(\"Hello, World!\\n\");  return 0;}\n预处理可以使用 BASH 来让 gcc 只进行预处理操作。预处理过程主要处理以 # 开头的预处理指令：展开宏定义 #define处理条件编译指令 #if...","headline":"[BUAA OS Pre]概念拾遗","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/d6b2cc32/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg","logo":{"@type":"ImageObject","url":"https://samuflore.top/images/avatar.jpg"}},"url":"https://samuflore.top/posts/d6b2cc32/","keywords":"MIPS, 桃月, OS, Pre, C","thumbnailUrl":"https://i.mituw.com/imgs/2026/03/04/4e33aa6d6345b746.png","image":["https://i.mituw.com/imgs/2026/03/04/4e33aa6d6345b746.png"]}</script>
-  <link rel="stylesheet" href="/fonts/GenKiMin2TC.css"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css"><style>
+  <link rel="preload" href="/fonts/Torus-Regular.otf" as="font" type="font/otf" crossorigin><link rel="stylesheet" href="/fonts/GenKiMin2TC.css?v=20261019-swap"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css?v=20261019-swap"><style>
   @font-face {
     font-family: 'Torus';
     src: url('/fonts/Torus-Thin.otf') format('opentype');
@@ -231,7 +249,7 @@
 
 </nav>
 </div>
-<widget class="widget-wrapper user-card author"><div class="widget-body"><div class="avatar"><img class="lazy" type="img" id="avatar_url" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://s41.ax1x.com/2026/06/29/pmasnC4.jpg"></div><p class="username" type="text" id="name">Seymiris Asakawa</p><p class="bio" type="text" id="bio">江子社记者 Seymiris Asakawa。</p><a class="follow" href="/author/samuflore/"><svg class="icon" data-icon="default:documents" aria-hidden="true"></svg>所有文章</a></div></widget>
+<widget class="widget-wrapper user-card author"><div class="widget-body"><div class="avatar"><img class="lazy" type="img" id="avatar_url" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://s41.ax1x.com/2026/06/29/pmasnC4.jpg"></div><p class="username" type="text" id="name">Seymiris Asakawa</p><p class="bio" type="text" id="bio">江子社记者 Seymiris Asakawa。</p><a class="follow" href="/author/samuflore/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:documents" aria-hidden="true"></svg>所有文章</a></div></widget>
 
 
 <widget class="widget-wrapper link-list-widget">
@@ -697,7 +715,7 @@
 </div>
 <footer class="footer dis-select"><div class="social-wrap" style="--item-grad:url(#footer-social-icon-grad)">
 <svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="footer-social-icon-grad" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
-<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="icon" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
+<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="theme-mode-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" aria-hidden="true" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
 </div></aside><div class="l_main" id="main" data-ui-surface="content">
 
 
@@ -728,7 +746,7 @@
 <h3 id="从源代码到可执行文件">从源代码到可执行文件</h3>
 <p>以如下代码为例：</p>
 <figure class="highlight c"><figcaption><span>hello.c</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span> {</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"Hello, World!\n"</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<div class="tag-plugin timeline"><div class="timenode" index="0"><div class="header"><span>预处理</span></div><div class="body fs14"><p>可以使用 </p><div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_5" value="gcc -E hello.c -o hello.i"><button class="copy-btn" onclick="util.copy(&quot;copy_5&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div> 来让 gcc 只进行预处理操作。<p></p><p>预处理过程主要处理以 <code>#</code> 开头的预处理指令：</p><ul class="lvl-0"><li class="lvl-2"><p>展开宏定义 <code>#define</code></p></li><li class="lvl-2"><p>处理条件编译指令 <code>#if</code> <code>#ifdef</code> 等</p></li><li class="lvl-2"><p>包含文件 <code>#include</code></p></li></ul></div></div><div class="timenode" index="1"><div class="header"><span>编译</span></div><div class="body fs14"><p>产生汇编代码。<br>可以使用 </p><div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_6" value="gcc -S hello.i -o hello.s"><button class="copy-btn" onclick="util.copy(&quot;copy_6&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div> 来让 gcc 只进行编译操作。<p></p></div></div><div class="timenode" index="2"><div class="header"><span>汇编</span></div><div class="body fs14"><p>将汇编代码转为机器码。<br>可以使用 </p><div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_7" value="gcc -c hello.s -o hello.o"><button class="copy-btn" onclick="util.copy(&quot;copy_7&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div> 来让 gcc 只进行汇编操作。<p></p><p>此时生成的 <code>hello.o</code> 称为<ruby>目标文件<rt>object file</rt></ruby>。</p></div></div><div class="timenode" index="3"><div class="header"><span>链接</span></div><div class="body fs14"><p>简而言之，链接就是把多个目标文件的代码段放在一起、数据段放在一起，然后和一些库函数放在一起共同形成可执行文件。</p></div></div></div>
+<div class="tag-plugin timeline"><div class="timenode" index="0"><div class="header"><span>预处理</span></div><div class="body fs14"><p>可以使用 </p><div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_1" value="gcc -E hello.c -o hello.i"><button class="copy-btn" onclick="util.copy(&quot;copy_1&quot;,&quot;复制成功&quot;)"><svg class="icon copy-btn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="copy:copy" aria-hidden="true"></svg></button></div> 来让 gcc 只进行预处理操作。<p></p><p>预处理过程主要处理以 <code>#</code> 开头的预处理指令：</p><ul class="lvl-0"><li class="lvl-2"><p>展开宏定义 <code>#define</code></p></li><li class="lvl-2"><p>处理条件编译指令 <code>#if</code> <code>#ifdef</code> 等</p></li><li class="lvl-2"><p>包含文件 <code>#include</code></p></li></ul></div></div><div class="timenode" index="1"><div class="header"><span>编译</span></div><div class="body fs14"><p>产生汇编代码。<br>可以使用 </p><div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_2" value="gcc -S hello.i -o hello.s"><button class="copy-btn" onclick="util.copy(&quot;copy_2&quot;,&quot;复制成功&quot;)"><svg class="icon copy-btn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="copy:copy" aria-hidden="true"></svg></button></div> 来让 gcc 只进行编译操作。<p></p></div></div><div class="timenode" index="2"><div class="header"><span>汇编</span></div><div class="body fs14"><p>将汇编代码转为机器码。<br>可以使用 </p><div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_3" value="gcc -c hello.s -o hello.o"><button class="copy-btn" onclick="util.copy(&quot;copy_3&quot;,&quot;复制成功&quot;)"><svg class="icon copy-btn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="copy:copy" aria-hidden="true"></svg></button></div> 来让 gcc 只进行汇编操作。<p></p><p>此时生成的 <code>hello.o</code> 称为<ruby>目标文件<rt>object file</rt></ruby>。</p></div></div><div class="timenode" index="3"><div class="header"><span>链接</span></div><div class="body fs14"><p>简而言之，链接就是把多个目标文件的代码段放在一起、数据段放在一起，然后和一些库函数放在一起共同形成可执行文件。</p></div></div></div>
 <h3 id="变量的存储类别">变量的存储类别</h3>
 <p><ruby>存储类别<rt>storage class</rt></ruby>用来描述 C 中变量或函数的一些特征，包括存储期、作用域、链接属性。</p>
 <h4 id="存储期">存储期</h4>
@@ -865,7 +883,7 @@
 </section>
 </article>
 
-<div class="article-tags"><a class="tag" href="/tags/MIPS/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>MIPS</a><a class="tag" href="/tags/%E6%A1%83%E6%9C%88/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>桃月</a><a class="tag" href="/tags/OS/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>OS</a><a class="tag" href="/tags/Pre/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Pre</a><a class="tag" href="/tags/C/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>C</a></div>
+<div class="article-tags"><a class="tag" href="/tags/MIPS/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>MIPS</a><a class="tag" href="/tags/%E6%A1%83%E6%9C%88/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>桃月</a><a class="tag" href="/tags/OS/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>OS</a><a class="tag" href="/tags/Pre/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>Pre</a><a class="tag" href="/tags/C/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>C</a></div>
 
 <div class="article-footer">
     <section id="license">
@@ -1331,7 +1349,7 @@
       }));
     }
     
-    util.viewportLazyload(el, load_waline);
+    util.viewportLazyload(el, load_waline, false);
   }
   
   // Initialize on page load

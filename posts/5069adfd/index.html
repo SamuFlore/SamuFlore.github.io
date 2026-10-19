@@ -3,6 +3,24 @@
 
 <head>
   <meta charset="utf-8">
+  <script>
+  // 在首屏绘制前应用已保存的明暗偏好；按钮和插件仍由 theme.js 初始化。
+  (function () {
+    try {
+      var saved = localStorage.getItem('Stellar.theme');
+      if (saved === 'light' || saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    } catch (e) {
+      // 禁用存储时沿用 HTML 中的主题配置。
+    }
+  })();
+</script>
+
+
+<link rel="preload" as="image" href="https://api.elaina.cat/random/" fetchpriority="high">
+
+
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.44.0" theme-name="Stellar" theme-version="1.44.0">
   
   
@@ -65,7 +83,7 @@
   
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg"},"dateCreated":"2026-03-01T21:09:49+08:00","dateModified":"2026-04-09T23:01:21+08:00","datePublished":"2026-03-01T21:09:49+08:00","description":"序\n致敬传奇 OS Pre，在放假最后一天发布假期预习内容。\nLinux 基础操作\n目录操作\ncd\n123cd用法：cd [选项] 目录作用：切换到某个目录（Change Directory）。\nLinux 的一切文件存放在根目录下。根目录用 / 表示。\n～ 是用户主目录的缩写。一般用户，其主目录是 /home/用户名，root 用户，其主目录是 /root。\n提示$ 代表当前用户是一般用户...","headline":"[BUAA OS Pre]Hello, Linux!","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/5069adfd/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg","logo":{"@type":"ImageObject","url":"https://samuflore.top/images/avatar.jpg"}},"url":"https://samuflore.top/posts/5069adfd/","keywords":"桃月, OS, Pre, Linux, Vim, Shell, Makefile","thumbnailUrl":"https://www.runoob.com/wp-content/uploads/2014/08/rwx-standard-unix-permission-bits.png","image":["https://www.runoob.com/wp-content/uploads/2014/08/rwx-standard-unix-permission-bits.png"]}</script>
-  <link rel="stylesheet" href="/fonts/GenKiMin2TC.css"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css"><style>
+  <link rel="preload" href="/fonts/Torus-Regular.otf" as="font" type="font/otf" crossorigin><link rel="stylesheet" href="/fonts/GenKiMin2TC.css?v=20261019-swap"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css?v=20261019-swap"><style>
   @font-face {
     font-family: 'Torus';
     src: url('/fonts/Torus-Thin.otf') format('opentype');
@@ -233,7 +251,7 @@
 
 </nav>
 </div>
-<widget class="widget-wrapper user-card author"><div class="widget-body"><div class="avatar"><img class="lazy" type="img" id="avatar_url" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://s41.ax1x.com/2026/06/29/pmasnC4.jpg"></div><p class="username" type="text" id="name">Seymiris Asakawa</p><p class="bio" type="text" id="bio">江子社记者 Seymiris Asakawa。</p><a class="follow" href="/author/samuflore/"><svg class="icon" data-icon="default:documents" aria-hidden="true"></svg>所有文章</a></div></widget>
+<widget class="widget-wrapper user-card author"><div class="widget-body"><div class="avatar"><img class="lazy" type="img" id="avatar_url" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://s41.ax1x.com/2026/06/29/pmasnC4.jpg"></div><p class="username" type="text" id="name">Seymiris Asakawa</p><p class="bio" type="text" id="bio">江子社记者 Seymiris Asakawa。</p><a class="follow" href="/author/samuflore/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:documents" aria-hidden="true"></svg>所有文章</a></div></widget>
 
 
 <widget class="widget-wrapper link-list-widget">
@@ -699,7 +717,7 @@
 </div>
 <footer class="footer dis-select"><div class="social-wrap" style="--item-grad:url(#footer-social-icon-grad)">
 <svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="footer-social-icon-grad" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
-<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="icon" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
+<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="theme-mode-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" aria-hidden="true" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
 </div></aside><div class="l_main" id="main" data-ui-surface="content">
 
 
@@ -871,7 +889,7 @@
 <p>然后创建 <code>test.h</code></p>
 <figure class="highlight c"><figcaption><span>test.h</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Pair</span> {</span></span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">    <span class="type">int</span> b;</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
 <p>保存并退出 Vim，执行：</p>
-<div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_1" value="ctags -R *"><button class="copy-btn" onclick="util.copy(&quot;copy_1&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
+<div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_9" value="ctags -R *"><button class="copy-btn" onclick="util.copy(&quot;copy_9&quot;,&quot;复制成功&quot;)"><svg class="icon copy-btn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
 <p>目录下出现了 <code>tags</code> 这个文件——符号名索引。</p>
 <p>现在使用 Vim 打开 <code>hello.c</code> 文件，将光标移动到 <code>a</code> 或 <code>b</code> 处，按下 <kbd>⌃ Ctrl</kbd> + <kbd>]</kbd> 就可以跳转到结构体中 <code>a</code> 或 <code>b</code> 的定义处。再按下 <kbd>⌃ Ctrl</kbd> + <kbd>o</kbd> 就可以返回跳转前的位置。</p>
 <h3 id="tmux">tmux</h3>
@@ -915,7 +933,7 @@
 <div class="tag-plugin colorful note"><div class="title">注意</div><div class="body"><p>Linux 中没有扩展名的概念。</p></div></div>
 <p>执行时，使用 <code>./文件名</code>。<br>
 使用 <code>touch</code> 命令创建的文件默认是没有执行执行权限的，需要手动添加：</p>
-<div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_2" value="chmod +x 文件名"><button class="copy-btn" onclick="util.copy(&quot;copy_2&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
+<div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_10" value="chmod +x 文件名"><button class="copy-btn" onclick="util.copy(&quot;copy_10&quot;,&quot;复制成功&quot;)"><svg class="icon copy-btn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
 <h3 id="Bash-Shell-语法基础">Bash Shell 语法基础</h3>
 <h4 id="Hello-world！">Hello, world！</h4>
 <figure class="highlight bash"><figcaption><span>hello.sh</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># My first Shell script!</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Hello, world!"</span></span><br></pre></td></tr></tbody></table></figure>
@@ -940,16 +958,16 @@
 <p>在<mark class="tag-plugin colorful mark" color="yellow">双引号</mark>包裹的字符串内输入 <code>$1</code>, <code>$2</code> 等等，这些变量将通过命令行来传递，例如：</p>
 <figure class="highlight bash"><figcaption><span>hello.sh</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">str=<span class="string">"Hello, World! My name is <span class="variable">$1</span>."</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">${str}</span></span><br></pre></td></tr></tbody></table></figure>
 <p>执行命令：</p>
-<div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_3" value="./hello.sh Seym"><button class="copy-btn" onclick="util.copy(&quot;copy_3&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
+<div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_11" value="./hello.sh Seym"><button class="copy-btn" onclick="util.copy(&quot;copy_11&quot;,&quot;复制成功&quot;)"><svg class="icon copy-btn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
 <p>会看到输出 <code>Hello, World! My name is Seym.</code>。</p>
 <div class="tag-plugin colorful note"><div class="title">提示</div><div class="body"><p>第一个参量对应的变量叫 <code>$1</code>，第二个叫 <code>$2</code>，以此类推。</p></div></div>
 <h4 id="条件和循环">条件和循环</h4>
-<div class="tag-plugin quot p"><p class="content"><svg class="icon" data-icon="bxs:quote-left" aria-hidden="true"></svg><span class="text">if</span><svg class="icon" data-icon="bxs:quote-right" aria-hidden="true"></svg></p></div>
+<div class="tag-plugin quot p"><p class="content"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" data-icon="bxs:quote-left" aria-hidden="true"></svg><span class="text">if</span><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" data-icon="bxs:quote-right" aria-hidden="true"></svg></p></div>
 <figure class="highlight bash"><figcaption><span>if</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> condition1</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    command11</span><br><span class="line">    command12</span><br><span class="line">    ......</span><br><span class="line"><span class="keyword">elif</span> condition2</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    command21</span><br><span class="line">    command22</span><br><span class="line">    ......</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    command31</span><br><span class="line">    command32</span><br><span class="line">    ......</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></tbody></table></figure>
 <div class="tag-plugin colorful note"><div class="title">提示</div><div class="body"><p><code>fi</code> 是 <code>if</code> 倒过来写。</p></div></div>
 <figure class="highlight bash"><figcaption><span>例子</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">if</span> ((<span class="variable">$1</span> &gt; <span class="variable">$2</span>))</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"first &gt; second"</span></span><br><span class="line"><span class="keyword">elif</span> ((<span class="variable">$1</span> &lt; <span class="variable">$2</span>))</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"second &gt; first"</span></span><br><span class="line"><span class="keyword">elif</span> ((<span class="variable">$1</span> == <span class="variable">$2</span>))</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"first == second"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"Idk."</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></tbody></table></figure>
 <div class="tag-plugin colorful note"><div class="title">提示</div><div class="body"><p><code>(())</code>是整数之间比较大小的写法，若传入字符串或浮点数是未定义行为。</p></div></div>
-<div class="tag-plugin quot p"><p class="content"><svg class="icon" data-icon="bxs:quote-left" aria-hidden="true"></svg><span class="text">while</span><svg class="icon" data-icon="bxs:quote-right" aria-hidden="true"></svg></p></div>
+<div class="tag-plugin quot p"><p class="content"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" data-icon="bxs:quote-left" aria-hidden="true"></svg><span class="text">while</span><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" data-icon="bxs:quote-right" aria-hidden="true"></svg></p></div>
 <figure class="highlight bash"><figcaption><span>while</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> condition</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    command1</span><br><span class="line">    command2</span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></tbody></table></figure>
 <p>其中 <code>done</code> 表示 <code>do</code> 语句块结束。</p>
 <h4 id="我的建议">我的建议</h4>
@@ -960,7 +978,7 @@
 <figure class="highlight bash"><figcaption><span>函数的定义方式</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">fun_name</span></span>() {</span><br><span class="line">    body...</span><br><span class="line">    <span class="built_in">return</span> int_value;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <div class="tag-plugin colorful note"><div class="title">提示</div><div class="body"><p><code>function</code> 和 <code>()</code> 二者可以省略一个。返回语句是可选的。<code>int_value</code> 是一个 <code>[0, 255]</code> 的整数，返回其他值是未定义行为。</p></div></div>
 <p>函数的调用方法如下：</p>
-<div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_4" value="func_name param1 param2 ... paramN"><button class="copy-btn" onclick="util.copy(&quot;copy_4&quot;,&quot;复制成功&quot;)"><svg class="icon" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
+<div class="tag-plugin copy"><span>BASH</span><input class="copy-area" id="copy_12" value="func_name param1 param2 ... paramN"><button class="copy-btn" onclick="util.copy(&quot;copy_12&quot;,&quot;复制成功&quot;)"><svg class="icon copy-btn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="copy:copy" aria-hidden="true"></svg></button></div>
 <p>第 N 个参数在函数体内用 <code>$N</code> 获取，不需要在函数开头声明。写成 <code>${N}</code> 是最好的。函数的返回值在函数调用之后用 <code>$?</code> 来获取。</p>
 <div class="tag-plugin colorful note"><div class="title">提示</div><div class="body"><p>使用 <code>$#</code> 来获取参数的个数，使用 <code>$*</code> 来获取所有参数。</p></div></div>
 <h4 id="sed">sed</h4>
@@ -990,7 +1008,7 @@
 <p>以上是将 <code>command1</code> 的输出传给 <code>command2</code> 的输入，以此类推。</p>
 </article>
 
-<div class="article-tags"><a class="tag" href="/tags/%E6%A1%83%E6%9C%88/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>桃月</a><a class="tag" href="/tags/OS/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>OS</a><a class="tag" href="/tags/Pre/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Pre</a><a class="tag" href="/tags/Linux/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Linux</a><a class="tag" href="/tags/Vim/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Vim</a><a class="tag" href="/tags/Shell/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Shell</a><a class="tag" href="/tags/Makefile/"><svg class="icon" data-icon="default:hashtag" aria-hidden="true"></svg>Makefile</a></div>
+<div class="article-tags"><a class="tag" href="/tags/%E6%A1%83%E6%9C%88/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>桃月</a><a class="tag" href="/tags/OS/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>OS</a><a class="tag" href="/tags/Pre/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>Pre</a><a class="tag" href="/tags/Linux/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>Linux</a><a class="tag" href="/tags/Vim/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>Vim</a><a class="tag" href="/tags/Shell/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>Shell</a><a class="tag" href="/tags/Makefile/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>Makefile</a></div>
 
 <div class="article-footer">
     <section id="license">
@@ -1456,7 +1474,7 @@
       }));
     }
     
-    util.viewportLazyload(el, load_waline);
+    util.viewportLazyload(el, load_waline, false);
   }
   
   // Initialize on page load

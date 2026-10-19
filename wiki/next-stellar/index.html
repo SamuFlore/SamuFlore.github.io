@@ -3,6 +3,24 @@
 
 <head>
   <meta charset="utf-8">
+  <script>
+  // 在首屏绘制前应用已保存的明暗偏好；按钮和插件仍由 theme.js 初始化。
+  (function () {
+    try {
+      var saved = localStorage.getItem('Stellar.theme');
+      if (saved === 'light' || saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    } catch (e) {
+      // 禁用存储时沿用 HTML 中的主题配置。
+    }
+  })();
+</script>
+
+
+<link rel="preload" as="image" href="https://api.elaina.cat/random/" fetchpriority="high">
+
+
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.44.0" theme-name="Stellar" theme-version="1.44.0">
   
   
@@ -58,7 +76,7 @@
   
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"https://samuflore.top/wiki/next-stellar/","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg"},"name":"从 NexT 到 Stellar","description":"从 NexT 到 Stellar 的旅程，探索博客主题的演变与创新。","url":"https://samuflore.top/wiki/next-stellar/"}</script>
-  <link rel="stylesheet" href="/fonts/GenKiMin2TC.css"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css"><style>
+  <link rel="preload" href="/fonts/Torus-Regular.otf" as="font" type="font/otf" crossorigin><link rel="stylesheet" href="/fonts/GenKiMin2TC.css?v=20261019-swap"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css?v=20261019-swap"><style>
   @font-face {
     font-family: 'Torus';
     src: url('/fonts/Torus-Thin.otf') format('opentype');
@@ -126,7 +144,7 @@
 }</style>
   
 <!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- hexo injector head_end end --><style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--blockquote-bg-color:#555;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
-<body><div class="sitebg"><div class="siteblur"></div></div><div id="l_cover"><div class="l_cover wiki wiki-hero without-preview"><div class="wiki-cover-background galaxy" aria-hidden="true"><canvas data-galaxy-params="{&quot;density&quot;:2,&quot;starSpeed&quot;:2,&quot;hueShift&quot;:140,&quot;mouseRepulsion&quot;:true}"></canvas><div class="wiki-cover-background-overlay"></div></div><div class="wiki-cover-layout" data-text-adaptive="split" style="--adaptive-background:#000000"><nav class="wiki-navbar" aria-label="SamuFlore"><a class="wiki-navbar-home" href="&#x2F;">SamuFlore</a></nav><article class="cover-wrap wiki-cover-content"><section class="wiki-cover-intro"><a class="wiki-cover-release ds-ghinfo is-loading" data-project-name="从 NexT 到 Stellar" data-repo="SamuFlore&#x2F;from-next-to-stellar" data-api="https://api.github.com/repos/SamuFlore&#x2F;from-next-to-stellar/tags" index="0" target="_blank" rel="external nofollow noopener noreferrer"><span class="wiki-cover-release-value"><span type="text" id="latest-tag-name"></span></span></a><h1 class="cover-title" data-text-adaptive="contrast">从 NexT 到 Stellar</h1><div class="description">从 NexT 到 Stellar 的旅程，探索博客主题的演变与创新。</div><div class="wiki-cover-actions"><a class="button wiki-cover-source card-hover card-hover--spotlight" href="https://github.com/SamuFlore&#x2F;from-next-to-stellar" target="_blank" rel="external nofollow noopener noreferrer"><svg class="icon" data-icon="default:github" aria-hidden="true"></svg><span>源码</span></a><a class="button card-hover card-hover--spotlight" href="#start"><svg class="icon" data-icon="default:documents" aria-hidden="true"></svg><span>文档</span></a></div></section></article></div></div></div><div class="l_body content" id="start" layout="page" type="tech" ><aside class="l_left" data-ui-surface="glass"><div class="sidebg"></div><div class="leftbar-container">
+<body><div class="sitebg"><div class="siteblur"></div></div><div id="l_cover"><div class="l_cover wiki wiki-hero without-preview"><div class="wiki-cover-background galaxy" aria-hidden="true"><canvas data-galaxy-params="{&quot;density&quot;:2,&quot;starSpeed&quot;:2,&quot;hueShift&quot;:140,&quot;mouseRepulsion&quot;:true}"></canvas><div class="wiki-cover-background-overlay"></div></div><div class="wiki-cover-layout" data-text-adaptive="split" style="--adaptive-background:#000000"><nav class="wiki-navbar" aria-label="SamuFlore"><a class="wiki-navbar-home" href="&#x2F;">SamuFlore</a></nav><article class="cover-wrap wiki-cover-content"><section class="wiki-cover-intro"><a class="wiki-cover-release ds-ghinfo is-loading" data-project-name="从 NexT 到 Stellar" data-repo="SamuFlore&#x2F;from-next-to-stellar" data-api="https://api.github.com/repos/SamuFlore&#x2F;from-next-to-stellar/tags" index="0" target="_blank" rel="external nofollow noopener noreferrer"><span class="wiki-cover-release-value"><span type="text" id="latest-tag-name"></span></span></a><h1 class="cover-title" data-text-adaptive="contrast">从 NexT 到 Stellar</h1><div class="description">从 NexT 到 Stellar 的旅程，探索博客主题的演变与创新。</div><div class="wiki-cover-actions"><a class="button wiki-cover-source card-hover card-hover--spotlight" href="https://github.com/SamuFlore&#x2F;from-next-to-stellar" target="_blank" rel="external nofollow noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:github" aria-hidden="true"></svg><span>源码</span></a><a class="button card-hover card-hover--spotlight" href="#start"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:documents" aria-hidden="true"></svg><span>文档</span></a></div></section></article></div></div></div><div class="l_body content" id="start" layout="page" type="tech" ><aside class="l_left" data-ui-surface="glass"><div class="sidebg"></div><div class="leftbar-container">
 
 
 <div class="wiki-home-wrap"><a class="wiki-home cap" href="/wiki/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M17.75 19a.75.75 0 0 1-1.32.488l-6-7a.75.75 0 0 1 0-.976l6-7A.75.75 0 0 1 17.75 5z" opacity=".5"/><path fill="currentColor" fill-rule="evenodd" d="M13.488 19.57a.75.75 0 0 0 .081-1.058L7.988 12l5.581-6.512a.75.75 0 1 0-1.138-.976l-6 7a.75.75 0 0 0 0 .976l6 7a.75.75 0 0 0 1.057.082" clip-rule="evenodd"/></svg><span>所有项目</span></a></div>
@@ -230,7 +248,7 @@
 </div>
 <footer class="footer dis-select"><div class="social-wrap" style="--item-grad:url(#footer-social-icon-grad)">
 <svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="footer-social-icon-grad" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
-<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="icon" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
+<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="theme-mode-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" aria-hidden="true" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
 </div></aside><div class="l_main" id="main" data-ui-surface="content">
 
 
@@ -282,7 +300,7 @@
       <span>本文贡献者</span>
       <span class="spacer"></span>
       <a class="edit" target="_blank" rel="noopener" href="https://github.com/SamuFlore/from-next-to-stellar/blob/main/index.md">
-        <svg class="icon" data-icon="default:edit" aria-hidden="true"></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:edit" aria-hidden="true"></svg>
         <span>编辑本文</span>
       </a>
     </div>
@@ -349,7 +367,7 @@
 <div style="display:inline-block;"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/images/kr.svg" width=100px ></div>
 </div></footer>
 <div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right" data-ui-surface="sidebar"><div class="widgets">
-<widget class="widget-wrapper ghrepo"><div class="widget-body"><div class="items data-service ds-ghinfo" data-api="https://api.github.com/repos/SamuFlore/from-next-to-stellar"><a class="repo" href="https://github.com/SamuFlore/from-next-to-stellar" target="_blank" rel="external nofollow noopener noreferrer"><div class="repo-name flex-row"><svg class="icon" data-icon="github:repo" aria-hidden="true"></svg>SamuFlore/from-next-to-stellar</div><div class="repo-desc"><span type="text" id="description">&nbsp;</span></div><div class="grid"><div class="flex-row"><svg class="icon" data-icon="github:star" aria-hidden="true"></svg><span type="text" id="stargazers_count"></span></div><div class="flex-row"><svg class="icon" data-icon="github:fork" aria-hidden="true"></svg><span type="text" id="forks_count"></span></div><div class="flex-row data-service ds-ghinfo" index="0" data-api="https://api.github.com/repos/SamuFlore/from-next-to-stellar/tags"><svg class="icon" data-icon="github:tag" aria-hidden="true"></svg><span type="text" id="latest-tag-name">0</span></div></div></a></div></div></widget>
+<widget class="widget-wrapper ghrepo"><div class="widget-body"><div class="items data-service ds-ghinfo" data-api="https://api.github.com/repos/SamuFlore/from-next-to-stellar"><a class="repo" href="https://github.com/SamuFlore/from-next-to-stellar" target="_blank" rel="external nofollow noopener noreferrer"><div class="repo-name flex-row"><svg aria-hidden="true" role="img" class="color-icon-primary" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" style="user-select:none;overflow:visible" data-icon="github:repo" aria-hidden="true"></svg>SamuFlore/from-next-to-stellar</div><div class="repo-desc"><span type="text" id="description">&nbsp;</span></div><div class="grid"><div class="flex-row"><svg aria-hidden="true" role="img" class="color-icon-primary" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" style="user-select:none;overflow:visible" data-icon="github:star" aria-hidden="true"></svg><span type="text" id="stargazers_count"></span></div><div class="flex-row"><svg aria-hidden="true" role="img" class="color-icon-primary" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" style="user-select:none;overflow:visible" data-icon="github:fork" aria-hidden="true"></svg><span type="text" id="forks_count"></span></div><div class="flex-row data-service ds-ghinfo" index="0" data-api="https://api.github.com/repos/SamuFlore/from-next-to-stellar/tags"><svg aria-hidden="true" role="img" class="color-icon-primary" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" style="user-select:none;overflow:visible" data-icon="github:tag" aria-hidden="true"></svg><span type="text" id="latest-tag-name">0</span></div></div></a></div></div></widget>
 
 
 
@@ -740,7 +758,7 @@
       }));
     }
     
-    util.viewportLazyload(el, load_waline);
+    util.viewportLazyload(el, load_waline, false);
   }
   
   // Initialize on page load

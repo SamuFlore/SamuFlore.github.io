@@ -3,6 +3,24 @@
 
 <head>
   <meta charset="utf-8">
+  <script>
+  // 在首屏绘制前应用已保存的明暗偏好；按钮和插件仍由 theme.js 初始化。
+  (function () {
+    try {
+      var saved = localStorage.getItem('Stellar.theme');
+      if (saved === 'light' || saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    } catch (e) {
+      // 禁用存储时沿用 HTML 中的主题配置。
+    }
+  })();
+</script>
+
+
+<link rel="preload" as="image" href="https://api.elaina.cat/random/" fetchpriority="high">
+
+
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.44.0" theme-name="Stellar" theme-version="1.44.0">
   
   
@@ -56,7 +74,7 @@
   
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"https://samuflore.top/","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg"},"name":"SamuFlore","description":"一人倒、衆人倒。","url":"https://samuflore.top/"}</script>
-  <link rel="stylesheet" href="/fonts/GenKiMin2TC.css"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css"><style>
+  <link rel="preload" href="/fonts/Torus-Regular.otf" as="font" type="font/otf" crossorigin><link rel="stylesheet" href="/fonts/GenKiMin2TC.css?v=20261019-swap"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css?v=20261019-swap"><style>
   @font-face {
     font-family: 'Torus';
     src: url('/fonts/Torus-Thin.otf') format('opentype');
@@ -533,7 +551,7 @@ SamuFlore's Dimension 1 周年！<br>
 </div>
 <footer class="footer dis-select"><div class="social-wrap" style="--item-grad:url(#footer-social-icon-grad)">
 <svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="footer-social-icon-grad" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
-<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="icon" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
+<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="theme-mode-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" aria-hidden="true" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
 </div></aside><div class="l_main" id="main" data-ui-surface="content">
 
 
@@ -546,29 +564,29 @@ SamuFlore's Dimension 1 周年！<br>
 <div class="navbar top"><div class="navbar-blur"><div class="navbar-container"><nav class="post"><a class="active" href="/">近期发布</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/topic/">专栏</a><a href="/archives/">归档</a><a href="/recent/">BAKER</a></nav></div></div></div>
 
 <div class="post-list post"><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/fae59a6c/">
-<article class="md-text"><h2 class="post-title">[BUAA CO P1]P1 上机之思考</h2><div class="excerpt"><p>水平太差了。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-10-20T16:16:11.000Z">2025-10-21</time></span><span class="cap breadcrumb"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; 計算機組成原理</span></span></div></article>
+<article class="md-text"><h2 class="post-title">[BUAA CO P1]P1 上机之思考</h2><div class="excerpt"><p>水平太差了。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-10-20T16:16:11.000Z">2025-10-21</time></span><span class="cap breadcrumb"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; 計算機組成原理</span></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/937d20ea/">
-<article class="md-text"><h2 class="post-title">MD 样式测试</h2><div class="excerpt"><p>实验性。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-10-20T06:02:30.000Z">2025-10-20</time></span></div></article>
+<article class="md-text"><h2 class="post-title">MD 样式测试</h2><div class="excerpt"><p>实验性。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-10-20T06:02:30.000Z">2025-10-20</time></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/2dab591c/">
-<article class="md-text"><h2 class="post-title">[BUAA CO P1]如何优雅地写 Testbench</h2><div class="excerpt"><p>学习自 ROIFE BLOG。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-10-19T15:15:17.000Z">2025-10-19</time></span><span class="cap breadcrumb"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; 計算機組成原理</span></span></div></article>
+<article class="md-text"><h2 class="post-title">[BUAA CO P1]如何优雅地写 Testbench</h2><div class="excerpt"><p>学习自 ROIFE BLOG。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-10-19T15:15:17.000Z">2025-10-19</time></span><span class="cap breadcrumb"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; 計算機組成原理</span></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/f4bf9c17/">
-<article class="md-text"><h2 class="post-title">[鶴鳴洲集]“他妈的”，究竟是谁妈的？</h2><div class="excerpt"><p>我们都知道，时至今日，在普通话全国推行的大背景下，“ɲit”系（如湘语、西南官话等）和“ʦʰɑk”系（如赣语、南京官话等）这指代同一动作的两个最古老、最广泛的发音及其演变出的各变种仍因为地区的不同而出现在不同的方言中，尚未见一统的趋势。而与此截然不同的是这句“他妈的”竟然早已传遍九州，成为放之四海而皆准的一句国骂了，实在是让人啧啧称奇。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-10-19T06:15:12.000Z">2025-10-19</time></span><span class="cap breadcrumb" style="--text-p2:#77BBDD;--theme-block:#77BBDD20"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>鶴鳴洲集</span></span></div></article>
+<article class="md-text"><h2 class="post-title">[鶴鳴洲集]“他妈的”，究竟是谁妈的？</h2><div class="excerpt"><p>我们都知道，时至今日，在普通话全国推行的大背景下，“ɲit”系（如湘语、西南官话等）和“ʦʰɑk”系（如赣语、南京官话等）这指代同一动作的两个最古老、最广泛的发音及其演变出的各变种仍因为地区的不同而出现在不同的方言中，尚未见一统的趋势。而与此截然不同的是这句“他妈的”竟然早已传遍九州，成为放之四海而皆准的一句国骂了，实在是让人啧啧称奇。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-10-19T06:15:12.000Z">2025-10-19</time></span><span class="cap breadcrumb" style="--text-p2:#77BBDD;--theme-block:#77BBDD20"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>鶴鳴洲集</span></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/90dbc4f6/">
-<article class="md-text"><h2 class="post-title">[孤獨星球]贺卿传</h2><div class="excerpt"><p>以本文纪念一个为枯燥高三生活带来涟漪的人。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-10-14T11:00:48.000Z">2025-10-14</time></span><span class="cap breadcrumb" style="--text-p2:#7799CC;--theme-block:#7799CC20"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>孤獨星球</span></span></div></article>
+<article class="md-text"><h2 class="post-title">[孤獨星球]贺卿传</h2><div class="excerpt"><p>以本文纪念一个为枯燥高三生活带来涟漪的人。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-10-14T11:00:48.000Z">2025-10-14</time></span><span class="cap breadcrumb" style="--text-p2:#7799CC;--theme-block:#7799CC20"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>孤獨星球</span></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/18246a69/">
-<article class="md-text"><h2 class="post-title">[BUAA CO P0]P0 上机之思考</h2><div class="excerpt"><p>今天非常惊险地通过了 P0 上机（实话说 P0 挂了就招笑了</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-10-13T13:14:40.000Z">2025-10-13</time></span><span class="cap breadcrumb"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; 計算機組成原理</span></span></div></article>
+<article class="md-text"><h2 class="post-title">[BUAA CO P0]P0 上机之思考</h2><div class="excerpt"><p>今天非常惊险地通过了 P0 上机（实话说 P0 挂了就招笑了</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-10-13T13:14:40.000Z">2025-10-13</time></span><span class="cap breadcrumb"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; 計算機組成原理</span></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/11653afb/">
-<article class="md-text"><h2 class="post-title">[BUAA CO P0]关于 Mealy 机和 Moore 机的思考</h2><div class="excerpt"><p>完成 P0 课下内容后，我对 Logisim 中完成两种有限状态机的方法以及其区别有了一些见解。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-10-05T09:24:33.000Z">2025-10-05</time></span><span class="cap breadcrumb"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; 計算機組成原理</span></span></div></article>
+<article class="md-text"><h2 class="post-title">[BUAA CO P0]关于 Mealy 机和 Moore 机的思考</h2><div class="excerpt"><p>完成 P0 课下内容后，我对 Logisim 中完成两种有限状态机的方法以及其区别有了一些见解。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-10-05T09:24:33.000Z">2025-10-05</time></span><span class="cap breadcrumb"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; 計算機組成原理</span></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/b73dbb31/">
-<article class="md-text"><h2 class="post-title">[楠竹蓮花集]老狗</h2><div class="excerpt"><p>这条狗已经太老太老了。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-10-04T03:28:08.000Z">2025-10-04</time></span><span class="cap breadcrumb" style="--text-p2:#FFDD88;--theme-block:#FFDD8820"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>楠竹蓮花集</span></span></div></article>
+<article class="md-text"><h2 class="post-title">[楠竹蓮花集]老狗</h2><div class="excerpt"><p>这条狗已经太老太老了。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-10-04T03:28:08.000Z">2025-10-04</time></span><span class="cap breadcrumb" style="--text-p2:#FFDD88;--theme-block:#FFDD8820"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>楠竹蓮花集</span></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/1f9d902/">
-<article class="md-text"><h2 class="post-title">[BUAA CO Pre]MIPS 汇编入门</h2><div class="excerpt"><p>这是北京航空航天大学计算机学院 2025 年计算机组成原理预习部分的 MIPS 汇编部分。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-09-20T08:00:25.000Z">2025-09-20</time></span><span class="cap breadcrumb"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; 計算機組成原理</span></span></div></article>
+<article class="md-text"><h2 class="post-title">[BUAA CO Pre]MIPS 汇编入门</h2><div class="excerpt"><p>这是北京航空航天大学计算机学院 2025 年计算机组成原理预习部分的 MIPS 汇编部分。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-09-20T08:00:25.000Z">2025-09-20</time></span><span class="cap breadcrumb"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; 計算機組成原理</span></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/10425c0c/">
-<article class="md-text"><h2 class="post-title">新川大陆文化史</h2><div class="excerpt"><p>本文转载自神皇枫秀，敬请留意。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-09-09T02:34:17.000Z">2025-09-09</time></span></div></article>
+<article class="md-text"><h2 class="post-title">新川大陆文化史</h2><div class="excerpt"><p>本文转载自神皇枫秀，敬请留意。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-09-09T02:34:17.000Z">2025-09-09</time></span></div></article>
 </a></div></div>
 
   <div class='paginator-wrap dis-select'>
-  <a class="extend prev" rel="prev" href="/page/6/"><svg class="icon" data-icon="default:arrow-left" aria-hidden="true"></svg></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/8/"><svg class="icon" data-icon="default:arrow-right" aria-hidden="true"></svg></a>
+  <a class="extend prev" rel="prev" href="/page/6/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:arrow-left" aria-hidden="true"></svg></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/8/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:arrow-right" aria-hidden="true"></svg></a>
   </div>
 
 

@@ -1,7 +1,7 @@
 /**
  * icons.js | 非首屏图标异步加载
  *
- * 服务端 icon() 对非首屏 SVG 图标输出 <svg class="icon" data-icon="ns:key"> 占位符，
+ * 服务端 icon() 对非首屏 SVG 图标输出保留原始尺寸/样式的 <svg data-icon="ns:key"> 占位符，
  * 本脚本按命名空间拉取构建期生成的 js/icons/{ns}.json，成功后原位替换为完整内联 SVG，
  * 最终 DOM 与全量内联一致，现有 CSS 钩子（搜索三态、菜单渐变、chat 着色等）不受影响。
  * 首屏关键图标（搜索、菜单、leftbar/rightbar、arrow-left）由模板内联，不经过本脚本。
@@ -16,8 +16,8 @@
 
   function collectNodes(scope) {
     const rootNode = scope && typeof scope.querySelectorAll === 'function' ? scope : document;
-    const nodes = Array.prototype.slice.call(rootNode.querySelectorAll('svg.icon[data-icon]'));
-    if (rootNode.matches && rootNode.matches('svg.icon[data-icon]')) {
+    const nodes = Array.prototype.slice.call(rootNode.querySelectorAll('svg[data-icon]'));
+    if (rootNode.matches && rootNode.matches('svg[data-icon]')) {
       nodes.unshift(rootNode);
     }
     return nodes;

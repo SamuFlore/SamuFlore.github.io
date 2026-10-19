@@ -3,6 +3,24 @@
 
 <head>
   <meta charset="utf-8">
+  <script>
+  // 在首屏绘制前应用已保存的明暗偏好；按钮和插件仍由 theme.js 初始化。
+  (function () {
+    try {
+      var saved = localStorage.getItem('Stellar.theme');
+      if (saved === 'light' || saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    } catch (e) {
+      // 禁用存储时沿用 HTML 中的主题配置。
+    }
+  })();
+</script>
+
+
+<link rel="preload" as="image" href="https://api.elaina.cat/random/" fetchpriority="high">
+
+
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.44.0" theme-name="Stellar" theme-version="1.44.0">
   
   <meta name="robots" content="noindex,follow">
@@ -56,7 +74,7 @@
   
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"https://samuflore.top","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg"},"name":"SamuFlore","description":"一人倒、衆人倒。","url":"https://samuflore.top"}</script>
-  <link rel="stylesheet" href="/fonts/GenKiMin2TC.css"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css"><style>
+  <link rel="preload" href="/fonts/Torus-Regular.otf" as="font" type="font/otf" crossorigin><link rel="stylesheet" href="/fonts/GenKiMin2TC.css?v=20261019-swap"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css?v=20261019-swap"><style>
   @font-face {
     font-family: 'Torus';
     src: url('/fonts/Torus-Thin.otf') format('opentype');
@@ -422,7 +440,7 @@
 </div>
 <footer class="footer dis-select"><div class="social-wrap" style="--item-grad:url(#footer-social-icon-grad)">
 <svg class="grad-def" width="0" height="0" aria-hidden="true" focusable="false"><defs><linearGradient id="footer-social-icon-grad" x1="75%" y1="6.7%" x2="6.7%" y2="125%"><stop offset="20%" style="stop-color:var(--item-theme-light)"/><stop offset="60%" style="stop-color:var(--item-theme)"/></linearGradient></defs></svg>
-<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="icon" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
+<a class="social" data-theme-toggle role="button" tabindex="0" title="切换到深色模式" aria-label="切换到深色模式" onclick="switchTheme()"><svg class="theme-mode-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" aria-hidden="true" data-icon="default:theme-toggle" aria-hidden="true"></svg></a></div></footer>
 </div></aside><div class="l_main" id="main" data-ui-surface="content">
 
 
@@ -437,23 +455,23 @@
 <div class="navbar top"><div class="navbar-blur"><div class="navbar-container"><nav class="post"><a href="/">近期发布</a><a href="/categories/">分类</a><a class="active" href="/tags/">标签：蘭月</a><a href="/topic/">专栏</a><a href="/archives/">归档</a><a href="/recent/">BAKER</a></nav></div></div></div>
 
 <div class="post-list post"><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/8db1062d/">
-<article class="md-text"><h2 class="post-title">[BUAA ML]Post-Training</h2><div class="excerpt"><p>LoRA, RLHF, etc.</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2026-07-12T08:55:33.000Z">2026-07-12</time></span><span class="cap breadcrumb"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; Machine Learning</span></span></div></article>
+<article class="md-text"><h2 class="post-title">[BUAA ML]Post-Training</h2><div class="excerpt"><p>LoRA, RLHF, etc.</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2026-07-12T08:55:33.000Z">2026-07-12</time></span><span class="cap breadcrumb"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; Machine Learning</span></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/8b370a4c/">
-<article class="md-text"><h2 class="post-title">[BUAA ML]Transformer</h2><div class="excerpt"><p>Attention is ALL U need!</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2026-07-11T08:50:14.000Z">2026-07-11</time></span><span class="cap breadcrumb"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; Machine Learning</span></span></div></article>
+<article class="md-text"><h2 class="post-title">[BUAA ML]Transformer</h2><div class="excerpt"><p>Attention is ALL U need!</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2026-07-11T08:50:14.000Z">2026-07-11</time></span><span class="cap breadcrumb"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>2025 - 2026 學年 &#x2F; Machine Learning</span></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/ff51cb4c/">
-<article class="md-text"><h2 class="post-title">Blog 8：[Hexo教程]Hexo之提交搜索引擎收录</h2><div class="excerpt"><p>利用 sitemap.xml 来提交搜索引擎收录，是搜索引擎优化（SEO）的重要一步。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-07-21T11:14:08.000Z">2025-07-21</time></span><span class="cap breadcrumb" style="--text-p2:#779977;--theme-block:#77997720"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>博客技術</span></span></div></article>
+<article class="md-text"><h2 class="post-title">Blog 8：[Hexo教程]Hexo之提交搜索引擎收录</h2><div class="excerpt"><p>利用 sitemap.xml 来提交搜索引擎收录，是搜索引擎优化（SEO）的重要一步。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-07-21T11:14:08.000Z">2025-07-21</time></span><span class="cap breadcrumb" style="--text-p2:#779977;--theme-block:#77997720"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>博客技術</span></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/e11361f1/">
-<article class="md-text"><h2 class="post-title">†Blog 7：[Hexo教程]更高级的 Markdown 渲染器：Markdown-it</h2><div class="excerpt"><p>如今我换上了 Stellar，这倒是不需要 Markdown-it 了。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-07-18T02:29:59.000Z">2025-07-18</time></span><span class="cap breadcrumb" style="--text-p2:#779977;--theme-block:#77997720"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>博客技術</span></span></div></article>
+<article class="md-text"><h2 class="post-title">†Blog 7：[Hexo教程]更高级的 Markdown 渲染器：Markdown-it</h2><div class="excerpt"><p>如今我换上了 Stellar，这倒是不需要 Markdown-it 了。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-07-18T02:29:59.000Z">2025-07-18</time></span><span class="cap breadcrumb" style="--text-p2:#779977;--theme-block:#77997720"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>博客技術</span></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post photo card-hover card-hover--spotlight card-hover--tilt" style="--cover-url:url('https:&#x2F;&#x2F;api.goodboyboy.top&#x2F;bing')" href="/posts/9eefdea9/">
 <div class="cover" position="bottom" style="--cover-url:url('https:&#x2F;&#x2F;api.goodboyboy.top&#x2F;bing')"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https:&#x2F;&#x2F;api.goodboyboy.top&#x2F;bing"/><div class="cover-info" position="bottom" data-text-adaptive="split"><div class="text headline">序</div><div class="text caption">“创作是并没有什么秘诀，能够交头接耳，一句话就传授给别一个的，倘不然，只要有这秘诀，就真可以登广告，</div></div></div>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/82cd8a81/">
-<article class="md-text"><h2 class="post-title">Blog 5：[八紘九野集]井冈山</h2><div class="excerpt"><p>国内旅游我有两个“东南西北”的计划，我愿称之为大东南西北和小东南西北。我正在完成小东南西北的东。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-07-17T10:07:50.000Z">2025-07-17</time></span><span class="cap breadcrumb" style="--text-p2:#77DD77;--theme-block:#77DD7720"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>八紘九野集</span></span></div></article>
+<article class="md-text"><h2 class="post-title">Blog 5：[八紘九野集]井冈山</h2><div class="excerpt"><p>国内旅游我有两个“东南西北”的计划，我愿称之为大东南西北和小东南西北。我正在完成小东南西北的东。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-07-17T10:07:50.000Z">2025-07-17</time></span><span class="cap breadcrumb" style="--text-p2:#77DD77;--theme-block:#77DD7720"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>八紘九野集</span></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/1bea1421/">
-<article class="md-text"><h2 class="post-title">Blog 4：[Hexo教程]Hexo之博文添加图片</h2><div class="excerpt"><p>博文美化小妙招（</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-07-16T03:47:49.000Z">2025-07-16</time></span><span class="cap breadcrumb" style="--text-p2:#779977;--theme-block:#77997720"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>博客技術</span></span></div></article>
+<article class="md-text"><h2 class="post-title">Blog 4：[Hexo教程]Hexo之博文添加图片</h2><div class="excerpt"><p>博文美化小妙招（</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-07-16T03:47:49.000Z">2025-07-16</time></span><span class="cap breadcrumb" style="--text-p2:#779977;--theme-block:#77997720"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>博客技術</span></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/8a8b0861/">
-<article class="md-text"><h2 class="post-title">†Blog 2：[Hexo教程]Hexo之代码块添加复制按钮</h2><div class="excerpt"><p>使用 JavaScript 实现之。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-07-15T14:47:05.000Z">2025-07-15</time></span><span class="cap breadcrumb" style="--text-p2:#779977;--theme-block:#77997720"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>博客技術</span></span></div></article>
+<article class="md-text"><h2 class="post-title">†Blog 2：[Hexo教程]Hexo之代码块添加复制按钮</h2><div class="excerpt"><p>使用 JavaScript 实现之。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-07-15T14:47:05.000Z">2025-07-15</time></span><span class="cap breadcrumb" style="--text-p2:#779977;--theme-block:#77997720"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>博客技術</span></span></div></article>
 </a></div><div class="post-card-wrap"><a class="post-card post card-hover card-hover--spotlight card-hover--tilt" href="/posts/95afa136/">
-<article class="md-text"><h2 class="post-title">Blog 1：[長欣集]诗二首</h2><div class="excerpt"><p>月夜襲得心百感、落木生春又一年。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg class="icon" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-07-15T10:30:43.000Z">2025-07-15</time></span><span class="cap breadcrumb" style="--text-p2:#7777AA;--theme-block:#7777AA20"><svg class="icon" data-icon="default:category" aria-hidden="true"></svg><span>長欣集</span></span></div></article>
+<article class="md-text"><h2 class="post-title">Blog 1：[長欣集]诗二首</h2><div class="excerpt"><p>月夜襲得心百感、落木生春又一年。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:calendar" aria-hidden="true"></svg><time datetime="2025-07-15T10:30:43.000Z">2025-07-15</time></span><span class="cap breadcrumb" style="--text-p2:#7777AA;--theme-block:#7777AA20"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:category" aria-hidden="true"></svg><span>長欣集</span></span></div></article>
 </a></div></div>
 
 
