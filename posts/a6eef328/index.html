@@ -46,7 +46,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://samuflore.top/images/avatar.jpg">
 <meta property="article:published_time" content="2026-10-21T15:46:57.000Z">
-<meta property="article:modified_time" content="2026-11-03T07:18:35.366Z">
+<meta property="article:modified_time" content="2026-11-03T07:45:52.767Z">
 <meta property="article:author" content="Samustach Floresein">
 <meta property="article:tag" content="露月">
 <meta property="article:tag" content="LLM">
@@ -80,7 +80,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg"},"dateCreated":"2026-10-21T23:46:57+08:00","dateModified":"2026-11-03T15:18:35+08:00","datePublished":"2026-10-21T23:46:57+08:00","description":"零、序\n2023 年的时候，我在 OpenAI[1] 用 Google 邮箱注册了一个账号——还花了 15 大洋用于虚拟手机号接码服务，只为体验一下这个最近突然走进公众视野的新奇玩意。当时的 ChatGPT 3.5 上下文窗口既小，所能输出的文本量也少。如果你也是这一时间段体验的用户，你一定还能想起它输出到一半莫名其妙停下来，让你不得不再发一条「继续」催它干活的情景。不过无所谓，因为它带来的...","headline":"[江子社]人工智能导论","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/a6eef328/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg","logo":{"@type":"ImageObject","url":"https://samuflore.top/images/avatar.jpg"}},"url":"https://samuflore.top/posts/a6eef328/","keywords":"露月, LLM, Tutorial, Agent","thumbnailUrl":"https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg","image":["https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg"},"dateCreated":"2026-10-21T23:46:57+08:00","dateModified":"2026-11-03T15:45:52+08:00","datePublished":"2026-10-21T23:46:57+08:00","description":"零、序\n2023 年的时候，我在 OpenAI[1] 用 Google 邮箱注册了一个账号——还花了 15 大洋用于虚拟手机号接码服务，只为体验一下这个最近突然走进公众视野的新奇玩意。当时的 ChatGPT 3.5 上下文窗口既小，所能输出的文本量也少。如果你也是这一时间段体验的用户，你一定还能想起它输出到一半莫名其妙停下来，让你不得不再发一条「继续」催它干活的情景。不过无所谓，因为它带来的...","headline":"[江子社]人工智能导论","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/a6eef328/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg","logo":{"@type":"ImageObject","url":"https://samuflore.top/images/avatar.jpg"}},"url":"https://samuflore.top/posts/a6eef328/","keywords":"露月, LLM, Tutorial, Agent","thumbnailUrl":"https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg","image":["https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"]}</script>
   <link rel="preload" href="/fonts/Torus-Regular.otf" as="font" type="font/otf" crossorigin><link rel="stylesheet" href="/fonts/GenKiMin2TC.css?v=20261019-swap"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css?v=20261019-swap"><style>
   @font-face {
     font-family: 'Torus';
@@ -520,7 +520,7 @@
     <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%B1%9F%E5%AD%90%E9%80%9A%E4%BF%A1%E7%A4%BE/">江子通信社</a>
 </div><div class="right"><span class="cap reading">9966 字 · 约 34 分钟</span></div></div><div class="meta-row">
-<div class="flex-row" id="post-meta"><a class="author" href="/author/samuflore/">Seymiris Asakawa</a><span class="sep"></span><span class="text created"><time datetime="2026-10-21T15:46:57.000Z">2026-10-21</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-11-03T07:18:35.366Z">2026-11-03</time></span></div>
+<div class="flex-row" id="post-meta"><a class="author" href="/author/samuflore/">Seymiris Asakawa</a><span class="sep"></span><span class="text created"><time datetime="2026-10-21T15:46:57.000Z">2026-10-21</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-11-03T07:45:52.767Z">2026-11-03</time></span></div>
 </div></div>
     
     <div class="bottom only-title">
@@ -774,7 +774,7 @@ P(x_{1001}\mid x_1,x_2,\ldots,x_{1000})
 <p>然而，前面我们说的「中间结果不必重复计算」并不是天然如此的。是人们为了解决重复计算的问题，发明了<ruby>键值缓存<rt>KV Cache</rt></ruby>这一技术才实现的。</p>
 <div class="tag-plugin colorful note" color="green"><div class="title"><strong><p>Abstract Nonsense</p>
 </strong></div><div class="body"><p>「键值缓存」这一译名是我杜撰的。</p></div></div>
-<p>K 和 V 分别是 Transformer 中计算<a href="#attention-is-all-you-need">注意力</a>时需要用到的两个向量表示。简单来说，它们能让每个 Token 受到上下文的影响，即能让模型利用上下文信息。</p>
+<p>K 和 V 分别是 Transformer 中计算<a href="#Attention-is-All-You-Need">注意力</a>时需要用到的两个向量表示。简单来说，它们能让每个 Token 受到上下文的影响，即能让模型利用上下文信息。</p>
 <p>对于我们常用的模型来说，已经处理过的历史 Token，其对应的 K 和 V 不会因为后面新生成的模型发生改变。这意味着我们不需要重复计算 K 和 V。</p>
 <p>所以 KV Cache 的核心思想就是<strong>以空间换时间</strong>，通过缓存已经计算过的 K，V 值，加快后续的计算。启用 KV Cache 会占用一定的显存，占用量会随着推理的继续而增长。</p>
 <h3 id="量化">量化</h3>
