@@ -1726,6 +1726,7 @@ pre:not([class]):has(>code) {
   display: block;
 }
 .md-text .highlight figcaption {
+  font-family: "Torus", "GenKiMin2 TC", system-ui, "Microsoft Yahei", "Segoe UI", Arial, sans-serif;
   color: var(--text-p2);
   font-size: 0.8125rem;
   font-weight: 500;
@@ -1826,12 +1827,14 @@ pre:not([class]):has(>code) {
   font-family: "Monaspace Argon", Menlo, Monaco, Consolas, system-ui, monospace, sans-serif;
 }
 .md-text .gist .gist-meta {
+  font-family: "Torus", "GenKiMin2 TC", system-ui, "Microsoft Yahei", "Segoe UI", Arial, sans-serif;
   background: var(--block);
 }
 table:not([class]) {
   border-collapse: collapse;
 }
 .md-text pre >.caption {
+  font-family: "Torus", "GenKiMin2 TC", system-ui, "Microsoft Yahei", "Segoe UI", Arial, sans-serif;
   color: var(--text-p3);
 }
 .md-text pre >.hljs {
@@ -2124,7 +2127,7 @@ input {
 }
 input.copy-area {
   display: block;
-  font-family: "Monaspace Argon", Menlo, Monaco, Consolas, system-ui, monospace, sans-serif;
+  font-family: "Torus", "GenKiMin2 TC", system-ui, "Microsoft Yahei", "Segoe UI", Arial, sans-serif;
   font-size: calc(var(--fs-content-base) - 3px);
   font-weight: 700;
   color: var(--text-p3);
@@ -3541,7 +3544,6 @@ div.toast.show {
   color: var(--text-banner-theme);
   background: color-mix(in srgb, var(--text-banner-theme, var(--background)) 20%, transparent);
   backdrop-filter: blur(12px) brightness(0.8);
-  font-family: "Monaspace Argon", Menlo, Monaco, Consolas, system-ui, monospace, sans-serif;
 }
 .l_cover.wiki-hero .wiki-cover-terminal .wiki-cover-terminal-toolbar {
   display: flex;
@@ -3933,7 +3935,6 @@ div.toast.show {
   border-right: 1px dashed var(--block-border);
 }
 .paginator-wrap .current {
-  font-family: "Monaspace Argon", Menlo, Monaco, Consolas, system-ui, monospace, sans-serif;
   background: var(--block);
 }
 .paginator-wrap .extend {
@@ -5564,7 +5565,6 @@ a.tag-plugin.button:hover {
   border-radius: 4px;
   background: hsla(var(--hue) var(--sat) var(--light) / 0.2);
   color: var(--theme);
-  font-family: "Monaspace Argon", Menlo, Monaco, Consolas, system-ui, monospace, sans-serif;
   font-size: calc(var(--fs-content-base) - 3px);
   font-weight: 700;
   flex-shrink: 0;
@@ -6582,12 +6582,12 @@ p>strong>span.tag-plugin.icon {
   text-decoration: line-through var(--text-p3);
 }
 .md-text kbd {
+  font-family: inherit;
   border-radius: 4px;
   border: 1px solid #d2d2d2;
   border-bottom-width: 2px;
   background: var(--card);
   padding: 2px 4px 1px 4px;
-  font-family: "Monaspace Argon", Menlo, Monaco, Consolas, system-ui, monospace, sans-serif;
   font-weight: 700;
 }
 .md-text psw {
@@ -6619,7 +6619,6 @@ p>strong>span.tag-plugin.icon {
   color: var(--theme);
   line-height: 1;
   font-weight: 700;
-  font-family: "Monaspace Argon", Menlo, Monaco, Consolas, system-ui, monospace, sans-serif;
 }
 .md-text h1 sup,
 .md-text h2 sup,
@@ -9640,7 +9639,6 @@ html.theme-transition .l_left footer.footer .social .theme-mode-icon .theme-icon
 .post-list #archive .archive-header,
 .post-list .preview-archive .archive-header {
   display: inline-block;
-  font-family: "Monaspace Argon", Menlo, Monaco, Consolas, system-ui, monospace, sans-serif;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 0.5em;
@@ -9672,7 +9670,6 @@ html.theme-transition .l_left footer.footer .social .theme-mode-icon .theme-icon
   border-bottom: 1px dashed var(--text-meta);
 }
 .post-list .archive-list a.post time {
-  font-family: "Monaspace Argon", Menlo, Monaco, Consolas, system-ui, monospace, sans-serif;
   margin-right: 1em;
   font-weight: 700;
   flex-shrink: 0;
@@ -9719,7 +9716,6 @@ html.theme-transition .l_left footer.footer .social .theme-mode-icon .theme-icon
 .post-list #cats a.cat .badge,
 .post-list .preview-cats a.cat .badge {
   font-weight: 700;
-  font-family: "Monaspace Argon", Menlo, Monaco, Consolas, system-ui, monospace, sans-serif;
   opacity: 0.5;
   font-size: calc(var(--fs-content-base) - 4px);
 }
@@ -11996,6 +11992,7 @@ img.lazy.error {
   position: relative;
 }
 .highlight .code .copy-btn {
+  font-family: "Torus", "GenKiMin2 TC", system-ui, "Microsoft Yahei", "Segoe UI", Arial, sans-serif;
   position: absolute;
   top: 0;
   right: 0;

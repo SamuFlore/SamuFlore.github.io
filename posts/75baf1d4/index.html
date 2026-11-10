@@ -69,8 +69,8 @@
   
 
   
-  <link rel="preload" href="/css/main.css?rev=20261019-preview-fragments&v=1.44.0" as="style">
-  <link rel="stylesheet" href="/css/main.css?rev=20261019-preview-fragments&v=1.44.0">
+  <link rel="preload" href="/css/main.css?rev=20261110-ui-fonts&v=1.44.0" as="style">
+  <link rel="stylesheet" href="/css/main.css?rev=20261110-ui-fonts&v=1.44.0">
 
 
   
@@ -79,7 +79,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg"},"dateCreated":"2026-05-18T22:27:54+08:00","dateModified":"2026-06-03T11:08:04+08:00","datePublished":"2026-05-18T22:27:54+08:00","description":"从微内核设计说起\n一般来说，操作系统访问磁盘的流程是这样的：\n\n\n用户进程发起系统调用，访问磁盘\n\n\n磁盘返回一些信息给用户进程\n\n\n用户进程对文件进行读写\n\n\n文件重新写回磁盘\n\n\n但是 MOS 是具有微内核的特点，即内核的功能是极大程度地精简过的。对于 MOS 来说，我们还需要引入文件服务进程，即 FS。\n\n\n用户进程向文件服务进程发送一个请求\n\n\n文件服务进程负责从磁盘中找到文件，给到...","headline":"[BUAA OS Lab5]文件系统","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/75baf1d4/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg","logo":{"@type":"ImageObject","url":"https://samuflore.top/images/avatar.jpg"}},"url":"https://samuflore.top/posts/75baf1d4/","keywords":"OS, 臯月, Lab5","thumbnailUrl":"https://free.boltp.com/2026/05/27/6a169fd41d75c.webp","image":["https://free.boltp.com/2026/05/27/6a169fd41d75c.webp"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg"},"dateCreated":"2026-05-18T22:27:54+08:00","dateModified":"2026-06-03T11:08:04+08:00","datePublished":"2026-05-18T22:27:54+08:00","description":"广义上，「文件」是指任何具有唯一标识、且在逻辑上完整的字节序列。在这种「一切皆文件」的思想下，文件系统也不再局限于某一物理媒介，而是将各种差异巨大的资源都统一抽象为「文件」，并为用户提供一套统一的访问接口。","headline":"[BUAA OS Lab5]文件系统","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/75baf1d4/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg","logo":{"@type":"ImageObject","url":"https://samuflore.top/images/avatar.jpg"}},"url":"https://samuflore.top/posts/75baf1d4/","keywords":"OS, 臯月, Lab5","thumbnailUrl":"https://free.boltp.com/2026/05/27/6a169fd41d75c.webp","image":["https://free.boltp.com/2026/05/27/6a169fd41d75c.webp"]}</script>
   <link rel="preload" href="/fonts/Torus-Regular.otf" as="font" type="font/otf" crossorigin><link rel="stylesheet" href="/fonts/GenKiMin2TC.css?v=20261019-swap"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css?v=20261110-woff2"><style>
   @font-face {
     font-family: 'Torus';
