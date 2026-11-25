@@ -35,23 +35,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   <meta name="theme-color" content="#f9fafb">
-  <title>[語言進階]C1 - SamuFlore</title>
+  <title>[語言進階]对象、类型系统与内存布局 - SamuFlore</title>
 
   <meta name="description" content="从未学会 C 语言。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[語言進階]C1">
+<meta property="og:title" content="[語言進階]对象、类型系统与内存布局">
 <meta property="og:url" content="https://samuflore.top/posts/e919a989/">
 <meta property="og:site_name" content="SamuFlore">
 <meta property="og:description" content="从未学会 C 语言。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://samuflore.top/images/avatar.jpg">
 <meta property="article:published_time" content="2026-09-08T00:37:43.000Z">
-<meta property="article:modified_time" content="2026-10-26T06:36:12.095Z">
+<meta property="article:modified_time" content="2026-11-25T01:36:45.950Z">
 <meta property="article:author" content="Samustach Floresein">
 <meta property="article:tag" content="菊月">
 <meta property="article:tag" content="C">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://samuflore.top/images/avatar.jpg"><meta name="twitter:title" content="[語言進階]C1">
+<meta name="twitter:image" content="https://samuflore.top/images/avatar.jpg"><meta name="twitter:title" content="[語言進階]对象、类型系统与内存布局">
   
   
   <meta name="keywords" content="菊月,C">
@@ -78,7 +78,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg"},"dateCreated":"2026-09-08T08:37:43+08:00","dateModified":"2026-10-26T14:36:12+08:00","datePublished":"2026-09-08T08:37:43+08:00","description":"从未学会 C 语言。","headline":"[語言進階]C1","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/e919a989/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg","logo":{"@type":"ImageObject","url":"https://samuflore.top/images/avatar.jpg"}},"url":"https://samuflore.top/posts/e919a989/","keywords":"菊月, C","thumbnailUrl":"https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg","image":["https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg"},"dateCreated":"2026-09-08T08:37:43+08:00","dateModified":"2026-11-25T09:36:45+08:00","datePublished":"2026-09-08T08:37:43+08:00","description":"从未学会 C 语言。","headline":"[語言進階]对象、类型系统与内存布局","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/e919a989/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg","logo":{"@type":"ImageObject","url":"https://samuflore.top/images/avatar.jpg"}},"url":"https://samuflore.top/posts/e919a989/","keywords":"菊月, C","thumbnailUrl":"https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg","image":["https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"]}</script>
   <link rel="preload" href="/fonts/Torus-Regular.otf" as="font" type="font/otf" crossorigin><link rel="stylesheet" href="/fonts/GenKiMin2TC.css?v=20261019-swap"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css?v=20261110-woff2"><style>
   @font-face {
     font-family: 'Torus';
@@ -149,7 +149,7 @@
   --icon-loading: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221em%22%20height%3D%221em%22%20viewBox%3D%220%200%2024%2024%22%3E%3Ccircle%20cx%3D%2218%22%20cy%3D%2212%22%20r%3D%220%22%20fill%3D%22currentColor%22%3E%3Canimate%20attributeName%3D%22r%22%20begin%3D%22.67%22%20calcMode%3D%22spline%22%20dur%3D%221.5s%22%20keySplines%3D%220.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%22%20repeatCount%3D%22indefinite%22%20values%3D%220%3B2%3B0%3B0%22%2F%3E%3C%2Fcircle%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%220%22%20fill%3D%22currentColor%22%3E%3Canimate%20attributeName%3D%22r%22%20begin%3D%22.33%22%20calcMode%3D%22spline%22%20dur%3D%221.5s%22%20keySplines%3D%220.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%22%20repeatCount%3D%22indefinite%22%20values%3D%220%3B2%3B0%3B0%22%2F%3E%3C%2Fcircle%3E%3Ccircle%20cx%3D%226%22%20cy%3D%2212%22%20r%3D%220%22%20fill%3D%22currentColor%22%3E%3Canimate%20attributeName%3D%22r%22%20begin%3D%220%22%20calcMode%3D%22spline%22%20dur%3D%221.5s%22%20keySplines%3D%220.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%22%20repeatCount%3D%22indefinite%22%20values%3D%220%3B2%3B0%3B0%22%2F%3E%3C%2Fcircle%3E%3C%2Fsvg%3E");
 }</style>
   
-<!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- hexo injector head_end end --><style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--blockquote-bg-color:#555;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"主页","item":"https://samuflore.top/"},{"@type":"ListItem","position":2,"name":"2026 - 2027 學年","item":"https://samuflore.top/categories/2026-2027-%E5%AD%B8%E5%B9%B4/"},{"@type":"ListItem","position":3,"name":"語言進階","item":"https://samuflore.top/categories/2026-2027-%E5%AD%B8%E5%B9%B4/%E8%AA%9E%E8%A8%80%E9%80%B2%E9%9A%8E/"},{"@type":"ListItem","position":4,"name":"[語言進階]C1","item":"https://samuflore.top/posts/e919a989/"}]}</script></head>
+<!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- hexo injector head_end end --><style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--blockquote-bg-color:#555;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"主页","item":"https://samuflore.top/"},{"@type":"ListItem","position":2,"name":"2026 - 2027 學年","item":"https://samuflore.top/categories/2026-2027-%E5%AD%B8%E5%B9%B4/"},{"@type":"ListItem","position":3,"name":"語言進階","item":"https://samuflore.top/categories/2026-2027-%E5%AD%B8%E5%B9%B4/%E8%AA%9E%E8%A8%80%E9%80%B2%E9%9A%8E/"},{"@type":"ListItem","position":4,"name":"[語言進階]对象、类型系统与内存布局","item":"https://samuflore.top/posts/e919a989/"}]}</script></head>
 <body><div class="sitebg"><div class="siteblur"></div></div><div id="l_cover"></div><div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left" data-ui-surface="glass"><div class="sidebg"></div><div class="leftbar-container">
 
 
@@ -317,6 +317,114 @@
   <div class="widget-body"><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
   
     
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/103c0983/" title="[語言進階]指针、数组、VLA 与动态内存管理">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">[語言進階]指针、数组、VLA 与动态内存管理</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/673b3915/" title="[語言進階]表达式求值、左值与副作用">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">[語言進階]表达式求值、左值与副作用</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/f95facb6/" title="[語言進階]数值表示、常量与算术类型转换">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">[語言進階]数值表示、常量与算术类型转换</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/e919a989/" title="[語言進階]对象、类型系统与内存布局">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">[語言進階]对象、类型系统与内存布局</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/fe3268af/" title="[語言進階]存储期、作用域、命名空间与链接">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">[語言進階]存储期、作用域、命名空间与链接</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/89355839/" title="[語言進階]函数、Function Designator 与形参限定符">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">[語言進階]函数、Function Designator 与形参限定符</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
 <a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/ec975a68/" title="†[江子社]Koishi + NapCat 搭建第三方 QQ 机器人指南">
   
   
@@ -388,114 +496,6 @@
 </a>
 
   
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/fe3268af/" title="[語言進階]C7">
-  
-  
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">[語言進階]C7</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/6701fe23/" title="[CP] 2026 北航编译原理期中上机测试">
-  
-  
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">[CP] 2026 北航编译原理期中上机测试</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/89355839/" title="[語言進階]C6">
-  
-  
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">[語言進階]C6</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/e919a989/" title="[語言進階]C1">
-  
-  
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">[語言進階]C1</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/1801200e/" title="[DB]SQL 简明教程">
-  
-  
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">[DB]SQL 简明教程</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/103c0983/" title="[語言進階]C5">
-  
-  
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">[語言進階]C5</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
 </div></div>
   
 </widget>
@@ -517,21 +517,22 @@
     
     <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/2026-2027-%E5%AD%B8%E5%B9%B4/">2026 - 2027 學年</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/2026-2027-%E5%AD%B8%E5%B9%B4/%E8%AA%9E%E8%A8%80%E9%80%B2%E9%9A%8E/">語言進階</a>
-</div><div class="right"><span class="cap reading">1014 字 · 约 4 分钟</span></div></div><div class="meta-row">
-<div class="flex-row" id="post-meta"><a class="author" href="/author/samuflore/">Seymiris Asakawa</a><span class="sep"></span><span class="text created"><time datetime="2026-09-08T00:37:43.000Z">2026-09-08</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-10-26T06:36:12.095Z">2026-10-26</time></span></div>
+</div><div class="right"><span class="cap reading">4466 字 · 约 15 分钟</span></div></div><div class="meta-row">
+<div class="flex-row" id="post-meta"><a class="author" href="/author/samuflore/">Seymiris Asakawa</a><span class="sep"></span><span class="text created"><time datetime="2026-09-08T00:37:43.000Z">2026-09-08</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-11-25T01:36:45.950Z">2026-11-25</time></span></div>
 </div></div>
     
     <div class="bottom only-title">
       
       <div class="text-area">
-        <h1 class="text title"><span>[語言進階]C1</span></h1>
+        <h1 class="text title"><span>[語言進階]对象、类型系统与内存布局</span></h1>
         
       </div>
     </div>
     
   </div>
   </div></div>
-<article class="md-text content"><h2 id="对象">对象</h2>
+<article class="md-text content"><h2 id="对象与对象六元组">对象与对象六元组</h2>
+<h3 id="对象">对象</h3>
 <p>连续的一个或多个字节。</p>
 <h3 id="对象类型">对象类型</h3>
 <p>对象类型在语义上是整体的，但在语法上不一定是整体的。如果二者皆为整体，则记为 <code>T</code></p>
@@ -546,9 +547,35 @@
 <h3 id="对象表示">对象表示</h3>
 <p>对象的各个 bit 组成的二进制串就是该对象的对象表示。</p>
 <p>对象表示通过对象类型来映射到对象值。</p>
+<p><strong>两个对象的值相同，对象表示不一定相同</strong>。</p>
 <h3 id="对象地址">对象地址</h3>
 <p>对象所用的连续字节中最低地址编号。要求能被对齐要求整除。</p>
-<h2 id="类型">类型</h2>
+<h3 id="对象六元组">对象六元组</h3>
+<p>形式化定义：<code>Object = {Address, Object_Type, Name, Size, Object_Value, Alignment}</code>。</p>
+<p>例：<code>int a = 1</code></p>
+<ol>
+<li class="lvl-3">
+<p>Addr: <em>Omitted</em></p>
+</li>
+<li class="lvl-3">
+<p>Obj_T: <code>int</code></p>
+</li>
+<li class="lvl-3">
+<p>N: <code>a</code></p>
+</li>
+<li class="lvl-3">
+<p>S: <code>4</code></p>
+</li>
+<li class="lvl-3">
+<p>Obj_V: <code>1</code></p>
+</li>
+<li class="lvl-3">
+<p>Align: <code>4</code></p>
+</li>
+</ol>
+<p><code>sizeof(Type_name)</code> 对应六元组中的 <code>Size</code>，<code>alignof(Type_name)</code> 对应六元组中的 <code>Alignment</code>。<strong>二者的右值类型均为无符号整数类型 <code>size_t</code></strong>。</p>
+<h2 id="类型系统">类型系统</h2>
+<h3 id="类型">类型</h3>
 <ol>
 <li class="lvl-3">
 <p>算术类型</p>
@@ -560,35 +587,42 @@
 <p>限定符修饰类型</p>
 </li>
 </ol>
-<h3 id="void">void</h3>
+<h4 id="void">void</h4>
 <p>不完全对象类型（大小不可知），语法是整体的，故可以标记为 <code>T</code>。</p>
-<h3 id="算术类型">算术类型</h3>
-<p>算术类型都是完全对象类型，语法上都是整体。</p>
-<h3 id="typedef"><code>typedef</code></h3>
-<p>基本语法：<code>typedef T Alias</code>。</p>
-<p><code>Alias</code> 是语法上的整体。</p>
-<h3 id="派生类型">派生类型</h3>
-<h4 id="数组类型">数组类型</h4>
-<p>形式化定义：<code>T[N]</code>，其中 <code>T</code> 是完全对象类型，<code>N</code> 是一个表达式。<strong><code>T</code> 在语法上可以是不完整的。</strong></p>
+<h4 id="算术类型">算术类型</h4>
+<p>算术类型包括整数类型与浮点类型（详参<a href="/posts/f95facb6/#%E6%95%B0%E5%80%BC%E8%A1%A8%E7%A4%BA">第二篇</a>），都是完全对象类型，语法上都是整体。</p>
+<div class="tag-plugin colorful note" color="blue"><div class="title"><strong><p>Hint</p>
+</strong></div><div class="body"><p><strong>常见类型分类速查</strong>：</p><ul class="lvl-0"><li class="lvl-2"><strong>基础类型（Basic Type）</strong>：<code>char</code>、标准有/无符号整数类型、浮点类型（<strong>不含枚举类型 <code>enum</code></strong>）。注意 <code>char</code>、<code>signed char</code>、<code>unsigned char</code> 是<strong>三种不同类型</strong>。</li><li class="lvl-2"><strong>标量类型（Scalar Type）</strong>：算术类型、指针类型、<code>nullptr_t</code> 及其限定/原子类型。</li><li class="lvl-2"><strong>聚合类型（Aggregate Type）</strong>：数组类型、结构体类型（<strong>不含联合体 <code>union</code></strong>）。</li></ul></div></div>
+<h4 id="语法整体工具：typedef-与-typeof">语法整体工具：<code>typedef</code> 与 <code>typeof</code></h4>
+<p>前面的 <code>void</code> 与算术类型在语法上都是整体，但后面的数组、指针等派生类型在语法上<strong>不是整体</strong>。当语法位置要求必须传入一个整体 <code>T</code>（例如 <code>typedef T Alias;</code> 或 <code>T O;</code>）时，需要借助以下两个工具把类型“包成整体”：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong><code>typedef</code></strong>：基本语法为 <code>typedef T Alias;</code>，为类型起别名，<code>Alias</code> 在语法上是一个整体。若原类型本身不是语法整体，别名必须写在标识符应出现的位置（如 <code>typedef int AINT[5];</code>、<code>typedef int (*ALIAS)[10];</code>）。</p>
+</li>
+<li class="lvl-2">
+<p><strong><code>typeof</code>（C23）</strong>：基本语法为 <code>typeof(type-name)</code> 或 <code>typeof(expr)</code>，返回对应类型，且结果本身在语法上是整体（可直接当作 <code>T</code> 使用，因此 <code>typedef typeof(int[5]) AINT;</code> 合法）。</p>
+</li>
+</ul>
+<h4 id="派生类型">派生类型</h4>
+<h5 id="数组类型">数组类型</h5>
+<p>形式化定义：<code>T[N]</code>，其中 <code>T</code> 是完全对象类型，<code>N</code> 是一个表达式。<strong><code>T</code> 在语法上可以不是整体。</strong></p>
 <p>被视作从 <code>T</code> 类型派生的类型。</p>
 <p>如果是 <code>T[]</code>，则其是数组类型，且为不完全对象类型。</p>
-<p>若 <code>N</code> 是整数常量或整数常量表达式，则 <code>T[N]</code> 是普通数组类型，否则是变长数组类型。</p>
+<p>若 <code>N</code> 是<a href="/posts/f95facb6/#%E6%95%B4%E6%95%B0%E5%B8%B8%E9%87%8F">整数常量</a>或<a href="/posts/f95facb6/#%E6%95%B4%E6%95%B0%E5%B8%B8%E9%87%8F%E8%A1%A8%E8%BE%BE%E5%BC%8F">整数常量表达式</a>，则 <code>T[N]</code> 是普通数组类型，否则是<a href="/posts/103c0983/#%E5%8F%98%E9%95%BF%E6%95%B0%E7%BB%84VLA">变长数组</a>类型。</p>
 <p><strong><code>T[N]</code> 在语法上不是一个整体</strong>。</p>
-<div class="tag-plugin colorful note" color="blue"><div class="title"><strong><p>Hint</p>
-</strong></div><div class="body"><p>语法上不是一个整体，意味着其不能整体当做一个 <code>T</code> 来看待。如：</p><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="type">int</span>[<span class="number">5</span>] AINT</span><br></pre></td></tr></tbody></table></figure><p>是不合法的。</p><p>可以用 <code>typeof</code> 将其转为一个整体，如：</p><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="title function_">typeof</span><span class="params">(<span class="type">int</span>[<span class="number">5</span>])</span> AINT</span><br></pre></td></tr></tbody></table></figure><p>是合法的。</p><p><code>typeof</code> 是 C23 的一个关键字。</p></div></div>
 <p>如果 <code>T[N]</code> 是一个完全对象类型（大小可知），那么它可以继续派生。派生类型记作 <code>T[M][N]</code>，表示 <code>M</code> 个 <code>T[N]</code> 类型元素的数组。</p>
 <div class="tag-plugin colorful note" color="blue"><div class="title"><strong><p>Hint</p>
-</strong></div><div class="body"><p>这解释了 <code>int[10][]</code> 不合法的原因：<code>int[]</code> 是不完全对象类型。</p></div></div>
-<h4 id="指针类型">指针类型</h4>
-<p>形式化定义：<code>T*</code>，其中 <code>T</code> 是对象类型或函数类型，即完全对象类型、不完全对象类型和函数类型。<strong><code>T</code> 在语法上可以是不完整的。</strong></p>
+</strong></div><div class="body"><ul class="lvl-0"><li class="lvl-2"><p><code>int[10][]</code> <strong>不合法</strong>：它试图派生“10 个 <code>int[]</code> 构成的数组”，但元素类型 <code>int[]</code> 是不完全对象类型，不允许作为数组元素。</p></li><li class="lvl-2"><p><code>int[][10]</code> <strong>合法</strong>：元素类型 <code>int[10]</code> 是完全对象类型，只是外层元素个数未知，因此 <code>int[][10]</code> 本身是一个不完全对象类型；它<strong>不能再继续派生数组</strong>（如 <code>int[5][][10]</code> 不合法），但可以派生指针（如 <code>int(*)[][10]</code>）。</p></li></ul></div></div>
+<h5 id="指针类型">指针类型</h5>
+<p>形式化定义：<code>T*</code>，其中 <code>T</code> 是对象类型或<a href="/posts/89355839/#%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B">函数类型</a>，即完全对象类型、不完全对象类型和函数类型。<strong><code>T</code> 在语法上可以不是整体。</strong></p>
 <p><code>T</code> 被称作 Referenced Type。</p>
-<p><strong>指针类型 <code>T*</code> 是完全对象类型。</strong>.</p>
+<p><strong>指针类型 <code>T*</code> 是完全对象类型。</strong></p>
 <p><strong>指针类型 <code>T*</code> 在语法上不是一个整体。</strong></p>
 <div class="tag-plugin colorful note" color="blue"><div class="title"><strong><p>Hint</p>
 </strong></div><div class="body"><p>对于 <code>T[N]</code>，其指针类型记作 <code>T(*)[N]</code>。这是因为 <code>T[N]</code> 语法上不是整体，不能当作 <code>T</code>。</p></div></div>  
 <div class="tag-plugin colorful note" color="purple"><div class="title"><strong><p>Attention</p>
 </strong></div><div class="body"><p><code>typedef</code> 在为指针类型设置别名时，别名需跟在 <code>*</code> 后，因此：</p><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="title function_">int</span><span class="params">(* ALIAS)</span>[10]</span><br></pre></td></tr></tbody></table></figure><p>是合法的，因为其原始形式是 <code>int(*)[10]</code> 是指针类型。而如果原始形式 <code>int*[10]</code> 是数组类型，应写作：</p><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="title function_">typeof</span><span class="params">(<span class="type">int</span>*[<span class="number">10</span>])</span> ALIAS</span><br></pre></td></tr></tbody></table></figure><p>或者：</p><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="type">int</span>* ALIAS[<span class="number">10</span>]</span><br></pre></td></tr></tbody></table></figure></div></div>
-<h4 id="派生规则">派生规则</h4>
+<h5 id="派生规则">派生规则</h5>
 <div class="md-table-scroll"><table>
 <thead>
 <tr>
@@ -620,31 +654,40 @@
 <tr>
 <td>T[M]</td>
 <td>T[N][M]</td>
-<td>T*[M]</td>
-<td>M 之前</td>
+<td>T(*)[M]</td>
+<td>[M] 之前</td>
 </tr>
 </tbody>
 </table></div>
-<h3 id="限定符修饰类型">限定符修饰类型</h3>
+<h4 id="限定符修饰类型">限定符修饰类型</h4>
 <ol>
 <li class="lvl-3">
 <p><code>_Atomic</code></p>
 </li>
 <li class="lvl-3">
-<p><code>const</code></p>
+<p><a href="/posts/673b3915/#%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3-const-%E4%B8%8E-volatile-%E9%99%90%E5%AE%9A%E7%AC%A6"><code>const</code></a></p>
 </li>
 <li class="lvl-3">
-<p><code>volatile</code></p>
+<p><a href="/posts/673b3915/#%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3-const-%E4%B8%8E-volatile-%E9%99%90%E5%AE%9A%E7%AC%A6"><code>volatile</code></a></p>
 </li>
 <li class="lvl-3">
-<p><code>restrict</code></p>
+<p><a href="/posts/89355839/#restrict"><code>restrict</code></a>（只能修饰指向对象类型（含 <code>void</code>）的指针，或元素最终为这类指针的数组，不能修饰非指针类型或函数指针）</p>
 </li>
 </ol>
-<p>形式化定义：<code>Q T</code> 或 <code>T Q</code>，<strong>其在语法上是整体</strong>。<strong><code>T</code> 在语法上可以是不完整的。</strong></p>
+<p>形式化定义：<code>Q T</code> 或 <code>T Q</code>。<strong>当 <code>T</code> 在语法上是整体时</strong>，<code>Q T</code> 或 <code>T Q</code> 在语法上也是整体；否则（例如 <code>T* Q</code>）在语法上不是整体。<strong><code>T</code> 在语法上可以不是整体。</strong></p>
 <p>只有被修饰的类型语法、语义均为一个整体时，<code>Q T == T Q</code>。</p>
-<h4 id="原子类型">原子类型</h4>
+<h5 id="原子类型">原子类型</h5>
 <p>以限定符方式构造（<code>_Atomic T</code> 或 <code>T _Atomic</code>）或派生方式构造（<code>_Atomic(T)</code>）的类型称为原子类型。</p>
-<h4 id="限定类型">限定类型</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>派生方式 <code>_Atomic(T)</code></strong>：<code>T</code> 不能是数组类型、函数类型、<strong>限定类型</strong>或<strong>原子类型</strong>（如 <code>_Atomic(const int)</code> 不合法）。</p>
+</li>
+<li class="lvl-2">
+<p><strong>限定符方式 <code>_Atomic T</code> / <code>T _Atomic</code></strong>：<code>T</code> 不能是数组类型或函数类型，但可以与 <code>const</code>、<code>volatile</code> 并存（如 <code>const _Atomic int</code> 合法）。</p>
+</li>
+</ul>
+<p><strong><code>_Atomic</code> 原子类型不保证与原类型 <code>T</code> 具有相同的大小、对齐要求和对象表示</strong>（这一点区别于下面的限定类型）。</p>
+<h5 id="限定类型">限定类型</h5>
 <p>给定一个类型 <code>T</code>，用以下三个限定符修饰得到的新类型被称作限定类型：</p>
 <ol>
 <li class="lvl-3">
@@ -657,8 +700,20 @@
 <p><code>restrict</code></p>
 </li>
 </ol>
-<p><code>T</code> 的限定类型是 <code>Q T</code> 或 <code>T Q</code>。两者为不同的类型，但大小、表示值、对齐方式均一致。</p>
-<p>目前我们知道 <code>T[N]</code> 和 <code>T*</code> 在语法上不完整，二者派生到限定符修饰类型的表示是：</p>
+<p><code>T</code> 与其限定类型 <code>Q T</code> 或 <code>T Q</code> 是不同的类型，但大小、表示值、对齐方式均一致。</p>
+<p>多限定符与去限定规则：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>多个不同限定符的书写顺序无关（<code>const volatile int</code> 等价于 <code>volatile const int</code>）。</p>
+</li>
+<li class="lvl-2">
+<p>同一限定符重复出现等价于单个（<code>const const int</code> 等价于 <code>const int</code>）。</p>
+</li>
+<li class="lvl-2">
+<p><code>typeof_unqual(type-name)</code> / <code>typeof_unqual(expr)</code> 与 <code>typeof</code> 类似，但会剥离顶层限定符与原子属性（例如 <code>const int a = 1; typeof_unqual(a) b;</code> 中 <code>b</code> 的类型为 <code>int</code>）。</p>
+</li>
+</ul>
+<p>目前我们知道 <code>T[N]</code> 和 <code>T*</code> 在语法上不是整体，二者派生到限定符修饰类型的表示是：</p>
 <ol>
 <li class="lvl-3">
 <p><code>T[N]</code>：<code>Q T[N]</code>，数组类型，元素类型是 <code>Q T</code>，个数为 <code>N</code>。<code>T[N] Q</code> 不合法。</p>
@@ -668,6 +723,336 @@
 </li>
 </ol>
 <p><strong><code>T* Q</code> 在语法上不是一个整体。</strong></p>
+<div class="tag-plugin colorful note" color="purple"><div class="title"><strong><p>Attention</p>
+</strong></div><div class="body"><p><code>const typeof(int*[10])</code> 并不等价于 <code>const int*[10]</code>，而是等价于 <strong><code>int* const[10]</code></strong>。</p><p>根据 <code>Q T[N]</code> 规则，限定符作用在数组类型上时会穿透落到元素类型上；这里的元素类型是 <code>int*</code>，施加 <code>const</code> 后得到 <code>int* const</code>，因此整体是“10 个指向 <code>int</code> 的常量指针构成的数组”。</p></div></div>
+<div class="tag-plugin colorful note"><div class="title"><strong><p>复杂类型的构造与拆解例题</p>
+</strong></div><div class="body"><p><strong>例 1：为 <code>int(*[10])[5]</code> 派生指针类型</strong></p><ol><li class="lvl-3">先按派生规则还原 <code>int(*[10])[5]</code>：<br><code>int</code> → 5 元素数组 <code>int[5]</code> → 派生指针 <code>int(*)[5]</code>（<code>[5]</code> 之前）→ 10 元素数组 <code>int(*[10])[5]</code>（<code>*</code> 之后）。因此它的最外层是长度 10 的数组（<code>T[M]</code> 形式）。</li><li class="lvl-3">再对最外层 <code>[10]</code> 派生指针：按 <code>T[M]</code> 规则在 <code>[10]</code> 之前套 <code>(*)</code>，得到 <strong><code>int(*(*)[10])[5]</code></strong>。</li></ol><p><strong>例 2：拆解 <code>const int*(* const*)[4][5]</code></strong></p><p>从最内层开始往外读，或从基础类型按规则表逐层套回：</p><ol><li class="lvl-3"><p><code>const int</code> → 派生指针 <code>const int*</code>（<code>T</code> 之后）</p></li><li class="lvl-3"><p>派生 5 元素数组 → <code>const int*[5]</code>（<code>*</code> 之后）</p></li><li class="lvl-3"><p>派生 4 元素数组 → <code>const int*[4][5]</code>（<code>[5]</code> 之前）</p></li><li class="lvl-3"><p>派生指针 → <code>const int*(*)[4][5]</code>（<code>[4]</code> 之前）</p></li><li class="lvl-3"><p>用 <code>const</code> 限定该指针 → <code>const int*(* const)[4][5]</code>（得到 <code>T* Q</code> 形式）</p></li><li class="lvl-3"><p>再派生指针 → <strong><code>const int*(* const*)[4][5]</code></strong>（<code>Q</code> 之后）</p></li></ol><p><strong>例 3：结合 <code>typedef</code> 与限定符的整体性拆解</strong></p><ul class="lvl-0"><li class="lvl-2"><p><code>typedef int(*const CPAINT)[3];</code>：<code>CPAINT</code> 是“指向 <code>int[3]</code> 的常量指针”（<code>int(*const)[3]</code>）的别名；因为别名在语法上是整体，<code>CPAINT p = &amp;arr;</code> 等价于 <code>int (*const p)[3] = &amp;arr;</code>。</p></li><li class="lvl-2"><p><code>typedef int* PINT; const PINT p;</code>：等价于 <strong><code>int* const p</code></strong>（常量指针，指针本身不可修改），而非 <code>const int* p</code>（指向常量的指针）——因为 <code>PINT</code> 是语法整体，<code>const</code> 直接限定整个指针类型。</p></li></ul></div></div>
+<h2 id="分配对象">分配对象</h2>
+<h3 id="通过对象标识符定义">通过对象标识符定义</h3>
+<p>形式化定义：<code>Storage-class specifiers</code> <code>T</code> <code>O</code> = <code>initializer;</code></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>分配一个 <code>T</code> 类型对象</p>
+</li>
+<li class="lvl-2">
+<p>声明一个对象标识符 <code>O</code>，让 <code>O</code> 与这个 <code>T</code> 类型对象关联起来</p>
+</li>
+<li class="lvl-2">
+<p>并用 <code>initializer</code> 来初始化对象表示。如果没有 <code>initializer</code>，块作用域下（无 <code>extern</code>）仍构成定义并分配对象（值为不确定）；带 <code>extern</code> 或处于文件作用域<a href="/posts/fe3268af/#%E6%9A%82%E5%AE%9A%E5%AE%9A%E4%B9%89Tentative-Definition">暂定定义</a>场景时，则不一定直接构成正式定义</p>
+</li>
+</ul>
+<p><strong>对象标识符定义一定是对象标识符声明，一定分配对象；反之对象标识符声明不一定是对象标识符定义，不一定分配对象。</strong></p>
+<p><code>T</code> <code>O</code> 的 <code>T</code> 是语法上的整体。因此对于非整体的 <code>T[N]</code> 等，我们可以用 <code>typeof</code> 或 <code>typedef</code> 来提供整体视角。</p>
+<p>对于语法上整体的 <code>T</code>，定义多个对象标识符的形式化表示：<code>T</code> <code>O1 = initializer1</code>, <code>O2 = initializer2</code>, …</p>
+<p>对于语法上不为整体的：</p>
+<ol>
+<li class="lvl-3">
+<p><code>T[N]</code>: <code>T</code> <code>O1[N] = initializer1</code>, <code>O2[N] = initializer2</code>, …</p>
+</li>
+<li class="lvl-3">
+<p><code>T*</code>: <code>T</code> <code>*O1 = initializer1</code>, <code>*O2 = initializer2</code>, …</p>
+</li>
+<li class="lvl-3">
+<p><code>T* Q</code>: <code>T</code> <code>*Q O1 = initializer1</code>, <code>*Q O2 = initializer2</code>, …</p>
+</li>
+</ol>
+<h4 id="初始化器">初始化器</h4>
+<p>标量类型<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>对象的<ruby>初始化器<rt>Initializer</rt></ruby>的两种形式：</p>
+<ol>
+<li class="lvl-3">
+<p>除逗号表达式之外的任意表达式（该表达式求值后的右值）</p>
+</li>
+<li class="lvl-3">
+<p>花括号初始化器：<code>{initializer1, initializer2, ... ,}</code>，最后可以跟一个尾随逗号。<strong>递归定义。</strong></p>
+</li>
+</ol>
+<p><code>{}</code> 意味着将对象的值初始化为该类型的缺省值：</p>
+<ol>
+<li class="lvl-3">
+<p>整数：<code>0</code></p>
+</li>
+<li class="lvl-3">
+<p>浮点数：<code>+0</code></p>
+</li>
+<li class="lvl-3">
+<p>指针：空指针值</p>
+</li>
+</ol>
+<p>数组类型对象的初始化器的两种形式：</p>
+<ol>
+<li class="lvl-3">
+<p><code>{}</code>，空初始化列表。若 <code>T[N]</code> 的 <code>N</code> 不存在，则不能用 <code>{}</code> 初始化。如果是变长数组，则只能用 <code>{}</code> 初始化。</p>
+</li>
+<li class="lvl-3">
+<p><code>{sub-initializer1, sub-initializer2, ...}</code>，每个 <code>sub-initializer</code> 用来初始化数组中一个元素对象，元素对象可以是标量、子数组或结构体/联合体类型。</p>
+<ul class="lvl-2">
+<li class="lvl-5"><strong>指定初始化器（Designated Initializer）</strong>：可按索引指定位置初始化，其余元素自动缺省初始化为 <code>0</code>（如 <code>int a[10] = {[3] = 5};</code>）。</li>
+<li class="lvl-5"><strong>多维数组扁平初始化</strong>：可省略内层花括号按顺序填充，不足部分补缺省值（如 <code>int a[2][3] = {1, 2, 3, 4};</code> 等价于 <code>{{1, 2, 3}, {4, 0, 0}}</code>）。</li>
+</ul>
+</li>
+</ol>
+<h3 id="通过字符串字面量">通过字符串字面量</h3>
+<p><ruby>字符串字面量<rt>String Literal</rt></ruby>的形式化定义：<code>encoding-prefix</code> <code>s-char-sequence</code>。</p>
+<p>字符可以包括：</p>
+<ol>
+<li class="lvl-3">
+<p><ruby>源代码字符集<rt>Source Character Set</rt></ruby>，除了 <code>"</code>, <code>\</code> 和实际的<strong>回车</strong> <kbd>⏎</kbd></p>
+</li>
+<li class="lvl-3">
+<p><code>\</code> 引导的转义序列</p>
+</li>
+</ol>
+<p>编码前缀包括：</p>
+<ol>
+<li class="lvl-3">
+<p>无编码</p>
+</li>
+<li class="lvl-3">
+<p><code>u8</code>: UTF-8</p>
+</li>
+<li class="lvl-3">
+<p><code>u</code>: UTF-16</p>
+</li>
+<li class="lvl-3">
+<p><code>U</code>: UTF-32</p>
+</li>
+<li class="lvl-3">
+<p><code>L</code>: 取决于实现</p>
+</li>
+</ol>
+<p><strong>所有 String Literal 具有<a href="/posts/fe3268af/#%E5%AD%98%E5%82%A8%E6%9C%9FStorage-Duration">静态存储周期</a>。</strong></p>
+<p>String Literal 是匿名对象：</p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>* argv[])</span> {</span><br><span class="line">    <span class="string">"hello"</span>;</span><br><span class="line">    <span class="string">"world"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>在上述代码段中，系统分配了两个 <code>char[6]</code> 对象（5 个字符加末尾隐含的空字符 <code>'\0'</code>）。若加上 <code>u8</code> / <code>u</code> / <code>U</code> / <code>L</code> 前缀，元素类型会相应变为 <code>char8_t</code>（即 <code>unsigned char</code>）/ <code>char16_t</code> / <code>char32_t</code> / <code>wchar_t</code>，详参<a href="/posts/f95facb6/#%E5%AD%97%E7%AC%A6%E5%B8%B8%E9%87%8F">本分类第二篇文章</a>。</p>
+<p>相邻 String Literal 将合并为一个：<code>"hello" " " "world"</code> 等价于 <code>"hello world"</code>。</p>
+<div class="tag-plugin colorful note" color="purple"><div class="title"><strong><p>Attention</p>
+</strong></div><div class="body"><p><strong>字符串字面量三大常见考点</strong>：</p><ol><li class="lvl-3"><strong>String Literal 与 String 的区别</strong>：字符串字面量内部允许包含 <code>'\0'</code>，其大小计入所有显式字符与末尾隐含的 <code>'\0'</code>（如 <code>sizeof("hello\0world\0") == 13</code>）；而 C 语义中的 <strong>String</strong> 是内部不含 <code>'\0'</code>、以末尾唯一 <code>'\0'</code> 结尾的字符序列。</li><li class="lvl-3"><strong>相同字面量复用不确定</strong>：<code>char *p = "Hello"; char *q = "Hello";</code> 中 <code>p == q</code> 结果由实现决定（可能相等也可能不等）；而 <code>char s1[] = "Hello"; char s2[] = "Hello";</code> 是两个独立的字符数组对象，<code>s1 == s2</code> <strong>恒为假</strong>。</li><li class="lvl-3"><strong>相邻合并的编码前缀规则</strong>：带前缀的字面量可与无前缀字面量合并（如 <code>u8"hello" "world"</code> → <code>u8"helloworld"</code>），但两个<strong>不同的非空编码前缀</strong>相邻拼接非法（如 <code>u8"a" u"b"</code> 报错）。</li></ol></div></div>
+<h3 id="通过复合字面量">通过复合字面量</h3>
+<p><ruby>复合字面量<rt>Compound Literal</rt></ruby> 的形式化定义：<code>(storage-class-specifiers type-name)</code> <code>Braced-Initializer</code>。</p>
+<p>该方法定义一个匿名对象，对象类型是 <code>type-name</code>，且只能用花括号初始化器进行初始化。</p>
+<h3 id="通过内存管理函数">通过内存管理函数</h3>
+<p><code>aligned_alloc</code>, <code>calloc</code>, <code>malloc</code>, <code>realloc</code>。</p>
+<p>这类函数在堆上分配一块<strong>匿名且无初始声明类型</strong>的对象空间（具体用法与对齐约束见<a href="/posts/103c0983/#%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%B8%8E%E5%AF%B9%E9%BD%90">本分类第四篇文章</a>）。</p>
+<h3 id="四种分配方式对比">四种分配方式对比</h3>
+<div class="md-table-scroll"><table>
+<thead>
+<tr>
+<th>分配方式</th>
+<th>标识符 <code>Name</code></th>
+<th>初始类型 <code>Obj_T</code></th>
+<th>初始化方式</th>
+<th>默认存储期（详参<a href="/posts/fe3268af/#%E5%AD%98%E5%82%A8%E6%9C%9FStorage-Duration">第六篇</a>）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>对象标识符定义</td>
+<td>有名</td>
+<td>声明给定</td>
+<td>可选初始化器（块内未初始化值为不确定）</td>
+<td>视<a href="/posts/fe3268af/#%E4%BD%9C%E7%94%A8%E5%9F%9FScope">作用域</a>与<a href="/posts/fe3268af/#%E5%AD%98%E5%82%A8%E7%B1%BB%E8%AF%B4%E6%98%8E%E7%AC%A6%EF%BC%88Storage-class-Specifiers%EF%BC%89">存储类说明符</a></td>
+</tr>
+<tr>
+<td>字符串字面量</td>
+<td>匿名</td>
+<td>由编码前缀与长度决定</td>
+<td>字面量内容 + 末尾 <code>'\0'</code></td>
+<td>静态存储期</td>
+</tr>
+<tr>
+<td>复合字面量</td>
+<td>匿名</td>
+<td><code>(type-name)</code> 给定</td>
+<td>必须用花括号初始化器 <code>{...}</code></td>
+<td>文件作用域为静态，块内默认自动（C23 可加 <code>static</code> 等）</td>
+</tr>
+<tr>
+<td>内存管理函数</td>
+<td>匿名</td>
+<td>无初始声明类型</td>
+<td><code>malloc</code>/<code>aligned_alloc</code> 不初始化；<code>calloc</code> 按位清零</td>
+<td>分配存储期（详参<a href="/posts/103c0983/#%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%B8%8E%E5%AF%B9%E9%BD%90">第四篇</a>）</td>
+</tr>
+</tbody>
+</table></div>
+<p>用六元组模型对比一个<strong>有名未初始化对象</strong>与一个<strong>匿名复合字面量对象</strong>：</p>
+<div class="md-table-scroll"><table>
+<thead>
+<tr>
+<th>六元组字段</th>
+<th><code>const int e[2][3];</code>（块内定义）</th>
+<th><code>(int[2]){1, 2}</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Address</code></td>
+<td><em>Omitted</em></td>
+<td><em>Omitted</em></td>
+</tr>
+<tr>
+<td><code>Object_Type</code></td>
+<td><code>const int[2][3]</code></td>
+<td><code>int[2]</code></td>
+</tr>
+<tr>
+<td><code>Name</code></td>
+<td><code>e</code></td>
+<td>（匿名）</td>
+</tr>
+<tr>
+<td><code>Size</code></td>
+<td><code>24</code></td>
+<td><code>8</code></td>
+</tr>
+<tr>
+<td><code>Object_Value</code></td>
+<td>不确定（Indeterminate）</td>
+<td><code>{1, 2}</code></td>
+</tr>
+<tr>
+<td><code>Alignment</code></td>
+<td><code>4</code></td>
+<td><code>4</code></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="大小、填充与对齐">大小、填充与对齐</h2>
+<h3 id="对齐">对齐</h3>
+<p>一个类型按照 alignment 对齐，即：</p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mrow><mi mathvariant="normal">A</mi><mi mathvariant="normal">d</mi><mi mathvariant="normal">d</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">s</mi></mrow><mspace></mspace><mspace width="1em"><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">d</mi></mrow><mtext> </mtext><mtext> </mtext><mtext>  </mtext><mtext>  </mtext><mrow><mi mathvariant="normal">A</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">m</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">t</mi></mrow><mo>=</mo><mn>0</mn></mspace></mrow><annotation encoding="application/x-tex">
+\mathrm{Address} \mod \; \; \mathrm{Alignment} = 0
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord"><span class="mord mathrm">Address</span></span><span class="mspace allowbreak"></span><span class="mspace" style="margin-right:1em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">mod</span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord"><span class="mord mathrm">Alignment</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span></span>
+<p>使用 <code>alignof(T) / _Alignof</code> 获得类型 <code>T</code> 的对齐要求（返回值类型为 <code>size_t</code>）。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>基础对齐（Fundamental Alignment）</strong>：小于等于 <code>alignof(max_align_t)</code> 的对齐要求（64 位 Linux 下 <code>alignof(max_align_t)</code> 通常为 <code>16</code>），所有普通对象类型在任意存储期下都支持基础对齐；大于该值的对齐为扩展对齐（Extended Alignment）。</p>
+</li>
+<li class="lvl-2">
+<p><strong>数组的大小与对齐</strong>：对于数组类型 <code>T[N]</code>，恒有 <code>sizeof(T[N]) == N * sizeof(T)</code>、<code>alignof(T[N]) == alignof(T)</code>（元素间无额外填充）。</p>
+</li>
+</ul>
+<h3 id="填充">填充</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>alignas / _Alignas</code> 指定对齐：<code>alignas(N) T O / _Alignas(N) T O</code></p>
+</li>
+</ul>
+<p>声明一个 <code>T</code> 类型对象 <code>O</code>，要求其按照 <code>N</code> 字节对齐。其中 <code>N</code> 必须是 <strong>2 的非负整数次幂</strong>（或 <code>0</code>，表示忽略），且必须满足 <strong><code>N &gt;= alignof(T)</code></strong>——<code>alignas</code> 只能增强对齐，不能弱化类型原有的对齐要求。</p>
+<h4 id="结构体类型的对齐要求">结构体类型的对齐要求</h4>
+<p>如果 <code>T</code> 是结构体类型，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> 个成员对象分别是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">E_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，则：</p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mrow><mi mathvariant="normal">_</mi><mi mathvariant="normal">A</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">f</mi></mrow><mo stretchy="false">(</mo><mi>T</mi><mo stretchy="false">)</mo><mo>=</mo><mi>max</mi><mo>⁡</mo><mo stretchy="false">{</mo><mrow><mi mathvariant="normal">_</mi><mi mathvariant="normal">A</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">f</mi></mrow><mo stretchy="false">(</mo><msub><mi>E</mi><mi>i</mi></msub><mo stretchy="false">)</mo><mo separator="true">,</mo><mtext>  </mtext><mn>1</mn><mo>≤</mo><mi>i</mi><mo>≤</mo><mi>N</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">
+\mathrm{\_Alignof}(T) = \max\{\mathrm{\_Alignof}(E_i), \; 1 \le i \le N\}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.06em;vertical-align:-0.31em;"></span><span class="mord"><span class="mord mathrm" style="margin-right:0.07778em;">_Alignof</span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.06em;vertical-align:-0.31em;"></span><span class="mop">max</span><span class="mopen">{</span><span class="mord"><span class="mord mathrm" style="margin-right:0.07778em;">_Alignof</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7955em;vertical-align:-0.136em;"></span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mclose">}</span></span></span></span></span>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>使用 <code>alignas</code> 修改结构体对象的对齐要求：</p>
+</li>
+</ul>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alignas</span>(<span class="number">64</span>) <span class="class"><span class="keyword">struct</span> <span class="title">stru</span> {</span></span><br><span class="line">    <span class="type">char</span> a;</span><br><span class="line">    <span class="keyword">alignas</span>(<span class="number">32</span>) <span class="type">short</span> b;</span><br><span class="line">    <span class="type">int</span> c[<span class="number">10</span>];</span><br><span class="line">    <span class="type">double</span> d;</span><br><span class="line">} s;</span><br></pre></td></tr></tbody></table></figure>
+<p>则 <code>struct stru</code> 的对齐要求是 <strong>32 字节对齐</strong>，而 <code>s</code> 的对齐要求是 <strong>64 字节对齐要求</strong>。</p>
+<h4 id="结构体类型的大小计算">结构体类型的大小计算</h4>
+<ol>
+<li class="lvl-3">
+<p>结构体第 1 个成员对象的首地址就是结构体的首地址，地址偏移量 <code>offset</code> 为 0</p>
+</li>
+<li class="lvl-3">
+<p>结构体第 i 个成员对象的地址偏移量计算前，先按照对齐要求补齐第 i - 1 个成员所需的 padding</p>
+</li>
+<li class="lvl-3">
+<p>最后一个成员排完后，结构体总大小还必须补齐为结构体自身对齐要求 <code>alignof(T)</code> 的整数倍</p>
+</li>
+</ol>
+<p>以上面的 <code>struct stru</code> 为例：成员对齐要求分别为 <code>1</code>、<code>32</code>（<code>alignas(32)</code>）、<code>4</code>、<code>8</code>，因此 <code>alignof(struct stru) = 32</code>（<code>alignas(64)</code> 只作用于对象 <code>s</code> 的首地址，不改变类型 <code>struct stru</code> 的内部排布）。成员排布如下：</p>
+<div class="md-table-scroll"><table>
+<thead>
+<tr>
+<th>成员 / 填充</th>
+<th>类型与对齐要求</th>
+<th>起始偏移 (<code>offset</code>)</th>
+<th>占用区间（字节）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>a</code></td>
+<td><code>char</code>（1 B，1 字节对齐）</td>
+<td><code>0</code></td>
+<td><code>[0, 1)</code></td>
+</tr>
+<tr>
+<td><em>padding</em></td>
+<td>补齐到 32 的倍数（+31 B）</td>
+<td><code>1</code></td>
+<td><code>[1, 32)</code></td>
+</tr>
+<tr>
+<td><code>b</code></td>
+<td><code>alignas(32) short</code>（2 B，32 字节对齐）</td>
+<td><code>32</code></td>
+<td><code>[32, 34)</code></td>
+</tr>
+<tr>
+<td><em>padding</em></td>
+<td>补齐到 4 的倍数（+2 B）</td>
+<td><code>34</code></td>
+<td><code>[34, 36)</code></td>
+</tr>
+<tr>
+<td><code>c</code></td>
+<td><code>int[10]</code>（40 B，4 字节对齐）</td>
+<td><code>36</code></td>
+<td><code>[36, 76)</code></td>
+</tr>
+<tr>
+<td><em>padding</em></td>
+<td>补齐到 8 的倍数（+4 B）</td>
+<td><code>76</code></td>
+<td><code>[76, 80)</code></td>
+</tr>
+<tr>
+<td><code>d</code></td>
+<td><code>double</code>（8 B，8 字节对齐）</td>
+<td><code>80</code></td>
+<td><code>[80, 88)</code></td>
+</tr>
+<tr>
+<td><em>tail padding</em></td>
+<td>补齐到 <code>alignof(struct stru) = 32</code> 的倍数（+8 B）</td>
+<td><code>88</code></td>
+<td><code>[88, 96)</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>因此 <code>sizeof(struct stru) = 96</code>（有效数据 51 字节 + 填充 45 字节）。注意 <strong><code>sizeof(s)</code> 同样是 <code>96</code> 而非 <code>128</code></strong>——<code>alignas(64)</code> 只约束对象 <code>s</code> 的起始地址能被 64 整除，不会改变其类型的大小。</p>
+<h4 id="pragma-pack-n"><code>#pragma pack(n)</code></h4>
+<p>使用 <code>#pragma pack(n)</code> 可以强制改变结构体的对齐要求，具体规则如下：</p>
+<ol>
+<li class="lvl-3">
+<p>如果 <code>T</code> 是结构体类型，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> 个成员对象分别是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">E_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，则：</p>
+</li>
+</ol>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mrow><mi mathvariant="normal">_</mi><mi mathvariant="normal">A</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">f</mi></mrow><mo stretchy="false">(</mo><msub><mi>E</mi><mi>i</mi></msub><mo stretchy="false">)</mo><mo>=</mo><mi>min</mi><mo>⁡</mo><mo stretchy="false">{</mo><mrow><mi mathvariant="normal">_</mi><mi mathvariant="normal">A</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">f</mi></mrow><mo stretchy="false">(</mo><msub><mi>E</mi><mi>i</mi></msub><mo stretchy="false">)</mo><mo separator="true">,</mo><mi>n</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">
+\mathrm{\_Alignof}(E_i) = \min\{\mathrm{\_Alignof}(E_i), n\}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.06em;vertical-align:-0.31em;"></span><span class="mord"><span class="mord mathrm" style="margin-right:0.07778em;">_Alignof</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.06em;vertical-align:-0.31em;"></span><span class="mop">min</span><span class="mopen">{</span><span class="mord"><span class="mord mathrm" style="margin-right:0.07778em;">_Alignof</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">}</span></span></span></span></span>
+<ol start="2">
+<li class="lvl-3">
+<p><code>_Alignof(T)</code> 规则不变</p>
+</li>
+</ol>
+<p>即将所有成员的对齐要求改为<strong>最大为 n 字节对齐</strong>。</p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> pack(1)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">alignas</span>(<span class="number">64</span>) <span class="class"><span class="keyword">struct</span> <span class="title">stru</span> {</span></span><br><span class="line">    <span class="type">char</span> a;</span><br><span class="line">    <span class="keyword">alignas</span>(<span class="number">32</span>) <span class="type">short</span> b;</span><br><span class="line">    <span class="type">int</span> c[<span class="number">10</span>];</span><br><span class="line">    <span class="type">double</span> d;</span><br><span class="line">} s;</span><br></pre></td></tr></tbody></table></figure>
+<p><code>alignof(s.a/s.b/s.c/s.d/struct stru) = 1</code> 但 <code>alignof(s) = 64</code>。</p>
+<blockquote>
+<p>除非需要精确匹配硬件寄存器布局或网络报文格式，否则不要随意使用 <code>#pragma pack(n)</code>，打乱自然对齐可能引起访存性能下降或非对齐访问风险。</p>
+</blockquote>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>标量类型：包括算术类型、指针类型、<code>nullptr_t</code> 及其限定/原子类型。 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 </article>
 
 <div class="article-tags"><a class="tag" href="/tags/%E8%8F%8A%E6%9C%88/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>菊月</a><a class="tag" href="/tags/C/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>C</a></div>
@@ -682,14 +1067,14 @@
 
 </div>
 
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">次</div><a href="/posts/eea4d95f/">[語言進階]C2</a></div><div class="item" id="next"><div class="note">先</div><a href="/posts/b2097b54/">[八紘九野集]上海实习三十天</a></div></section></div>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">次</div><a href="/posts/f95facb6/">[語言進階]数值表示、常量与算术类型转换</a></div><div class="item" id="next"><div class="note">先</div><a href="/posts/b2097b54/">[八紘九野集]上海实习三十天</a></div></section></div>
 
 <div class="related-wrap" id="related-posts">
     <section class='header'>
       <div class='title cap theme'>您可能感兴趣</div>
     </section>
     <section class='body'>
-    <div class="related-posts"><a class="item" href="\posts\f95facb6\" title="[語言進階]C3"><span class="title">[語言進階]C3</span><span class="excerpt">从未学会 C 语言。</span></a><a class="item" href="\posts\eea4d95f\" title="[語言進階]C2"><span class="title">[語言進階]C2</span><span class="excerpt">从未学会 C 语言。</span></a><a class="item" href="\posts\b2097b54\" title="[八紘九野集]上海实习三十天"><span class="title">[八紘九野集]上海实习三十天</span><span class="excerpt">我已经开始幻想退休后的生活了。</span></a><a class="item" href="\posts\1f9d902\" title="[BUAA CO Pre]MIPS 汇编入门"><span class="title">[BUAA CO Pre]MIPS 汇编入门</span><span class="excerpt">这是北京航空航天大学计算机学院 2025 年计算机组成原理预习部分的 MIPS 汇编部分。</span></a><a class="item" href="\posts\fe3268af\" title="[語言進階]C7"><span class="title">[語言進階]C7</span><span class="excerpt">从未学会 C 语言。</span></a></div></section></div>
+    <div class="related-posts"><a class="item" href="\posts\f95facb6\" title="[語言進階]数值表示、常量与算术类型转换"><span class="title">[語言進階]数值表示、常量与算术类型转换</span><span class="excerpt">从未学会 C 语言。</span></a><a class="item" href="\posts\b2097b54\" title="[八紘九野集]上海实习三十天"><span class="title">[八紘九野集]上海实习三十天</span><span class="excerpt">我已经开始幻想退休后的生活了。</span></a><a class="item" href="\posts\1f9d902\" title="[BUAA CO Pre]MIPS 汇编入门"><span class="title">[BUAA CO Pre]MIPS 汇编入门</span><span class="excerpt">这是北京航空航天大学计算机学院 2025 年计算机组成原理预习部分的 MIPS 汇编部分。</span></a><a class="item" href="\posts\10425c0c\" title="新川大陆文化史"><span class="title">新川大陆文化史</span><span class="excerpt">本文转载自神皇枫秀，敬请留意。</span></a><a class="item" href="\posts\fe3268af\" title="[語言進階]存储期、作用域、命名空间与链接"><span class="title">[語言進階]存储期、作用域、命名空间与链接</span><span class="excerpt">从未学会 C 语言。</span></a></div></section></div>
 
 
   <div class="related-wrap md-text" id="comments">
@@ -756,7 +1141,7 @@
       <a class="cap-action" onclick="sidebar.toggleTOC()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a>
     </div>
   
-  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1"><span class="toc-text">对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%B1%BB%E5%9E%8B"><span class="toc-text">对象类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E8%A1%A8%E7%A4%BA"><span class="toc-text">对象表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E5%9C%B0%E5%9D%80"><span class="toc-text">对象地址</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B"><span class="toc-text">类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#void"><span class="toc-text">void</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%9C%AF%E7%B1%BB%E5%9E%8B"><span class="toc-text">算术类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#typedef"><span class="toc-text">typedef</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B4%BE%E7%94%9F%E7%B1%BB%E5%9E%8B"><span class="toc-text">派生类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E7%B1%BB%E5%9E%8B"><span class="toc-text">数组类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B"><span class="toc-text">指针类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B4%BE%E7%94%9F%E8%A7%84%E5%88%99"><span class="toc-text">派生规则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%90%E5%AE%9A%E7%AC%A6%E4%BF%AE%E9%A5%B0%E7%B1%BB%E5%9E%8B"><span class="toc-text">限定符修饰类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E5%AD%90%E7%B1%BB%E5%9E%8B"><span class="toc-text">原子类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%99%90%E5%AE%9A%E7%B1%BB%E5%9E%8B"><span class="toc-text">限定类型</span></a></li></ol></li></ol></li></ol></div>
+  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%AF%B9%E8%B1%A1%E5%85%AD%E5%85%83%E7%BB%84"><span class="toc-text">对象与对象六元组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1"><span class="toc-text">对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%B1%BB%E5%9E%8B"><span class="toc-text">对象类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E8%A1%A8%E7%A4%BA"><span class="toc-text">对象表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E5%9C%B0%E5%9D%80"><span class="toc-text">对象地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E5%85%AD%E5%85%83%E7%BB%84"><span class="toc-text">对象六元组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E7%B3%BB%E7%BB%9F"><span class="toc-text">类型系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B"><span class="toc-text">类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#void"><span class="toc-text">void</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%9C%AF%E7%B1%BB%E5%9E%8B"><span class="toc-text">算术类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95%E6%95%B4%E4%BD%93%E5%B7%A5%E5%85%B7%EF%BC%9Atypedef-%E4%B8%8E-typeof"><span class="toc-text">语法整体工具：typedef 与 typeof</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B4%BE%E7%94%9F%E7%B1%BB%E5%9E%8B"><span class="toc-text">派生类型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E7%B1%BB%E5%9E%8B"><span class="toc-text">数组类型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B"><span class="toc-text">指针类型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B4%BE%E7%94%9F%E8%A7%84%E5%88%99"><span class="toc-text">派生规则</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%99%90%E5%AE%9A%E7%AC%A6%E4%BF%AE%E9%A5%B0%E7%B1%BB%E5%9E%8B"><span class="toc-text">限定符修饰类型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8E%9F%E5%AD%90%E7%B1%BB%E5%9E%8B"><span class="toc-text">原子类型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%99%90%E5%AE%9A%E7%B1%BB%E5%9E%8B"><span class="toc-text">限定类型</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E9%85%8D%E5%AF%B9%E8%B1%A1"><span class="toc-text">分配对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E5%AF%B9%E8%B1%A1%E6%A0%87%E8%AF%86%E7%AC%A6%E5%AE%9A%E4%B9%89"><span class="toc-text">通过对象标识符定义</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%99%A8"><span class="toc-text">初始化器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AD%97%E9%9D%A2%E9%87%8F"><span class="toc-text">通过字符串字面量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E5%A4%8D%E5%90%88%E5%AD%97%E9%9D%A2%E9%87%8F"><span class="toc-text">通过复合字面量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E5%87%BD%E6%95%B0"><span class="toc-text">通过内存管理函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E7%A7%8D%E5%88%86%E9%85%8D%E6%96%B9%E5%BC%8F%E5%AF%B9%E6%AF%94"><span class="toc-text">四种分配方式对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%A7%E5%B0%8F%E3%80%81%E5%A1%AB%E5%85%85%E4%B8%8E%E5%AF%B9%E9%BD%90"><span class="toc-text">大小、填充与对齐</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E9%BD%90"><span class="toc-text">对齐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A1%AB%E5%85%85"><span class="toc-text">填充</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AF%B9%E9%BD%90%E8%A6%81%E6%B1%82"><span class="toc-text">结构体类型的对齐要求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%A4%A7%E5%B0%8F%E8%AE%A1%E7%AE%97"><span class="toc-text">结构体类型的大小计算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pragma-pack-n"><span class="toc-text">#pragma pack(n)</span></a></li></ol></li></ol></li></ol></div>
   <div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" fill-rule="evenodd" d="M11.9426 1.25H12.0574C14.3658 1.24999 16.1748 1.24998 17.5863 1.43975C19.031 1.63399 20.1711 2.03933 21.0659 2.93414C21.9607 3.82895 22.366 4.96897 22.5603 6.41371C22.75 7.82519 22.75 9.63423 22.75 11.9426V12.0574C22.75 14.3658 22.75 16.1748 22.5603 17.5863C22.366 19.031 21.9607 20.1711 21.0659 21.0659C20.1711 21.9607 19.031 22.366 17.5863 22.5603C16.1748 22.75 14.3658 22.75 12.0574 22.75H11.9426C9.63423 22.75 7.82519 22.75 6.41371 22.5603C4.96897 22.366 3.82895 21.9607 2.93414 21.0659C2.03933 20.1711 1.63399 19.031 1.43975 17.5863C1.24998 16.1748 1.24999 14.3658 1.25 12.0574V11.9426C1.24999 9.63423 1.24998 7.82519 1.43975 6.41371C1.63399 4.96897 2.03933 3.82895 2.93414 2.93414C3.82895 2.03933 4.96897 1.63399 6.41371 1.43975C7.82519 1.24998 9.63423 1.24999 11.9426 1.25ZM6.61358 2.92637C5.33517 3.09825 4.56445 3.42514 3.9948 3.9948C3.42514 4.56445 3.09825 5.33517 2.92637 6.61358C2.75159 7.91356 2.75 9.62177 2.75 12C2.75 14.3782 2.75159 16.0864 2.92637 17.3864C3.09825 18.6648 3.42514 19.4355 3.9948 20.0052C4.56445 20.5749 5.33517 20.9018 6.61358 21.0736C7.91356 21.2484 9.62177 21.25 12 21.25C14.3782 21.25 16.0864 21.2484 17.3864 21.0736C18.6648 20.9018 19.4355 20.5749 20.0052 20.0052C20.5749 19.4355 20.9018 18.6648 21.0736 17.3864C21.2484 16.0864 21.25 14.3782 21.25 12C21.25 9.62177 21.2484 7.91356 21.0736 6.61358C20.9018 5.33517 20.5749 4.56445 20.0052 3.9948C19.4355 3.42514 18.6648 3.09825 17.3864 2.92637C16.0864 2.75159 14.3782 2.75 12 2.75C9.62177 2.75 7.91356 2.75159 6.61358 2.92637ZM12 9.56066L9.53033 12.0303C9.23744 12.3232 8.76256 12.3232 8.46967 12.0303C8.17678 11.7374 8.17678 11.2626 8.46967 10.9697L11.4697 7.96967C11.7626 7.67678 12.2374 7.67678 12.5303 7.96967L15.5303 10.9697C15.8232 11.2626 15.8232 11.7374 15.5303 12.0303C15.2374 12.3232 14.7626 12.3232 14.4697 12.0303L12 9.56066ZM12 13.5607L9.53033 16.0303C9.23744 16.3232 8.76256 16.3232 8.46967 16.0303C8.17678 15.7374 8.17678 15.2626 8.46967 14.9697L11.4697 11.9697C11.7626 11.6768 12.2374 11.6768 12.5303 11.9697L15.5303 14.9697C15.8232 15.2626 15.8232 15.7374 15.5303 16.0303C15.2374 16.3232 14.7626 16.3232 14.4697 16.0303L12 13.5607Z" clip-rule="evenodd"/></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" fill-rule="evenodd" d="M10.4606 1.25H13.5394C15.1427 1.24999 16.3997 1.24999 17.4039 1.34547C18.4274 1.44279 19.2655 1.64457 20.0044 2.09732C20.7781 2.57144 21.4286 3.22194 21.9027 3.99563C22.3554 4.73445 22.5572 5.57256 22.6545 6.59611C22.75 7.60029 22.75 8.85725 22.75 10.4606V11.5278C22.75 12.6691 22.75 13.564 22.7007 14.2868C22.6505 15.0223 22.5468 15.6344 22.3123 16.2004C21.7287 17.6093 20.6093 18.7287 19.2004 19.3123C18.3955 19.6457 17.4786 19.7197 16.2233 19.7413C15.7842 19.7489 15.5061 19.7545 15.2941 19.7779C15.096 19.7999 15.0192 19.832 14.9742 19.8582C14.9268 19.8857 14.8622 19.936 14.7501 20.0898C14.6287 20.2564 14.4916 20.4865 14.2742 20.8539L13.7321 21.7697C12.9585 23.0767 11.0415 23.0767 10.2679 21.7697L9.72579 20.8539C9.50835 20.4865 9.37122 20.2564 9.24985 20.0898C9.13772 19.936 9.07313 19.8857 9.02572 19.8582C8.98078 19.832 8.90399 19.7999 8.70588 19.7779C8.49387 19.7545 8.21575 19.7489 7.77666 19.7413C6.52138 19.7197 5.60454 19.6457 4.79957 19.3123C3.39066 18.7287 2.27128 17.6093 1.68769 16.2004C1.45323 15.6344 1.3495 15.0223 1.29932 14.2868C1.24999 13.564 1.25 12.6691 1.25 11.5278L1.25 10.4606C1.24999 8.85726 1.24999 7.60029 1.34547 6.59611C1.44279 5.57256 1.64457 4.73445 2.09732 3.99563C2.57144 3.22194 3.22194 2.57144 3.99563 2.09732C4.73445 1.64457 5.57256 1.44279 6.59611 1.34547C7.60029 1.24999 8.85726 1.24999 10.4606 1.25ZM6.73809 2.83873C5.82434 2.92561 5.24291 3.09223 4.77938 3.37628C4.20752 3.72672 3.72672 4.20752 3.37628 4.77938C3.09223 5.24291 2.92561 5.82434 2.83873 6.73809C2.75079 7.663 2.75 8.84876 2.75 10.5V11.5C2.75 12.6751 2.75041 13.5189 2.79584 14.1847C2.84081 14.8438 2.92737 15.2736 3.07351 15.6264C3.50486 16.6678 4.33223 17.4951 5.3736 17.9265C5.88923 18.1401 6.54706 18.2199 7.8025 18.2416L7.83432 18.2421C8.23232 18.249 8.58109 18.2549 8.87097 18.287C9.18246 18.3215 9.4871 18.3912 9.77986 18.5615C10.0702 18.7304 10.2795 18.9559 10.4621 19.2063C10.6307 19.4378 10.804 19.7306 11.0004 20.0623L11.5587 21.0057C11.7515 21.3313 12.2485 21.3313 12.4412 21.0057L12.9996 20.0623C13.1959 19.7306 13.3692 19.4378 13.5379 19.2063C13.7204 18.9559 13.9298 18.7304 14.2201 18.5615C14.5129 18.3912 14.8175 18.3215 15.129 18.287C15.4189 18.2549 15.7676 18.249 16.1656 18.2421L16.1975 18.2416C17.4529 18.2199 18.1108 18.1401 18.6264 17.9265C19.6678 17.4951 20.4951 16.6678 20.9265 15.6264C21.0726 15.2736 21.1592 14.8438 21.2042 14.1847C21.2496 13.5189 21.25 12.6751 21.25 11.5V10.5C21.25 8.84876 21.2492 7.663 21.1613 6.73809C21.0744 5.82434 20.9078 5.24291 20.6237 4.77938C20.2733 4.20752 19.7925 3.72672 19.2206 3.37628C18.7571 3.09223 18.1757 2.92561 17.2619 2.83873C16.337 2.75079 15.1512 2.75 13.5 2.75H10.5C8.84876 2.75 7.663 2.75079 6.73809 2.83873ZM7.25 9C7.25 8.58579 7.58579 8.25 8 8.25H16C16.4142 8.25 16.75 8.58579 16.75 9C16.75 9.41421 16.4142 9.75 16 9.75H8C7.58579 9.75 7.25 9.41421 7.25 9ZM7.25 12.5C7.25 12.0858 7.58579 11.75 8 11.75H13.5C13.9142 11.75 14.25 12.0858 14.25 12.5C14.25 12.9142 13.9142 13.25 13.5 13.25H8C7.58579 13.25 7.25 12.9142 7.25 12.5Z" clip-rule="evenodd"/></svg><span>参与讨论</span></a></div>
 </widget>
 

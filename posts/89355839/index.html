@@ -35,23 +35,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   <meta name="theme-color" content="#f9fafb">
-  <title>[語言進階]C6 - SamuFlore</title>
+  <title>[語言進階]函数、Function Designator 与形参限定符 - SamuFlore</title>
 
   <meta name="description" content="从未学会 C 语言。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[語言進階]C6">
+<meta property="og:title" content="[語言進階]函数、Function Designator 与形参限定符">
 <meta property="og:url" content="https://samuflore.top/posts/89355839/">
 <meta property="og:site_name" content="SamuFlore">
 <meta property="og:description" content="从未学会 C 语言。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://samuflore.top/images/avatar.jpg">
 <meta property="article:published_time" content="2026-10-26T08:41:51.000Z">
-<meta property="article:modified_time" content="2026-10-26T08:48:25.396Z">
+<meta property="article:modified_time" content="2026-11-25T01:32:13.378Z">
 <meta property="article:author" content="Samustach Floresein">
 <meta property="article:tag" content="露月">
 <meta property="article:tag" content="C">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://samuflore.top/images/avatar.jpg"><meta name="twitter:title" content="[語言進階]C6">
+<meta name="twitter:image" content="https://samuflore.top/images/avatar.jpg"><meta name="twitter:title" content="[語言進階]函数、Function Designator 与形参限定符">
   
   
   <meta name="keywords" content="露月,C">
@@ -78,7 +78,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg"},"dateCreated":"2026-10-26T16:41:51+08:00","dateModified":"2026-10-26T16:48:25+08:00","datePublished":"2026-10-26T16:41:51+08:00","description":"从未学会 C 语言。","headline":"[語言進階]C6","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/89355839/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg","logo":{"@type":"ImageObject","url":"https://samuflore.top/images/avatar.jpg"}},"url":"https://samuflore.top/posts/89355839/","keywords":"露月, C","thumbnailUrl":"https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg","image":["https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg"},"dateCreated":"2026-10-26T16:41:51+08:00","dateModified":"2026-11-25T09:32:13+08:00","datePublished":"2026-10-26T16:41:51+08:00","description":"从未学会 C 语言。","headline":"[語言進階]函数、Function Designator 与形参限定符","mainEntityOfPage":{"@type":"WebPage","@id":"https://samuflore.top/posts/89355839/"},"publisher":{"@type":"Organization","name":"Samustach Floresein","sameAs":[],"image":"https://samuflore.top/images/avatar.jpg","logo":{"@type":"ImageObject","url":"https://samuflore.top/images/avatar.jpg"}},"url":"https://samuflore.top/posts/89355839/","keywords":"露月, C","thumbnailUrl":"https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg","image":["https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg"]}</script>
   <link rel="preload" href="/fonts/Torus-Regular.otf" as="font" type="font/otf" crossorigin><link rel="stylesheet" href="/fonts/GenKiMin2TC.css?v=20261019-swap"><link rel="stylesheet" href="/fonts/MonaspaceArgon.css?v=20261110-woff2"><style>
   @font-face {
     font-family: 'Torus';
@@ -149,7 +149,7 @@
   --icon-loading: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221em%22%20height%3D%221em%22%20viewBox%3D%220%200%2024%2024%22%3E%3Ccircle%20cx%3D%2218%22%20cy%3D%2212%22%20r%3D%220%22%20fill%3D%22currentColor%22%3E%3Canimate%20attributeName%3D%22r%22%20begin%3D%22.67%22%20calcMode%3D%22spline%22%20dur%3D%221.5s%22%20keySplines%3D%220.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%22%20repeatCount%3D%22indefinite%22%20values%3D%220%3B2%3B0%3B0%22%2F%3E%3C%2Fcircle%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%220%22%20fill%3D%22currentColor%22%3E%3Canimate%20attributeName%3D%22r%22%20begin%3D%22.33%22%20calcMode%3D%22spline%22%20dur%3D%221.5s%22%20keySplines%3D%220.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%22%20repeatCount%3D%22indefinite%22%20values%3D%220%3B2%3B0%3B0%22%2F%3E%3C%2Fcircle%3E%3Ccircle%20cx%3D%226%22%20cy%3D%2212%22%20r%3D%220%22%20fill%3D%22currentColor%22%3E%3Canimate%20attributeName%3D%22r%22%20begin%3D%220%22%20calcMode%3D%22spline%22%20dur%3D%221.5s%22%20keySplines%3D%220.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%3B0.2%200.2%200.4%200.8%22%20repeatCount%3D%22indefinite%22%20values%3D%220%3B2%3B0%3B0%22%2F%3E%3C%2Fcircle%3E%3C%2Fsvg%3E");
 }</style>
   
-<!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- hexo injector head_end end --><style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--blockquote-bg-color:#555;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"主页","item":"https://samuflore.top/"},{"@type":"ListItem","position":2,"name":"2026 - 2027 學年","item":"https://samuflore.top/categories/2026-2027-%E5%AD%B8%E5%B9%B4/"},{"@type":"ListItem","position":3,"name":"語言進階","item":"https://samuflore.top/categories/2026-2027-%E5%AD%B8%E5%B9%B4/%E8%AA%9E%E8%A8%80%E9%80%B2%E9%9A%8E/"},{"@type":"ListItem","position":4,"name":"[語言進階]C6","item":"https://samuflore.top/posts/89355839/"}]}</script></head>
+<!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- hexo injector head_end end --><style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--blockquote-bg-color:#555;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"主页","item":"https://samuflore.top/"},{"@type":"ListItem","position":2,"name":"2026 - 2027 學年","item":"https://samuflore.top/categories/2026-2027-%E5%AD%B8%E5%B9%B4/"},{"@type":"ListItem","position":3,"name":"語言進階","item":"https://samuflore.top/categories/2026-2027-%E5%AD%B8%E5%B9%B4/%E8%AA%9E%E8%A8%80%E9%80%B2%E9%9A%8E/"},{"@type":"ListItem","position":4,"name":"[語言進階]函数、Function Designator 与形参限定符","item":"https://samuflore.top/posts/89355839/"}]}</script></head>
 <body><div class="sitebg"><div class="siteblur"></div></div><div id="l_cover"></div><div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left" data-ui-surface="glass"><div class="sidebg"></div><div class="leftbar-container">
 
 
@@ -317,6 +317,114 @@
   <div class="widget-body"><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
   
     
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/103c0983/" title="[語言進階]指针、数组、VLA 与动态内存管理">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">[語言進階]指针、数组、VLA 与动态内存管理</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/673b3915/" title="[語言進階]表达式求值、左值与副作用">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">[語言進階]表达式求值、左值与副作用</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/f95facb6/" title="[語言進階]数值表示、常量与算术类型转换">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">[語言進階]数值表示、常量与算术类型转换</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/e919a989/" title="[語言進階]对象、类型系统与内存布局">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">[語言進階]对象、类型系统与内存布局</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/fe3268af/" title="[語言進階]存储期、作用域、命名空间与链接">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">[語言進階]存储期、作用域、命名空间与链接</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/89355839/" title="[語言進階]函数、Function Designator 与形参限定符">
+  
+  
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">[語言進階]函数、Function Designator 与形参限定符</span>
+      
+      
+    </span>
+  
+  
+  
+  
+</a>
+
+  
+    
 <a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/ec975a68/" title="†[江子社]Koishi + NapCat 搭建第三方 QQ 机器人指南">
   
   
@@ -388,114 +496,6 @@
 </a>
 
   
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/fe3268af/" title="[語言進階]C7">
-  
-  
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">[語言進階]C7</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/6701fe23/" title="[CP] 2026 北航编译原理期中上机测试">
-  
-  
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">[CP] 2026 北航编译原理期中上机测试</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/89355839/" title="[語言進階]C6">
-  
-  
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">[語言進階]C6</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/e919a989/" title="[語言進階]C1">
-  
-  
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">[語言進階]C1</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/1801200e/" title="[DB]SQL 简明教程">
-  
-  
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">[DB]SQL 简明教程</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item card-hover card-hover--spotlight" href="/posts/103c0983/" title="[語言進階]C5">
-  
-  
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">[語言進階]C5</span>
-      
-      
-    </span>
-  
-  
-  
-  
-</a>
-
-  
 </div></div>
   
 </widget>
@@ -517,21 +517,21 @@
     
     <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/2026-2027-%E5%AD%B8%E5%B9%B4/">2026 - 2027 學年</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/2026-2027-%E5%AD%B8%E5%B9%B4/%E8%AA%9E%E8%A8%80%E9%80%B2%E9%9A%8E/">語言進階</a>
-</div><div class="right"><span class="cap reading">530 字 · 约 2 分钟</span></div></div><div class="meta-row">
-<div class="flex-row" id="post-meta"><a class="author" href="/author/samuflore/">Seymiris Asakawa</a><span class="sep"></span><span class="text created"><time datetime="2026-10-26T08:41:51.000Z">2026-10-26</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-10-26T08:48:25.396Z">2026-10-26</time></span></div>
+</div><div class="right"><span class="cap reading">2298 字 · 约 8 分钟</span></div></div><div class="meta-row">
+<div class="flex-row" id="post-meta"><a class="author" href="/author/samuflore/">Seymiris Asakawa</a><span class="sep"></span><span class="text created"><time datetime="2026-10-26T08:41:51.000Z">2026-10-26</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-11-25T01:32:13.378Z">2026-11-25</time></span></div>
 </div></div>
     
     <div class="bottom only-title">
       
       <div class="text-area">
-        <h1 class="text title"><span>[語言進階]C6</span></h1>
+        <h1 class="text title"><span>[語言進階]函数、Function Designator 与形参限定符</span></h1>
         
       </div>
     </div>
     
   </div>
   </div></div>
-<article class="md-text content"><h2 id="函数及函数调用">函数及函数调用</h2>
+<article class="md-text content"><h2 id="函数类型与六元组">函数类型与六元组</h2>
 <h3 id="函数类型">函数类型</h3>
 <p>函数类型说明：</p>
 <ol>
@@ -543,7 +543,9 @@
 </li>
 </ol>
 <p>形式化定义为：<code>Type-name(arg1-type, arg2-type, ..., argn-type)</code></p>
-<p><strong>函数类型是<a href="/posts/e919a989#%E6%B4%BE%E7%94%9F%E7%B1%BB%E5%9E%8B">派生类型</a></strong>，是基于返回值的派生。返回值类型可以是 <code>T</code>，<code>T*</code>，<code>T* Q</code>，<strong>没有</strong> <code>T[N]</code>。可以是 <code>void</code> 类型。</p>
+<p><strong>函数类型是<a href="/posts/e919a989/#%E6%B4%BE%E7%94%9F%E7%B1%BB%E5%9E%8B">派生类型</a></strong>，是基于返回值类型的派生。返回值类型可以是 <code>T</code>、<code>T*</code>、<code>T* Q</code> 或 <code>void</code>，但<strong>不能是数组类型 <code>T[N]</code> 或函数类型</strong>（可以返回指向数组的指针如 <code>int(*)[3]</code>，或指向函数的指针）。</p>
+<p>此外，函数类型在语法上也<strong>不是整体</strong>；由函数类型 <code>Ret(Args)</code> 派生函数指针类型时，在参数列表的 <code>(</code> 之前插入 <code>(*)</code>（例如 <code>int(int, int)</code> → <code>int(*)(int, int)</code>，<code>int(*(int, char))[3]</code> → <code>int(*(*)(int, char))[3]</code>）。</p>
+<p>函数类型<strong>不能直接派生数组类型</strong>，只能定义函数指针数组，如 <code>int(*[10])(int, int)</code>。</p>
 <p><code>()</code> 引导的参数类型插入规则：</p>
 <ol>
 <li class="lvl-3">
@@ -557,8 +559,17 @@
 </li>
 </ol>
 <p>以上符合<a href="/posts/e919a989/#%E6%B4%BE%E7%94%9F%E8%A7%84%E5%88%99">派生规则</a>。</p>
+<p>使用 <code>typedef</code> 为复杂函数类型起别名时，同样遵循把别名写在标识符位置的规则：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>typedef int (*FUNC(int, char))[3];</code>：<code>FUNC</code> 是函数类型 <code>int (*(int, char))[3]</code>（返回 <code>int(*)[3]</code> 的函数）的别名；</p>
+</li>
+<li class="lvl-2">
+<p><code>typedef int (*(*PFUNC)(int, char))[3];</code>：<code>PFUNC</code> 是指向上述函数的指针类型别名。</p>
+</li>
+</ul>
 <h3 id="函数类型六元组">函数类型六元组</h3>
-<p>例如；</p>
+<p>例如：</p>
 <figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">func</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> {</span><br><span class="line">    <span class="comment">// do something</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p>函数 <code>func</code> 的六元组为：</p>
 <ol>
@@ -578,10 +589,10 @@
 <p>Func_Val: 值，<strong>和 Addr 一样</strong></p>
 </li>
 <li class="lvl-3">
-<p>Align: 函数类型无对其要求，<code>alignof()</code> 无效</p>
+<p>Align: 函数类型无对齐要求，<code>alignof()</code> 无效</p>
 </li>
 </ol>
-<h3 id="Function-Designator">Function Designator</h3>
+<h2 id="Function-Designator">Function Designator</h2>
 <p>Function Designator 是可以定位一个函数的表达式，共有两种：</p>
 <ol>
 <li class="lvl-3">
@@ -592,7 +603,9 @@
 </li>
 </ol>
 <p>Function Designator 进行完整求值时，<strong>得到右值 Func_Val 和右值类型 <code>Func_Type*</code></strong>！</p>
-<h4 id="函数标识符作为-Function-Designator">函数标识符作为 Function Designator</h4>
+<p>与数组类似，Function Designator 在 <code>sizeof</code>、<code>typeof</code>（不求值）以及一元 <code>&amp;</code>（部分求值）中不会转为函数指针。</p>
+<p>因此：<code>&amp;func</code>（部分求值）和 <code>func</code>（完整求值）虽然都得到 &lt;Addr, Func_Type*&gt;，但走的求值路径不同；而 <code>sizeof(func)</code> 试图对函数类型求大小，直接编译报错（不是 8 字节）；<code>typeof(func)</code> 得到的是函数类型 <code>int(int, int)</code> 而非函数指针类型。</p>
+<h3 id="函数标识符作为-Function-Designator">函数标识符作为 Function Designator</h3>
 <p>对比 <code>&amp;func</code> 和 <code>func</code> 求值：</p>
 <div class="tag-plugin grid" style="grid-template-columns: repeat(2, 1fr);"><div class="cell" style="">
     <p><code>&amp;func</code></p><p>右值：Addr</p><p>右值类型：Func_Type*</p>
@@ -602,11 +615,11 @@
     </div>
     </div>
 <p>由<a href="#%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E5%85%AD%E5%85%83%E7%BB%84">六元组类型</a>可知二者的右值相等。</p>
-<h4 id="exp-作为-Function-Designator"><code>*exp</code> 作为 Function Designator</h4>
-<p>由 <a href="/posts/103c0983/#exp-%E7%9A%84%E8%AF%AD%E4%B9%89"><code>*exp</code> 的语义</a>，<code>*func</code> 定位的对象类型是 <code>func</code> 的右值类型的 Referenced-Type，即 <code>Func_Type</code>。故 <code>func</code> 和 <code>*func</code> 表达式定位的函数是一样的。</p>
-<p>对于 <code>**func</code>，<code>***func</code> 等等，无论多少 <code>*</code>，它们定位的函数都和 <code>func</code> 一样。</p>
+<h3 id="exp-作为-Function-Designator"><code>*exp</code> 作为 Function Designator</h3>
+<p>由 <a href="/posts/103c0983/#exp-%E7%9A%84%E8%AF%AD%E4%B9%89"><code>*exp</code> 的语义</a>，<code>*func</code> 定位的函数类型是 <code>func</code> 的右值类型的 Referenced-Type，即 <code>Func_Type</code>。故 <code>func</code> 和 <code>*func</code> 表达式定位的函数是一样的。当 <code>exp</code> 的右值类型是完全对象的指针时，<a href="/posts/103c0983/#exp-%E7%9A%84%E8%AF%AD%E4%B9%89"><code>*exp</code> 是左值</a>；当 <code>exp</code> 的右值类型是函数指针时，<code>*exp</code> 是 Function Designator。</p>
+<p>对于 <code>**func</code>，<code>***func</code> 等等，无论多少 <code>*</code>，它们定位的函数都和 <code>func</code> 一样。这是因为 <code>func</code>（Function Designator）经完整求值 → &lt;Addr, Func_Type*&gt; → 解引用 <code>*func</code> 重新变回定位 <code>func</code> 的 Function Designator → 外层再求值又变回 &lt;Addr, Func_Type*&gt;，因此套多少层 <code>*</code> 都会不断回到同一个 <code>func</code>。</p>
 <p><code>func</code> 和 <code>*(&amp;func)</code> 表达式定位的函数也一样。</p>
-<h3 id="函数调用">函数调用</h3>
+<h2 id="函数调用">函数调用</h2>
 <p>对于函数 <code>func</code>，函数类型 <code>Func_T</code>，若：</p>
 <ol>
 <li class="lvl-3">
@@ -617,6 +630,65 @@
 </li>
 </ol>
 <p>则 <code>exp(arg1, arg2, ..., argn)</code> 被称作函数 <code>func</code> 的函数调用。</p>
+<div class="tag-plugin colorful note" color="blue"><div class="title"><strong><p>Hint</p>
+</strong></div><div class="body"><p>因为函数调用只要求 <code>exp</code> Evaluate 后得到指向 <code>func</code> 的函数指针，所以 <code>func(1, 2)</code>、<code>(&amp;func)(1, 2)</code>、<code>(*func)(1, 2)</code>、<code>(**func)(1, 2)</code> 在规则上完全等价。</p></div></div>
+<div class="tag-plugin colorful note" color="green"><div class="title"><strong><p>常见函数表达式辨析</p>
+</strong></div><div class="body"><ul class="lvl-0"><li class="lvl-2"><p><code>func = NULL;</code>：<strong>非法</strong>。<code>func</code> 是 Function Designator，<strong>不是左值</strong>，不能放在赋值运算符左侧。</p></li><li class="lvl-2"><p><code>(1 ? func : NULL)(2, 3);</code>：<strong>合法</strong>。<code>func</code> 完整求值转为函数指针，条件表达式结果为函数指针，可直接调用。</p></li><li class="lvl-2"><p><code>&amp;func(2, 3);</code>：<strong>非法</strong>。<code>()</code> 优先级高于一元 <code>&amp;</code>，等价于 <code>&amp;(func(2, 3))</code>，而函数返回值不是左值，无法取地址（注意区别于 <code>(&amp;func)(2, 3)</code>）。</p></li></ul></div></div>
+<div class="tag-plugin colorful note" color="purple"><div class="title"><strong><p>Attention</p>
+</strong></div><div class="body"><p><code>exp</code> 与各实参 <code>arg1, ..., argn</code> 之间的求值顺序是<strong>未指定的（unspecified）</strong>，不要在同一调用中对同一对象混用无序副作用（如 <code>f(i++, i++)</code> 为 <a href="/posts/673b3915/#%E5%89%AF%E4%BD%9C%E7%94%A8%E3%80%81Sequenced-Before-%E4%B8%8E%E5%BA%8F%E5%88%97%E7%82%B9">UB</a>）(p.s. 除了谭浩强谁会这么写。)</p></div></div>
+<h2 id="函数参数传递机制">函数参数传递机制</h2>
+<h3 id="值传递（Pass-By-Value）">值传递（Pass By Value）</h3>
+<p>C 语言<strong>只有值传递</strong>：函数调用时，先对每个实参进行完整求值得到 <code>&lt;rvalue, rvalue_Type&gt;</code>，再把右值写入对应形参对象的内存中。形参是函数体内的独立对象，修改形参不会影响调用者的原对象。</p>
+<h3 id="数组形参退化与二维数组强转陷阱">数组形参退化与二维数组强转陷阱</h3>
+<p>函数参数列表中的数组声明会被自动调整为指向其首元素的指针类型：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>void f(int a[])</code> 与 <code>void f(int a[10])</code> 均等价于 <code>void f(int *a)</code>；</p>
+</li>
+<li class="lvl-2">
+<p><code>void f(int g[][3])</code> 与 <code>void f(int g[2][3])</code> 均等价于 <code>void f(int (*g)[3])</code>。</p>
+</li>
+</ul>
+<p>因此最外层维度信息在形参类型中会丢失（函数内 <code>sizeof(a)</code> 为指针大小 <code>8</code>，而非数组大小），多维数组形参必须保留除首维以外的所有维度，或使用 <a href="/posts/103c0983/#VLA-%E9%AB%98%E9%A2%91%E8%BF%9B%E9%98%B6%E8%80%83%E7%82%B9">VLA 形参</a>。</p>
+<div class="tag-plugin colorful note" color="purple"><div class="title"><strong><p>Attention</p>
+</strong></div><div class="body"><p><strong>为什么不能把 <code>int g[2][3]</code> 强转成 <code>(int **)g</code> 传给 <code>void func(int **pg)</code>？</strong></p><p><code>int g[2][3]</code> 在内存中是连续存放的 6 个 <code>int</code>（详参<a href="/posts/103c0983/#%E9%AB%98%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E9%9D%99%E6%80%81%E5%AE%9A%E4%B9%89%E4%B8%8E-malloc-%E5%8A%A8%E6%80%81%E5%88%86%E9%85%8D%E5%AF%B9%E6%AF%94">第四篇多维数组</a>），而不是指向各行的指针数组。强转为 <code>int **</code> 后，函数内访问 <code>pg[0]</code>（即 <code>*pg</code>）会把前 8 字节里的整数值（如初始化为 <code>0</code> 时的全零位模式）<strong>误当作 <code>int *</code> 地址</strong>；接着再解引用 <code>pg[0][0]</code> 时就会访问该非法地址（如 <code>NULL</code>），直接触发崩溃 / UB。</p></div></div>
+<h3 id="结构体传参与返回">结构体传参与返回</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>值拷贝语义</strong>：结构体作为参数传递和作为返回值返回时均按值拷贝；函数内修改结构体形参的成员不会影响原对象（若需原地修改或避免大结构体拷贝，应传递结构体指针）。</p>
+</li>
+<li class="lvl-2">
+<p><strong>初始化 vs 赋值</strong>：<code>Pair p = {1, 2};</code> 合法（定义时初始化），但之后写 <code>p = {1, 2};</code> <strong>非法</strong>，必须借助<a href="/posts/e919a989/#%E9%80%9A%E8%BF%87%E5%A4%8D%E5%90%88%E5%AD%97%E9%9D%A2%E9%87%8F">复合字面量</a>写作 <code>p = (Pair){1, 2};</code>。</p>
+</li>
+<li class="lvl-2">
+<p><strong>返回结构体不是左值</strong>：若 <code>Pair bar(void)</code> 返回结构体，则 <code>bar()</code> 不是左值（<code>&amp;bar()</code>、<code>bar().a = 1</code> 均非法）；但 <strong><code>bar().a</code> 是合法的后缀表达式</strong>（可读取成员值，其结果同样不是左值，呼应<a href="/posts/673b3915/#%E5%B7%A6%E5%80%BC%EF%BC%88%E5%AE%9A%E4%BD%8D%E5%AF%B9%E8%B1%A1%EF%BC%89">第三篇 6 类左值</a>）。</p>
+</li>
+</ul>
+<h2 id="函数形参中的限定符">函数形参中的限定符</h2>
+<h3 id="const"><code>const</code></h3>
+<p><code>const</code> 常用于指针形参，承诺函数不会通过该指针修改调用方的数据（关于 <code>const</code> 指针组合详参<a href="/posts/673b3915/#%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3-const-%E4%B8%8E-volatile-%E9%99%90%E5%AE%9A%E7%AC%A6">第三篇</a>）。例如传递数组对象：</p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">func</span><span class="params">(<span class="type">char</span> <span class="type">const</span> *p, <span class="type">int</span> n)</span> {</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) {</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%c"</span>, *(p + i));</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span> {</span><br><span class="line">    <span class="type">char</span> e[<span class="number">2</span>] = {<span class="string">'a'</span>, <span class="string">'b'</span>};</span><br><span class="line">    func(e, <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="restrict"><code>restrict</code></h3>
+<p>修饰指针类型：<code>T*</code> <code>restrict</code> <code>O</code> <code>=</code> initializer。</p>
+<p><code>restrict</code> 限制一块内存只能有一个入口。如果两个指针定位同一个对象，并至少有一方试图进行修改，将导致 UB：</p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">foo</span><span class="params">(<span class="type">int</span>* <span class="keyword">restrict</span> p, <span class="type">int</span>* <span class="keyword">restrict</span> q)</span> {</span><br><span class="line">    *p = <span class="number">10</span>; *q = <span class="number">20</span>;</span><br><span class="line">    <span class="keyword">return</span> (*p + *q);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span> {</span><br><span class="line">    <span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, foo(&amp;a, &amp;a));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<div class="tag-plugin colorful note" color="purple"><div class="title"><strong><p>Attention</p>
+</strong></div><div class="body"><p>为什么 <code>foo(&amp;a, &amp;a)</code> 是 UB？</p><p><code>restrict</code> 向编译器承诺：<code>p</code> 与 <code>q</code> 指向的内存互不重叠（无别名）。基于这个承诺，编译器开启优化后可以认为 <code>*q = 20;</code> 不可能改写 <code>*p</code>，从而直接把 <code>return (*p + *q);</code> 优化成返回 <code>30</code>；而未优化时读到的却是 <code>20 + 20 = 40</code>。</p><p>同样地，即使 <code>q</code> 只读不写（如 <code>*p = 10; return *q;</code>），只要发生了写入且存在另一条访问路径，也属于 UB；只有所有别名指针全部<strong>只读不写</strong>时才合法。这也是标准库中 <code>memcpy</code>（带 <code>restrict</code>，禁止重叠）与 <code>memmove</code>（不带 <code>restrict</code>，允许重叠）的根本区别。</p></div></div>
+<h4 id="Based-on-精确定义与约束"><code>Based on</code> 精确定义与约束</h4>
+<ol>
+<li class="lvl-3">
+<p><strong>定义</strong>：设 <code>p</code> 是 <code>restrict</code> 修饰的指针，如果将 <code>p</code> 修改为指向同一对象的另一份拷贝后，指针表达式 <code>e</code> 的求值结果也会随之改变，则称 <code>e</code> <strong>based on <code>p</code></strong>（例如 <code>p + 1</code>、<code>&amp;p[2]</code> 均为 based on <code>p</code>）。</p>
+</li>
+<li class="lvl-3">
+<p><strong>UB 判定</strong>：若在 <code>restrict</code> 作用域内某对象被修改，且同时存在 based on <code>p</code> 与 not based on <code>p</code> 的两条指针访问路径，即构成 UB。</p>
+</li>
+<li class="lvl-3">
+<p><strong>经典反例</strong>：对 <code>int **restrict p</code> 而言，表达式 <code>p[0]</code>（即 <code>*p</code>）读取的是内存里保存的另一个地址——即便把 <code>p</code> 改成指向另一份指针数组的拷贝，<code>p[0]</code> 的值也不会随之改变，因此 <strong><code>p[0]</code> 不是 based on <code>p</code></strong>。</p>
+</li>
+<li class="lvl-3">
+<p><strong>优化提示属性</strong>：<code>restrict</code> 仅是程序员向编译器提供的无别名承诺，编译器<strong>可以自由忽略该提示</strong>而不进行相关优化。</p>
+</li>
+</ol>
 </article>
 
 <div class="article-tags"><a class="tag" href="/tags/%E9%9C%B2%E6%9C%88/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>露月</a><a class="tag" href="/tags/C/"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" data-icon="default:hashtag" aria-hidden="true"></svg>C</a></div>
@@ -638,7 +710,7 @@
       <div class='title cap theme'>您可能感兴趣</div>
     </section>
     <section class='body'>
-    <div class="related-posts"><a class="item" href="\posts\103c0983\" title="[語言進階]C5"><span class="title">[語言進階]C5</span><span class="excerpt">从未学会 C 语言。</span></a><a class="item" href="\posts\673b3915\" title="[語言進階]C4"><span class="title">[語言進階]C4</span><span class="excerpt">从未学会 C 语言。</span></a><a class="item" href="\posts\188737f4\" title="天琴集序"><span class="title">天琴集序</span><span class="excerpt">天琴集</span></a><a class="item" href="\posts\a6eef328\" title="[江子社]人工智能导论"><span class="title">[江子社]人工智能导论</span><span class="excerpt">能工智人导论。</span></a><a class="item" href="\posts\fe3268af\" title="[語言進階]C7"><span class="title">[語言進階]C7</span><span class="excerpt">从未学会 C 语言。</span></a></div></section></div>
+    <div class="related-posts"><a class="item" href="\posts\103c0983\" title="[語言進階]指针、数组、VLA 与动态内存管理"><span class="title">[語言進階]指针、数组、VLA 与动态内存管理</span><span class="excerpt">从未学会 C 语言。</span></a><a class="item" href="\posts\673b3915\" title="[語言進階]表达式求值、左值与副作用"><span class="title">[語言進階]表达式求值、左值与副作用</span><span class="excerpt">从未学会 C 语言。</span></a><a class="item" href="\posts\188737f4\" title="天琴集序"><span class="title">天琴集序</span><span class="excerpt">天琴集</span></a><a class="item" href="\posts\a6eef328\" title="[江子社]人工智能导论"><span class="title">[江子社]人工智能导论</span><span class="excerpt">能工智人导论。</span></a><a class="item" href="\posts\fe3268af\" title="[語言進階]存储期、作用域、命名空间与链接"><span class="title">[語言進階]存储期、作用域、命名空间与链接</span><span class="excerpt">从未学会 C 语言。</span></a></div></section></div>
 
 
   <div class="related-wrap md-text" id="comments">
@@ -705,7 +777,7 @@
       <a class="cap-action" onclick="sidebar.toggleTOC()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a>
     </div>
   
-  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%8F%8A%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8"><span class="toc-text">函数及函数调用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B"><span class="toc-text">函数类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E5%85%AD%E5%85%83%E7%BB%84"><span class="toc-text">函数类型六元组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Function-Designator"><span class="toc-text">Function Designator</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E6%A0%87%E8%AF%86%E7%AC%A6%E4%BD%9C%E4%B8%BA-Function-Designator"><span class="toc-text">函数标识符作为 Function Designator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#exp-%E4%BD%9C%E4%B8%BA-Function-Designator"><span class="toc-text">*exp 作为 Function Designator</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8"><span class="toc-text">函数调用</span></a></li></ol></li></ol></div>
+  <div class="widget-body"><ol class="toc ui-collection-adapter"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%85%AD%E5%85%83%E7%BB%84"><span class="toc-text">函数类型与六元组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B"><span class="toc-text">函数类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E5%85%AD%E5%85%83%E7%BB%84"><span class="toc-text">函数类型六元组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Function-Designator"><span class="toc-text">Function Designator</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E6%A0%87%E8%AF%86%E7%AC%A6%E4%BD%9C%E4%B8%BA-Function-Designator"><span class="toc-text">函数标识符作为 Function Designator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#exp-%E4%BD%9C%E4%B8%BA-Function-Designator"><span class="toc-text">*exp 作为 Function Designator</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8"><span class="toc-text">函数调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92%E6%9C%BA%E5%88%B6"><span class="toc-text">函数参数传递机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%80%BC%E4%BC%A0%E9%80%92%EF%BC%88Pass-By-Value%EF%BC%89"><span class="toc-text">值传递（Pass By Value）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%BD%A2%E5%8F%82%E9%80%80%E5%8C%96%E4%B8%8E%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E5%BC%BA%E8%BD%AC%E9%99%B7%E9%98%B1"><span class="toc-text">数组形参退化与二维数组强转陷阱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E4%BC%A0%E5%8F%82%E4%B8%8E%E8%BF%94%E5%9B%9E"><span class="toc-text">结构体传参与返回</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%BD%A2%E5%8F%82%E4%B8%AD%E7%9A%84%E9%99%90%E5%AE%9A%E7%AC%A6"><span class="toc-text">函数形参中的限定符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#const"><span class="toc-text">const</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#restrict"><span class="toc-text">restrict</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Based-on-%E7%B2%BE%E7%A1%AE%E5%AE%9A%E4%B9%89%E4%B8%8E%E7%BA%A6%E6%9D%9F"><span class="toc-text">Based on 精确定义与约束</span></a></li></ol></li></ol></li></ol></div>
   <div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" fill-rule="evenodd" d="M11.9426 1.25H12.0574C14.3658 1.24999 16.1748 1.24998 17.5863 1.43975C19.031 1.63399 20.1711 2.03933 21.0659 2.93414C21.9607 3.82895 22.366 4.96897 22.5603 6.41371C22.75 7.82519 22.75 9.63423 22.75 11.9426V12.0574C22.75 14.3658 22.75 16.1748 22.5603 17.5863C22.366 19.031 21.9607 20.1711 21.0659 21.0659C20.1711 21.9607 19.031 22.366 17.5863 22.5603C16.1748 22.75 14.3658 22.75 12.0574 22.75H11.9426C9.63423 22.75 7.82519 22.75 6.41371 22.5603C4.96897 22.366 3.82895 21.9607 2.93414 21.0659C2.03933 20.1711 1.63399 19.031 1.43975 17.5863C1.24998 16.1748 1.24999 14.3658 1.25 12.0574V11.9426C1.24999 9.63423 1.24998 7.82519 1.43975 6.41371C1.63399 4.96897 2.03933 3.82895 2.93414 2.93414C3.82895 2.03933 4.96897 1.63399 6.41371 1.43975C7.82519 1.24998 9.63423 1.24999 11.9426 1.25ZM6.61358 2.92637C5.33517 3.09825 4.56445 3.42514 3.9948 3.9948C3.42514 4.56445 3.09825 5.33517 2.92637 6.61358C2.75159 7.91356 2.75 9.62177 2.75 12C2.75 14.3782 2.75159 16.0864 2.92637 17.3864C3.09825 18.6648 3.42514 19.4355 3.9948 20.0052C4.56445 20.5749 5.33517 20.9018 6.61358 21.0736C7.91356 21.2484 9.62177 21.25 12 21.25C14.3782 21.25 16.0864 21.2484 17.3864 21.0736C18.6648 20.9018 19.4355 20.5749 20.0052 20.0052C20.5749 19.4355 20.9018 18.6648 21.0736 17.3864C21.2484 16.0864 21.25 14.3782 21.25 12C21.25 9.62177 21.2484 7.91356 21.0736 6.61358C20.9018 5.33517 20.5749 4.56445 20.0052 3.9948C19.4355 3.42514 18.6648 3.09825 17.3864 2.92637C16.0864 2.75159 14.3782 2.75 12 2.75C9.62177 2.75 7.91356 2.75159 6.61358 2.92637ZM12 9.56066L9.53033 12.0303C9.23744 12.3232 8.76256 12.3232 8.46967 12.0303C8.17678 11.7374 8.17678 11.2626 8.46967 10.9697L11.4697 7.96967C11.7626 7.67678 12.2374 7.67678 12.5303 7.96967L15.5303 10.9697C15.8232 11.2626 15.8232 11.7374 15.5303 12.0303C15.2374 12.3232 14.7626 12.3232 14.4697 12.0303L12 9.56066ZM12 13.5607L9.53033 16.0303C9.23744 16.3232 8.76256 16.3232 8.46967 16.0303C8.17678 15.7374 8.17678 15.2626 8.46967 14.9697L11.4697 11.9697C11.7626 11.6768 12.2374 11.6768 12.5303 11.9697L15.5303 14.9697C15.8232 15.2626 15.8232 15.7374 15.5303 16.0303C15.2374 16.3232 14.7626 16.3232 14.4697 16.0303L12 13.5607Z" clip-rule="evenodd"/></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" fill-rule="evenodd" d="M10.4606 1.25H13.5394C15.1427 1.24999 16.3997 1.24999 17.4039 1.34547C18.4274 1.44279 19.2655 1.64457 20.0044 2.09732C20.7781 2.57144 21.4286 3.22194 21.9027 3.99563C22.3554 4.73445 22.5572 5.57256 22.6545 6.59611C22.75 7.60029 22.75 8.85725 22.75 10.4606V11.5278C22.75 12.6691 22.75 13.564 22.7007 14.2868C22.6505 15.0223 22.5468 15.6344 22.3123 16.2004C21.7287 17.6093 20.6093 18.7287 19.2004 19.3123C18.3955 19.6457 17.4786 19.7197 16.2233 19.7413C15.7842 19.7489 15.5061 19.7545 15.2941 19.7779C15.096 19.7999 15.0192 19.832 14.9742 19.8582C14.9268 19.8857 14.8622 19.936 14.7501 20.0898C14.6287 20.2564 14.4916 20.4865 14.2742 20.8539L13.7321 21.7697C12.9585 23.0767 11.0415 23.0767 10.2679 21.7697L9.72579 20.8539C9.50835 20.4865 9.37122 20.2564 9.24985 20.0898C9.13772 19.936 9.07313 19.8857 9.02572 19.8582C8.98078 19.832 8.90399 19.7999 8.70588 19.7779C8.49387 19.7545 8.21575 19.7489 7.77666 19.7413C6.52138 19.7197 5.60454 19.6457 4.79957 19.3123C3.39066 18.7287 2.27128 17.6093 1.68769 16.2004C1.45323 15.6344 1.3495 15.0223 1.29932 14.2868C1.24999 13.564 1.25 12.6691 1.25 11.5278L1.25 10.4606C1.24999 8.85726 1.24999 7.60029 1.34547 6.59611C1.44279 5.57256 1.64457 4.73445 2.09732 3.99563C2.57144 3.22194 3.22194 2.57144 3.99563 2.09732C4.73445 1.64457 5.57256 1.44279 6.59611 1.34547C7.60029 1.24999 8.85726 1.24999 10.4606 1.25ZM6.73809 2.83873C5.82434 2.92561 5.24291 3.09223 4.77938 3.37628C4.20752 3.72672 3.72672 4.20752 3.37628 4.77938C3.09223 5.24291 2.92561 5.82434 2.83873 6.73809C2.75079 7.663 2.75 8.84876 2.75 10.5V11.5C2.75 12.6751 2.75041 13.5189 2.79584 14.1847C2.84081 14.8438 2.92737 15.2736 3.07351 15.6264C3.50486 16.6678 4.33223 17.4951 5.3736 17.9265C5.88923 18.1401 6.54706 18.2199 7.8025 18.2416L7.83432 18.2421C8.23232 18.249 8.58109 18.2549 8.87097 18.287C9.18246 18.3215 9.4871 18.3912 9.77986 18.5615C10.0702 18.7304 10.2795 18.9559 10.4621 19.2063C10.6307 19.4378 10.804 19.7306 11.0004 20.0623L11.5587 21.0057C11.7515 21.3313 12.2485 21.3313 12.4412 21.0057L12.9996 20.0623C13.1959 19.7306 13.3692 19.4378 13.5379 19.2063C13.7204 18.9559 13.9298 18.7304 14.2201 18.5615C14.5129 18.3912 14.8175 18.3215 15.129 18.287C15.4189 18.2549 15.7676 18.249 16.1656 18.2421L16.1975 18.2416C17.4529 18.2199 18.1108 18.1401 18.6264 17.9265C19.6678 17.4951 20.4951 16.6678 20.9265 15.6264C21.0726 15.2736 21.1592 14.8438 21.2042 14.1847C21.2496 13.5189 21.25 12.6751 21.25 11.5V10.5C21.25 8.84876 21.2492 7.663 21.1613 6.73809C21.0744 5.82434 20.9078 5.24291 20.6237 4.77938C20.2733 4.20752 19.7925 3.72672 19.2206 3.37628C18.7571 3.09223 18.1757 2.92561 17.2619 2.83873C16.337 2.75079 15.1512 2.75 13.5 2.75H10.5C8.84876 2.75 7.663 2.75079 6.73809 2.83873ZM7.25 9C7.25 8.58579 7.58579 8.25 8 8.25H16C16.4142 8.25 16.75 8.58579 16.75 9C16.75 9.41421 16.4142 9.75 16 9.75H8C7.58579 9.75 7.25 9.41421 7.25 9ZM7.25 12.5C7.25 12.0858 7.58579 11.75 8 11.75H13.5C13.9142 11.75 14.25 12.0858 14.25 12.5C14.25 12.9142 13.9142 13.25 13.5 13.25H8C7.58579 13.25 7.25 12.9142 7.25 12.5Z" clip-rule="evenodd"/></svg><span>参与讨论</span></a></div>
 </widget>
 
